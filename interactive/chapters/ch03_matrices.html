@@ -1062,14 +1062,14 @@
       }
 
       // Axes
-      board.create('axis', [[0, 0], [1, 0]], {strokeColor: '#94a3b8', strokeWidth: 1.5, ticks: {majorHeight: 8, minorHeight: 0, strokeColor: '#64748b', label: {color: '#94a3b8', fontSize: 10}}});
-      board.create('axis', [[0, 0], [0, 1]], {strokeColor: '#94a3b8', strokeWidth: 1.5, ticks: {majorHeight: 8, minorHeight: 0, strokeColor: '#64748b', label: {color: '#94a3b8', fontSize: 10}}});
+      board.create('axis', [[0, 0], [1, 0]], {strokeColor: '#94a3b8', strokeWidth: 1.5, ticks: {majorHeight: 8, minorHeight: 0, strokeColor: '#94a3b8', label: {color: '#cbd5e1', fontSize: 10}}});
+      board.create('axis', [[0, 0], [0, 1]], {strokeColor: '#94a3b8', strokeWidth: 1.5, ticks: {majorHeight: 8, minorHeight: 0, strokeColor: '#94a3b8', label: {color: '#cbd5e1', fontSize: 10}}});
 
       // Sliders
-      var sa = board.create('slider', [[-3.5, 3.5], [-1.5, 3.5], [-3, 1, 3]], {name: 'a', snapWidth: 0.1, baseline: {strokeColor: '#64748b', strokeWidth: 2}, highline: {strokeColor: '#a855f7', strokeWidth: 3}, fillColor: '#a855f7', strokeColor: '#a855f7', size: 5, label: {color: '#a855f7', fontSize: 11}});
-      var sb = board.create('slider', [[-3.5, 3.0], [-1.5, 3.0], [-3, 0, 3]], {name: 'b', snapWidth: 0.1, baseline: {strokeColor: '#64748b', strokeWidth: 2}, highline: {strokeColor: '#00d4ff', strokeWidth: 3}, fillColor: '#00d4ff', strokeColor: '#00d4ff', size: 5, label: {color: '#00d4ff', fontSize: 11}});
-      var sc = board.create('slider', [[-3.5, 2.5], [-1.5, 2.5], [-3, 0, 3]], {name: 'c', snapWidth: 0.1, baseline: {strokeColor: '#64748b', strokeWidth: 2}, highline: {strokeColor: '#ff6b6b', strokeWidth: 3}, fillColor: '#ff6b6b', strokeColor: '#ff6b6b', size: 5, label: {color: '#ff6b6b', fontSize: 11}});
-      var sd = board.create('slider', [[-3.5, 2.0], [-1.5, 2.0], [-3, 1, 3]], {name: 'd', snapWidth: 0.1, baseline: {strokeColor: '#64748b', strokeWidth: 2}, highline: {strokeColor: '#ffd700', strokeWidth: 3}, fillColor: '#ffd700', strokeColor: '#ffd700', size: 5, label: {color: '#ffd700', fontSize: 11}});
+      var sa = board.create('slider', [[-3.5, 3.5], [-1.5, 3.5], [-3, 1, 3]], {name: 'a', snapWidth: 0.1, baseline: {strokeColor: '#94a3b8', strokeWidth: 2}, highline: {strokeColor: '#a855f7', strokeWidth: 3}, fillColor: '#a855f7', strokeColor: '#a855f7', size: 5, label: {color: '#a855f7', fontSize: 11}});
+      var sb = board.create('slider', [[-3.5, 3.0], [-1.5, 3.0], [-3, 0, 3]], {name: 'b', snapWidth: 0.1, baseline: {strokeColor: '#94a3b8', strokeWidth: 2}, highline: {strokeColor: '#00d4ff', strokeWidth: 3}, fillColor: '#00d4ff', strokeColor: '#00d4ff', size: 5, label: {color: '#00d4ff', fontSize: 11}});
+      var sc = board.create('slider', [[-3.5, 2.5], [-1.5, 2.5], [-3, 0, 3]], {name: 'c', snapWidth: 0.1, baseline: {strokeColor: '#94a3b8', strokeWidth: 2}, highline: {strokeColor: '#ff6b6b', strokeWidth: 3}, fillColor: '#ff6b6b', strokeColor: '#ff6b6b', size: 5, label: {color: '#ff6b6b', fontSize: 11}});
+      var sd = board.create('slider', [[-3.5, 2.0], [-1.5, 2.0], [-3, 1, 3]], {name: 'd', snapWidth: 0.1, baseline: {strokeColor: '#94a3b8', strokeWidth: 2}, highline: {strokeColor: '#ffd700', strokeWidth: 3}, fillColor: '#ffd700', strokeColor: '#ffd700', size: 5, label: {color: '#ffd700', fontSize: 11}});
 
       // Original unit square (fixed, semi-transparent purple)
       var origCorners = [[0,0],[1,0],[1,1],[0,1]];

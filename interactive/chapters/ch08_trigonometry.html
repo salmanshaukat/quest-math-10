@@ -190,7 +190,9 @@
             </div>
             <p style="margin-top:var(--space-md);">To find angles when three sides are known:</p>
             <div class="formula-box">
-              $$\cos\alpha = \frac{b^2 + c^2 - a^2}{2bc}, \quad \cos\beta = \frac{a^2 + c^2 - b^2}{2ac}, \quad \cos\gamma = \frac{a^2 + b^2 - c^2}{2ab}$$
+              $$\cos\alpha = \frac{b^2 + c^2 - a^2}{2bc}$$
+              $$\cos\beta = \frac{a^2 + c^2 - b^2}{2ac}$$
+              $$\cos\gamma = \frac{a^2 + b^2 - c^2}{2ab}$$
             </div>
             <div class="tip-box">
               <strong>Special case:</strong> When $\gamma = 90°$, $\cos 90° = 0$, so $c^2 = a^2 + b^2$, which is the <strong>Pythagorean Theorem</strong>! The Law of Cosines is a generalization of Pythagoras.
@@ -237,6 +239,16 @@
           </div>
         </div>
 
+        <!-- Interactive Triangle Explorer (covers Law of Cosines, Sines, Area) -->
+        <div class="viz-section" style="margin: var(--space-xl) 0;">
+          <h4>Interactive: Triangle Explorer</h4>
+          <p>Drag vertices A, B, C to reshape the triangle. Watch all the laws update in real time — Law of Cosines, Law of Sines, and area formulas all verified simultaneously.</p>
+          <div id="jsx-triangle-explorer" class="jsx-container" style="height: 420px;"></div>
+          <div class="jsx-readout" id="triangle-explorer-readout" style="font-size:0.88rem; line-height:1.8;">
+            Drag the triangle vertices to explore.
+          </div>
+        </div>
+
         <!-- Step 3: Half-Angle Formulas -->
         <div class="reveal-step">
           <div class="reveal-header">
@@ -247,15 +259,21 @@
             <p>When three sides $a, b, c$ of a triangle are known, let the semi-perimeter be $S = \frac{a+b+c}{2}$. Then:</p>
             <p style="margin-top:var(--space-md);"><strong>Cosines of half angles:</strong></p>
             <div class="formula-box">
-              $$\cos\frac{\alpha}{2} = \sqrt{\frac{S(S-a)}{bc}}, \quad \cos\frac{\beta}{2} = \sqrt{\frac{S(S-b)}{ac}}, \quad \cos\frac{\gamma}{2} = \sqrt{\frac{S(S-c)}{ab}}$$
+              $$\cos\frac{\alpha}{2} = \sqrt{\frac{S(S-a)}{bc}}$$
+              $$\cos\frac{\beta}{2} = \sqrt{\frac{S(S-b)}{ac}}$$
+              $$\cos\frac{\gamma}{2} = \sqrt{\frac{S(S-c)}{ab}}$$
             </div>
             <p style="margin-top:var(--space-md);"><strong>Sines of half angles:</strong></p>
             <div class="formula-box">
-              $$\sin\frac{\alpha}{2} = \sqrt{\frac{(S-b)(S-c)}{bc}}, \quad \sin\frac{\beta}{2} = \sqrt{\frac{(S-a)(S-c)}{ac}}, \quad \sin\frac{\gamma}{2} = \sqrt{\frac{(S-a)(S-b)}{ab}}$$
+              $$\sin\frac{\alpha}{2} = \sqrt{\frac{(S-b)(S-c)}{bc}}$$
+              $$\sin\frac{\beta}{2} = \sqrt{\frac{(S-a)(S-c)}{ac}}$$
+              $$\sin\frac{\gamma}{2} = \sqrt{\frac{(S-a)(S-b)}{ab}}$$
             </div>
             <p style="margin-top:var(--space-md);"><strong>Tangents of half angles:</strong></p>
             <div class="formula-box">
-              $$\tan\frac{\alpha}{2} = \sqrt{\frac{(S-b)(S-c)}{S(S-a)}}, \quad \tan\frac{\beta}{2} = \sqrt{\frac{(S-a)(S-c)}{S(S-b)}}, \quad \tan\frac{\gamma}{2} = \sqrt{\frac{(S-a)(S-b)}{S(S-c)}}$$
+              $$\tan\frac{\alpha}{2} = \sqrt{\frac{(S-b)(S-c)}{S(S-a)}}$$
+              $$\tan\frac{\beta}{2} = \sqrt{\frac{(S-a)(S-c)}{S(S-b)}}$$
+              $$\tan\frac{\gamma}{2} = \sqrt{\frac{(S-a)(S-b)}{S(S-c)}}$$
             </div>
             <div class="example-box">
               <h4>Example</h4>
@@ -278,11 +296,12 @@
           <div class="reveal-content">
             <p><strong>(a) Two sides and included angle (SAS):</strong></p>
             <div class="formula-box">
-              $$\Delta = \frac{1}{2}bc\sin\alpha = \frac{1}{2}ac\sin\beta = \frac{1}{2}ab\sin\gamma$$
+              $$\Delta = \tfrac{1}{2}bc\sin\alpha = \tfrac{1}{2}ac\sin\beta = \tfrac{1}{2}ab\sin\gamma$$
             </div>
             <p style="margin-top:var(--space-md);"><strong>(b) Two angles and one side (AAS):</strong></p>
             <div class="formula-box">
-              $$\Delta = \frac{a^2 \sin\beta\sin\gamma}{2\sin\alpha} = \frac{b^2 \sin\alpha\sin\gamma}{2\sin\beta} = \frac{c^2 \sin\alpha\sin\beta}{2\sin\gamma}$$
+              $$\Delta = \frac{a^2 \sin\beta\sin\gamma}{2\sin\alpha}$$
+              $$= \frac{b^2 \sin\alpha\sin\gamma}{2\sin\beta} = \frac{c^2 \sin\alpha\sin\beta}{2\sin\gamma}$$
             </div>
             <p style="margin-top:var(--space-md);"><strong>(c) Three sides (Heron's Formula):</strong></p>
             <div class="formula-box">
@@ -330,6 +349,16 @@
           </div>
         </div>
 
+        <!-- Interactive Circumcircle & Incircle -->
+        <div class="viz-section" style="margin: var(--space-xl) 0;">
+          <h4>Interactive: Circumcircle &amp; Incircle</h4>
+          <p>Drag the triangle vertices. The <span style="color:#00d4ff;">cyan circumcircle</span> passes through all vertices (radius R), while the <span style="color:#00ff88;">green incircle</span> fits inside touching all sides (radius r).</p>
+          <div id="jsx-circles" class="jsx-container" style="height: 420px;"></div>
+          <div class="jsx-readout" id="circles-readout" style="font-size:0.88rem;">
+            Drag vertices to explore.
+          </div>
+        </div>
+
         <!-- Step 6: Inradius -->
         <div class="reveal-step">
           <div class="reveal-header">
@@ -347,7 +376,7 @@
             <p>where $\Delta$ is the area and $S$ is the semi-perimeter.</p>
             <p style="margin-top:var(--space-md);"><strong>Escribed circle (e-circle):</strong> A circle touching one side externally and extensions of the other two sides. The e-radii are:</p>
             <div class="formula-box">
-              $$r_1 = \frac{\Delta}{S-a}, \quad r_2 = \frac{\Delta}{S-b}, \quad r_3 = \frac{\Delta}{S-c}$$
+              $$r_1 = \frac{\Delta}{S-a},\quad r_2 = \frac{\Delta}{S-b},\quad r_3 = \frac{\Delta}{S-c}$$
             </div>
             <div class="example-box">
               <h4>Example</h4>
@@ -547,72 +576,334 @@
   <script>
   document.addEventListener('DOMContentLoaded', function() {
 
-    /* ====== Viz 1: Unit Circle & Trig Functions ====== */
+    // Helper: distance between two JSXGraph points
+    function dist(p1, p2) {
+      var dx = p1.X() - p2.X(), dy = p1.Y() - p2.Y();
+      return Math.sqrt(dx*dx + dy*dy);
+    }
+    // Helper: angle at vertex B in triangle ABC (in radians)
+    function angleAt(A, B, C) {
+      var ba = {x: A.X()-B.X(), y: A.Y()-B.Y()};
+      var bc = {x: C.X()-B.X(), y: C.Y()-B.Y()};
+      var dot = ba.x*bc.x + ba.y*bc.y;
+      var magBA = Math.sqrt(ba.x*ba.x + ba.y*ba.y);
+      var magBC = Math.sqrt(bc.x*bc.x + bc.y*bc.y);
+      if (magBA < 0.001 || magBC < 0.001) return 0;
+      var cosA = Math.max(-1, Math.min(1, dot / (magBA * magBC)));
+      return Math.acos(cosA);
+    }
+    var R2D = 180 / Math.PI;
+
+    /* ====== Viz 1: Interactive Triangle Explorer ====== */
     (function() {
-      var board = JXG.JSXGraph.initBoard('jsx-unitcircle', {
-        boundingbox: [-2.5, 2.5, 2.5, -2.5], axis: false, grid: false,
+      var c = document.getElementById('jsx-triangle-explorer');
+      if (!c) return;
+      var board = JXG.JSXGraph.initBoard('jsx-triangle-explorer', {
+        boundingbox: [-1, 9, 11, -1], axis: false, grid: false,
         showNavigation: false, showCopyright: false, keepAspectRatio: true
       });
       board.containerObj.style.background = 'rgba(0,0,0,0.4)';
 
-      // Axes
-      board.create('line', [[0,0],[1,0]], {strokeColor:'#555', strokeWidth:1, straightFirst:true, straightLast:true, fixed:true, highlight:false, dash:0});
-      board.create('line', [[0,0],[0,1]], {strokeColor:'#555', strokeWidth:1, straightFirst:true, straightLast:true, fixed:true, highlight:false, dash:0});
+      // Vertices
+      var A = board.create('point', [1, 1], {name:'A', size:5, color:'#ff006e', label:{color:'#ff006e', offset:[-15,-10], fontSize:14}});
+      var B = board.create('point', [9, 1], {name:'B', size:5, color:'#00ff88', label:{color:'#00ff88', offset:[8,-10], fontSize:14}});
+      var C = board.create('point', [4, 7], {name:'C', size:5, color:'#00d4ff', label:{color:'#00d4ff', offset:[-5,12], fontSize:14}});
+
+      // Sides
+      board.create('segment', [A, B], {strokeColor:'#ffd700', strokeWidth:2.5, highlight:false});
+      board.create('segment', [B, C], {strokeColor:'#ff006e', strokeWidth:2.5, highlight:false});
+      board.create('segment', [A, C], {strokeColor:'#00ff88', strokeWidth:2.5, highlight:false});
+
+      // Side labels (midpoint)
+      board.create('text', [function(){return (B.X()+C.X())/2 + 0.3;}, function(){return (B.Y()+C.Y())/2;}, function(){
+        return 'a=' + dist(B,C).toFixed(1);
+      }], {color:'#ff006e', fontSize:11, fixed:true});
+      board.create('text', [function(){return (A.X()+C.X())/2 - 1.2;}, function(){return (A.Y()+C.Y())/2;}, function(){
+        return 'b=' + dist(A,C).toFixed(1);
+      }], {color:'#00ff88', fontSize:11, fixed:true});
+      board.create('text', [function(){return (A.X()+B.X())/2;}, function(){return (A.Y()+B.Y())/2 - 0.5;}, function(){
+        return 'c=' + dist(A,B).toFixed(1);
+      }], {color:'#ffd700', fontSize:11, fixed:true});
+
+      // Angle arcs
+      board.create('angle', [B, A, C], {radius:0.7, color:'rgba(255,0,110,0.15)', strokeColor:'#ff006e', name:'\u03B1', withLabel:true, label:{color:'#ff006e', fontSize:12, offset:[0,0]}});
+      board.create('angle', [C, B, A], {radius:0.7, color:'rgba(0,255,136,0.15)', strokeColor:'#00ff88', name:'\u03B2', withLabel:true, label:{color:'#00ff88', fontSize:12, offset:[0,0]}});
+      board.create('angle', [A, C, B], {radius:0.7, color:'rgba(0,212,255,0.15)', strokeColor:'#00d4ff', name:'\u03B3', withLabel:true, label:{color:'#00d4ff', fontSize:12, offset:[0,0]}});
+
+      // Readout
+      var readout = document.getElementById('triangle-explorer-readout');
+      function updateReadout() {
+        var a = dist(B, C), b = dist(A, C), c = dist(A, B);
+        var alpha = angleAt(B, A, C), beta = angleAt(A, B, C), gamma = angleAt(A, C, B);
+        var aD = (alpha * R2D).toFixed(1), bD = (beta * R2D).toFixed(1), gD = (gamma * R2D).toFixed(1);
+        var sinA = Math.sin(alpha), sinB = Math.sin(beta), sinG = Math.sin(gamma);
+        // Law of Cosines verification
+        var locLHS = (a*a).toFixed(1);
+        var locRHS = (b*b + c*c - 2*b*c*Math.cos(alpha)).toFixed(1);
+        // Law of Sines ratios
+        var ratioA = sinA > 0.001 ? (a/sinA).toFixed(2) : '\u221E';
+        var ratioB = sinB > 0.001 ? (b/sinB).toFixed(2) : '\u221E';
+        var ratioC = sinG > 0.001 ? (c/sinG).toFixed(2) : '\u221E';
+        // Area (SAS)
+        var area = (0.5 * b * c * sinA).toFixed(2);
+        // Heron
+        var S = (a + b + c) / 2;
+        var heronSq = S * (S-a) * (S-b) * (S-c);
+        var heron = heronSq > 0 ? Math.sqrt(heronSq).toFixed(2) : '0';
+
+        readout.innerHTML =
+          '<div style="display:grid; grid-template-columns:1fr 1fr; gap:8px 24px;">' +
+            '<div><span style="color:#cbd5e1;">Sides:</span> <span style="color:#ff006e;">a=' + a.toFixed(2) + '</span>, <span style="color:#00ff88;">b=' + b.toFixed(2) + '</span>, <span style="color:#ffd700;">c=' + c.toFixed(2) + '</span></div>' +
+            '<div><span style="color:#cbd5e1;">Angles:</span> <span style="color:#ff006e;">\u03B1=' + aD + '\u00B0</span>, <span style="color:#00ff88;">\u03B2=' + bD + '\u00B0</span>, <span style="color:#00d4ff;">\u03B3=' + gD + '\u00B0</span></div>' +
+            '<div style="grid-column:1/-1; border-top:1px solid rgba(255,255,255,0.1); padding-top:6px;"><span style="color:#ffd700;">Law of Cosines:</span> a\u00B2 = ' + locLHS + ' \u2248 b\u00B2+c\u00B2\u22122bc\u00B7cos\u03B1 = ' + locRHS + ' <span style="color:#00ff88;">\u2713</span></div>' +
+            '<div style="grid-column:1/-1;"><span style="color:#a855f7;">Law of Sines:</span> a/sin\u03B1 = ' + ratioA + ', b/sin\u03B2 = ' + ratioB + ', c/sin\u03B3 = ' + ratioC + ' <span style="color:#00ff88;">\u2713</span></div>' +
+            '<div><span style="color:#00d4ff;">Area (SAS):</span> ' + area + ' sq units</div>' +
+            '<div><span style="color:#00d4ff;">Area (Heron):</span> ' + heron + ' sq units</div>' +
+          '</div>';
+      }
+      A.on('drag', updateReadout);
+      B.on('drag', updateReadout);
+      C.on('drag', updateReadout);
+      updateReadout();
+    })();
+
+    /* ====== Viz 2: Circumcircle & Incircle ====== */
+    (function() {
+      var c = document.getElementById('jsx-circles');
+      if (!c) return;
+      var board = JXG.JSXGraph.initBoard('jsx-circles', {
+        boundingbox: [-2, 10, 12, -2], axis: false, grid: false,
+        showNavigation: false, showCopyright: false, keepAspectRatio: true
+      });
+      board.containerObj.style.background = 'rgba(0,0,0,0.4)';
+
+      var A = board.create('point', [1, 1], {name:'A', size:5, color:'#ff006e', label:{color:'#ff006e', offset:[-15,-10], fontSize:14}});
+      var B = board.create('point', [9, 1], {name:'B', size:5, color:'#00ff88', label:{color:'#00ff88', offset:[8,-10], fontSize:14}});
+      var C = board.create('point', [4, 8], {name:'C', size:5, color:'#00d4ff', label:{color:'#00d4ff', offset:[-5,12], fontSize:14}});
+
+      // Triangle sides
+      board.create('segment', [A, B], {strokeColor:'#94a3b8', strokeWidth:2, highlight:false});
+      board.create('segment', [B, C], {strokeColor:'#94a3b8', strokeWidth:2, highlight:false});
+      board.create('segment', [A, C], {strokeColor:'#94a3b8', strokeWidth:2, highlight:false});
+
+      // Circumcircle (through all 3 vertices)
+      var circumCircle = board.create('circumcircle', [A, B, C], {
+        strokeColor:'#00d4ff', strokeWidth:2, dash:2, highlight:false,
+        center:{visible:true, size:3, color:'#00d4ff', name:'O', withLabel:true, fixed:true, label:{color:'#00d4ff', offset:[8,-8], fontSize:11}}
+      });
+
+      // Incircle (touching all 3 sides)
+      var incircle = board.create('incircle', [A, B, C], {
+        strokeColor:'#00ff88', strokeWidth:2, dash:2, highlight:false,
+        center:{visible:true, size:3, color:'#00ff88', name:'I', withLabel:true, fixed:true, label:{color:'#00ff88', offset:[8,8], fontSize:11}}
+      });
+
+      // Readout
+      var readout = document.getElementById('circles-readout');
+      function updateReadout() {
+        var a = dist(B, C), b = dist(A, C), cSide = dist(A, B);
+        var S = (a + b + cSide) / 2;
+        var heronSq = S * (S-a) * (S-b) * (S-cSide);
+        var area = heronSq > 0 ? Math.sqrt(heronSq) : 0;
+        var R = area > 0.01 ? (a * b * cSide) / (4 * area) : 0;
+        var r = area > 0.01 ? area / S : 0;
+        readout.innerHTML =
+          '<span style="color:#cbd5e1;">S=' + S.toFixed(2) + '</span> &nbsp;|&nbsp; ' +
+          '<span style="color:#cbd5e1;">\u0394=' + area.toFixed(2) + '</span> &nbsp;|&nbsp; ' +
+          '<span style="color:#00d4ff;">R (circumradius) = ' + R.toFixed(2) + '</span> &nbsp;|&nbsp; ' +
+          '<span style="color:#00ff88;">r (inradius) = ' + r.toFixed(2) + '</span> &nbsp;|&nbsp; ' +
+          '<span style="color:#ffd700;">r = \u0394/S = ' + area.toFixed(1) + '/' + S.toFixed(1) + '</span>';
+      }
+      A.on('drag', updateReadout);
+      B.on('drag', updateReadout);
+      C.on('drag', updateReadout);
+      updateReadout();
+    })();
+
+    /* ====== Viz 3: Unit Circle & Trig Functions (REWORKED) ====== */
+    (function() {
+      var c = document.getElementById('jsx-unitcircle');
+      if (!c) return;
+      var board = JXG.JSXGraph.initBoard('jsx-unitcircle', {
+        boundingbox: [-2.2, 2.2, 2.2, -2.2], axis: false, grid: false,
+        showNavigation: false, showCopyright: false, keepAspectRatio: true
+      });
+      board.containerObj.style.background = 'rgba(0,0,0,0.4)';
+
+      // Axes with visible tick marks
+      board.create('line', [[0,0],[1,0]], {strokeColor:'#94a3b8', strokeWidth:1, straightFirst:true, straightLast:true, fixed:true, highlight:false, point1:{visible:false}, point2:{visible:false}});
+      board.create('line', [[0,0],[0,1]], {strokeColor:'#94a3b8', strokeWidth:1, straightFirst:true, straightLast:true, fixed:true, highlight:false, point1:{visible:false}, point2:{visible:false}});
+
+      // Axis tick marks and labels
+      [-1, 1].forEach(function(v) {
+        board.create('segment', [[v,-0.05],[v,0.05]], {strokeColor:'#94a3b8', strokeWidth:1, fixed:true, highlight:false});
+        board.create('text', [v, -0.15, v.toString()], {color:'#cbd5e1', fontSize:10, fixed:true, highlight:false});
+        board.create('segment', [[-0.05,v],[0.05,v]], {strokeColor:'#94a3b8', strokeWidth:1, fixed:true, highlight:false});
+        board.create('text', [-0.18, v, v.toString()], {color:'#cbd5e1', fontSize:10, fixed:true, highlight:false});
+      });
+
+      // Axis labels
+      board.create('text', [2.0, -0.15, 'x'], {color:'#cbd5e1', fontSize:12, fixed:true});
+      board.create('text', [0.1, 2.0, 'y'], {color:'#cbd5e1', fontSize:12, fixed:true});
+
+      // Vertical reference line at x=1 (for tangent construction)
+      board.create('segment', [[1,-2.2],[1,2.2]], {strokeColor:'rgba(168,85,247,0.25)', strokeWidth:1, dash:3, fixed:true, highlight:false});
+      board.create('text', [1.05, 2.0, 'x=1'], {color:'rgba(168,85,247,0.5)', fontSize:9, fixed:true});
 
       // Unit circle
-      board.create('circle', [[0,0], 1], {strokeColor:'#00d4ff', strokeWidth:2, fixed:true, highlight:false});
+      board.create('circle', [[0,0], 1], {strokeColor:'#00d4ff', strokeWidth:2, fixed:true, highlight:false, fillColor:'rgba(0,212,255,0.03)'});
 
-      // Draggable point on circle
-      var P = board.create('glider', [1, 0, board.create('circle',[[0,0],1],{visible:false})], {
-        name:'P', size:5, color:'#ff006e', withLabel:true,
-        label:{color:'#ff006e', offset:[8,8], fontSize:14}
+      // Key angle markers on circle (subtle dots at 0, 30, 45, 60, 90, ...)
+      [0, 30, 45, 60, 90, 120, 135, 150, 180, 210, 225, 240, 270, 300, 315, 330].forEach(function(deg) {
+        var r = deg * Math.PI / 180;
+        board.create('point', [Math.cos(r), Math.sin(r)], {
+          size:1, color:'rgba(0,212,255,0.35)', fixed:true, withLabel:false, highlight:false
+        });
       });
 
-      // Sin line (vertical from x-axis to P)
-      var sinLine = board.create('segment', [function(){return [P.X(),0];}, P], {
-        strokeColor:'#00ff88', strokeWidth:3, dash:0
+      // Draggable point P on circle
+      var P = board.create('glider', [Math.cos(0.7), Math.sin(0.7), board.create('circle',[[0,0],1],{visible:false})], {
+        name:'P', size:6, color:'#ff006e', withLabel:true,
+        label:{color:'#ff006e', offset:[10,10], fontSize:14}
       });
-      board.create('text', [function(){return P.X()+0.08;}, function(){return P.Y()/2;}, 'sin'], {color:'#00ff88', fontSize:12, fixed:true});
 
-      // Cos line (horizontal from origin to foot)
-      var cosLine = board.create('segment', [[0,0], function(){return [P.X(),0];}], {
-        strokeColor:'#ffd700', strokeWidth:3, dash:0
+      // Radius line (origin to P)
+      board.create('segment', [[0,0], P], {strokeColor:'#ff006e', strokeWidth:1.5, highlight:false, fixed:true});
+
+      // Cos line (horizontal: origin to foot of perpendicular)
+      board.create('segment', [[0,0], function(){return [P.X(),0];}], {
+        strokeColor:'#ffd700', strokeWidth:3, highlight:false
       });
-      board.create('text', [function(){return P.X()/2;}, -0.15, 'cos'], {color:'#ffd700', fontSize:12, fixed:true});
+      // Cos projection marker on x-axis
+      board.create('point', [function(){return P.X();}, 0], {
+        size:3, color:'#ffd700', fixed:true, withLabel:false, highlight:false
+      });
 
-      // Tan line (from P extending to x = 1 line)
-      var tanLine = board.create('segment', [P, function(){
-        var c = P.X(), s = P.Y();
-        if(Math.abs(c) < 0.01) return [P.X(), P.Y()];
-        return [1, s/c];
-      }], {strokeColor:'#a855f7', strokeWidth:2, dash:2});
+      // Sin line (vertical: foot to P)
+      board.create('segment', [function(){return [P.X(),0];}, P], {
+        strokeColor:'#00ff88', strokeWidth:3, highlight:false
+      });
+      // Sin projection marker on y-axis
+      board.create('point', [0, function(){return P.Y();}], {
+        size:3, color:'#00ff88', fixed:true, withLabel:false, highlight:false
+      });
+      // Dashed line from P to y-axis
+      board.create('segment', [P, function(){return [0, P.Y()];}], {
+        strokeColor:'rgba(0,255,136,0.2)', strokeWidth:1, dash:3, highlight:false, fixed:true
+      });
 
-      // Angle arc (parametric curve for correct display in all quadrants)
+      // Tan line: from P to the tangent point on x=1 line
+      // Geometrically: extend the radius to meet x=1. The y-value there is tan(θ).
+      // Only draw when cos θ > 0.05 (visible in Q1/Q4)
+      var tanPt = board.create('point', [
+        1,
+        function() {
+          var cx = P.X();
+          if (Math.abs(cx) < 0.05) return 99; // off-screen
+          return P.Y() / cx;
+        }
+      ], {
+        size: 4, color: '#a855f7', fixed: true, withLabel: false, highlight: false,
+        visible: function() { return Math.abs(P.X()) > 0.05 && Math.abs(P.Y()/P.X()) < 5; }
+      });
+
+      // Tan segment: from foot on x=1 line (1,0) to the tangent point
+      board.create('segment', [
+        [1, 0], tanPt
+      ], {
+        strokeColor: '#a855f7', strokeWidth: 3, highlight: false,
+        visible: function() { return Math.abs(P.X()) > 0.05 && Math.abs(P.Y()/P.X()) < 5; }
+      });
+
+      // Dashed line from origin through P to tangent point (extended radius)
+      board.create('segment', [
+        P, tanPt
+      ], {
+        strokeColor: 'rgba(168,85,247,0.35)', strokeWidth: 1, dash: 2, highlight: false,
+        visible: function() { return Math.abs(P.X()) > 0.05 && Math.abs(P.Y()/P.X()) < 5; }
+      });
+
+      // Labels on the lines
+      board.create('text', [function(){return P.X()/2;}, function(){return P.Y() >= 0 ? -0.12 : 0.12;}, function(){
+        return 'cos \u03B8';
+      }], {color:'#ffd700', fontSize:11, fixed:true, highlight:false});
+
+      board.create('text', [function(){return P.X() >= 0 ? P.X()+0.07 : P.X()-0.35;}, function(){return P.Y()/2;}, function(){
+        return 'sin \u03B8';
+      }], {color:'#00ff88', fontSize:11, fixed:true, highlight:false});
+
+      board.create('text', [1.07, function(){
+        var cx = P.X();
+        if (Math.abs(cx) < 0.05) return 0;
+        var t = P.Y() / cx;
+        return Math.abs(t) < 5 ? t / 2 : 0;
+      }, function(){
+        return Math.abs(P.X()) > 0.05 && Math.abs(P.Y()/P.X()) < 5 ? 'tan \u03B8' : '';
+      }], {color:'#a855f7', fontSize:11, fixed:true, highlight:false});
+
+      // Angle arc (parametric curve, all quadrants)
       board.create('curve', [
-        function(t) { return 0.35 * Math.cos(t); },
-        function(t) { return 0.35 * Math.sin(t); },
+        function(t) { return 0.3 * Math.cos(t); },
+        function(t) { return 0.3 * Math.sin(t); },
         0,
         function() { var a = Math.atan2(P.Y(), P.X()); if(a < 0) a += 2*Math.PI; return a; }
       ], {
-        strokeColor: '#00d4ff', strokeWidth: 2, fillColor: 'rgba(0,212,255,0.15)',
-        fill: true, highlight: false, fixed: true
+        strokeColor: 'rgba(0,212,255,0.7)', strokeWidth: 2,
+        fillColor: 'rgba(0,212,255,0.1)', fill: true,
+        highlight: false, fixed: true
+      });
+
+      // Angle label near arc
+      board.create('text', [
+        function() {
+          var a = Math.atan2(P.Y(), P.X()); if(a<0) a+=2*Math.PI;
+          return 0.45 * Math.cos(a/2);
+        },
+        function() {
+          var a = Math.atan2(P.Y(), P.X()); if(a<0) a+=2*Math.PI;
+          return 0.45 * Math.sin(a/2);
+        },
+        '\u03B8'
+      ], {color:'#00d4ff', fontSize:13, fixed:true, highlight:false});
+
+      // Legend
+      board.create('text', [-2.1, -1.6, '<span style="color:#ffd700;">\u2500 cos</span> &nbsp; <span style="color:#00ff88;">\u2500 sin</span> &nbsp; <span style="color:#a855f7;">\u2500 tan</span>'], {
+        fontSize: 10, fixed: true, highlight: false, useMathJax: false
       });
 
       // Readout
       var readout = document.getElementById('unitcircle-readout');
-      P.on('drag', function() {
+      function updateReadout() {
         var angle = Math.atan2(P.Y(), P.X());
-        if(angle < 0) angle += 2*Math.PI;
-        var deg = (angle * 180 / Math.PI).toFixed(1);
-        var sinVal = P.Y().toFixed(4);
-        var cosVal = P.X().toFixed(4);
-        var tanVal = Math.abs(P.X()) < 0.01 ? 'undefined' : (P.Y()/P.X()).toFixed(4);
-        readout.innerHTML = '\u03B8 = ' + deg + '\u00B0 &nbsp;|&nbsp; sin\u03B8 = ' + sinVal + ' &nbsp;|&nbsp; cos\u03B8 = ' + cosVal + ' &nbsp;|&nbsp; tan\u03B8 = ' + tanVal;
-      });
+        if (angle < 0) angle += 2*Math.PI;
+        var deg = (angle * R2D).toFixed(1);
+        var rad = angle.toFixed(3);
+        var sinV = P.Y().toFixed(4);
+        var cosV = P.X().toFixed(4);
+        var tanV = Math.abs(P.X()) < 0.01 ? 'undefined' : (P.Y()/P.X()).toFixed(4);
+        var quad = angle < Math.PI/2 ? 'I' : angle < Math.PI ? 'II' : angle < 3*Math.PI/2 ? 'III' : 'IV';
+        var signs = angle < Math.PI/2 ? 'sin+ cos+ tan+' :
+                    angle < Math.PI ? 'sin+ cos\u2212 tan\u2212' :
+                    angle < 3*Math.PI/2 ? 'sin\u2212 cos\u2212 tan+' : 'sin\u2212 cos+ tan\u2212';
+
+        readout.innerHTML =
+          '<div style="display:flex; flex-wrap:wrap; gap:6px 18px; font-size:0.9rem;">' +
+            '<span><strong style="color:#00d4ff;">\u03B8 = ' + deg + '\u00B0</strong> (' + rad + ' rad)</span>' +
+            '<span style="color:#ffd700;">cos\u03B8 = ' + cosV + '</span>' +
+            '<span style="color:#00ff88;">sin\u03B8 = ' + sinV + '</span>' +
+            '<span style="color:#a855f7;">tan\u03B8 = ' + tanV + '</span>' +
+            '<span style="color:#cbd5e1;">Q' + quad + '</span>' +
+            '<span style="color:#94a3b8; font-size:0.8rem;">' + signs + '</span>' +
+          '</div>';
+      }
+      P.on('drag', updateReadout);
+      updateReadout();
     })();
 
-    /* ====== Viz 2: Heights & Distances Simulator ====== */
+    /* ====== Viz 4: Heights & Distances Simulator ====== */
     (function() {
+      var c = document.getElementById('jsx-heights');
+      if (!c) return;
       var board = JXG.JSXGraph.initBoard('jsx-heights', {
         boundingbox: [-2, 12, 16, -2], axis: false, grid: false,
         showNavigation: false, showCopyright: false, keepAspectRatio: true
@@ -620,7 +911,7 @@
       board.containerObj.style.background = 'rgba(0,0,0,0.4)';
 
       // Ground line
-      board.create('segment', [[-1,0],[15,0]], {strokeColor:'#555', strokeWidth:2, fixed:true, highlight:false});
+      board.create('segment', [[-1,0],[15,0]], {strokeColor:'#94a3b8', strokeWidth:2, fixed:true, highlight:false});
 
       // Building base (fixed)
       var baseX = 12;
@@ -629,10 +920,8 @@
       // Building top (draggable vertically)
       var top = board.create('point', [baseX, 8], {
         name:'Height', size:4, color:'#ff006e',
-        attractors:[],
         label:{color:'#ff006e', offset:[10,0], fontSize:13}
       });
-      // Constrain top to vertical line above base
       top.on('drag', function() {
         if(top.Y() < 1) top.moveTo([baseX, 1]);
         if(top.Y() > 11) top.moveTo([baseX, 11]);
@@ -640,7 +929,7 @@
       });
 
       // Building wall
-      var wall = board.create('segment', [base, top], {strokeColor:'#00d4ff', strokeWidth:3, fixed:true});
+      board.create('segment', [base, top], {strokeColor:'#00d4ff', strokeWidth:3, fixed:true});
 
       // Observer (draggable horizontally)
       var observer = board.create('point', [3, 0], {
@@ -654,43 +943,42 @@
       });
 
       // Line of sight
-      var los = board.create('segment', [observer, top], {strokeColor:'#ffd700', strokeWidth:2, dash:2});
+      board.create('segment', [observer, top], {strokeColor:'#ffd700', strokeWidth:2, dash:2});
 
       // Horizontal from observer to base
-      var horiz = board.create('segment', [observer, base], {strokeColor:'#555', strokeWidth:1, dash:3});
+      board.create('segment', [observer, base], {strokeColor:'#94a3b8', strokeWidth:1, dash:3});
 
       // Angle of elevation arc
-      var angleArc = board.create('angle', [base, observer, top], {
+      board.create('angle', [base, observer, top], {
         radius:1.2, color:'rgba(255,215,0,0.2)', strokeColor:'#ffd700', name:'', withLabel:false
       });
 
-      // Labels on diagram
+      // Distance label
       board.create('text', [function(){return (observer.X()+baseX)/2;}, -0.8, function(){
         return 'd = ' + (baseX - observer.X()).toFixed(1);
-      }], {color:'#aaa', fontSize:12, fixed:true});
+      }], {color:'#cbd5e1', fontSize:12, fixed:true});
 
+      // Height label
       board.create('text', [baseX + 0.5, function(){return top.Y()/2;}, function(){
         return 'h = ' + top.Y().toFixed(1);
       }], {color:'#00d4ff', fontSize:12, fixed:true});
 
       // Angle label
       board.create('text', [function(){return observer.X()+1.8;}, 0.7, function(){
-        var h = top.Y();
-        var d = baseX - observer.X();
-        var angle = Math.atan2(h, d) * 180 / Math.PI;
-        return '\u03B8 = ' + angle.toFixed(1) + '\u00B0';
+        var h = top.Y(), d = baseX - observer.X();
+        return '\u03B8 = ' + (Math.atan2(h, d) * R2D).toFixed(1) + '\u00B0';
       }], {color:'#ffd700', fontSize:13, fixed:true});
 
       // Readout
       var readout = document.getElementById('heights-readout');
       function updateReadout() {
-        var h = top.Y();
-        var d = baseX - observer.X();
-        var angle = Math.atan2(h, d) * 180 / Math.PI;
-        readout.innerHTML = 'tan(\u03B8) = height / distance = ' + h.toFixed(1) + ' / ' + d.toFixed(1) + ' = ' + (h/d).toFixed(4) + ' &nbsp;\u21D2&nbsp; \u03B8 = ' + angle.toFixed(1) + '\u00B0';
+        var h = top.Y(), d = baseX - observer.X();
+        var angle = Math.atan2(h, d) * R2D;
+        readout.innerHTML = 'tan(\u03B8) = h/d = ' + h.toFixed(1) + '/' + d.toFixed(1) + ' = ' + (h/d).toFixed(4) + ' &nbsp;\u21D2&nbsp; \u03B8 = ' + angle.toFixed(1) + '\u00B0';
       }
       top.on('drag', updateReadout);
       observer.on('drag', updateReadout);
+      updateReadout();
     })();
 
   });

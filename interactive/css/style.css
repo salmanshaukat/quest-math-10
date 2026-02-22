@@ -833,6 +833,11 @@ tr:hover td { background: rgba(0, 212, 255, 0.03); }
 .jsx-container .JXG_navigation {
   display: none;
 }
+/* Force JSXGraph tick labels to be visible on dark bg.
+   Use a low-specificity default so explicit cssStyle colors still win. */
+.jsx-container .JXGtext {
+  color: #cbd5e1;
+}
 
 .jsx-label {
   text-align: center;

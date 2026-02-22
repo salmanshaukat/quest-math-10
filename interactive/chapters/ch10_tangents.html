@@ -114,7 +114,7 @@
         <svg viewBox="0 0 400 300" class="interactive-svg" style="max-width:400px;">
           <circle cx="200" cy="150" r="70" fill="none" stroke="#00d4ff" stroke-width="2" opacity="0.6"/>
           <circle cx="200" cy="150" r="3" fill="#00d4ff"/>
-          <text x="200" y="140" fill="#64748b" text-anchor="middle" font-size="12">O</text>
+          <text x="200" y="140" fill="#cbd5e1" text-anchor="middle" font-size="12">O</text>
           <!-- Tangent point T -->
           <circle cx="270" cy="150" r="5" fill="#ff006e"/>
           <text x="280" y="145" fill="#ff006e" font-size="12">T</text>
@@ -213,6 +213,12 @@
             </div>
             <p><strong>Example:</strong> $AB$ is tangent to a circle with centre $P$. If $PB = r$ and $PA = 9 + r$ and $AB = 15\text{ cm}$, using Pythagoras:</p>
             <p>$(9 + r)^2 = 15^2 + r^2 \implies 81 + 18r + r^2 = 225 + r^2 \implies 18r = 144 \implies r = 8\text{ cm}$</p>
+            <div class="viz-section" style="margin-top:var(--space-lg);">
+              <h4>Interactive: Tangent &perp; Radius</h4>
+              <p>Drag point T around the circle. The tangent line at T is always perpendicular to the radius OT &mdash; a perfect 90&deg; every time.</p>
+              <div id="jsx-tanrad" class="jsx-container" style="height: 400px;"></div>
+              <div class="jsx-readout" id="tanrad-readout"></div>
+            </div>
           </div>
         </div>
 
@@ -231,6 +237,12 @@
             <div class="example-box">
               <strong>Example:</strong> If $\angle POQ = 40°$ between two tangents $OP$ and $OQ$ to a circle centred at $S$:<br>
               $\angle POS = 20°$ (bisected), $\angle PSO = 70°$, so $\angle PSQ = 140°$ and $\angle SPQ = \angle SQP = 20°$.
+            </div>
+            <div class="viz-section" style="margin-top:var(--space-lg);">
+              <h4>Interactive: Two Tangents from External Point</h4>
+              <p>Drag the external point P. Both tangent lengths are always equal: $PT_1 = PT_2 = \sqrt{d^2 - r^2}$.</p>
+              <div id="jsx-exttangent" class="jsx-container" style="height: 400px;"></div>
+              <div class="jsx-readout" id="exttangent-readout"></div>
             </div>
           </div>
         </div>
@@ -251,6 +263,12 @@
             <div class="tip-box">
               <strong>Corollary:</strong> If two congruent circles touch externally, the distance between centres equals the diameter of each circle. If they touch internally, the distance is zero (concentric).
             </div>
+            <div class="viz-section" style="margin-top:var(--space-lg);">
+              <h4>Interactive: Touching Circles</h4>
+              <p>Drag centre O&prime; of the smaller circle. When the circles touch externally, $d = r_1 + r_2$. When internally, $d = |r_1 - r_2|$.</p>
+              <div id="jsx-touching" class="jsx-container" style="height: 400px;"></div>
+              <div class="jsx-readout" id="touching-readout"></div>
+            </div>
           </div>
         </div>
 
@@ -267,6 +285,12 @@
             <p>If $PT$ is a tangent at $T$ and $TA$ is a chord, then $\angle PTA = \angle TBA$ where $B$ is any point on the arc on the other side of chord $TA$.</p>
             <div class="example-box">
               <strong>Example:</strong> In a circle, if $\angle BDC = 56°$ and $\angle BCA = 60°$, then by Theorem 10.6, $y = 60°$ and using triangle angle sum: $z = 180° - 56° - 60° = 64°$, and $x = 56°$.
+            </div>
+            <div class="viz-section" style="margin-top:var(--space-lg);">
+              <h4>Interactive: Alternate Segment Theorem</h4>
+              <p>The tangent at T makes an angle with chord TA. Drag point B on the opposite arc &mdash; the inscribed angle &ang;TBA always equals the tangent-chord angle!</p>
+              <div id="jsx-alternate" class="jsx-container" style="height: 420px;"></div>
+              <div class="jsx-readout" id="alternate-readout"></div>
             </div>
           </div>
         </div>
@@ -291,6 +315,12 @@
                 <li><strong>Theorem 10.11:</strong> Angle in a segment less than a semi-circle &gt; $90°$ (obtuse)</li>
               </ul>
             </div>
+            <div class="viz-section" style="margin-top:var(--space-lg);">
+              <h4>Interactive: Central Angle = 2 &times; Inscribed Angle</h4>
+              <p>Drag point P around the major arc. The inscribed angle at P is always exactly half the central angle &mdash; no matter where P sits!</p>
+              <div id="jsx-central-inscribed" class="jsx-container" style="height: 420px;"></div>
+              <div class="jsx-readout" id="central-inscribed-readout"></div>
+            </div>
           </div>
         </div>
 
@@ -309,6 +339,12 @@
             <div class="example-box">
               <strong>Example:</strong> In cyclic quadrilateral $PQRS$, if $\angle SRQ = 120°$, then:<br>
               $\angle SPQ = 180° - 120° = 60°$
+            </div>
+            <div class="viz-section" style="margin-top:var(--space-lg);">
+              <h4>Interactive: Cyclic Quadrilateral</h4>
+              <p>Drag the four vertices around the circle. Opposite angles always sum to 180&deg;!</p>
+              <div id="jsx-cyclic" class="jsx-container" style="height: 420px;"></div>
+              <div class="jsx-readout" id="cyclic-readout"></div>
             </div>
           </div>
         </div>
@@ -330,25 +366,16 @@
               $8 \cdot q = (4)(6) + (5)(3) = 24 + 15 = 39$<br>
               $q = \frac{39}{8} = 4.875\text{ cm}$
             </div>
+            <div class="viz-section" style="margin-top:var(--space-lg);">
+              <h4>Interactive: Ptolemy's Theorem</h4>
+              <p>Drag the four vertices of the cyclic quadrilateral. The product of the diagonals always equals the sum of the products of opposite sides!</p>
+              <div id="jsx-ptolemy" class="jsx-container" style="height: 420px;"></div>
+              <div class="jsx-readout" id="ptolemy-readout"></div>
+            </div>
           </div>
         </div>
 
       </div><!-- /reveal-group -->
-
-      <!-- JSXGraph Visualizations -->
-      <div class="viz-section">
-        <h4>Interactive: Tangent from External Point</h4>
-        <p>Drag the external point to see both tangent lines drawn to the circle. Notice how both tangent lengths are always equal, verified by the formula: tangent length = &radic;(d&sup2; &minus; r&sup2;).</p>
-        <div id="jsx-exttangent" class="jsx-container" style="height: 400px;"></div>
-        <div class="jsx-readout" id="exttangent-readout">Drag the external point P to explore tangent lengths.</div>
-      </div>
-
-      <div class="viz-section">
-        <h4>Interactive: Tangent-Radius Relationship</h4>
-        <p>Drag the point of tangency around the circle. The radius to the point and the tangent line at that point always form a perfect 90-degree angle.</p>
-        <div id="jsx-tanrad" class="jsx-container" style="height: 400px;"></div>
-        <div class="jsx-readout" id="tanrad-readout">Drag point T around the circle to verify the 90&deg; relationship.</div>
-      </div>
 
     </div>
 
@@ -555,94 +582,18 @@
   <script>
   document.addEventListener('DOMContentLoaded', function() {
 
-    /* ====== Viz 1: Tangent from External Point ====== */
+    var R2D = 180 / Math.PI;
+    function pdist(p1, p2) { return Math.sqrt(Math.pow(p1.X()-p2.X(),2)+Math.pow(p1.Y()-p2.Y(),2)); }
+    function angleAtVtx(A, V, B) {
+      var vax=A.X()-V.X(), vay=A.Y()-V.Y(), vbx=B.X()-V.X(), vby=B.Y()-V.Y();
+      var dot=vax*vbx+vay*vby, mA=Math.sqrt(vax*vax+vay*vay), mB=Math.sqrt(vbx*vbx+vby*vby);
+      return Math.acos(Math.max(-1,Math.min(1,dot/(mA*mB))));
+    }
+
+    /* ====== Viz 1: Tangent ⊥ Radius (Theorems 10.1/10.2) ====== */
     (function() {
-      var board = JXG.JSXGraph.initBoard('jsx-exttangent', {
-        boundingbox: [-8, 8, 12, -8], axis: false, grid: false,
-        showNavigation: false, showCopyright: false, keepAspectRatio: true
-      });
-      board.containerObj.style.background = 'rgba(0,0,0,0.4)';
-
-      var r = 3;
-      var O = board.create('point', [0, 0], {name:'O', size:3, color:'#00d4ff', fixed:true, label:{color:'#00d4ff', offset:[-15,10], fontSize:13}});
-      var circ = board.create('circle', [O, r], {strokeColor:'#00d4ff', strokeWidth:2, fixed:true, highlight:false});
-
-      // External point P (draggable)
-      var P = board.create('point', [8, 0], {
-        name:'P', size:5, color:'#ff006e',
-        label:{color:'#ff006e', offset:[8,8], fontSize:14}
-      });
-      // Keep P outside circle
-      P.on('drag', function() {
-        var dist = Math.sqrt(P.X()*P.X() + P.Y()*P.Y());
-        if(dist <= r + 0.5) {
-          var scale = (r+0.5)/dist;
-          P.moveTo([P.X()*scale, P.Y()*scale]);
-        }
-      });
-
-      // Tangent points as dependent functions
-      var T1x = function(){
-        var dx = P.X(), dy = P.Y();
-        var d = Math.sqrt(dx*dx + dy*dy);
-        if(d <= r) return r;
-        var a = r*r/d;
-        var h = r*Math.sqrt(d*d - r*r)/d;
-        return a*dx/d + h*(-dy/d);
-      };
-      var T1y = function(){
-        var dx = P.X(), dy = P.Y();
-        var d = Math.sqrt(dx*dx + dy*dy);
-        if(d <= r) return 0;
-        var a = r*r/d;
-        var h = r*Math.sqrt(d*d - r*r)/d;
-        return a*dy/d + h*(dx/d);
-      };
-      var T2x = function(){
-        var dx = P.X(), dy = P.Y();
-        var d = Math.sqrt(dx*dx + dy*dy);
-        if(d <= r) return r;
-        var a = r*r/d;
-        var h = r*Math.sqrt(d*d - r*r)/d;
-        return a*dx/d - h*(-dy/d);
-      };
-      var T2y = function(){
-        var dx = P.X(), dy = P.Y();
-        var d = Math.sqrt(dx*dx + dy*dy);
-        if(d <= r) return 0;
-        var a = r*r/d;
-        var h = r*Math.sqrt(d*d - r*r)/d;
-        return a*dy/d - h*(dx/d);
-      };
-
-      var tangPt1 = board.create('point', [T1x, T1y], {name:'T\u2081', size:4, color:'#00ff88', label:{color:'#00ff88', offset:[-15,8], fontSize:12}});
-      var tangPt2 = board.create('point', [T2x, T2y], {name:'T\u2082', size:4, color:'#ffd700', label:{color:'#ffd700', offset:[-15,-12], fontSize:12}});
-
-      // Tangent lines
-      board.create('segment', [P, tangPt1], {strokeColor:'#00ff88', strokeWidth:2});
-      board.create('segment', [P, tangPt2], {strokeColor:'#ffd700', strokeWidth:2});
-
-      // Radii to tangent points
-      board.create('segment', [O, tangPt1], {strokeColor:'#a855f7', strokeWidth:1.5, dash:2});
-      board.create('segment', [O, tangPt2], {strokeColor:'#a855f7', strokeWidth:1.5, dash:2});
-
-      // Line from O to P
-      board.create('segment', [O, P], {strokeColor:'#555', strokeWidth:1, dash:3});
-
-      // Readout
-      var readout = document.getElementById('exttangent-readout');
-      function updateReadout() {
-        var d = Math.sqrt(P.X()*P.X() + P.Y()*P.Y());
-        var tangLen = Math.sqrt(Math.max(0, d*d - r*r));
-        var t1Dist = Math.sqrt(Math.pow(P.X()-T1x(),2) + Math.pow(P.Y()-T1y(),2));
-        var t2Dist = Math.sqrt(Math.pow(P.X()-T2x(),2) + Math.pow(P.Y()-T2y(),2));
-        readout.innerHTML = 'd(O,P) = ' + d.toFixed(2) + ' &nbsp;|&nbsp; r = ' + r + ' &nbsp;|&nbsp; PT\u2081 = ' + t1Dist.toFixed(2) + ' &nbsp;|&nbsp; PT\u2082 = ' + t2Dist.toFixed(2) + ' &nbsp;|&nbsp; \u221A(d\u00B2\u2212r\u00B2) = ' + tangLen.toFixed(2);
-      }
-      P.on('drag', updateReadout);
-    })();
-
-    /* ====== Viz 2: Tangent-Radius Relationship ====== */
-    (function() {
+      var el = document.getElementById('jsx-tanrad');
+      if (!el) return;
       var board = JXG.JSXGraph.initBoard('jsx-tanrad', {
         boundingbox: [-6, 6, 6, -6], axis: false, grid: false,
         showNavigation: false, showCopyright: false, keepAspectRatio: true
@@ -653,60 +604,439 @@
       var O = board.create('point', [0, 0], {name:'O', size:3, color:'#00d4ff', fixed:true, label:{color:'#00d4ff', offset:[-15,10], fontSize:13}});
       var circ = board.create('circle', [O, r], {strokeColor:'#00d4ff', strokeWidth:2, fixed:true, highlight:false});
 
-      // Draggable point T on circle
-      var T = board.create('glider', [r, 0, circ], {
-        name:'T', size:5, color:'#ff006e',
-        label:{color:'#ff006e', offset:[8,8], fontSize:14}
-      });
+      var T = board.create('glider', [r, 0, circ], {name:'T', size:5, color:'#ff006e', label:{color:'#ff006e', offset:[8,8], fontSize:14}});
 
       // Radius OT
-      var radius = board.create('segment', [O, T], {strokeColor:'#a855f7', strokeWidth:2.5});
+      board.create('segment', [O, T], {strokeColor:'#a855f7', strokeWidth:2.5, highlight:false});
 
-      // Tangent line at T (perpendicular to OT at T)
-      // Direction of tangent: perpendicular to OT
-      var tangLine = board.create('line', [T, function(){
+      // Tangent line at T (perpendicular to OT)
+      board.create('line', [T, function(){
         var dx = T.X(), dy = T.Y();
-        // Perpendicular direction: (-dy, dx)
         return [T.X() + (-dy), T.Y() + dx];
-      }], {
-        strokeColor:'#00ff88', strokeWidth:2.5,
-        straightFirst:true, straightLast:true, fixed:false
-      });
+      }], {strokeColor:'#00ff88', strokeWidth:2.5, straightFirst:true, straightLast:true, highlight:false});
 
-      // Right angle indicator
-      var rightAngle = board.create('angle', [
-        function(){
-          var dx = T.X(), dy = T.Y();
-          return [T.X() + (-dy)*0.3, T.Y() + dx*0.3];
-        },
-        T,
-        O
-      ], {
-        radius:0.5, color:'rgba(255,215,0,0.3)', strokeColor:'#ffd700',
-        name:'90\u00B0', withLabel:true,
-        label:{color:'#ffd700', fontSize:12, offset:[0,0]}
-      });
+      // Right angle marker
+      board.create('angle', [
+        function(){ return [T.X()+(-T.Y())*0.3, T.Y()+T.X()*0.3]; }, T, O
+      ], {radius:0.5, color:'rgba(255,215,0,0.3)', strokeColor:'#ffd700', name:'', withLabel:false, type:'square'});
 
-      // Label the radius
+      // Labels
       board.create('text', [function(){return T.X()/2-0.3;}, function(){return T.Y()/2+0.3;}, 'radius'], {color:'#a855f7', fontSize:11, fixed:true});
-
-      // Label the tangent
+      board.create('text', [function(){return T.X()+(-T.Y())*0.7;}, function(){return T.Y()+T.X()*0.7;}, 'tangent'], {color:'#00ff88', fontSize:11, fixed:true});
       board.create('text', [function(){
-        var dx = T.X(), dy = T.Y();
-        return T.X() + (-dy)*0.6;
+        var dx=-T.Y(), dy=T.X(), m=Math.sqrt(dx*dx+dy*dy);
+        return T.X()+dx/m*0.75;
       }, function(){
-        var dx = T.X(), dy = T.Y();
-        return T.Y() + dx*0.6;
-      }, 'tangent'], {color:'#00ff88', fontSize:11, fixed:true});
+        var dx=-T.Y(), dy=T.X(), m=Math.sqrt(dx*dx+dy*dy);
+        return T.Y()+dy/m*0.75 - 0.3;
+      }, '90\u00B0'], {color:'#ffd700', fontSize:12, fixed:true});
 
-      // Readout
       var readout = document.getElementById('tanrad-readout');
       function updateReadout() {
-        var angle = Math.atan2(T.Y(), T.X()) * 180 / Math.PI;
+        var angle = Math.atan2(T.Y(), T.X()) * R2D;
         if(angle < 0) angle += 360;
-        readout.innerHTML = 'Point T at ' + angle.toFixed(1) + '\u00B0 on circle &nbsp;|&nbsp; Angle between radius and tangent = <strong>90\u00B0</strong> (always perpendicular)';
+        readout.innerHTML = 'Point T at <strong>' + angle.toFixed(1) + '\u00B0</strong> on circle &nbsp;|&nbsp; \u2220(radius, tangent) = <strong style="color:#ffd700;">90\u00B0</strong> &nbsp;(always perpendicular!)';
       }
       T.on('drag', updateReadout);
+      updateReadout();
+    })();
+
+    /* ====== Viz 2: Two Tangents from External Point (Theorem 10.3) ====== */
+    (function() {
+      var el = document.getElementById('jsx-exttangent');
+      if (!el) return;
+      var board = JXG.JSXGraph.initBoard('jsx-exttangent', {
+        boundingbox: [-8, 8, 12, -8], axis: false, grid: false,
+        showNavigation: false, showCopyright: false, keepAspectRatio: true
+      });
+      board.containerObj.style.background = 'rgba(0,0,0,0.4)';
+
+      var r = 3;
+      var O = board.create('point', [0, 0], {name:'O', size:3, color:'#00d4ff', fixed:true, label:{color:'#00d4ff', offset:[-15,10], fontSize:13}});
+      var circ = board.create('circle', [O, r], {strokeColor:'#00d4ff', strokeWidth:2, fixed:true, highlight:false});
+
+      var P = board.create('point', [8, 0], {name:'P', size:5, color:'#ff006e', label:{color:'#ff006e', offset:[8,8], fontSize:14}});
+      P.on('drag', function() {
+        var d = Math.sqrt(P.X()*P.X()+P.Y()*P.Y());
+        if(d <= r+0.5) { var s=(r+0.5)/d; P.moveTo([P.X()*s, P.Y()*s]); }
+      });
+
+      function tangPt(sign) {
+        return {
+          x: function(){ var dx=P.X(),dy=P.Y(),d=Math.sqrt(dx*dx+dy*dy); if(d<=r) return r; var a=r*r/d, h=r*Math.sqrt(d*d-r*r)/d; return a*dx/d + sign*h*(-dy/d); },
+          y: function(){ var dx=P.X(),dy=P.Y(),d=Math.sqrt(dx*dx+dy*dy); if(d<=r) return 0; var a=r*r/d, h=r*Math.sqrt(d*d-r*r)/d; return a*dy/d + sign*h*(dx/d); }
+        };
+      }
+      var tp1 = tangPt(1), tp2 = tangPt(-1);
+      var T1 = board.create('point', [tp1.x, tp1.y], {name:'T\u2081', size:4, color:'#00ff88', label:{color:'#00ff88', offset:[-15,8], fontSize:12}});
+      var T2 = board.create('point', [tp2.x, tp2.y], {name:'T\u2082', size:4, color:'#ffd700', label:{color:'#ffd700', offset:[-15,-12], fontSize:12}});
+
+      board.create('segment', [P, T1], {strokeColor:'#00ff88', strokeWidth:2, highlight:false});
+      board.create('segment', [P, T2], {strokeColor:'#ffd700', strokeWidth:2, highlight:false});
+      board.create('segment', [O, T1], {strokeColor:'#a855f7', strokeWidth:1.5, dash:2, highlight:false});
+      board.create('segment', [O, T2], {strokeColor:'#a855f7', strokeWidth:1.5, dash:2, highlight:false});
+      board.create('segment', [O, P], {strokeColor:'#94a3b8', strokeWidth:1, dash:3, highlight:false});
+
+      // Right angle markers at T1, T2
+      board.create('angle', [P, T1, O], {radius:0.4, color:'rgba(255,215,0,0.2)', strokeColor:'#ffd700', name:'', withLabel:false, type:'square'});
+      board.create('angle', [O, T2, P], {radius:0.4, color:'rgba(255,215,0,0.2)', strokeColor:'#ffd700', name:'', withLabel:false, type:'square'});
+
+      var readout = document.getElementById('exttangent-readout');
+      function updateReadout() {
+        var d = Math.sqrt(P.X()*P.X()+P.Y()*P.Y());
+        var tangLen = Math.sqrt(Math.max(0, d*d-r*r));
+        var t1d = Math.sqrt(Math.pow(P.X()-tp1.x(),2)+Math.pow(P.Y()-tp1.y(),2));
+        var t2d = Math.sqrt(Math.pow(P.X()-tp2.x(),2)+Math.pow(P.Y()-tp2.y(),2));
+        readout.innerHTML =
+          '<span style="color:#cbd5e1;">OP = ' + d.toFixed(2) + ', r = ' + r + '</span> &nbsp;|&nbsp; ' +
+          '<span style="color:#00ff88;">PT\u2081 = ' + t1d.toFixed(2) + '</span> &nbsp;|&nbsp; ' +
+          '<span style="color:#ffd700;">PT\u2082 = ' + t2d.toFixed(2) + '</span> &nbsp;|&nbsp; ' +
+          '<span style="color:#a855f7;">\u221A(d\u00B2\u2212r\u00B2) = ' + tangLen.toFixed(2) + '</span>' +
+          (Math.abs(t1d-t2d)<0.1 ? ' &nbsp;<span style="color:#00ff88; font-weight:700;">\u2705 Equal!</span>' : '');
+      }
+      P.on('drag', updateReadout);
+      updateReadout();
+    })();
+
+    /* ====== Viz 3: Touching Circles (Theorems 10.4/10.5) ====== */
+    (function() {
+      var el = document.getElementById('jsx-touching');
+      if (!el) return;
+      var board = JXG.JSXGraph.initBoard('jsx-touching', {
+        boundingbox: [-10, 8, 10, -8], axis: false, grid: false,
+        showNavigation: false, showCopyright: false, keepAspectRatio: true
+      });
+      board.containerObj.style.background = 'rgba(0,0,0,0.4)';
+
+      var r1 = 3;
+      var O1 = board.create('point', [-2, 0], {name:'O\u2081', size:4, color:'#00d4ff', fixed:true, label:{color:'#00d4ff', offset:[-18,10], fontSize:13}});
+      var c1 = board.create('circle', [O1, r1], {strokeColor:'#00d4ff', strokeWidth:2, fixed:true, highlight:false});
+
+      var O2 = board.create('point', [5, 0], {name:'O\u2082', size:4, color:'#00ff88', label:{color:'#00ff88', offset:[8,10], fontSize:13}});
+
+      // Slider for r2
+      var r2Slider = board.create('slider', [[-8, -6], [-2, -6], [0.5, 2, 4]], {
+        name:'r\u2082', withLabel:true,
+        baseline:{strokeColor:'#94a3b8'}, highline:{strokeColor:'#00ff88'},
+        fillColor:'#00ff88', label:{color:'#cbd5e1', fontSize:12}
+      });
+
+      // Dynamic circle 2
+      var c2 = board.create('circle', [O2, function(){return r2Slider.Value();}], {
+        strokeColor:'#00ff88', strokeWidth:2, highlight:false
+      });
+
+      // Distance line
+      board.create('segment', [O1, O2], {strokeColor:'#94a3b8', strokeWidth:1.5, dash:2, highlight:false});
+
+      // Common tangent point (when touching)
+      board.create('point', [function(){
+        var d = pdist(O1,O2), r2=r2Slider.Value();
+        // External touch point: on the line O1-O2, at distance r1 from O1
+        if(Math.abs(d-(r1+r2))<0.3) { var t=r1/(r1+r2); return O1.X()+t*(O2.X()-O1.X()); }
+        if(Math.abs(d-Math.abs(r1-r2))<0.3 && r1>r2) { return O1.X()+(O2.X()-O1.X())/d*r1; }
+        return -999;
+      }, function(){
+        var d = pdist(O1,O2), r2=r2Slider.Value();
+        if(Math.abs(d-(r1+r2))<0.3) { var t=r1/(r1+r2); return O1.Y()+t*(O2.Y()-O1.Y()); }
+        if(Math.abs(d-Math.abs(r1-r2))<0.3 && r1>r2) { return O1.Y()+(O2.Y()-O1.Y())/d*r1; }
+        return -999;
+      }], {name:'T', size:5, color:'#ffd700', withLabel:true, label:{color:'#ffd700', offset:[8,-10], fontSize:12},
+        visible:function(){ var d=pdist(O1,O2),r2=r2Slider.Value(); return Math.abs(d-(r1+r2))<0.3 || Math.abs(d-Math.abs(r1-r2))<0.3; }
+      });
+
+      var readout = document.getElementById('touching-readout');
+      function updateReadout() {
+        var d = pdist(O1, O2), r2 = r2Slider.Value();
+        var sumR = r1 + r2, diffR = Math.abs(r1 - r2);
+        var status = '';
+        if(Math.abs(d-sumR)<0.3) status = '<span style="color:#00ff88; font-weight:700;">\u2705 Externally touching! d = r\u2081+r\u2082</span>';
+        else if(Math.abs(d-diffR)<0.3) status = '<span style="color:#ffd700; font-weight:700;">\u2705 Internally touching! d = |r\u2081\u2212r\u2082|</span>';
+        else if(d > sumR) status = '<span style="color:#94a3b8;">Separate circles (d > r\u2081+r\u2082)</span>';
+        else if(d < diffR) status = '<span style="color:#94a3b8;">One inside the other (d < |r\u2081\u2212r\u2082|)</span>';
+        else status = '<span style="color:#a855f7;">Intersecting at 2 points</span>';
+        readout.innerHTML =
+          '<span style="color:#00d4ff;">r\u2081 = ' + r1 + '</span> &nbsp;|&nbsp; ' +
+          '<span style="color:#00ff88;">r\u2082 = ' + r2.toFixed(1) + '</span> &nbsp;|&nbsp; ' +
+          '<span style="color:#cbd5e1;">d = ' + d.toFixed(2) + '</span> &nbsp;|&nbsp; ' +
+          '<span style="color:#cbd5e1;">r\u2081+r\u2082 = ' + sumR.toFixed(1) + ', |r\u2081\u2212r\u2082| = ' + diffR.toFixed(1) + '</span><br>' + status;
+      }
+      O2.on('drag', updateReadout);
+      r2Slider.on('drag', updateReadout);
+      updateReadout();
+    })();
+
+    /* ====== Viz 4: Alternate Segment Theorem (Theorem 10.6) ====== */
+    (function() {
+      var el = document.getElementById('jsx-alternate');
+      if (!el) return;
+      var board = JXG.JSXGraph.initBoard('jsx-alternate', {
+        boundingbox: [-6.5, 6.5, 6.5, -6.5], axis: false, grid: false,
+        showNavigation: false, showCopyright: false, keepAspectRatio: true
+      });
+      board.containerObj.style.background = 'rgba(0,0,0,0.4)';
+
+      var O = board.create('point', [0, 0], {name:'O', size:3, color:'#00d4ff', fixed:true, label:{color:'#00d4ff', offset:[-15,10], fontSize:12}});
+      var R = 4;
+      var circ = board.create('circle', [O, R], {strokeColor:'#00d4ff', strokeWidth:2, fixed:true, highlight:false});
+
+      // T: tangent point (bottom of circle)
+      var T = board.create('glider', [R*Math.cos(-Math.PI/2), R*Math.sin(-Math.PI/2), circ], {
+        name:'T', size:5, color:'#ff006e', fixed:true,
+        label:{color:'#ff006e', offset:[8,-12], fontSize:13}
+      });
+
+      // A: chord endpoint on circle (upper left)
+      var A = board.create('glider', [R*Math.cos(2.2), R*Math.sin(2.2), circ], {
+        name:'A', size:5, color:'#00ff88',
+        label:{color:'#00ff88', offset:[-15,5], fontSize:13}
+      });
+
+      // B: point on the opposite arc (the "alternate segment" side)
+      var B = board.create('glider', [R*Math.cos(0.3), R*Math.sin(0.3), circ], {
+        name:'B', size:5, color:'#ffd700',
+        label:{color:'#ffd700', offset:[8,8], fontSize:13}
+      });
+
+      // Chord TA
+      board.create('segment', [T, A], {strokeColor:'#00ff88', strokeWidth:2, highlight:false});
+
+      // Tangent line at T (perpendicular to OT)
+      board.create('line', [T, function(){
+        var dx=T.X(), dy=T.Y();
+        return [T.X()+(-dy), T.Y()+dx];
+      }], {strokeColor:'#a855f7', strokeWidth:2, straightFirst:true, straightLast:true, highlight:false});
+
+      // Lines from B to T and B to A (inscribed angle)
+      board.create('segment', [B, T], {strokeColor:'#ffd700', strokeWidth:2, highlight:false});
+      board.create('segment', [B, A], {strokeColor:'#ffd700', strokeWidth:2, highlight:false});
+
+      // Angle arcs
+      // Tangent-chord angle at T: angle between tangent direction and chord TA
+      // Use a point on the tangent to form the angle
+      var tangDir = board.create('point', [function(){return T.X()+(-T.Y());}, function(){return T.Y()+T.X();}], {visible:false});
+      board.create('angle', [tangDir, T, A], {
+        radius:0.7, color:'rgba(168,85,247,0.25)', strokeColor:'#a855f7', name:'', withLabel:false
+      });
+
+      // Inscribed angle at B
+      board.create('angle', [T, B, A], {
+        radius:0.7, color:'rgba(255,215,0,0.25)', strokeColor:'#ffd700', name:'', withLabel:false
+      });
+
+      // Highlight the alternate segment arc (from T to A, the arc containing B)
+      board.create('arc', [O, T, A], {strokeColor:'rgba(255,215,0,0.3)', strokeWidth:6, highlight:false});
+
+      var readout = document.getElementById('alternate-readout');
+      function updateReadout() {
+        // Tangent-chord angle: angle between tangent at T and chord TA
+        var tangChordAngle = angleAtVtx(tangDir, T, A) * R2D;
+        // Inscribed angle at B in alternate segment
+        var inscribedAngle = angleAtVtx(T, B, A) * R2D;
+        readout.innerHTML =
+          '<span style="color:#a855f7;">Tangent-chord \u2220PTA = <strong>' + tangChordAngle.toFixed(1) + '\u00B0</strong></span> &nbsp;|&nbsp; ' +
+          '<span style="color:#ffd700;">Inscribed \u2220TBA = <strong>' + inscribedAngle.toFixed(1) + '\u00B0</strong></span>' +
+          (Math.abs(tangChordAngle-inscribedAngle)<2 ? ' &nbsp;<span style="color:#00ff88; font-weight:700;">\u2705 Equal! (Alternate Segment Theorem)</span>' : '');
+      }
+      A.on('drag', updateReadout); B.on('drag', updateReadout);
+      updateReadout();
+    })();
+
+    /* ====== Viz 5: Central Angle = 2× Inscribed Angle (Theorems 10.7/10.8) ====== */
+    (function() {
+      var el = document.getElementById('jsx-central-inscribed');
+      if (!el) return;
+      var board = JXG.JSXGraph.initBoard('jsx-central-inscribed', {
+        boundingbox: [-6.5, 6.5, 6.5, -6.5], axis: false, grid: false,
+        showNavigation: false, showCopyright: false, keepAspectRatio: true
+      });
+      board.containerObj.style.background = 'rgba(0,0,0,0.4)';
+
+      var O = board.create('point', [0, 0], {name:'O', size:3, color:'#00d4ff', fixed:true, label:{color:'#00d4ff', offset:[-15,10], fontSize:13}});
+      var R = 4.5;
+      var circ = board.create('circle', [O, R], {strokeColor:'#00d4ff', strokeWidth:2, fixed:true, highlight:false});
+
+      var A = board.create('glider', [R*Math.cos(-0.8), R*Math.sin(-0.8), circ], {name:'A', size:5, color:'#00ff88', label:{color:'#00ff88', offset:[-15,-10], fontSize:13}});
+      var B = board.create('glider', [R*Math.cos(-2.3), R*Math.sin(-2.3), circ], {name:'B', size:5, color:'#00ff88', label:{color:'#00ff88', offset:[5,-10], fontSize:13}});
+      var P = board.create('glider', [R*Math.cos(1.2), R*Math.sin(1.2), circ], {name:'P', size:5, color:'#ff006e', label:{color:'#ff006e', offset:[8,8], fontSize:14}});
+
+      // Central angle radii
+      board.create('segment', [O, A], {strokeColor:'#a855f7', strokeWidth:1.5, dash:2, highlight:false});
+      board.create('segment', [O, B], {strokeColor:'#a855f7', strokeWidth:1.5, dash:2, highlight:false});
+
+      // Inscribed angle sides
+      board.create('segment', [P, A], {strokeColor:'#ffd700', strokeWidth:2, highlight:false});
+      board.create('segment', [P, B], {strokeColor:'#ffd700', strokeWidth:2, highlight:false});
+
+      // Minor arc highlight
+      board.create('arc', [O, A, B], {strokeColor:'#00ff88', strokeWidth:5, highlight:false});
+
+      // Angle arcs
+      board.create('angle', [A, O, B], {radius:0.9, color:'rgba(168,85,247,0.25)', strokeColor:'#a855f7', name:'', withLabel:false});
+      board.create('angle', [A, P, B], {radius:0.7, color:'rgba(255,215,0,0.25)', strokeColor:'#ffd700', name:'', withLabel:false});
+
+      // Angle value labels on diagram
+      board.create('text', [function(){return -0.3;}, function(){return -1.5;}, function(){
+        var angA=Math.atan2(A.Y(),A.X()), angB=Math.atan2(B.Y(),B.X());
+        var c=angA-angB; if(c<0) c+=2*Math.PI; if(c>Math.PI) c=2*Math.PI-c;
+        return (c*R2D).toFixed(1)+'\u00B0';
+      }], {color:'#a855f7', fontSize:12, fixed:true});
+
+      board.create('text', [function(){return P.X()>0?P.X()-1.5:P.X()+0.5;}, function(){return P.Y()-0.5;}, function(){
+        return (angleAtVtx(A,P,B)*R2D).toFixed(1)+'\u00B0';
+      }], {color:'#ffd700', fontSize:12, fixed:true});
+
+      // Semicircle demo: when A and B are endpoints of a diameter
+      board.create('text', [-6, 6, function(){
+        var ins = angleAtVtx(A,P,B)*R2D;
+        if(Math.abs(ins-90)<2) return '\u2B50 Angle in semicircle = 90\u00B0!';
+        if(ins<88) return 'Angle < 90\u00B0 (major segment)';
+        return 'Angle > 90\u00B0 (minor segment)';
+      }], {color:'#94a3b8', fontSize:10, fixed:true});
+
+      var readout = document.getElementById('central-inscribed-readout');
+      function updateReadout() {
+        var angA=Math.atan2(A.Y(),A.X()), angB=Math.atan2(B.Y(),B.X());
+        var c=angA-angB; if(c<0) c+=2*Math.PI; if(c>Math.PI) c=2*Math.PI-c;
+        var centralDeg=c*R2D;
+        var inscribedDeg=angleAtVtx(A,P,B)*R2D;
+        var ratio = inscribedDeg>0.5?(centralDeg/inscribedDeg).toFixed(2):'--';
+        readout.innerHTML =
+          '<span style="color:#a855f7;">Central \u2220AOB = <strong>' + centralDeg.toFixed(1) + '\u00B0</strong></span> &nbsp;|&nbsp; ' +
+          '<span style="color:#ffd700;">Inscribed \u2220APB = <strong>' + inscribedDeg.toFixed(1) + '\u00B0</strong></span> &nbsp;|&nbsp; ' +
+          '<span style="color:#cbd5e1;">Ratio = ' + ratio + '</span>' +
+          (Math.abs(parseFloat(ratio)-2.0)<0.15 ? ' &nbsp;<span style="color:#00ff88; font-weight:700;">\u2705 Central = 2 \u00D7 Inscribed!</span>' : '');
+      }
+      P.on('drag', updateReadout); A.on('drag', updateReadout); B.on('drag', updateReadout);
+      updateReadout();
+    })();
+
+    /* ====== Viz 6: Cyclic Quadrilateral (Theorem 10.12) ====== */
+    (function() {
+      var el = document.getElementById('jsx-cyclic');
+      if (!el) return;
+      var board = JXG.JSXGraph.initBoard('jsx-cyclic', {
+        boundingbox: [-6.5, 6.5, 6.5, -6.5], axis: false, grid: false,
+        showNavigation: false, showCopyright: false, keepAspectRatio: true
+      });
+      board.containerObj.style.background = 'rgba(0,0,0,0.4)';
+
+      var O = board.create('point', [0, 0], {name:'O', size:3, color:'#00d4ff', fixed:true, label:{color:'#00d4ff', offset:[-15,10], fontSize:12}});
+      var R = 4.5;
+      var circ = board.create('circle', [O, R], {strokeColor:'#00d4ff', strokeWidth:2, fixed:true, highlight:false});
+
+      var A = board.create('glider', [R*Math.cos(0.5), R*Math.sin(0.5), circ], {name:'A', size:5, color:'#ff006e', label:{color:'#ff006e', offset:[8,8], fontSize:13}});
+      var B = board.create('glider', [R*Math.cos(2.0), R*Math.sin(2.0), circ], {name:'B', size:5, color:'#00ff88', label:{color:'#00ff88', offset:[-15,8], fontSize:13}});
+      var C = board.create('glider', [R*Math.cos(3.5), R*Math.sin(3.5), circ], {name:'C', size:5, color:'#ffd700', label:{color:'#ffd700', offset:[-15,-10], fontSize:13}});
+      var D = board.create('glider', [R*Math.cos(5.2), R*Math.sin(5.2), circ], {name:'D', size:5, color:'#a855f7', label:{color:'#a855f7', offset:[8,-10], fontSize:13}});
+
+      // Quadrilateral sides
+      board.create('segment', [A, B], {strokeColor:'#94a3b8', strokeWidth:2, highlight:false});
+      board.create('segment', [B, C], {strokeColor:'#94a3b8', strokeWidth:2, highlight:false});
+      board.create('segment', [C, D], {strokeColor:'#94a3b8', strokeWidth:2, highlight:false});
+      board.create('segment', [D, A], {strokeColor:'#94a3b8', strokeWidth:2, highlight:false});
+
+      // Diagonals (subtle)
+      board.create('segment', [A, C], {strokeColor:'rgba(255,255,255,0.1)', strokeWidth:1, dash:3, highlight:false});
+      board.create('segment', [B, D], {strokeColor:'rgba(255,255,255,0.1)', strokeWidth:1, dash:3, highlight:false});
+
+      // Angle arcs at each vertex
+      board.create('angle', [D, A, B], {radius:0.6, color:'rgba(255,0,110,0.2)', strokeColor:'#ff006e', name:'', withLabel:false});
+      board.create('angle', [A, B, C], {radius:0.6, color:'rgba(0,255,136,0.2)', strokeColor:'#00ff88', name:'', withLabel:false});
+      board.create('angle', [B, C, D], {radius:0.6, color:'rgba(255,215,0,0.2)', strokeColor:'#ffd700', name:'', withLabel:false});
+      board.create('angle', [C, D, A], {radius:0.6, color:'rgba(168,85,247,0.2)', strokeColor:'#a855f7', name:'', withLabel:false});
+
+      // Angle value labels near vertices
+      board.create('text', [function(){return A.X()*0.7;}, function(){return A.Y()*0.7;}, function(){
+        return (angleAtVtx(D,A,B)*R2D).toFixed(0)+'\u00B0';
+      }], {color:'#ff006e', fontSize:11, fixed:true});
+      board.create('text', [function(){return B.X()*0.7;}, function(){return B.Y()*0.7;}, function(){
+        return (angleAtVtx(A,B,C)*R2D).toFixed(0)+'\u00B0';
+      }], {color:'#00ff88', fontSize:11, fixed:true});
+      board.create('text', [function(){return C.X()*0.7;}, function(){return C.Y()*0.7;}, function(){
+        return (angleAtVtx(B,C,D)*R2D).toFixed(0)+'\u00B0';
+      }], {color:'#ffd700', fontSize:11, fixed:true});
+      board.create('text', [function(){return D.X()*0.7;}, function(){return D.Y()*0.7;}, function(){
+        return (angleAtVtx(C,D,A)*R2D).toFixed(0)+'\u00B0';
+      }], {color:'#a855f7', fontSize:11, fixed:true});
+
+      var readout = document.getElementById('cyclic-readout');
+      function updateReadout() {
+        var angA = angleAtVtx(D,A,B)*R2D, angB = angleAtVtx(A,B,C)*R2D;
+        var angC = angleAtVtx(B,C,D)*R2D, angD = angleAtVtx(C,D,A)*R2D;
+        var sumAC = angA+angC, sumBD = angB+angD;
+        readout.innerHTML =
+          '<div style="display:flex; flex-wrap:wrap; gap:4px 16px; font-size:0.9rem;">' +
+            '<span style="color:#ff006e;">\u2220A = ' + angA.toFixed(1) + '\u00B0</span>' +
+            '<span style="color:#00ff88;">\u2220B = ' + angB.toFixed(1) + '\u00B0</span>' +
+            '<span style="color:#ffd700;">\u2220C = ' + angC.toFixed(1) + '\u00B0</span>' +
+            '<span style="color:#a855f7;">\u2220D = ' + angD.toFixed(1) + '\u00B0</span>' +
+          '</div>' +
+          '<div style="margin-top:4px; font-size:0.85rem;">' +
+            '<span style="color:#cbd5e1;">\u2220A + \u2220C = ' + sumAC.toFixed(1) + '\u00B0</span> &nbsp;|&nbsp; ' +
+            '<span style="color:#cbd5e1;">\u2220B + \u2220D = ' + sumBD.toFixed(1) + '\u00B0</span>' +
+            (Math.abs(sumAC-180)<3 && Math.abs(sumBD-180)<3 ? ' &nbsp;<span style="color:#00ff88; font-weight:700;">\u2705 Both = 180\u00B0! Opposite angles supplementary!</span>' : '') +
+          '</div>';
+      }
+      A.on('drag', updateReadout); B.on('drag', updateReadout);
+      C.on('drag', updateReadout); D.on('drag', updateReadout);
+      updateReadout();
+    })();
+
+    /* ====== Viz 7: Ptolemy's Theorem ====== */
+    (function() {
+      var el = document.getElementById('jsx-ptolemy');
+      if (!el) return;
+      var board = JXG.JSXGraph.initBoard('jsx-ptolemy', {
+        boundingbox: [-6.5, 6.5, 6.5, -6.5], axis: false, grid: false,
+        showNavigation: false, showCopyright: false, keepAspectRatio: true
+      });
+      board.containerObj.style.background = 'rgba(0,0,0,0.4)';
+
+      var O = board.create('point', [0, 0], {visible:false, fixed:true});
+      var R = 4.5;
+      var circ = board.create('circle', [O, R], {strokeColor:'#00d4ff', strokeWidth:2, fixed:true, highlight:false});
+
+      var A = board.create('glider', [R*Math.cos(0.4), R*Math.sin(0.4), circ], {name:'A', size:5, color:'#ff006e', label:{color:'#ff006e', offset:[8,8], fontSize:13}});
+      var B = board.create('glider', [R*Math.cos(1.8), R*Math.sin(1.8), circ], {name:'B', size:5, color:'#00ff88', label:{color:'#00ff88', offset:[-15,8], fontSize:13}});
+      var C = board.create('glider', [R*Math.cos(3.3), R*Math.sin(3.3), circ], {name:'C', size:5, color:'#ffd700', label:{color:'#ffd700', offset:[-15,-10], fontSize:13}});
+      var D = board.create('glider', [R*Math.cos(5.0), R*Math.sin(5.0), circ], {name:'D', size:5, color:'#a855f7', label:{color:'#a855f7', offset:[8,-10], fontSize:13}});
+
+      // Sides (solid)
+      board.create('segment', [A, B], {strokeColor:'#00ff88', strokeWidth:2, highlight:false}); // a
+      board.create('segment', [B, C], {strokeColor:'#ffd700', strokeWidth:2, highlight:false}); // b
+      board.create('segment', [C, D], {strokeColor:'#00ff88', strokeWidth:2, highlight:false}); // c
+      board.create('segment', [D, A], {strokeColor:'#ffd700', strokeWidth:2, highlight:false}); // d
+
+      // Diagonals (dashed)
+      board.create('segment', [A, C], {strokeColor:'#ff006e', strokeWidth:2, dash:2, highlight:false}); // p
+      board.create('segment', [B, D], {strokeColor:'#a855f7', strokeWidth:2, dash:2, highlight:false}); // q
+
+      // Side labels
+      board.create('text', [function(){return (A.X()+B.X())/2+0.3;}, function(){return (A.Y()+B.Y())/2+0.2;}, function(){return 'a='+pdist(A,B).toFixed(1);}], {color:'#00ff88', fontSize:10, fixed:true});
+      board.create('text', [function(){return (B.X()+C.X())/2-0.8;}, function(){return (B.Y()+C.Y())/2;}, function(){return 'b='+pdist(B,C).toFixed(1);}], {color:'#ffd700', fontSize:10, fixed:true});
+      board.create('text', [function(){return (C.X()+D.X())/2-0.3;}, function(){return (C.Y()+D.Y())/2-0.3;}, function(){return 'c='+pdist(C,D).toFixed(1);}], {color:'#00ff88', fontSize:10, fixed:true});
+      board.create('text', [function(){return (D.X()+A.X())/2+0.3;}, function(){return (D.Y()+A.Y())/2-0.2;}, function(){return 'd='+pdist(D,A).toFixed(1);}], {color:'#ffd700', fontSize:10, fixed:true});
+
+      // Diagonal labels
+      board.create('text', [function(){return (A.X()+C.X())/2+0.2;}, function(){return (A.Y()+C.Y())/2+0.3;}, function(){return 'p='+pdist(A,C).toFixed(1);}], {color:'#ff006e', fontSize:10, fixed:true});
+      board.create('text', [function(){return (B.X()+D.X())/2-0.6;}, function(){return (B.Y()+D.Y())/2-0.3;}, function(){return 'q='+pdist(B,D).toFixed(1);}], {color:'#a855f7', fontSize:10, fixed:true});
+
+      var readout = document.getElementById('ptolemy-readout');
+      function updateReadout() {
+        var a=pdist(A,B), b=pdist(B,C), c=pdist(C,D), d=pdist(D,A);
+        var p=pdist(A,C), q=pdist(B,D);
+        var lhs = p*q, rhs = a*c + b*d;
+        readout.innerHTML =
+          '<div style="font-size:0.9rem;">' +
+            '<span style="color:#ff006e;">p</span>\u00B7<span style="color:#a855f7;">q</span> = ' + p.toFixed(2) + ' \u00D7 ' + q.toFixed(2) + ' = <strong>' + lhs.toFixed(2) + '</strong> &nbsp;|&nbsp; ' +
+            '<span style="color:#00ff88;">a</span>\u00B7<span style="color:#00ff88;">c</span> + <span style="color:#ffd700;">b</span>\u00B7<span style="color:#ffd700;">d</span> = ' + (a*c).toFixed(2) + ' + ' + (b*d).toFixed(2) + ' = <strong>' + rhs.toFixed(2) + '</strong>' +
+            (Math.abs(lhs-rhs)<0.5 ? ' &nbsp;<span style="color:#00ff88; font-weight:700;">\u2705 p\u00B7q = ac + bd (Ptolemy!)</span>' : '') +
+          '</div>';
+      }
+      A.on('drag', updateReadout); B.on('drag', updateReadout);
+      C.on('drag', updateReadout); D.on('drag', updateReadout);
+      updateReadout();
     })();
 
   });

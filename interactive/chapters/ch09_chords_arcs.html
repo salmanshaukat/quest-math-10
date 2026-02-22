@@ -209,6 +209,12 @@
               <p>Construct a square $ABCD$ with side 6 cm. Show that one and only one circle passes through all four vertices.</p>
               <p>The diagonals of the square bisect each other at point $O$. Using $O$ as centre and $OA = \frac{6\sqrt{2}}{2} = 3\sqrt{2}$ cm as radius, the circle passes through all vertices.</p>
             </div>
+            <div class="viz-section" style="margin-top:var(--space-lg);">
+              <h4>Interactive: Three Points &rarr; Unique Circle</h4>
+              <p>Drag the three points. A unique circle always passes through them. The perpendicular bisectors meet at the centre.</p>
+              <div id="jsx-unique-circle" class="jsx-container" style="height: 400px;"></div>
+              <div class="jsx-readout" id="unique-circle-readout"></div>
+            </div>
           </div>
         </div>
 
@@ -237,6 +243,12 @@
               <p>A circle has diameter 20 cm and a chord of 16 cm perpendicular to the diameter. Find the distance from the chord to the centre.</p>
               <p>$r = 10$ cm. Half-chord $= 8$ cm.</p>
               <p>$d = \sqrt{r^2 - 8^2} = \sqrt{100 - 64} = \sqrt{36} = 6$ cm</p>
+            </div>
+            <div class="viz-section" style="margin-top:var(--space-lg);">
+              <h4>Interactive: Perpendicular from Centre Bisects Chord</h4>
+              <p>Drag endpoints A and B on the circle. The perpendicular from O always hits the midpoint M of the chord. Verify $r^2 = d^2 + (\ell/2)^2$.</p>
+              <div id="jsx-perp-bisect" class="jsx-container" style="height: 400px;"></div>
+              <div class="jsx-readout" id="perp-bisect-readout"></div>
             </div>
           </div>
         </div>
@@ -268,6 +280,12 @@
               <p>$x^2 + 144 = 289 - 34x + x^2 + 25$</p>
               <p>$34x = 170 \Rightarrow x = 5$</p>
               <p>$r = \sqrt{25 + 144} = \sqrt{169} = 13$ cm</p>
+            </div>
+            <div class="viz-section" style="margin-top:var(--space-lg);">
+              <h4>Interactive: Equal Chords &amp; Equal Distances</h4>
+              <p>Two chords in the same circle. When their lengths are equal, their distances from the centre match. Drag endpoints to explore!</p>
+              <div id="jsx-equal-chords" class="jsx-container" style="height: 400px;"></div>
+              <div class="jsx-readout" id="equal-chords-readout"></div>
             </div>
           </div>
         </div>
@@ -307,6 +325,12 @@
               <p>Let $\angle BOC = x°$. Since $AB = 4BC$, we get $\angle AOB = 4 \cdot \angle BOC$.</p>
               <p>$4x = 120° \Rightarrow x = 30°$. So $\angle BOC = 30°$.</p>
             </div>
+            <div class="viz-section" style="margin-top:var(--space-lg);">
+              <h4>Interactive: Arcs, Chords &amp; Central Angles</h4>
+              <p>Two chords with their arcs and central angles. When chords are equal, their arcs and central angles match!</p>
+              <div id="jsx-arcs-angles" class="jsx-container" style="height: 400px;"></div>
+              <div class="jsx-readout" id="arcs-angles-readout"></div>
+            </div>
           </div>
         </div>
 
@@ -338,6 +362,12 @@
               <p>Find the arc length for a circle with radius 14 cm and central angle 60 degrees.</p>
               <p>$\ell = \frac{60}{360} \times 2\pi(14) = \frac{1}{6} \times 28\pi = \frac{28\pi}{6} \approx 14.67$ cm</p>
             </div>
+            <div class="viz-section" style="margin-top:var(--space-lg);">
+              <h4>Interactive: Arc Length &amp; Chord Length Explorer</h4>
+              <p>Drag point B around the circle to change the central angle. Watch how arc length (curved) and chord length (straight) differ.</p>
+              <div id="jsx-arc-length" class="jsx-container" style="height: 400px;"></div>
+              <div class="jsx-readout" id="arc-length-readout"></div>
+            </div>
           </div>
         </div>
 
@@ -367,6 +397,12 @@
               <p>$\ell = \frac{90}{360} \times 2\pi(56) = \frac{1}{4} \times 112\pi = 28\pi \approx 88$ cm</p>
               <p>Length of one full part (including both sides of the cut): $2 \times 88 = 176$ cm.</p>
               <p>Cost at Rs. 8/cm: $2 \times 176 \times 8 = \text{Rs.}\,2816$</p>
+            </div>
+            <div class="viz-section" style="margin-top:var(--space-lg);">
+              <h4>Interactive: Sector &amp; Segment Area</h4>
+              <p>Drag point B to change the central angle. The sector (shaded region between radii) and segment (between chord and arc) areas update live.</p>
+              <div id="jsx-sector-area" class="jsx-container" style="height: 400px;"></div>
+              <div class="jsx-readout" id="sector-area-readout"></div>
             </div>
           </div>
         </div>
@@ -561,140 +597,540 @@
   <script>
   document.addEventListener('DOMContentLoaded', function() {
 
-    /* ====== Viz 1: Chord Theorems Explorer ====== */
+    var R2D = 180 / Math.PI;
+    var D2R = Math.PI / 180;
+    function dist(p1, p2) { return Math.sqrt(Math.pow(p1.X()-p2.X(),2)+Math.pow(p1.Y()-p2.Y(),2)); }
+
+    /* ====== Viz 1: Three Points → Unique Circle (Theorem 9.1) ====== */
     (function() {
+      var el = document.getElementById('jsx-unique-circle');
+      if (!el) return;
+      var board = JXG.JSXGraph.initBoard('jsx-unique-circle', {
+        boundingbox: [-7, 7, 7, -7], axis: false, grid: false,
+        showNavigation: false, showCopyright: false, keepAspectRatio: true
+      });
+      board.containerObj.style.background = 'rgba(0,0,0,0.4)';
+
+      var P1 = board.create('point', [-3, -2], {name:'P\u2081', size:5, color:'#ff006e', label:{color:'#ff006e', offset:[-18,-10], fontSize:13}});
+      var P2 = board.create('point', [4, -1], {name:'P\u2082', size:5, color:'#00ff88', label:{color:'#00ff88', offset:[8,-10], fontSize:13}});
+      var P3 = board.create('point', [1, 4], {name:'P\u2083', size:5, color:'#ffd700', label:{color:'#ffd700', offset:[-5,12], fontSize:13}});
+
+      // The unique circumcircle
+      var cc = board.create('circumcircle', [P1, P2, P3], {
+        strokeColor:'#00d4ff', strokeWidth:2, highlight:false,
+        center:{visible:true, size:4, color:'#00d4ff', name:'O', withLabel:true, fixed:true,
+          label:{color:'#00d4ff', offset:[8,8], fontSize:12}}
+      });
+
+      // Perpendicular bisectors (as dashed lines)
+      var mid12 = board.create('midpoint', [P1, P2], {visible:false});
+      var mid23 = board.create('midpoint', [P2, P3], {visible:false});
+      var mid13 = board.create('midpoint', [P1, P3], {visible:false});
+      board.create('perpendicular', [board.create('line',[P1,P2],{visible:false}), mid12], {strokeColor:'rgba(168,85,247,0.4)', strokeWidth:1, dash:3, highlight:false, point:{visible:false}});
+      board.create('perpendicular', [board.create('line',[P2,P3],{visible:false}), mid23], {strokeColor:'rgba(168,85,247,0.4)', strokeWidth:1, dash:3, highlight:false, point:{visible:false}});
+      board.create('perpendicular', [board.create('line',[P1,P3],{visible:false}), mid13], {strokeColor:'rgba(168,85,247,0.4)', strokeWidth:1, dash:3, highlight:false, point:{visible:false}});
+
+      // Segments connecting the 3 points
+      board.create('segment', [P1, P2], {strokeColor:'#94a3b8', strokeWidth:1.5, dash:2, highlight:false});
+      board.create('segment', [P2, P3], {strokeColor:'#94a3b8', strokeWidth:1.5, dash:2, highlight:false});
+      board.create('segment', [P1, P3], {strokeColor:'#94a3b8', strokeWidth:1.5, dash:2, highlight:false});
+
+      // Radii
+      board.create('segment', [function(){return [cc.center.X(), cc.center.Y()];}, P1], {strokeColor:'rgba(0,212,255,0.3)', strokeWidth:1, dash:3, highlight:false});
+      board.create('segment', [function(){return [cc.center.X(), cc.center.Y()];}, P2], {strokeColor:'rgba(0,212,255,0.3)', strokeWidth:1, dash:3, highlight:false});
+      board.create('segment', [function(){return [cc.center.X(), cc.center.Y()];}, P3], {strokeColor:'rgba(0,212,255,0.3)', strokeWidth:1, dash:3, highlight:false});
+
+      var readout = document.getElementById('unique-circle-readout');
+      function updateReadout() {
+        var r = dist({X:function(){return cc.center.X();},Y:function(){return cc.center.Y();}}, P1);
+        readout.innerHTML =
+          '<span style="color:#00d4ff;">Centre O = (' + cc.center.X().toFixed(1) + ', ' + cc.center.Y().toFixed(1) + ')</span> &nbsp;|&nbsp; ' +
+          '<span style="color:#ffd700;">Radius = ' + r.toFixed(2) + '</span> &nbsp;|&nbsp; ' +
+          '<span style="color:#94a3b8;">Perp. bisectors all meet at O</span>';
+      }
+      P1.on('drag', updateReadout); P2.on('drag', updateReadout); P3.on('drag', updateReadout);
+      updateReadout();
+    })();
+
+    /* ====== Viz 2: Perpendicular from Centre Bisects Chord (Theorems 9.2/9.3) ====== */
+    (function() {
+      var el = document.getElementById('jsx-perp-bisect');
+      if (!el) return;
+      var board = JXG.JSXGraph.initBoard('jsx-perp-bisect', {
+        boundingbox: [-6.5, 6.5, 6.5, -6.5], axis: false, grid: false,
+        showNavigation: false, showCopyright: false, keepAspectRatio: true
+      });
+      board.containerObj.style.background = 'rgba(0,0,0,0.4)';
+
+      var O = board.create('point', [0, 0], {name:'O', size:4, color:'#00d4ff', fixed:true, label:{color:'#00d4ff', offset:[-15,10], fontSize:13}});
+      var circ = board.create('circle', [O, 4.5], {strokeColor:'#00d4ff', strokeWidth:2, fixed:true, highlight:false});
+
+      var A = board.create('glider', [-4, 2.18, circ], {name:'A', size:5, color:'#00ff88', label:{color:'#00ff88', offset:[-15,-10], fontSize:13}});
+      var B = board.create('glider', [3.5, 2.82, circ], {name:'B', size:5, color:'#00ff88', label:{color:'#00ff88', offset:[8,-10], fontSize:13}});
+
+      // Chord AB
+      board.create('segment', [A, B], {strokeColor:'#00ff88', strokeWidth:2.5, highlight:false});
+
+      // Midpoint M of chord
+      var M = board.create('midpoint', [A, B], {name:'M', size:4, color:'#ffd700', label:{color:'#ffd700', offset:[8,-10], fontSize:13}});
+
+      // Line from O to M (the perpendicular)
+      board.create('segment', [O, M], {strokeColor:'#a855f7', strokeWidth:2, dash:2, highlight:false});
+
+      // Right angle marker at M
+      board.create('angle', [A, M, O], {
+        radius:0.4, color:'rgba(168,85,247,0.3)', strokeColor:'#a855f7',
+        name:'', withLabel:false, type:'square'
+      });
+
+      // Extended perpendicular from O to chord line (foot of perpendicular)
+      var chordLine = board.create('line', [A, B], {visible:false});
+      var foot = board.create('perpendicularpoint', [O, chordLine], {
+        name:'F', size:3, color:'#a855f7', visible:true,
+        label:{color:'#a855f7', offset:[-10,10], fontSize:11}
+      });
+
+      var readout = document.getElementById('perp-bisect-readout');
+      function updateReadout() {
+        var r = 4.5;
+        var chordLen = dist(A, B);
+        var halfChord = chordLen / 2;
+        var d = dist(O, M);
+        var lhs = r * r;
+        var rhs = d * d + halfChord * halfChord;
+        var mfDist = dist(M, foot);
+        readout.innerHTML =
+          '<div style="display:flex; flex-wrap:wrap; gap:6px 18px; font-size:0.9rem;">' +
+            '<span style="color:#00d4ff;">r = ' + r.toFixed(1) + '</span>' +
+            '<span style="color:#00ff88;">Chord \u2113 = ' + chordLen.toFixed(2) + '</span>' +
+            '<span style="color:#a855f7;">d (O to chord) = ' + d.toFixed(2) + '</span>' +
+            '<span style="color:#ffd700;">M\u2013F gap = ' + mfDist.toFixed(3) + ' \u2248 0 \u2714</span>' +
+          '</div>' +
+          '<div style="margin-top:4px; font-size:0.85rem; color:#cbd5e1;">' +
+            'r\u00B2 = ' + lhs.toFixed(1) + ' &nbsp;|&nbsp; d\u00B2 + (\u2113/2)\u00B2 = ' + (d*d).toFixed(1) + ' + ' + (halfChord*halfChord).toFixed(1) + ' = ' + rhs.toFixed(1) + ' &nbsp;<span style="color:#00ff88;">\u2713 Equal!</span>' +
+          '</div>';
+      }
+      A.on('drag', updateReadout); B.on('drag', updateReadout);
+      updateReadout();
+    })();
+
+    /* ====== Viz 3: Equal Chords & Equal Distances (Theorems 9.4/9.5) ====== */
+    (function() {
+      var el = document.getElementById('jsx-equal-chords');
+      if (!el) return;
+      var board = JXG.JSXGraph.initBoard('jsx-equal-chords', {
+        boundingbox: [-6.5, 6.5, 6.5, -6.5], axis: false, grid: false,
+        showNavigation: false, showCopyright: false, keepAspectRatio: true
+      });
+      board.containerObj.style.background = 'rgba(0,0,0,0.4)';
+
+      var O = board.create('point', [0, 0], {name:'O', size:4, color:'#00d4ff', fixed:true, label:{color:'#00d4ff', offset:[-15,10], fontSize:13}});
+      var circ = board.create('circle', [O, 4.5], {strokeColor:'#00d4ff', strokeWidth:2, fixed:true, highlight:false});
+
+      // Chord 1 (green)
+      var A1 = board.create('glider', [-4.2, 1.56, circ], {name:'A', size:4, color:'#00ff88', label:{color:'#00ff88', offset:[-15,5], fontSize:12}});
+      var B1 = board.create('glider', [2, 4.03, circ], {name:'B', size:4, color:'#00ff88', label:{color:'#00ff88', offset:[8,5], fontSize:12}});
+      board.create('segment', [A1, B1], {strokeColor:'#00ff88', strokeWidth:2.5, highlight:false});
+
+      // Chord 2 (gold)
+      var C1 = board.create('glider', [-3, -3.35, circ], {name:'C', size:4, color:'#ffd700', label:{color:'#ffd700', offset:[-15,-10], fontSize:12}});
+      var D1 = board.create('glider', [3.5, -2.88, circ], {name:'D', size:4, color:'#ffd700', label:{color:'#ffd700', offset:[8,-10], fontSize:12}});
+      board.create('segment', [C1, D1], {strokeColor:'#ffd700', strokeWidth:2.5, highlight:false});
+
+      // Perpendicular from O to each chord
+      var line1 = board.create('line', [A1, B1], {visible:false});
+      var line2 = board.create('line', [C1, D1], {visible:false});
+      var foot1 = board.create('perpendicularpoint', [O, line1], {size:3, color:'#00ff88', withLabel:false, highlight:false});
+      var foot2 = board.create('perpendicularpoint', [O, line2], {size:3, color:'#ffd700', withLabel:false, highlight:false});
+      board.create('segment', [O, foot1], {strokeColor:'rgba(0,255,136,0.4)', strokeWidth:1.5, dash:2, highlight:false});
+      board.create('segment', [O, foot2], {strokeColor:'rgba(255,215,0,0.4)', strokeWidth:1.5, dash:2, highlight:false});
+
+      // Distance labels on the perpendiculars
+      board.create('text', [function(){return (O.X()+foot1.X())/2-0.2;}, function(){return (O.Y()+foot1.Y())/2+0.3;}, function(){
+        return 'd\u2081=' + dist(O, foot1).toFixed(2);
+      }], {color:'#00ff88', fontSize:11, fixed:true});
+      board.create('text', [function(){return (O.X()+foot2.X())/2+0.2;}, function(){return (O.Y()+foot2.Y())/2-0.3;}, function(){
+        return 'd\u2082=' + dist(O, foot2).toFixed(2);
+      }], {color:'#ffd700', fontSize:11, fixed:true});
+
+      var readout = document.getElementById('equal-chords-readout');
+      function updateReadout() {
+        var len1 = dist(A1, B1), len2 = dist(C1, D1);
+        var d1 = dist(O, foot1), d2 = dist(O, foot2);
+        var isEqual = Math.abs(len1 - len2) < 0.3;
+        var distEqual = Math.abs(d1 - d2) < 0.3;
+        readout.innerHTML =
+          '<span style="color:#00ff88;">Chord AB = ' + len1.toFixed(2) + '</span> &nbsp;|&nbsp; ' +
+          '<span style="color:#ffd700;">Chord CD = ' + len2.toFixed(2) + '</span> &nbsp;|&nbsp; ' +
+          '<span style="color:#00ff88;">d\u2081 = ' + d1.toFixed(2) + '</span> &nbsp;|&nbsp; ' +
+          '<span style="color:#ffd700;">d\u2082 = ' + d2.toFixed(2) + '</span>' +
+          (isEqual ? ' &nbsp;<span style="color:#00ff88; font-weight:700;">\u2705 Chords equal \u2192 distances equal!</span>' : '') +
+          (!isEqual && len1 > len2 ? ' &nbsp;<span style="color:#94a3b8;">Longer chord is closer to centre</span>' : '') +
+          (!isEqual && len2 > len1 ? ' &nbsp;<span style="color:#94a3b8;">Longer chord is closer to centre</span>' : '');
+      }
+      A1.on('drag', updateReadout); B1.on('drag', updateReadout);
+      C1.on('drag', updateReadout); D1.on('drag', updateReadout);
+      updateReadout();
+    })();
+
+    /* ====== Viz 4: Arcs, Chords & Central Angles (Theorems 9.6-9.9) ====== */
+    (function() {
+      var el = document.getElementById('jsx-arcs-angles');
+      if (!el) return;
+      var board = JXG.JSXGraph.initBoard('jsx-arcs-angles', {
+        boundingbox: [-6.5, 6.5, 6.5, -6.5], axis: false, grid: false,
+        showNavigation: false, showCopyright: false, keepAspectRatio: true
+      });
+      board.containerObj.style.background = 'rgba(0,0,0,0.4)';
+
+      var O = board.create('point', [0, 0], {name:'O', size:4, color:'#00d4ff', fixed:true, label:{color:'#00d4ff', offset:[-15,10], fontSize:13}});
+      var R = 4.5;
+      var circ = board.create('circle', [O, R], {strokeColor:'#00d4ff', strokeWidth:2, fixed:true, highlight:false});
+
+      // Chord 1: A-B (green)
+      var A = board.create('glider', [R*Math.cos(2.2), R*Math.sin(2.2), circ], {name:'A', size:5, color:'#00ff88', label:{color:'#00ff88', offset:[-15,5], fontSize:13}});
+      var B = board.create('glider', [R*Math.cos(1.0), R*Math.sin(1.0), circ], {name:'B', size:5, color:'#00ff88', label:{color:'#00ff88', offset:[8,5], fontSize:13}});
+      board.create('segment', [A, B], {strokeColor:'#00ff88', strokeWidth:2.5, highlight:false});
+
+      // Chord 2: C-D (gold)
+      var C = board.create('glider', [R*Math.cos(-0.5), R*Math.sin(-0.5), circ], {name:'C', size:5, color:'#ffd700', label:{color:'#ffd700', offset:[8,-10], fontSize:13}});
+      var D = board.create('glider', [R*Math.cos(-1.7), R*Math.sin(-1.7), circ], {name:'D', size:5, color:'#ffd700', label:{color:'#ffd700', offset:[-15,-10], fontSize:13}});
+      board.create('segment', [C, D], {strokeColor:'#ffd700', strokeWidth:2.5, highlight:false});
+
+      // Radii for central angles
+      board.create('segment', [O, A], {strokeColor:'rgba(0,255,136,0.3)', strokeWidth:1, dash:3, highlight:false});
+      board.create('segment', [O, B], {strokeColor:'rgba(0,255,136,0.3)', strokeWidth:1, dash:3, highlight:false});
+      board.create('segment', [O, C], {strokeColor:'rgba(255,215,0,0.3)', strokeWidth:1, dash:3, highlight:false});
+      board.create('segment', [O, D], {strokeColor:'rgba(255,215,0,0.3)', strokeWidth:1, dash:3, highlight:false});
+
+      // Arcs (highlighted)
+      board.create('arc', [O, A, B], {strokeColor:'#00ff88', strokeWidth:5, highlight:false, fixed:true});
+      board.create('arc', [O, C, D], {strokeColor:'#ffd700', strokeWidth:5, highlight:false, fixed:true});
+
+      // Central angle arcs
+      board.create('angle', [A, O, B], {radius:0.8, color:'rgba(0,255,136,0.2)', strokeColor:'#00ff88', name:'', withLabel:false});
+      board.create('angle', [C, O, D], {radius:1.1, color:'rgba(255,215,0,0.2)', strokeColor:'#ffd700', name:'', withLabel:false});
+
+      function centralAngle(P1, P2) {
+        var a1 = Math.atan2(P1.Y(), P1.X());
+        var a2 = Math.atan2(P2.Y(), P2.X());
+        var diff = a1 - a2;
+        if (diff < 0) diff += 2*Math.PI;
+        if (diff > Math.PI) diff = 2*Math.PI - diff;
+        return diff;
+      }
+
+      var readout = document.getElementById('arcs-angles-readout');
+      function updateReadout() {
+        var len1 = dist(A, B), len2 = dist(C, D);
+        var ang1 = centralAngle(A, B) * R2D, ang2 = centralAngle(C, D) * R2D;
+        var arc1 = (ang1/360) * 2 * Math.PI * R, arc2 = (ang2/360) * 2 * Math.PI * R;
+        var chordsEqual = Math.abs(len1 - len2) < 0.3;
+        readout.innerHTML =
+          '<div style="display:flex; flex-wrap:wrap; gap:4px 16px; font-size:0.9rem;">' +
+            '<span style="color:#00ff88;">AB = ' + len1.toFixed(2) + ', \u2220AOB = ' + ang1.toFixed(1) + '\u00B0, arc = ' + arc1.toFixed(2) + '</span>' +
+            '<span style="color:#ffd700;">CD = ' + len2.toFixed(2) + ', \u2220COD = ' + ang2.toFixed(1) + '\u00B0, arc = ' + arc2.toFixed(2) + '</span>' +
+          '</div>' +
+          (chordsEqual ? '<div style="margin-top:4px; color:#00ff88; font-weight:700;">\u2705 Equal chords \u2192 equal central angles \u2192 equal arcs!</div>' : '');
+      }
+      A.on('drag', updateReadout); B.on('drag', updateReadout);
+      C.on('drag', updateReadout); D.on('drag', updateReadout);
+      updateReadout();
+    })();
+
+    /* ====== Viz 5: Arc Length & Chord Length Explorer ====== */
+    (function() {
+      var el = document.getElementById('jsx-arc-length');
+      if (!el) return;
+      var board = JXG.JSXGraph.initBoard('jsx-arc-length', {
+        boundingbox: [-7, 7, 7, -7], axis: false, grid: false,
+        showNavigation: false, showCopyright: false, keepAspectRatio: true
+      });
+      board.containerObj.style.background = 'rgba(0,0,0,0.4)';
+
+      var O = board.create('point', [0, 0], {name:'O', size:4, color:'#00d4ff', fixed:true, label:{color:'#00d4ff', offset:[-15,10], fontSize:13}});
+      var R = 5;
+      var circ = board.create('circle', [O, R], {strokeColor:'#00d4ff', strokeWidth:2, fixed:true, highlight:false});
+
+      // Fixed point A at 0 degrees
+      var A = board.create('point', [R, 0], {name:'A', size:5, color:'#00ff88', fixed:true, label:{color:'#00ff88', offset:[8,-10], fontSize:13}});
+
+      // Draggable point B on circle
+      var B = board.create('glider', [R*Math.cos(1.2), R*Math.sin(1.2), circ], {name:'B', size:5, color:'#ffd700', label:{color:'#ffd700', offset:[8,8], fontSize:13}});
+
+      // Radii
+      board.create('segment', [O, A], {strokeColor:'#94a3b8', strokeWidth:1.5, highlight:false});
+      board.create('segment', [O, B], {strokeColor:'#94a3b8', strokeWidth:1.5, highlight:false});
+
+      // Chord (straight line A to B)
+      board.create('segment', [A, B], {strokeColor:'#ff006e', strokeWidth:2.5, highlight:false});
+
+      // Arc from A to B (highlighted)
+      board.create('arc', [O, A, B], {strokeColor:'#ffd700', strokeWidth:4, highlight:false, fixed:true});
+
+      // Central angle arc indicator
+      board.create('angle', [A, O, B], {radius:1, color:'rgba(0,212,255,0.15)', strokeColor:'#00d4ff', name:'', withLabel:false});
+
+      // Labels
+      board.create('text', [function(){return (A.X()+B.X())/2;}, function(){return (A.Y()+B.Y())/2-0.4;}, function(){
+        return 'chord';
+      }], {color:'#ff006e', fontSize:11, fixed:true});
+
+      // θ label
+      board.create('text', [function(){
+        var a = Math.atan2(B.Y(), B.X()); if(a<0) a+=2*Math.PI;
+        return 1.5*Math.cos(a/2);
+      }, function(){
+        var a = Math.atan2(B.Y(), B.X()); if(a<0) a+=2*Math.PI;
+        return 1.5*Math.sin(a/2);
+      }, '\u03B8'], {color:'#00d4ff', fontSize:14, fixed:true});
+
+      var readout = document.getElementById('arc-length-readout');
+      function updateReadout() {
+        var angle = Math.atan2(B.Y(), B.X());
+        if (angle < 0) angle += 2*Math.PI;
+        var deg = angle * R2D;
+        var arcLen = (deg/360) * 2 * Math.PI * R;
+        var chordLen = 2 * R * Math.sin(angle/2);
+        var perimSeg = arcLen + chordLen;
+        readout.innerHTML =
+          '<div style="display:flex; flex-wrap:wrap; gap:6px 18px; font-size:0.9rem;">' +
+            '<span style="color:#00d4ff;">\u03B8 = ' + deg.toFixed(1) + '\u00B0</span>' +
+            '<span style="color:#ffd700;">Arc = (\u03B8/360)\u00D72\u03C0r = ' + arcLen.toFixed(2) + '</span>' +
+            '<span style="color:#ff006e;">Chord = 2r\u00B7sin(\u03B8/2) = ' + chordLen.toFixed(2) + '</span>' +
+            '<span style="color:#94a3b8;">Segment perimeter = ' + perimSeg.toFixed(2) + '</span>' +
+          '</div>';
+      }
+      B.on('drag', updateReadout);
+      updateReadout();
+    })();
+
+    /* ====== Viz 6: Sector & Segment Area ====== */
+    (function() {
+      var el = document.getElementById('jsx-sector-area');
+      if (!el) return;
+      var board = JXG.JSXGraph.initBoard('jsx-sector-area', {
+        boundingbox: [-7, 7, 7, -7], axis: false, grid: false,
+        showNavigation: false, showCopyright: false, keepAspectRatio: true
+      });
+      board.containerObj.style.background = 'rgba(0,0,0,0.4)';
+
+      var O = board.create('point', [0, 0], {name:'O', size:4, color:'#00d4ff', fixed:true, label:{color:'#00d4ff', offset:[-15,10], fontSize:13}});
+      var R = 5;
+      var circ = board.create('circle', [O, R], {strokeColor:'#00d4ff', strokeWidth:2, fixed:true, highlight:false});
+
+      var A = board.create('point', [R, 0], {name:'A', size:5, color:'#00ff88', fixed:true, label:{color:'#00ff88', offset:[8,-10], fontSize:13}});
+      var B = board.create('glider', [R*Math.cos(1.4), R*Math.sin(1.4), circ], {name:'B', size:5, color:'#ffd700', label:{color:'#ffd700', offset:[8,8], fontSize:13}});
+
+      // Radii
+      board.create('segment', [O, A], {strokeColor:'#94a3b8', strokeWidth:1.5, highlight:false});
+      board.create('segment', [O, B], {strokeColor:'#94a3b8', strokeWidth:1.5, highlight:false});
+
+      // Sector fill (parametric curve from A through arc to O)
+      board.create('curve', [
+        function(t) {
+          var ang = Math.atan2(B.Y(), B.X()); if(ang<0) ang+=2*Math.PI;
+          if (t <= ang) return R * Math.cos(t);
+          return 0; // back to origin
+        },
+        function(t) {
+          var ang = Math.atan2(B.Y(), B.X()); if(ang<0) ang+=2*Math.PI;
+          if (t <= ang) return R * Math.sin(t);
+          return 0;
+        },
+        0, function() { var a=Math.atan2(B.Y(),B.X()); if(a<0) a+=2*Math.PI; return a+0.01; }
+      ], {strokeWidth:0, fillColor:'rgba(168,85,247,0.15)', fillOpacity:1, highlight:false});
+
+      // Segment fill (area between chord and arc) using polygon
+      var segPoly = board.create('curve', [
+        function(t) {
+          var ang = Math.atan2(B.Y(), B.X()); if(ang<0) ang+=2*Math.PI;
+          var steps = 40;
+          var arcPart = steps; // first 40 steps = arc
+          if (t <= arcPart) {
+            var frac = t / arcPart;
+            return R * Math.cos(frac * ang);
+          }
+          // step 41 = back along chord
+          var frac2 = (t - arcPart) / 2;
+          return B.X() + frac2 * (R - B.X());
+        },
+        function(t) {
+          var ang = Math.atan2(B.Y(), B.X()); if(ang<0) ang+=2*Math.PI;
+          var steps = 40;
+          if (t <= steps) {
+            var frac = t / steps;
+            return R * Math.sin(frac * ang);
+          }
+          var frac2 = (t - steps) / 2;
+          return B.Y() + frac2 * (0 - B.Y());
+        },
+        0, 42
+      ], {strokeWidth:0, fillColor:'rgba(255,215,0,0.12)', fillOpacity:1, highlight:false});
+
+      // Arc highlight
+      board.create('arc', [O, A, B], {strokeColor:'#a855f7', strokeWidth:4, highlight:false, fixed:true});
+
+      // Chord
+      board.create('segment', [A, B], {strokeColor:'#ffd700', strokeWidth:2, highlight:false});
+
+      // Central angle indicator
+      board.create('angle', [A, O, B], {radius:1, color:'rgba(0,212,255,0.15)', strokeColor:'#00d4ff', name:'', withLabel:false});
+
+      // Legend
+      board.create('text', [-6.5, -5.5, '<span style="color:#a855f7;">\u25A0 Sector</span> &nbsp; <span style="color:#ffd700;">\u25A0 Segment</span>'], {
+        fontSize: 10, fixed: true, highlight: false
+      });
+
+      var readout = document.getElementById('sector-area-readout');
+      function updateReadout() {
+        var angle = Math.atan2(B.Y(), B.X());
+        if (angle < 0) angle += 2*Math.PI;
+        var deg = angle * R2D;
+        var sectorArea = (deg/360) * Math.PI * R * R;
+        var triangleArea = 0.5 * R * R * Math.sin(angle);
+        var segmentArea = sectorArea - triangleArea;
+        readout.innerHTML =
+          '<div style="display:flex; flex-wrap:wrap; gap:6px 18px; font-size:0.9rem;">' +
+            '<span style="color:#00d4ff;">\u03B8 = ' + deg.toFixed(1) + '\u00B0</span>' +
+            '<span style="color:#a855f7;">Sector = (\u03B8/360)\u03C0r\u00B2 = ' + sectorArea.toFixed(2) + '</span>' +
+            '<span style="color:#cbd5e1;">Triangle = \u00BDr\u00B2sin\u03B8 = ' + triangleArea.toFixed(2) + '</span>' +
+            '<span style="color:#ffd700;">Segment = ' + segmentArea.toFixed(2) + '</span>' +
+          '</div>';
+      }
+      B.on('drag', updateReadout);
+      updateReadout();
+    })();
+
+    /* ====== Viz 7: Intersecting Chords Theorem (Reworked) ====== */
+    (function() {
+      var el = document.getElementById('jsx-chords');
+      if (!el) return;
       var board = JXG.JSXGraph.initBoard('jsx-chords', {
         boundingbox: [-6, 6, 6, -6], axis: false, grid: false,
         showNavigation: false, showCopyright: false, keepAspectRatio: true
       });
       board.containerObj.style.background = 'rgba(0,0,0,0.4)';
 
-      // Circle
-      var center = board.create('point', [0, 0], {name:'O', size:3, color:'#00d4ff', label:{color:'#00d4ff', offset:[-15,-10], fontSize:13}});
+      var center = board.create('point', [0, 0], {name:'O', size:3, color:'#00d4ff', fixed:true, label:{color:'#00d4ff', offset:[-15,-10], fontSize:13}});
       var circ = board.create('circle', [center, 4], {strokeColor:'#00d4ff', strokeWidth:2, fixed:true, highlight:false});
 
-      // Chord 1 endpoints on circle
-      var A = board.create('glider', [-3.5, 1.94, circ], {name:'A', size:4, color:'#00ff88', label:{color:'#00ff88', offset:[-15,5], fontSize:13}});
-      var B = board.create('glider', [3.2, 2.4, circ], {name:'B', size:4, color:'#00ff88', label:{color:'#00ff88', offset:[5,5], fontSize:13}});
-
-      // Chord 2 endpoints on circle
+      var A = board.create('glider', [-3.8, 1.25, circ], {name:'A', size:4, color:'#00ff88', label:{color:'#00ff88', offset:[-15,5], fontSize:13}});
+      var B = board.create('glider', [3.5, 1.94, circ], {name:'B', size:4, color:'#00ff88', label:{color:'#00ff88', offset:[5,5], fontSize:13}});
       var C = board.create('glider', [-2, -3.46, circ], {name:'C', size:4, color:'#ffd700', label:{color:'#ffd700', offset:[-15,-10], fontSize:13}});
-      var D = board.create('glider', [2.5, -3.12, circ], {name:'D', size:4, color:'#ffd700', label:{color:'#ffd700', offset:[5,-10], fontSize:13}});
+      var D = board.create('glider', [3.2, -2.33, circ], {name:'D', size:4, color:'#ffd700', label:{color:'#ffd700', offset:[5,-10], fontSize:13}});
 
-      // Draw chords
-      var chord1 = board.create('line', [A, B], {strokeColor:'#00ff88', strokeWidth:2, straightFirst:false, straightLast:false});
-      var chord2 = board.create('line', [C, D], {strokeColor:'#ffd700', strokeWidth:2, straightFirst:false, straightLast:false});
+      // Draw chords as segments (not lines!)
+      var seg1 = board.create('segment', [A, B], {strokeColor:'#00ff88', strokeWidth:2, highlight:false});
+      var seg2 = board.create('segment', [C, D], {strokeColor:'#ffd700', strokeWidth:2, highlight:false});
 
-      // Intersection point
-      var intPt = board.create('intersection', [chord1, chord2, 0], {
+      // Need lines for intersection calculation
+      var line1 = board.create('line', [A, B], {visible:false});
+      var line2 = board.create('line', [C, D], {visible:false});
+      var intPt = board.create('intersection', [line1, line2, 0], {
         name:'X', size:5, color:'#ff006e',
         label:{color:'#ff006e', offset:[8,8], fontSize:14}
       });
 
-      // Segment labels
-      board.create('text', [function(){return (A.X()+intPt.X())/2-0.3;}, function(){return (A.Y()+intPt.Y())/2+0.3;}, function(){
-        return 'AX=' + A.Dist(intPt).toFixed(2);
-      }], {color:'#00ff88', fontSize:11, fixed:true});
+      // Segment length labels
+      board.create('text', [function(){return (A.X()+intPt.X())/2-0.4;}, function(){return (A.Y()+intPt.Y())/2+0.3;}, function(){
+        return 'AX=' + dist(A, intPt).toFixed(2);
+      }], {color:'#00ff88', fontSize:10, fixed:true});
+      board.create('text', [function(){return (B.X()+intPt.X())/2+0.15;}, function(){return (B.Y()+intPt.Y())/2+0.3;}, function(){
+        return 'XB=' + dist(intPt, B).toFixed(2);
+      }], {color:'#00ff88', fontSize:10, fixed:true});
+      board.create('text', [function(){return (C.X()+intPt.X())/2-0.4;}, function(){return (C.Y()+intPt.Y())/2-0.3;}, function(){
+        return 'CX=' + dist(C, intPt).toFixed(2);
+      }], {color:'#ffd700', fontSize:10, fixed:true});
+      board.create('text', [function(){return (D.X()+intPt.X())/2+0.15;}, function(){return (D.Y()+intPt.Y())/2-0.3;}, function(){
+        return 'XD=' + dist(intPt, D).toFixed(2);
+      }], {color:'#ffd700', fontSize:10, fixed:true});
 
-      board.create('text', [function(){return (B.X()+intPt.X())/2+0.1;}, function(){return (B.Y()+intPt.Y())/2+0.3;}, function(){
-        return 'XB=' + intPt.Dist(B).toFixed(2);
-      }], {color:'#00ff88', fontSize:11, fixed:true});
-
-      board.create('text', [function(){return (C.X()+intPt.X())/2-0.3;}, function(){return (C.Y()+intPt.Y())/2-0.3;}, function(){
-        return 'CX=' + C.Dist(intPt).toFixed(2);
-      }], {color:'#ffd700', fontSize:11, fixed:true});
-
-      board.create('text', [function(){return (D.X()+intPt.X())/2+0.1;}, function(){return (D.Y()+intPt.Y())/2-0.3;}, function(){
-        return 'XD=' + intPt.Dist(D).toFixed(2);
-      }], {color:'#ffd700', fontSize:11, fixed:true});
-
-      // Readout
       var readout = document.getElementById('chords-readout');
       function updateReadout() {
-        var ax = A.Dist(intPt), xb = intPt.Dist(B);
-        var cx = C.Dist(intPt), xd = intPt.Dist(D);
+        var ax = dist(A, intPt), xb = dist(intPt, B);
+        var cx = dist(C, intPt), xd = dist(intPt, D);
         var prod1 = ax * xb, prod2 = cx * xd;
-        readout.innerHTML = 'AX \u00D7 XB = ' + ax.toFixed(2) + ' \u00D7 ' + xb.toFixed(2) + ' = <strong>' + prod1.toFixed(2) + '</strong> &nbsp;|&nbsp; CX \u00D7 XD = ' + cx.toFixed(2) + ' \u00D7 ' + xd.toFixed(2) + ' = <strong>' + prod2.toFixed(2) + '</strong>' + (Math.abs(prod1 - prod2) < 0.5 ? ' &nbsp;\u2705 Equal!' : '');
+        readout.innerHTML =
+          '<span style="color:#00ff88;">AX \u00D7 XB = ' + ax.toFixed(2) + ' \u00D7 ' + xb.toFixed(2) + ' = <strong>' + prod1.toFixed(2) + '</strong></span> &nbsp;|&nbsp; ' +
+          '<span style="color:#ffd700;">CX \u00D7 XD = ' + cx.toFixed(2) + ' \u00D7 ' + xd.toFixed(2) + ' = <strong>' + prod2.toFixed(2) + '</strong></span>' +
+          (Math.abs(prod1 - prod2) < 0.5 ? ' &nbsp;<span style="color:#00ff88; font-weight:700;">\u2705 Products are equal!</span>' : '');
       }
-      A.on('drag', updateReadout);
-      B.on('drag', updateReadout);
-      C.on('drag', updateReadout);
-      D.on('drag', updateReadout);
+      A.on('drag', updateReadout); B.on('drag', updateReadout);
+      C.on('drag', updateReadout); D.on('drag', updateReadout);
+      updateReadout();
     })();
 
-    /* ====== Viz 2: Inscribed Angle Theorem ====== */
+    /* ====== Viz 8: Inscribed Angle Theorem (Reworked) ====== */
     (function() {
+      var el = document.getElementById('jsx-inscribed');
+      if (!el) return;
       var board = JXG.JSXGraph.initBoard('jsx-inscribed', {
         boundingbox: [-6, 6, 6, -6], axis: false, grid: false,
         showNavigation: false, showCopyright: false, keepAspectRatio: true
       });
       board.containerObj.style.background = 'rgba(0,0,0,0.4)';
 
-      // Circle
-      var center = board.create('point', [0, 0], {name:'O', size:3, color:'#00d4ff', label:{color:'#00d4ff', offset:[-15,10], fontSize:13}});
+      var center = board.create('point', [0, 0], {name:'O', size:3, color:'#00d4ff', fixed:true, label:{color:'#00d4ff', offset:[-15,10], fontSize:13}});
       var circ = board.create('circle', [center, 4], {strokeColor:'#00d4ff', strokeWidth:2, fixed:true, highlight:false});
 
-      // Fixed arc endpoints A and B
-      var A = board.create('glider', [-3, -2.65, circ], {name:'A', size:4, color:'#00ff88', fixed:true, label:{color:'#00ff88', offset:[-15,-10], fontSize:13}});
-      var B = board.create('glider', [3, -2.65, circ], {name:'B', size:4, color:'#00ff88', fixed:true, label:{color:'#00ff88', offset:[5,-10], fontSize:13}});
+      // Draggable arc endpoints A and B
+      var A = board.create('glider', [-3, -2.65, circ], {name:'A', size:5, color:'#00ff88', label:{color:'#00ff88', offset:[-15,-10], fontSize:13}});
+      var B = board.create('glider', [3, -2.65, circ], {name:'B', size:5, color:'#00ff88', label:{color:'#00ff88', offset:[5,-10], fontSize:13}});
 
-      // Draggable point P on major arc
+      // Draggable point P on arc
       var P = board.create('glider', [0, 4, circ], {name:'P', size:5, color:'#ff006e', label:{color:'#ff006e', offset:[8,8], fontSize:14}});
 
-      // Central angle lines
-      var lineOA = board.create('segment', [center, A], {strokeColor:'#a855f7', strokeWidth:1.5, dash:2});
-      var lineOB = board.create('segment', [center, B], {strokeColor:'#a855f7', strokeWidth:1.5, dash:2});
+      // Central angle lines (radii to A and B)
+      board.create('segment', [center, A], {strokeColor:'#a855f7', strokeWidth:1.5, dash:2, highlight:false});
+      board.create('segment', [center, B], {strokeColor:'#a855f7', strokeWidth:1.5, dash:2, highlight:false});
 
-      // Inscribed angle lines
-      var linePA = board.create('segment', [P, A], {strokeColor:'#ffd700', strokeWidth:2});
-      var linePB = board.create('segment', [P, B], {strokeColor:'#ffd700', strokeWidth:2});
+      // Inscribed angle lines (P to A and P to B)
+      board.create('segment', [P, A], {strokeColor:'#ffd700', strokeWidth:2, highlight:false});
+      board.create('segment', [P, B], {strokeColor:'#ffd700', strokeWidth:2, highlight:false});
 
-      // Arc highlight (minor arc AB)
+      // Minor arc highlight
       board.create('arc', [center, B, A], {strokeColor:'#00ff88', strokeWidth:4, highlight:false});
 
-      // Central angle arc indicator
-      var centralAngle = board.create('angle', [A, center, B], {
-        radius:0.8, color:'rgba(168,85,247,0.3)', strokeColor:'#a855f7', name:'', withLabel:false
-      });
+      // Central angle arc
+      board.create('angle', [A, center, B], {radius:0.8, color:'rgba(168,85,247,0.25)', strokeColor:'#a855f7', name:'', withLabel:false});
 
-      // Inscribed angle arc indicator
-      var inscribedAngle = board.create('angle', [A, P, B], {
-        radius:0.6, color:'rgba(255,215,0,0.3)', strokeColor:'#ffd700', name:'', withLabel:false
-      });
+      // Inscribed angle arc
+      board.create('angle', [A, P, B], {radius:0.6, color:'rgba(255,215,0,0.25)', strokeColor:'#ffd700', name:'', withLabel:false});
 
-      // Labels for angles
-      board.create('text', [function(){return center.X()-0.2;}, function(){return center.Y()-1.5;}, function(){
-        var angA = Math.atan2(A.Y(), A.X());
-        var angB = Math.atan2(B.Y(), B.X());
-        var central = angB - angA;
-        if(central < 0) central += 2*Math.PI;
-        // Reflex check: we want the minor arc angle
-        if(central > Math.PI) central = 2*Math.PI - central;
-        return 'Central: ' + (central*180/Math.PI).toFixed(1) + '\u00B0';
+      // Angle value labels on diagram
+      board.create('text', [function(){return -0.3;}, function(){return -1.3;}, function(){
+        var angA = Math.atan2(A.Y(), A.X()), angB = Math.atan2(B.Y(), B.X());
+        var c = angB - angA; if(c<0) c+=2*Math.PI; if(c>Math.PI) c=2*Math.PI-c;
+        return (c*R2D).toFixed(1) + '\u00B0';
       }], {color:'#a855f7', fontSize:12, fixed:true});
 
-      // Readout
+      board.create('text', [function(){return P.X()>0 ? P.X()-1.5 : P.X()+0.5;}, function(){return P.Y()-0.5;}, function(){
+        var vax=A.X()-P.X(), vay=A.Y()-P.Y(), vbx=B.X()-P.X(), vby=B.Y()-P.Y();
+        var dot=vax*vbx+vay*vby, mA=Math.sqrt(vax*vax+vay*vay), mB=Math.sqrt(vbx*vbx+vby*vby);
+        var ins = Math.acos(Math.max(-1,Math.min(1,dot/(mA*mB))))*R2D;
+        return ins.toFixed(1) + '\u00B0';
+      }], {color:'#ffd700', fontSize:12, fixed:true});
+
       var readout = document.getElementById('inscribed-readout');
       function updateReadout() {
-        // Compute central angle (minor arc AB)
-        var angA = Math.atan2(A.Y(), A.X());
-        var angB = Math.atan2(B.Y(), B.X());
-        var central = angB - angA;
-        if(central < 0) central += 2*Math.PI;
-        if(central > Math.PI) central = 2*Math.PI - central;
-        var centralDeg = central * 180 / Math.PI;
-
-        // Compute inscribed angle at P
-        var vax = A.X()-P.X(), vay = A.Y()-P.Y();
-        var vbx = B.X()-P.X(), vby = B.Y()-P.Y();
-        var dot = vax*vbx + vay*vby;
-        var magA = Math.sqrt(vax*vax+vay*vay);
-        var magB = Math.sqrt(vbx*vbx+vby*vby);
-        var inscribed = Math.acos(Math.max(-1, Math.min(1, dot/(magA*magB)))) * 180/Math.PI;
-
-        readout.innerHTML = 'Central angle = <strong>' + centralDeg.toFixed(1) + '\u00B0</strong> &nbsp;|&nbsp; Inscribed angle at P = <strong>' + inscribed.toFixed(1) + '\u00B0</strong> &nbsp;|&nbsp; Ratio: ' + (centralDeg/inscribed).toFixed(2) + ' \u2248 2.00';
+        var angA = Math.atan2(A.Y(), A.X()), angB = Math.atan2(B.Y(), B.X());
+        var c = angB - angA; if(c<0) c+=2*Math.PI; if(c>Math.PI) c=2*Math.PI-c;
+        var centralDeg = c * R2D;
+        var vax=A.X()-P.X(), vay=A.Y()-P.Y(), vbx=B.X()-P.X(), vby=B.Y()-P.Y();
+        var dot=vax*vbx+vay*vby, mA=Math.sqrt(vax*vax+vay*vay), mB=Math.sqrt(vbx*vbx+vby*vby);
+        var inscribedDeg = Math.acos(Math.max(-1,Math.min(1,dot/(mA*mB))))*R2D;
+        var ratio = inscribedDeg > 0.1 ? (centralDeg/inscribedDeg).toFixed(2) : '--';
+        readout.innerHTML =
+          '<span style="color:#a855f7;">Central \u2220AOB = <strong>' + centralDeg.toFixed(1) + '\u00B0</strong></span> &nbsp;|&nbsp; ' +
+          '<span style="color:#ffd700;">Inscribed \u2220APB = <strong>' + inscribedDeg.toFixed(1) + '\u00B0</strong></span> &nbsp;|&nbsp; ' +
+          '<span style="color:#cbd5e1;">Ratio = ' + ratio + '</span>' +
+          (Math.abs(parseFloat(ratio) - 2.0) < 0.1 ? ' &nbsp;<span style="color:#00ff88; font-weight:700;">\u2705 Central = 2 \u00D7 Inscribed!</span>' : '');
       }
       P.on('drag', updateReadout);
+      A.on('drag', updateReadout);
+      B.on('drag', updateReadout);
+      updateReadout();
     })();
 
   });

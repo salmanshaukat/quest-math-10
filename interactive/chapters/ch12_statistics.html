@@ -224,6 +224,17 @@
             <div class="tip-box">
               <strong>Key Difference:</strong> An ogive is a smooth curve; a cumulative frequency polygon is made of straight-line segments.
             </div>
+            <div class="viz-section" style="margin-top:var(--space-lg);">
+              <h4>Interactive: Histogram &amp; Ogive Builder</h4>
+              <p>Choose a dataset. The histogram shows frequencies; the <strong>ogive</strong> (cumulative frequency curve) overlays in gold.</p>
+              <div style="margin-bottom: 12px;">
+                <button class="btn btn-primary jsx-dataset-btn" data-set="cricket" style="margin:4px;">Cricket Scores</button>
+                <button class="btn btn-primary jsx-dataset-btn" data-set="exams" style="margin:4px;">Exam Marks</button>
+                <button class="btn btn-primary jsx-dataset-btn" data-set="heights" style="margin:4px;">Student Heights</button>
+              </div>
+              <div id="jsx-histogram" class="jsx-container" style="height: 400px;"></div>
+              <div class="jsx-readout" id="histogram-readout">Select a dataset above to build a histogram.</div>
+            </div>
           </div>
         </div>
 
@@ -253,6 +264,12 @@
               <strong>Example:</strong> $Q_1 = 40$, $Q_2 = 70$, $Q_3 = 90$. What percentage of students scored above 90?<br>
               Answer: $Q_3 = 90$ means 75% scored below, so <strong>25%</strong> scored above 90.
             </div>
+            <div class="viz-section" style="margin-top:var(--space-lg);">
+              <h4>Interactive: Box Plot &amp; Quartiles</h4>
+              <p>Drag the data points along the number line. The box plot updates live showing Min, Q<sub>1</sub>, Median, Q<sub>3</sub>, Max, and IQR.</p>
+              <div id="jsx-boxplot" class="jsx-container" style="height: 350px;"></div>
+              <div class="jsx-readout" id="boxplot-readout"></div>
+            </div>
           </div>
         </div>
 
@@ -267,21 +284,21 @@
             <div class="diagram-container" style="min-height: 120px;">
               <svg viewBox="0 0 500 100" style="max-width: 500px; width: 100%;">
                 <!-- Whisker left -->
-                <line x1="50" y1="50" x2="130" y2="50" stroke="#64748b" stroke-width="2"/>
-                <line x1="50" y1="35" x2="50" y2="65" stroke="#64748b" stroke-width="2"/>
+                <line x1="50" y1="50" x2="130" y2="50" stroke="#94a3b8" stroke-width="2"/>
+                <line x1="50" y1="35" x2="50" y2="65" stroke="#94a3b8" stroke-width="2"/>
                 <!-- Box -->
                 <rect x="130" y="25" width="200" height="50" fill="rgba(0,212,255,0.1)" stroke="#00d4ff" stroke-width="2" rx="4"/>
                 <!-- Median -->
                 <line x1="250" y1="25" x2="250" y2="75" stroke="#ffd700" stroke-width="3"/>
                 <!-- Whisker right -->
-                <line x1="330" y1="50" x2="430" y2="50" stroke="#64748b" stroke-width="2"/>
-                <line x1="430" y1="35" x2="430" y2="65" stroke="#64748b" stroke-width="2"/>
+                <line x1="330" y1="50" x2="430" y2="50" stroke="#94a3b8" stroke-width="2"/>
+                <line x1="430" y1="35" x2="430" y2="65" stroke="#94a3b8" stroke-width="2"/>
                 <!-- Labels -->
-                <text x="50" y="85" fill="#94a3b8" font-size="10" text-anchor="middle">Min</text>
+                <text x="50" y="85" fill="#cbd5e1" font-size="10" text-anchor="middle">Min</text>
                 <text x="130" y="85" fill="#00d4ff" font-size="10" text-anchor="middle">Q1</text>
                 <text x="250" y="85" fill="#ffd700" font-size="10" text-anchor="middle">Median</text>
                 <text x="330" y="85" fill="#00d4ff" font-size="10" text-anchor="middle">Q3</text>
-                <text x="430" y="85" fill="#94a3b8" font-size="10" text-anchor="middle">Max</text>
+                <text x="430" y="85" fill="#cbd5e1" font-size="10" text-anchor="middle">Max</text>
                 <text x="230" y="18" fill="#00d4ff" font-size="10" text-anchor="middle">IQR</text>
               </svg>
             </div>
@@ -293,6 +310,12 @@
             </ul>
             <div class="warning-box">
               <strong>Note:</strong> Box plots provide a visual representation and do not quantify the correlation numerically. Use the correlation coefficient $r$ for a precise measure.
+            </div>
+            <div class="viz-section" style="margin-top:var(--space-lg);">
+              <h4>Interactive: Mean / Median / Mode Explorer</h4>
+              <p>Drag the coloured points along the number line. Watch how the mean, median, and mode change. Try dragging one point far away to see how outliers affect the mean but barely touch the median!</p>
+              <div id="jsx-measures" class="jsx-container" style="height: 350px;"></div>
+              <div class="jsx-readout" id="measures-readout"></div>
             </div>
           </div>
         </div>
@@ -325,6 +348,12 @@
               $S = \sqrt{135.9} \approx 11.6$<br>
               $\text{C.V.} = \frac{11.6}{70.9} \times 100 \approx 16.4$
             </div>
+            <div class="viz-section" style="margin-top:var(--space-lg);">
+              <h4>Interactive: Variance &amp; Standard Deviation</h4>
+              <p>Drag data points on the number line. Each point's deviation from the mean is shown as a coloured bar. Variance = average of squared deviations.</p>
+              <div id="jsx-variance" class="jsx-container" style="height: 380px;"></div>
+              <div class="jsx-readout" id="variance-readout"></div>
+            </div>
           </div>
         </div>
 
@@ -350,6 +379,12 @@
             <p>$r$ ranges from $-1$ (perfect negative) to $+1$ (perfect positive). Close to $0$ means weak or no correlation.</p>
             <div class="tip-box">
               <strong>Important:</strong> A line of best fit is not always a perfect fit. Extrapolating far beyond the data range is unreliable.
+            </div>
+            <div class="viz-section" style="margin-top:var(--space-lg);">
+              <h4>Interactive: Scatter Diagram &amp; Line of Best Fit</h4>
+              <p>Drag the data points to change the scatter pattern. The line of best fit and correlation coefficient <em>r</em> update live. Can you create positive, negative, and zero correlation?</p>
+              <div id="jsx-scatter" class="jsx-container" style="height: 420px;"></div>
+              <div class="jsx-readout" id="scatter-readout"></div>
             </div>
           </div>
         </div>
@@ -382,6 +417,18 @@
               <li><strong>Tree Diagram:</strong> Branching structure showing sequential outcomes and probabilities.</li>
               <li><strong>Venn Diagram:</strong> Overlapping circles showing set relationships.</li>
             </ul>
+            <div class="viz-section" style="margin-top:var(--space-lg);">
+              <h4>Interactive: Dice Probability Simulator</h4>
+              <p>Roll a die and watch the experimental probability converge to the theoretical value of 1/6 as the number of rolls increases.</p>
+              <div style="margin-bottom: 12px;">
+                <button class="btn btn-primary" id="dice-roll-1" style="margin:4px;">Roll 1x</button>
+                <button class="btn btn-primary" id="dice-roll-10" style="margin:4px;">Roll 10x</button>
+                <button class="btn btn-primary" id="dice-roll-100" style="margin:4px;">Roll 100x</button>
+                <button class="btn btn-ghost" id="dice-reset" style="margin:4px;">Reset</button>
+              </div>
+              <div id="jsx-dice" class="jsx-container" style="height: 380px;"></div>
+              <div class="jsx-readout" id="dice-readout">Click a button to roll the die.</div>
+            </div>
           </div>
         </div>
 
@@ -439,27 +486,6 @@
         </div>
 
       </div><!-- /reveal-group -->
-
-      <!-- JSXGraph Viz 1: Interactive Histogram Builder -->
-      <div class="viz-section">
-        <h4>Interactive: Histogram Builder</h4>
-        <p>Choose a dataset to visualise as a histogram. The mean (cyan) and median (gold) lines update automatically.</p>
-        <div style="margin-bottom: 12px;">
-          <button class="btn btn-primary jsx-dataset-btn" data-set="cricket" style="margin:4px;">Cricket Scores</button>
-          <button class="btn btn-primary jsx-dataset-btn" data-set="exams" style="margin:4px;">Exam Marks</button>
-          <button class="btn btn-primary jsx-dataset-btn" data-set="heights" style="margin:4px;">Student Heights</button>
-        </div>
-        <div id="jsx-histogram" class="jsx-container" style="height: 400px;"></div>
-        <div class="jsx-readout" id="histogram-readout">Select a dataset above to build a histogram.</div>
-      </div>
-
-      <!-- JSXGraph Viz 2: Mean/Median/Mode Explorer -->
-      <div class="viz-section">
-        <h4>Interactive: Mean / Median / Mode Explorer</h4>
-        <p>Drag the data points along the number line. Watch how the mean, median, and mode change in real time. Try dragging one point far away to see how outliers affect the mean but barely touch the median!</p>
-        <div id="jsx-measures" class="jsx-container" style="height: 400px;"></div>
-        <div class="jsx-readout" id="measures-readout">Drag the coloured points to explore.</div>
-      </div>
 
     </div>
 
@@ -667,281 +693,557 @@
 
   <!-- JSXGraph Visualizations -->
   <script>
-  (function() {
+  document.addEventListener('DOMContentLoaded', function() {
 
-    // ===== VIZ 1: Interactive Histogram Builder =====
-    var boardHist = JXG.JSXGraph.initBoard('jsx-histogram', {
-      boundingbox: [-1, 22, 11, -3], axis: false, grid: false,
-      showNavigation: false, showCopyright: false, keepAspectRatio: false
-    });
-    boardHist.containerObj.style.background = 'rgba(0,0,0,0.4)';
+    /* ====== Viz 1: Histogram & Ogive Builder ====== */
+    (function() {
+      var el = document.getElementById('jsx-histogram');
+      if (!el) return;
+      var board = JXG.JSXGraph.initBoard('jsx-histogram', {
+        boundingbox: [-1.5, 22, 11.5, -3], axis: false, grid: false,
+        showNavigation: false, showCopyright: false, keepAspectRatio: false
+      });
+      board.containerObj.style.background = 'rgba(0,0,0,0.4)';
 
-    var datasets = {
-      cricket: {
-        label: 'Cricket Scores',
-        classes: ['0-20', '20-40', '40-60', '60-80', '80-100'],
-        freq: [2, 5, 8, 12, 3],
-        boundaries: [0, 20, 40, 60, 80, 100],
-        midpoints: [10, 30, 50, 70, 90]
-      },
-      exams: {
-        label: 'Exam Marks',
-        classes: ['0-20', '20-40', '40-60', '60-80', '80-100'],
-        freq: [1, 4, 10, 9, 6],
-        boundaries: [0, 20, 40, 60, 80, 100],
-        midpoints: [10, 30, 50, 70, 90]
-      },
-      heights: {
-        label: 'Student Heights (cm)',
-        classes: ['140-150', '150-160', '160-170', '170-180', '180-190'],
-        freq: [3, 7, 12, 6, 2],
-        boundaries: [140, 150, 160, 170, 180, 190],
-        midpoints: [145, 155, 165, 175, 185]
+      var datasets = {
+        cricket: {
+          label: 'Cricket Scores', classes: ['0-20','20-40','40-60','60-80','80-100'],
+          freq: [2,5,8,12,3], boundaries: [0,20,40,60,80,100], midpoints: [10,30,50,70,90]
+        },
+        exams: {
+          label: 'Exam Marks', classes: ['0-20','20-40','40-60','60-80','80-100'],
+          freq: [1,4,10,9,6], boundaries: [0,20,40,60,80,100], midpoints: [10,30,50,70,90]
+        },
+        heights: {
+          label: 'Student Heights (cm)', classes: ['140-150','150-160','160-170','170-180','180-190'],
+          freq: [3,7,12,6,2], boundaries: [140,150,160,170,180,190], midpoints: [145,155,165,175,185]
+        }
+      };
+
+      var elems = [];
+      var readout = document.getElementById('histogram-readout');
+
+      function drawHistogram(key) {
+        for (var i = elems.length - 1; i >= 0; i--) { try { board.removeObject(elems[i]); } catch(e) {} }
+        elems = [];
+        var ds = datasets[key], freq = ds.freq, n = freq.length;
+        var total = freq.reduce(function(a,b){return a+b;}, 0);
+
+        // Statistics
+        var sumFx = 0;
+        for (var i = 0; i < n; i++) sumFx += freq[i] * ds.midpoints[i];
+        var mean = sumFx / total;
+
+        // Cumulative frequencies
+        var cumFreq = [], cum = 0;
+        for (var i = 0; i < n; i++) { cum += freq[i]; cumFreq.push(cum); }
+
+        // Median
+        var medianClass = 0;
+        for (var i = 0; i < n; i++) { if (cumFreq[i] >= total / 2) { medianClass = i; break; } }
+        var L = ds.boundaries[medianClass];
+        var F = medianClass > 0 ? cumFreq[medianClass - 1] : 0;
+        var fm = freq[medianClass], h = ds.boundaries[1] - ds.boundaries[0];
+        var median = L + ((total / 2 - F) / fm) * h;
+
+        // Mode class
+        var maxFreq = 0, modeIdx = 0;
+        for (var i = 0; i < n; i++) { if (freq[i] > maxFreq) { maxFreq = freq[i]; modeIdx = i; } }
+
+        var bMin = ds.boundaries[0], bMax = ds.boundaries[n];
+        var maxF = Math.max.apply(null, freq);
+        function scaleX(v) { return (v - bMin) / (bMax - bMin) * 10; }
+
+        // Axes
+        elems.push(board.create('segment', [[0,0],[10,0]], {strokeColor:'#94a3b8', strokeWidth:1, fixed:true}));
+        elems.push(board.create('segment', [[0,0],[0,maxF+4]], {strokeColor:'#94a3b8', strokeWidth:1, fixed:true}));
+
+        // X-axis labels
+        for (var i = 0; i <= n; i++) {
+          elems.push(board.create('text', [scaleX(ds.boundaries[i]), -1.2, String(ds.boundaries[i])], {
+            fontSize:10, color:'#cbd5e1', anchorX:'middle', fixed:true
+          }));
+        }
+        // Y-axis labels (frequency)
+        for (var y = 0; y <= maxF + 1; y += 2) {
+          elems.push(board.create('text', [-0.7, y, String(y)], {fontSize:10, color:'#cbd5e1', anchorX:'middle', fixed:true}));
+        }
+
+        // Bars
+        var colors = ['#a855f7','#00d4ff','#00ff88','#ffd700','#ff006e'];
+        for (var i = 0; i < n; i++) {
+          var x1 = scaleX(ds.boundaries[i]), x2 = scaleX(ds.boundaries[i+1]);
+          elems.push(board.create('polygon', [[x1,0],[x2,0],[x2,freq[i]],[x1,freq[i]]], {
+            fillColor:colors[i%colors.length], fillOpacity:0.5,
+            borders:{strokeColor:colors[i%colors.length], strokeWidth:2},
+            vertices:{visible:false}, hasInnerPoints:false, fixed:true
+          }));
+          elems.push(board.create('text', [(x1+x2)/2, freq[i]+0.5, String(freq[i])], {
+            fontSize:12, color:'#ffffff', anchorX:'middle', fixed:true
+          }));
+        }
+
+        // Ogive (cumulative frequency polygon) — scaled to fit
+        var oScale = (maxF + 2) / total;
+        var ogivePoints = [[scaleX(ds.boundaries[0]), 0]];
+        for (var i = 0; i < n; i++) ogivePoints.push([scaleX(ds.boundaries[i+1]), cumFreq[i] * oScale]);
+        for (var i = 0; i < ogivePoints.length - 1; i++) {
+          elems.push(board.create('segment', [ogivePoints[i], ogivePoints[i+1]], {
+            strokeColor:'#ffd700', strokeWidth:2.5, highlight:false
+          }));
+        }
+        for (var i = 0; i < ogivePoints.length; i++) {
+          elems.push(board.create('point', ogivePoints[i], {size:3, color:'#ffd700', fixed:true, name:'', withLabel:false}));
+        }
+        // Ogive y-axis labels (right side)
+        elems.push(board.create('text', [10.6, 0, '0'], {fontSize:9, color:'#ffd700', fixed:true}));
+        for (var i = 0; i < n; i++) {
+          elems.push(board.create('text', [10.6, cumFreq[i]*oScale, String(cumFreq[i])], {fontSize:9, color:'#ffd700', fixed:true}));
+        }
+        elems.push(board.create('text', [10.3, maxF+3.5, 'Cum.f'], {fontSize:9, color:'#ffd700', fixed:true}));
+
+        // Mean line
+        var meanX = scaleX(mean);
+        elems.push(board.create('segment', [[meanX,0],[meanX,maxF+1]], {strokeColor:'#00d4ff', strokeWidth:2, dash:2, fixed:true}));
+        elems.push(board.create('text', [meanX, maxF+1.5, 'Mean'], {fontSize:11, color:'#00d4ff', anchorX:'middle', fixed:true}));
+
+        // Median line
+        var medianX = scaleX(median);
+        elems.push(board.create('segment', [[medianX,0],[medianX,maxF+1]], {strokeColor:'#ff006e', strokeWidth:2, dash:2, fixed:true}));
+        elems.push(board.create('text', [medianX, maxF+2, 'Median'], {fontSize:11, color:'#ff006e', anchorX:'middle', fixed:true}));
+
+        // Legend
+        elems.push(board.create('text', [0.5, maxF+3.5, '<span style="color:#ffd700;">\u2500 Ogive</span> &nbsp; <span style="color:#00d4ff;">| Mean</span> &nbsp; <span style="color:#ff006e;">| Median</span>'], {fontSize:9, fixed:true}));
+
+        readout.innerHTML = '<strong>'+ds.label+'</strong> &mdash; '+
+          '<span style="color:#00d4ff;">Mean: '+mean.toFixed(1)+'</span> | '+
+          '<span style="color:#ff006e;">Median: '+median.toFixed(1)+'</span> | '+
+          'Mode class: '+ds.classes[modeIdx]+' | Total: '+total;
       }
-    };
 
-    var histElements = [];
-    var histReadout = document.getElementById('histogram-readout');
-
-    function drawHistogram(key) {
-      // Clear previous
-      for (var i = histElements.length - 1; i >= 0; i--) {
-        try { boardHist.removeObject(histElements[i]); } catch(e) {}
-      }
-      histElements = [];
-
-      var ds = datasets[key];
-      var freq = ds.freq;
-      var n = freq.length;
-      var total = freq.reduce(function(a, b) { return a + b; }, 0);
-
-      // Compute statistics from midpoints
-      var sumFx = 0, sumF = 0;
-      for (var i = 0; i < n; i++) { sumFx += freq[i] * ds.midpoints[i]; sumF += freq[i]; }
-      var mean = sumFx / sumF;
-
-      // Median from cumulative frequency
-      var cumFreq = [];
-      var cum = 0;
-      for (var i = 0; i < n; i++) { cum += freq[i]; cumFreq.push(cum); }
-      var medianClass = 0;
-      for (var i = 0; i < n; i++) { if (cumFreq[i] >= total / 2) { medianClass = i; break; } }
-      var L = ds.boundaries[medianClass];
-      var F = medianClass > 0 ? cumFreq[medianClass - 1] : 0;
-      var fm = freq[medianClass];
-      var h = ds.boundaries[1] - ds.boundaries[0];
-      var median = L + ((total / 2 - F) / fm) * h;
-
-      // Mode: class with highest frequency
-      var maxFreq = 0, modeIdx = 0;
-      for (var i = 0; i < n; i++) { if (freq[i] > maxFreq) { maxFreq = freq[i]; modeIdx = i; } }
-      var mode = ds.midpoints[modeIdx];
-
-      // Scale: map boundaries to 0-10 x-range, freq to y
-      var bMin = ds.boundaries[0], bMax = ds.boundaries[n];
-      var maxF = Math.max.apply(null, freq);
-
-      function scaleX(v) { return (v - bMin) / (bMax - bMin) * 10; }
-      function scaleY(v) { return v; }
-
-      // Draw x-axis
-      var xAxis = boardHist.create('segment', [[0, 0], [10, 0]], {strokeColor: '#64748b', strokeWidth: 1, fixed: true});
-      histElements.push(xAxis);
-      // Draw y-axis
-      var yAxis = boardHist.create('segment', [[0, 0], [0, maxF + 2]], {strokeColor: '#64748b', strokeWidth: 1, fixed: true});
-      histElements.push(yAxis);
-
-      // X-axis labels
-      for (var i = 0; i <= n; i++) {
-        var lbl = boardHist.create('text', [scaleX(ds.boundaries[i]), -1.2, String(ds.boundaries[i])], {
-          fontSize: 11, color: '#94a3b8', anchorX: 'middle', fixed: true
+      document.querySelectorAll('.jsx-dataset-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('.jsx-dataset-btn').forEach(function(b){b.style.opacity='0.5';});
+          this.style.opacity='1';
+          drawHistogram(this.getAttribute('data-set'));
         });
-        histElements.push(lbl);
+      });
+    })();
+
+    /* ====== Viz 2: Box Plot & Quartiles Explorer ====== */
+    (function() {
+      var el = document.getElementById('jsx-boxplot');
+      if (!el) return;
+      var board = JXG.JSXGraph.initBoard('jsx-boxplot', {
+        boundingbox: [-1, 5.5, 21, -2.5], axis: false, grid: false,
+        showNavigation: false, showCopyright: false, keepAspectRatio: false
+      });
+      board.containerObj.style.background = 'rgba(0,0,0,0.4)';
+
+      // Number line
+      board.create('segment', [[0,0],[20,0]], {strokeColor:'#94a3b8', strokeWidth:2, fixed:true});
+      for (var t = 0; t <= 20; t += 2) {
+        board.create('segment', [[t,-0.15],[t,0.15]], {strokeColor:'#94a3b8', strokeWidth:1, fixed:true});
+        board.create('text', [t, -0.55, String(t)], {fontSize:10, color:'#cbd5e1', anchorX:'middle', fixed:true});
       }
 
+      // 11 draggable data points
+      var startVals = [2, 4, 5, 7, 8, 10, 12, 14, 15, 17, 19];
+      var ptColors = ['#ff006e','#a855f7','#00d4ff','#a855f7','#00d4ff','#ffd700','#00d4ff','#a855f7','#00ff88','#a855f7','#ff006e'];
+      var pts = [];
+      for (var i = 0; i < startVals.length; i++) {
+        (function(idx) {
+          var pt = board.create('point', [startVals[idx], 3.5 + (idx % 3) * 0.5], {
+            name:'', size:5, color:ptColors[idx], label:{visible:false}
+          });
+          pt.on('drag', function() {
+            if(pt.X()<0) pt.moveTo([0,pt.Y()]); if(pt.X()>20) pt.moveTo([20,pt.Y()]);
+            updateBoxPlot();
+          });
+          pts.push(pt);
+        })(i);
+      }
+
+      var boxElems = [];
+      var readout = document.getElementById('boxplot-readout');
+
+      function updateBoxPlot() {
+        for (var i = boxElems.length-1; i >= 0; i--) { try { board.removeObject(boxElems[i]); } catch(e) {} }
+        boxElems = [];
+
+        var vals = pts.map(function(p){return Math.round(p.X()*10)/10;});
+        vals.sort(function(a,b){return a-b;});
+        var n = vals.length;
+        var min = vals[0], max = vals[n-1];
+        var q2 = vals[Math.floor(n/2)]; // median (n=11, index 5)
+        var lowerHalf = vals.slice(0, Math.floor(n/2));
+        var q1 = lowerHalf[Math.floor(lowerHalf.length/2)];
+        var upperHalf = vals.slice(Math.floor(n/2)+1);
+        var q3 = upperHalf[Math.floor(upperHalf.length/2)];
+        var iqr = q3 - q1;
+
+        var by = 1.5, bh = 0.6;
+        // Left whisker
+        boxElems.push(board.create('segment', [[min,by],[q1,by]], {strokeColor:'#94a3b8', strokeWidth:2, fixed:true}));
+        boxElems.push(board.create('segment', [[min,by-bh*0.5],[min,by+bh*0.5]], {strokeColor:'#94a3b8', strokeWidth:2, fixed:true}));
+        // Box
+        boxElems.push(board.create('polygon', [[q1,by-bh],[q3,by-bh],[q3,by+bh],[q1,by+bh]], {
+          fillColor:'rgba(0,212,255,0.15)', borders:{strokeColor:'#00d4ff', strokeWidth:2},
+          vertices:{visible:false}, hasInnerPoints:false, fixed:true
+        }));
+        // Median line
+        boxElems.push(board.create('segment', [[q2,by-bh],[q2,by+bh]], {strokeColor:'#ffd700', strokeWidth:3, fixed:true}));
+        // Right whisker
+        boxElems.push(board.create('segment', [[q3,by],[max,by]], {strokeColor:'#94a3b8', strokeWidth:2, fixed:true}));
+        boxElems.push(board.create('segment', [[max,by-bh*0.5],[max,by+bh*0.5]], {strokeColor:'#94a3b8', strokeWidth:2, fixed:true}));
+
+        // Labels
+        boxElems.push(board.create('text', [min, by-bh-0.4, 'Min='+min.toFixed(1)], {fontSize:9, color:'#94a3b8', anchorX:'middle', fixed:true}));
+        boxElems.push(board.create('text', [q1, by+bh+0.3, 'Q\u2081='+q1.toFixed(1)], {fontSize:9, color:'#00d4ff', anchorX:'middle', fixed:true}));
+        boxElems.push(board.create('text', [q2, by-bh-0.4, 'Med='+q2.toFixed(1)], {fontSize:9, color:'#ffd700', anchorX:'middle', fixed:true}));
+        boxElems.push(board.create('text', [q3, by+bh+0.3, 'Q\u2083='+q3.toFixed(1)], {fontSize:9, color:'#00d4ff', anchorX:'middle', fixed:true}));
+        boxElems.push(board.create('text', [max, by-bh-0.4, 'Max='+max.toFixed(1)], {fontSize:9, color:'#94a3b8', anchorX:'middle', fixed:true}));
+
+        // IQR bracket
+        boxElems.push(board.create('segment', [[q1,by+bh+0.6],[q3,by+bh+0.6]], {strokeColor:'#00ff88', strokeWidth:1.5, fixed:true}));
+        boxElems.push(board.create('text', [(q1+q3)/2, by+bh+0.9, 'IQR='+iqr.toFixed(1)], {fontSize:10, color:'#00ff88', anchorX:'middle', fixed:true}));
+
+        readout.innerHTML =
+          '<span style="color:#94a3b8;">Min='+min.toFixed(1)+'</span> | '+
+          '<span style="color:#00d4ff;">Q\u2081='+q1.toFixed(1)+'</span> | '+
+          '<span style="color:#ffd700;">Median='+q2.toFixed(1)+'</span> | '+
+          '<span style="color:#00d4ff;">Q\u2083='+q3.toFixed(1)+'</span> | '+
+          '<span style="color:#94a3b8;">Max='+max.toFixed(1)+'</span> | '+
+          '<strong style="color:#00ff88;">IQR = '+iqr.toFixed(1)+'</strong>';
+      }
+      updateBoxPlot();
+    })();
+
+    /* ====== Viz 3: Mean / Median / Mode Explorer ====== */
+    (function() {
+      var el = document.getElementById('jsx-measures');
+      if (!el) return;
+      var board = JXG.JSXGraph.initBoard('jsx-measures', {
+        boundingbox: [-1, 6, 21, -2.5], axis: false, grid: false,
+        showNavigation: false, showCopyright: false, keepAspectRatio: false
+      });
+      board.containerObj.style.background = 'rgba(0,0,0,0.4)';
+
+      board.create('segment', [[0,0],[20,0]], {strokeColor:'#94a3b8', strokeWidth:2, fixed:true});
+      for (var t = 0; t <= 20; t += 2) {
+        board.create('segment', [[t,-0.2],[t,0.2]], {strokeColor:'#94a3b8', strokeWidth:1, fixed:true});
+        board.create('text', [t, -0.7, String(t)], {fontSize:10, color:'#cbd5e1', anchorX:'middle', fixed:true});
+      }
+
+      var startVals = [4,6,8,8,10,10,10,12,14];
+      var ptColors = ['#ff006e','#a855f7','#00d4ff','#00d4ff','#ffd700','#ffd700','#ffd700','#00ff88','#ff8c00'];
+      var pts = [];
+      for (var i = 0; i < startVals.length; i++) {
+        (function(idx) {
+          var pt = board.create('point', [startVals[idx], 1.5+(idx%3)*0.6], {
+            name:'', size:5, color:ptColors[idx], label:{visible:false}
+          });
+          pt.on('drag', function() {
+            if(pt.X()<0) pt.moveTo([0,pt.Y()]); if(pt.X()>20) pt.moveTo([20,pt.Y()]);
+            updateMeasures();
+          });
+          pts.push(pt);
+        })(i);
+      }
+
+      var meanInd = board.create('point', [0,-0.8], {name:'Mean', size:6, color:'#00d4ff', fixed:true, label:{color:'#00d4ff', fontSize:12, offset:[0,-18]}});
+      var medInd = board.create('point', [0,-1.3], {name:'Median', size:6, color:'#ffd700', fixed:true, label:{color:'#ffd700', fontSize:12, offset:[0,-18]}});
+      var modeInd = board.create('point', [0,-1.8], {name:'Mode', size:6, color:'#00ff88', fixed:true, label:{color:'#00ff88', fontSize:12, offset:[0,-18]}});
+      var meanLine = board.create('segment', [[0,-0.3],[0,3.5]], {strokeColor:'#00d4ff', strokeWidth:1.5, dash:2, fixed:true});
+      var medLine = board.create('segment', [[0,-0.3],[0,3.5]], {strokeColor:'#ffd700', strokeWidth:1.5, dash:2, fixed:true});
+
+      var readout = document.getElementById('measures-readout');
+      function updateMeasures() {
+        var vals = pts.map(function(p){return Math.round(p.X()*10)/10;});
+        vals.sort(function(a,b){return a-b;});
+        var n = vals.length, sum = vals.reduce(function(a,b){return a+b;},0);
+        var mean = sum/n;
+        var median = n%2===1 ? vals[Math.floor(n/2)] : (vals[n/2-1]+vals[n/2])/2;
+        var freq={};
+        vals.forEach(function(v){var k=v.toFixed(1);freq[k]=(freq[k]||0)+1;});
+        var maxF=0, modeVal=vals[0];
+        for(var k in freq){if(freq[k]>maxF){maxF=freq[k];modeVal=parseFloat(k);}}
+        var modeStr = maxF>1 ? modeVal.toFixed(1) : 'None (all unique)';
+
+        meanInd.moveTo([mean,-0.8]); medInd.moveTo([median,-1.3]);
+        if(maxF>1){modeInd.moveTo([modeVal,-1.8]);modeInd.setAttribute({visible:true});}
+        else{modeInd.setAttribute({visible:false});}
+        meanLine.point1.moveTo([mean,-0.3]); meanLine.point2.moveTo([mean,3.5]);
+        medLine.point1.moveTo([median,-0.3]); medLine.point2.moveTo([median,3.5]);
+
+        readout.innerHTML =
+          'Values: ['+vals.map(function(v){return v.toFixed(1);}).join(', ')+'] &mdash; '+
+          '<span style="color:#00d4ff">Mean: '+mean.toFixed(2)+'</span> | '+
+          '<span style="color:#ffd700">Median: '+median.toFixed(2)+'</span> | '+
+          '<span style="color:#00ff88">Mode: '+modeStr+'</span>';
+      }
+      updateMeasures();
+    })();
+
+    /* ====== Viz 4: Variance & Standard Deviation Visualizer ====== */
+    (function() {
+      var el = document.getElementById('jsx-variance');
+      if (!el) return;
+      var board = JXG.JSXGraph.initBoard('jsx-variance', {
+        boundingbox: [-1, 7, 21, -4], axis: false, grid: false,
+        showNavigation: false, showCopyright: false, keepAspectRatio: false
+      });
+      board.containerObj.style.background = 'rgba(0,0,0,0.4)';
+
+      board.create('segment', [[0,0],[20,0]], {strokeColor:'#94a3b8', strokeWidth:2, fixed:true});
+      for (var t = 0; t <= 20; t += 2) {
+        board.create('segment', [[t,-0.2],[t,0.2]], {strokeColor:'#94a3b8', strokeWidth:1, fixed:true});
+        board.create('text', [t, -0.6, String(t)], {fontSize:10, color:'#cbd5e1', anchorX:'middle', fixed:true});
+      }
+
+      var startVals = [3,5,7,10,13,15,17];
+      var ptColors = ['#ff006e','#a855f7','#00d4ff','#ffd700','#00ff88','#a855f7','#ff006e'];
+      var pts = [];
+      for (var i = 0; i < startVals.length; i++) {
+        (function(idx) {
+          var pt = board.create('point', [startVals[idx], 2.5], {
+            name:'', size:5, color:ptColors[idx], label:{visible:false}
+          });
+          pt.on('drag', function() {
+            if(pt.X()<0) pt.moveTo([0,pt.Y()]); if(pt.X()>20) pt.moveTo([20,pt.Y()]);
+            updateVariance();
+          });
+          pts.push(pt);
+        })(i);
+      }
+
+      var varElems = [];
+      var readout = document.getElementById('variance-readout');
+
+      function updateVariance() {
+        for (var i = varElems.length-1; i >= 0; i--) { try { board.removeObject(varElems[i]); } catch(e) {} }
+        varElems = [];
+        var vals = pts.map(function(p){return p.X();});
+        var n = vals.length, sum = vals.reduce(function(a,b){return a+b;},0);
+        var mean = sum / n;
+
+        // Mean line
+        varElems.push(board.create('segment', [[mean,-0.3],[mean,5]], {strokeColor:'#00d4ff', strokeWidth:2, dash:2, fixed:true}));
+        varElems.push(board.create('text', [mean, 5.5, '\u03BC='+mean.toFixed(1)], {fontSize:11, color:'#00d4ff', anchorX:'middle', fixed:true}));
+
+        // Deviation bars
+        var sumSqDev = 0;
+        for (var i = 0; i < n; i++) {
+          var dev = vals[i] - mean;
+          sumSqDev += dev * dev;
+          var color = dev >= 0 ? '#00ff88' : '#ff006e';
+          // Horizontal bar from point to mean at y=2.5
+          varElems.push(board.create('segment', [[vals[i],2.5],[mean,2.5]], {
+            strokeColor: color, strokeWidth: 2.5, dash:1, fixed:true
+          }));
+          // Deviation label
+          if (Math.abs(dev) > 0.8) {
+            varElems.push(board.create('text', [(vals[i]+mean)/2, 3.2, (dev>=0?'+':'')+dev.toFixed(1)], {
+              fontSize:9, color:color, anchorX:'middle', fixed:true
+            }));
+          }
+        }
+
+        var variance = sumSqDev / n;
+        var sd = Math.sqrt(variance);
+        var range = Math.max.apply(null, vals) - Math.min.apply(null, vals);
+
+        // SD range bracket on number line
+        varElems.push(board.create('segment', [[mean-sd,-1.5],[mean+sd,-1.5]], {strokeColor:'#a855f7', strokeWidth:3, fixed:true}));
+        varElems.push(board.create('point', [mean-sd,-1.5], {size:3, color:'#a855f7', fixed:true, name:'', withLabel:false}));
+        varElems.push(board.create('point', [mean+sd,-1.5], {size:3, color:'#a855f7', fixed:true, name:'', withLabel:false}));
+        varElems.push(board.create('text', [mean, -2.2, '\u03BC \u00B1 \u03C3'], {fontSize:10, color:'#a855f7', anchorX:'middle', fixed:true}));
+
+        // Labels at bracket ends
+        varElems.push(board.create('text', [mean-sd, -2.7, (mean-sd).toFixed(1)], {fontSize:9, color:'#a855f7', anchorX:'middle', fixed:true}));
+        varElems.push(board.create('text', [mean+sd, -2.7, (mean+sd).toFixed(1)], {fontSize:9, color:'#a855f7', anchorX:'middle', fixed:true}));
+
+        readout.innerHTML =
+          '<span style="color:#00d4ff;">Mean (\u03BC) = '+mean.toFixed(2)+'</span> | '+
+          '<span style="color:#ffd700;">Variance (\u03C3\u00B2) = '+variance.toFixed(2)+'</span> | '+
+          '<span style="color:#a855f7;">SD (\u03C3) = '+sd.toFixed(2)+'</span> | '+
+          '<span style="color:#cbd5e1;">Range = '+range.toFixed(1)+'</span>';
+      }
+      updateVariance();
+    })();
+
+    /* ====== Viz 5: Scatter Plot & Correlation ====== */
+    (function() {
+      var el = document.getElementById('jsx-scatter');
+      if (!el) return;
+      var board = JXG.JSXGraph.initBoard('jsx-scatter', {
+        boundingbox: [-2, 22, 22, -4], axis: false, grid: false,
+        showNavigation: false, showCopyright: false, keepAspectRatio: false
+      });
+      board.containerObj.style.background = 'rgba(0,0,0,0.4)';
+
+      // Axes
+      board.create('segment', [[0,0],[20,0]], {strokeColor:'#94a3b8', strokeWidth:1, fixed:true});
+      board.create('segment', [[0,0],[0,20]], {strokeColor:'#94a3b8', strokeWidth:1, fixed:true});
+      for (var t = 0; t <= 20; t += 5) {
+        board.create('text', [t, -1.5, String(t)], {fontSize:10, color:'#cbd5e1', anchorX:'middle', fixed:true});
+        board.create('segment', [[t,-0.3],[t,0.3]], {strokeColor:'#94a3b8', strokeWidth:1, fixed:true});
+        if (t > 0) {
+          board.create('text', [-1.3, t, String(t)], {fontSize:10, color:'#cbd5e1', anchorX:'middle', fixed:true});
+          board.create('segment', [[-0.3,t],[0.3,t]], {strokeColor:'#94a3b8', strokeWidth:1, fixed:true});
+        }
+      }
+      // Grid
+      for (var t = 5; t <= 20; t += 5) {
+        board.create('segment', [[t,0],[t,20]], {strokeColor:'rgba(148,163,184,0.1)', strokeWidth:1, fixed:true});
+        board.create('segment', [[0,t],[20,t]], {strokeColor:'rgba(148,163,184,0.1)', strokeWidth:1, fixed:true});
+      }
+      board.create('text', [10, -3, 'x'], {fontSize:12, color:'#94a3b8', fixed:true, anchorX:'middle'});
+      board.create('text', [-1.8, 10, 'y'], {fontSize:12, color:'#94a3b8', fixed:true});
+
+      // 10 draggable scatter points (positive correlation start)
+      var startXY = [[2,3],[4,5],[5,7],[7,8],[8,10],[10,11],[12,13],[14,15],[16,16],[18,18]];
+      var pts = [];
+      for (var i = 0; i < startXY.length; i++) {
+        (function(idx) {
+          var pt = board.create('point', startXY[idx], {
+            name:'', size:5, color:'#00d4ff', label:{visible:false}
+          });
+          pt.on('drag', function() {
+            if(pt.X()<0) pt.moveTo([0,pt.Y()]); if(pt.X()>20) pt.moveTo([20,pt.Y()]);
+            if(pt.Y()<0) pt.moveTo([pt.X(),0]); if(pt.Y()>20) pt.moveTo([pt.X(),20]);
+            updateScatter();
+          });
+          pts.push(pt);
+        })(i);
+      }
+
+      var scatterElems = [];
+      var readout = document.getElementById('scatter-readout');
+
+      function updateScatter() {
+        for (var i = scatterElems.length-1; i >= 0; i--) { try { board.removeObject(scatterElems[i]); } catch(e) {} }
+        scatterElems = [];
+
+        var n = pts.length;
+        var xs = pts.map(function(p){return p.X();}), ys = pts.map(function(p){return p.Y();});
+        var sumX=0, sumY=0, sumXY=0, sumX2=0, sumY2=0;
+        for (var i = 0; i < n; i++) {
+          sumX+=xs[i]; sumY+=ys[i]; sumXY+=xs[i]*ys[i]; sumX2+=xs[i]*xs[i]; sumY2+=ys[i]*ys[i];
+        }
+        var xBar = sumX/n, yBar = sumY/n;
+
+        // Least squares
+        var denom = sumX2 - n*xBar*xBar;
+        var m = denom !== 0 ? (sumXY - n*xBar*yBar)/denom : 0;
+        var c = yBar - m*xBar;
+
+        // Correlation coefficient
+        var numR = sumXY - n*xBar*yBar;
+        var denR = Math.sqrt(Math.max(0,(sumX2-n*xBar*xBar)*(sumY2-n*yBar*yBar)));
+        var r = denR > 0.001 ? numR/denR : 0;
+
+        var lineColor = r > 0.3 ? '#00ff88' : (r < -0.3 ? '#ff006e' : '#94a3b8');
+        // Line of best fit (clipped to view)
+        var y0 = c, y20 = m*20+c;
+        scatterElems.push(board.create('segment', [[0,y0],[20,y20]], {
+          strokeColor:lineColor, strokeWidth:2, dash:2, fixed:true
+        }));
+
+        // Mean point
+        scatterElems.push(board.create('point', [xBar, yBar], {
+          name:'(\u0078\u0304,\u0079\u0304)', size:6, color:'#ffd700', fixed:true,
+          label:{color:'#ffd700', fontSize:11, offset:[8,8]}
+        }));
+
+        var corrLabel = Math.abs(r)>0.7 ? 'Strong' : (Math.abs(r)>0.3 ? 'Moderate' : 'Weak/None');
+        var corrDir = r>0.3 ? 'Positive' : (r<-0.3 ? 'Negative' : 'No');
+
+        readout.innerHTML =
+          '<span style="color:'+lineColor+';">r = '+r.toFixed(3)+'</span> &nbsp;|&nbsp; '+
+          '<span style="color:'+lineColor+';font-weight:700;">'+corrLabel+' '+corrDir+' Correlation</span> &nbsp;|&nbsp; '+
+          '<span style="color:#cbd5e1;">Line: y = '+m.toFixed(2)+'x + '+c.toFixed(2)+'</span> &nbsp;|&nbsp; '+
+          '<span style="color:#ffd700;">(\u0078\u0304,\u0079\u0304) = ('+xBar.toFixed(1)+', '+yBar.toFixed(1)+')</span>';
+      }
+      updateScatter();
+    })();
+
+    /* ====== Viz 6: Dice Probability Simulator ====== */
+    (function() {
+      var el = document.getElementById('jsx-dice');
+      if (!el) return;
+      var board = JXG.JSXGraph.initBoard('jsx-dice', {
+        boundingbox: [-0.5, 1.3, 7.5, -0.35], axis: false, grid: false,
+        showNavigation: false, showCopyright: false, keepAspectRatio: false
+      });
+      board.containerObj.style.background = 'rgba(0,0,0,0.4)';
+
+      var freq = [0,0,0,0,0,0];
+      var totalRolls = 0;
+      var barElems = [];
+      var readout = document.getElementById('dice-readout');
+      var barColors = ['#ff006e','#a855f7','#00d4ff','#ffd700','#00ff88','#ff8c00'];
+
+      // Axis
+      board.create('segment', [[0.3,0],[6.7,0]], {strokeColor:'#94a3b8', strokeWidth:1, fixed:true});
+      // Face labels
+      for (var f = 0; f < 6; f++) {
+        board.create('text', [f+1, -0.12, String(f+1)], {fontSize:13, color:'#cbd5e1', anchorX:'middle', fixed:true});
+      }
+      // Theoretical line 1/6
+      board.create('segment', [[0.4, 1/6],[6.6, 1/6]], {strokeColor:'#ffffff', strokeWidth:1.5, dash:3, fixed:true});
+      board.create('text', [7.1, 1/6, '1/6'], {fontSize:10, color:'#ffffff', fixed:true});
       // Y-axis labels
-      for (var y = 0; y <= maxF + 1; y += 2) {
-        var lbl = boardHist.create('text', [-0.6, y, String(y)], {
-          fontSize: 11, color: '#94a3b8', anchorX: 'middle', fixed: true
-        });
-        histElements.push(lbl);
+      board.create('text', [-0.2, 0, '0'], {fontSize:9, color:'#94a3b8', fixed:true});
+      board.create('text', [-0.35, 0.25, '0.25'], {fontSize:9, color:'#94a3b8', fixed:true});
+      board.create('text', [-0.35, 0.5, '0.50'], {fontSize:9, color:'#94a3b8', fixed:true});
+
+      function drawBars() {
+        for (var i = barElems.length-1; i >= 0; i--) { try { board.removeObject(barElems[i]); } catch(e) {} }
+        barElems = [];
+        if (totalRolls === 0) return;
+
+        for (var f = 0; f < 6; f++) {
+          var relFreq = freq[f] / totalRolls;
+          var bw = 0.32;
+          barElems.push(board.create('polygon', [
+            [f+1-bw,0],[f+1+bw,0],[f+1+bw,relFreq],[f+1-bw,relFreq]
+          ], {
+            fillColor:barColors[f], fillOpacity:0.6,
+            borders:{strokeColor:barColors[f], strokeWidth:1.5},
+            vertices:{visible:false}, hasInnerPoints:false, fixed:true
+          }));
+          barElems.push(board.create('text', [f+1, relFreq+0.025, String(freq[f])], {
+            fontSize:10, color:barColors[f], anchorX:'middle', fixed:true
+          }));
+        }
+
+        readout.innerHTML =
+          '<strong>Total rolls: '+totalRolls+'</strong> &mdash; '+
+          'Frequencies: ['+freq.join(', ')+'] &mdash; '+
+          '<span style="color:#ffffff;">Theoretical: 1/6 \u2248 '+(1/6).toFixed(4)+'</span>';
       }
 
-      // Bars
-      var colors = ['#a855f7', '#00d4ff', '#00ff88', '#ffd700', '#ff006e'];
-      for (var i = 0; i < n; i++) {
-        var x1 = scaleX(ds.boundaries[i]);
-        var x2 = scaleX(ds.boundaries[i + 1]);
-        var barH = scaleY(freq[i]);
-        var bar = boardHist.create('polygon', [
-          [x1, 0], [x2, 0], [x2, barH], [x1, barH]
-        ], {
-          fillColor: colors[i % colors.length], fillOpacity: 0.55,
-          borders: {strokeColor: colors[i % colors.length], strokeWidth: 2},
-          vertices: {visible: false}, hasInnerPoints: false, fixed: true
-        });
-        histElements.push(bar);
-        // Frequency label on top
-        var fLbl = boardHist.create('text', [(x1 + x2) / 2, barH + 0.5, String(freq[i])], {
-          fontSize: 12, color: '#ffffff', anchorX: 'middle', fixed: true
-        });
-        histElements.push(fLbl);
+      function rollDice(times) {
+        for (var i = 0; i < times; i++) {
+          freq[Math.floor(Math.random()*6)]++;
+          totalRolls++;
+        }
+        drawBars();
       }
 
-      // Mean line
-      var meanX = scaleX(mean);
-      var meanLine = boardHist.create('segment', [[meanX, 0], [meanX, maxF + 1]], {
-        strokeColor: '#00d4ff', strokeWidth: 2, dash: 2, fixed: true
+      document.getElementById('dice-roll-1').addEventListener('click', function(){rollDice(1);});
+      document.getElementById('dice-roll-10').addEventListener('click', function(){rollDice(10);});
+      document.getElementById('dice-roll-100').addEventListener('click', function(){rollDice(100);});
+      document.getElementById('dice-reset').addEventListener('click', function(){
+        freq=[0,0,0,0,0,0]; totalRolls=0;
+        for(var i=barElems.length-1;i>=0;i--){try{board.removeObject(barElems[i]);}catch(e){}}
+        barElems=[];
+        readout.textContent='Click a button to roll the die.';
       });
-      var meanLabel = boardHist.create('text', [meanX, maxF + 1.5, 'Mean'], {
-        fontSize: 12, color: '#00d4ff', anchorX: 'middle', fixed: true
-      });
-      histElements.push(meanLine, meanLabel);
+    })();
 
-      // Median line
-      var medianX = scaleX(median);
-      var medianLine = boardHist.create('segment', [[medianX, 0], [medianX, maxF + 1]], {
-        strokeColor: '#ffd700', strokeWidth: 2, dash: 2, fixed: true
-      });
-      var medianLabel = boardHist.create('text', [medianX, maxF + 2, 'Median'], {
-        fontSize: 12, color: '#ffd700', anchorX: 'middle', fixed: true
-      });
-      histElements.push(medianLine, medianLabel);
-
-      // Range
-      var range = ds.boundaries[n] - ds.boundaries[0];
-
-      histReadout.innerHTML = '<strong>' + ds.label + '</strong> &mdash; Mean: ' + mean.toFixed(1) +
-        ' | Median: ' + median.toFixed(1) +
-        ' | Mode class: ' + ds.classes[modeIdx] +
-        ' | Range: ' + range +
-        ' | Total: ' + total;
-    }
-
-    document.querySelectorAll('.jsx-dataset-btn').forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        document.querySelectorAll('.jsx-dataset-btn').forEach(function(b) { b.style.opacity = '0.5'; });
-        this.style.opacity = '1';
-        drawHistogram(this.getAttribute('data-set'));
-      });
-    });
-
-    // ===== VIZ 2: Mean/Median/Mode Explorer =====
-    var boardM = JXG.JSXGraph.initBoard('jsx-measures', {
-      boundingbox: [-1, 6, 21, -2], axis: false, grid: false,
-      showNavigation: false, showCopyright: false, keepAspectRatio: false
-    });
-    boardM.containerObj.style.background = 'rgba(0,0,0,0.4)';
-
-    // Number line
-    boardM.create('segment', [[0, 0], [20, 0]], {strokeColor: '#64748b', strokeWidth: 2, fixed: true});
-    for (var t = 0; t <= 20; t += 2) {
-      boardM.create('segment', [[t, -0.2], [t, 0.2]], {strokeColor: '#64748b', strokeWidth: 1, fixed: true});
-      boardM.create('text', [t, -0.7, String(t)], {fontSize: 11, color: '#94a3b8', anchorX: 'middle', fixed: true});
-    }
-
-    // Draggable data points (start symmetric)
-    var startVals = [4, 6, 8, 8, 10, 10, 10, 12, 14];
-    var ptColors = ['#ff006e', '#a855f7', '#00d4ff', '#00d4ff', '#ffd700', '#ffd700', '#ffd700', '#00ff88', '#ff8c00'];
-    var dataPoints = [];
-
-    for (var i = 0; i < startVals.length; i++) {
-      (function(idx) {
-        var pt = boardM.create('point', [startVals[idx], 1.5 + (idx % 3) * 0.6], {
-          name: '', size: 5, color: ptColors[idx],
-          snapToGrid: false, attractors: [],
-          label: {visible: false}
-        });
-        // Constrain to number line range
-        pt.on('drag', function() {
-          if (pt.X() < 0) pt.moveTo([0, pt.Y()]);
-          if (pt.X() > 20) pt.moveTo([20, pt.Y()]);
-          updateMeasures();
-        });
-        dataPoints.push(pt);
-      })(i);
-    }
-
-    // Indicators
-    var meanIndicator = boardM.create('point', [0, -0.8], {
-      name: 'Mean', size: 6, color: '#00d4ff', fixed: true,
-      label: {color: '#00d4ff', fontSize: 13, offset: [0, -18]}
-    });
-    var medianIndicator = boardM.create('point', [0, -1.3], {
-      name: 'Median', size: 6, color: '#ffd700', fixed: true,
-      label: {color: '#ffd700', fontSize: 13, offset: [0, -18]}
-    });
-    var modeIndicator = boardM.create('point', [0, -1.8], {
-      name: 'Mode', size: 6, color: '#00ff88', fixed: true,
-      label: {color: '#00ff88', fontSize: 13, offset: [0, -18]}
-    });
-
-    // Mean line
-    var meanLine = boardM.create('segment', [[0, -0.3], [0, 3.5]], {
-      strokeColor: '#00d4ff', strokeWidth: 1.5, dash: 2, fixed: true
-    });
-    var medianLine = boardM.create('segment', [[0, -0.3], [0, 3.5]], {
-      strokeColor: '#ffd700', strokeWidth: 1.5, dash: 2, fixed: true
-    });
-
-    var measuresReadout = document.getElementById('measures-readout');
-
-    function updateMeasures() {
-      var vals = dataPoints.map(function(p) { return Math.round(p.X() * 10) / 10; });
-      vals.sort(function(a, b) { return a - b; });
-      var n = vals.length;
-
-      // Mean
-      var sum = vals.reduce(function(a, b) { return a + b; }, 0);
-      var mean = sum / n;
-
-      // Median
-      var median;
-      if (n % 2 === 1) {
-        median = vals[Math.floor(n / 2)];
-      } else {
-        median = (vals[n / 2 - 1] + vals[n / 2]) / 2;
-      }
-
-      // Mode
-      var freq = {};
-      vals.forEach(function(v) {
-        var key = v.toFixed(1);
-        freq[key] = (freq[key] || 0) + 1;
-      });
-      var maxF = 0, modeVal = vals[0];
-      for (var k in freq) {
-        if (freq[k] > maxF) { maxF = freq[k]; modeVal = parseFloat(k); }
-      }
-      var modeStr = maxF > 1 ? modeVal.toFixed(1) : 'None (all unique)';
-
-      // Update indicators
-      meanIndicator.moveTo([mean, -0.8]);
-      medianIndicator.moveTo([median, -1.3]);
-      if (maxF > 1) {
-        modeIndicator.moveTo([modeVal, -1.8]);
-        modeIndicator.setAttribute({visible: true});
-      } else {
-        modeIndicator.setAttribute({visible: false});
-      }
-
-      // Update lines
-      meanLine.point1.moveTo([mean, -0.3]);
-      meanLine.point2.moveTo([mean, 3.5]);
-      medianLine.point1.moveTo([median, -0.3]);
-      medianLine.point2.moveTo([median, 3.5]);
-
-      measuresReadout.innerHTML =
-        'Values: [' + vals.map(function(v) { return v.toFixed(1); }).join(', ') + '] &mdash; ' +
-        '<span style="color:#00d4ff">Mean: ' + mean.toFixed(2) + '</span> | ' +
-        '<span style="color:#ffd700">Median: ' + median.toFixed(2) + '</span> | ' +
-        '<span style="color:#00ff88">Mode: ' + modeStr + '</span>';
-    }
-
-    // Initial calculation
-    updateMeasures();
-
-  })();
+  });
   </script>
 
   <script src="../js/engine.js"></script>

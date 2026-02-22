@@ -145,6 +145,61 @@
     .operation-tabs .tab:hover { border-color: rgba(0,212,255,0.4); }
     .tab-content { display: none; }
     .tab-content.active { display: block; }
+
+    /* Fraction expression selector buttons */
+    .frac-expr-btn {
+      padding: 10px 16px;
+      border-radius: var(--radius-md);
+      border: 2px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.04);
+      color: var(--text-secondary);
+      cursor: pointer;
+      font-family: inherit;
+      text-align: left;
+      line-height: 1.3;
+      transition: all 0.2s;
+      flex: 1 1 180px;
+      min-width: 180px;
+    }
+    .frac-expr-btn:hover {
+      border-color: rgba(0,212,255,0.4);
+      background: rgba(0,212,255,0.06);
+    }
+    .frac-expr-btn.frac-expr-active {
+      border-color: var(--neon-cyan);
+      background: rgba(0,212,255,0.12);
+      color: var(--neon-cyan);
+      box-shadow: 0 0 12px rgba(0,212,255,0.15);
+    }
+
+    /* Factoring step cards */
+    .frac-step-card {
+      padding: 14px 18px;
+      margin-bottom: 8px;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(0,0,0,0.2);
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+      pointer-events: none;
+    }
+    .frac-step-card.frac-step-visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .frac-step-card .frac-step-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .frac-step-card .frac-step-body {
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
   </style>
 </head>
 <body data-chapter="5">
@@ -373,15 +428,52 @@
             <!-- JSXGraph Fraction Simplification Visualizer -->
             <div class="viz-section">
               <h4>Interactive: Fraction Simplification Visualizer</h4>
-              <p>See how rational expressions simplify by factoring and canceling common factors. Use the slider to try different expressions, and watch the graph prove the original and simplified forms are equal (except at holes).</p>
-              <div style="margin: 12px 0;">
-                <label style="font-size:0.9rem; color:var(--text-secondary);">Choose expression: </label>
-                <input type="range" id="fracExprSlider" min="0" max="3" value="0" step="1" style="width:200px; accent-color:var(--neon-cyan); vertical-align:middle;">
-                <span id="fracExprLabel" style="color:var(--neon-cyan); font-weight:700; margin-left:8px;">Expression 1</span>
+              <p>Choose an expression, then step through the factoring process. Drag the <span style="color:#ffd700;">gold tracer</span> on the graph to compare values of the original and simplified forms at any point.</p>
+
+              <!-- Expression selector buttons -->
+              <div style="display:flex; flex-wrap:wrap; gap:8px; margin:16px 0;">
+                <button id="frac-btn-0" class="frac-expr-btn frac-expr-active" onclick="window._fracSelect(0)">
+                  <span style="font-size:0.7rem; text-transform:uppercase; letter-spacing:1px; opacity:0.7;">Expr 1</span><br>
+                  <span style="font-size:0.95rem;">(x²−4) / (x²−x−2)</span>
+                </button>
+                <button id="frac-btn-1" class="frac-expr-btn" onclick="window._fracSelect(1)">
+                  <span style="font-size:0.7rem; text-transform:uppercase; letter-spacing:1px; opacity:0.7;">Expr 2</span><br>
+                  <span style="font-size:0.95rem;">(x²−9) / (x²+x−6)</span>
+                </button>
+                <button id="frac-btn-2" class="frac-expr-btn" onclick="window._fracSelect(2)">
+                  <span style="font-size:0.7rem; text-transform:uppercase; letter-spacing:1px; opacity:0.7;">Expr 3</span><br>
+                  <span style="font-size:0.95rem;">(x²+3x) / (x²+5x+6)</span>
+                </button>
+                <button id="frac-btn-3" class="frac-expr-btn" onclick="window._fracSelect(3)">
+                  <span style="font-size:0.7rem; text-transform:uppercase; letter-spacing:1px; opacity:0.7;">Expr 4</span><br>
+                  <span style="font-size:0.95rem;">(2x²−8) / (x²−4x+4)</span>
+                </button>
               </div>
+
+              <!-- Graph with tracer -->
               <div id="jsx-fraction-simplify" class="jsx-container" style="height: 400px;"></div>
-              <div class="jsx-readout" id="fraction-simplify-readout" style="margin-top:12px; padding:16px; background:rgba(0,0,0,0.3); border-radius:var(--radius-md); font-size:0.95rem;">
-                <div id="frac-step-display"></div>
+
+              <!-- Live tracer readout -->
+              <div id="frac-tracer-readout" style="margin-top:10px; padding:12px 16px; background:rgba(255,215,0,0.08); border:1px solid rgba(255,215,0,0.2); border-radius:var(--radius-md); font-size:0.9rem; display:flex; gap:24px; flex-wrap:wrap; align-items:center;">
+                <span style="color:#ffd700; font-weight:700;">Tracer</span>
+                <span>x = <span id="frac-tracer-x" style="color:#ffd700; font-weight:600;">1.0</span></span>
+                <span><span style="color:#ff006e;">Original</span> f(x) = <span id="frac-tracer-orig" style="color:#ff006e; font-weight:600;">—</span></span>
+                <span><span style="color:#00d4ff;">Simplified</span> g(x) = <span id="frac-tracer-simp" style="color:#00d4ff; font-weight:600;">—</span></span>
+                <span id="frac-tracer-match" style="font-weight:700;"></span>
+              </div>
+
+              <!-- Step-by-step factoring cards -->
+              <div style="margin-top:16px;">
+                <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+                  <span style="font-weight:700; color:var(--text-primary);">Step-by-Step Simplification</span>
+                  <button id="frac-reveal-btn" onclick="window._fracRevealNext()" style="padding:5px 16px; border-radius:var(--radius-full); border:1px solid var(--neon-green); background:rgba(0,255,136,0.1); color:var(--neon-green); cursor:pointer; font-size:0.8rem; font-weight:700; transition:all 0.2s;">
+                    Reveal Next Step ▸
+                  </button>
+                  <button onclick="window._fracResetSteps()" style="padding:5px 12px; border-radius:var(--radius-full); border:1px solid rgba(255,255,255,0.15); background:rgba(255,255,255,0.05); color:var(--text-muted); cursor:pointer; font-size:0.8rem; transition:all 0.2s;">
+                    Reset
+                  </button>
+                </div>
+                <div id="frac-steps-container"></div>
               </div>
             </div>
           </div>
@@ -722,72 +814,131 @@
   <!-- JSXGraph Initialization -->
   <script>
   (function() {
-    // Fraction Simplification Visualizer
+    // Fraction Simplification Visualizer - Enhanced UI/UX
     var expressions = [
       {
         title: 'Expression 1',
-        original: '(x^2 - 4) / (x^2 - x - 2)',
         numLabel: 'x\u00B2 \u2212 4',
         denLabel: 'x\u00B2 \u2212 x \u2212 2',
         numFactored: '(x + 2)(x \u2212 2)',
         denFactored: '(x \u2212 2)(x + 1)',
         common: '(x \u2212 2)',
-        simplified: '(x + 2) / (x + 1)',
-        simpLabel: '(x + 2)/(x + 1)',
+        simpLabel: '(x + 2) / (x + 1)',
         origFn: function(x) { return (x*x - 4) / (x*x - x - 2); },
         simpFn: function(x) { return (x + 2) / (x + 1); },
         holes: [[2, 4/3]],
-        asymptotes: [-1]
+        asymptotes: [-1],
+        domain: 'x \u2260 2, x \u2260 \u22121'
       },
       {
         title: 'Expression 2',
-        original: '(x^2 - 9) / (x^2 + x - 6)',
         numLabel: 'x\u00B2 \u2212 9',
         denLabel: 'x\u00B2 + x \u2212 6',
         numFactored: '(x + 3)(x \u2212 3)',
         denFactored: '(x + 3)(x \u2212 2)',
         common: '(x + 3)',
-        simplified: '(x \u2212 3) / (x \u2212 2)',
-        simpLabel: '(x \u2212 3)/(x \u2212 2)',
+        simpLabel: '(x \u2212 3) / (x \u2212 2)',
         origFn: function(x) { return (x*x - 9) / (x*x + x - 6); },
         simpFn: function(x) { return (x - 3) / (x - 2); },
         holes: [[-3, 6/5]],
-        asymptotes: [2]
+        asymptotes: [2],
+        domain: 'x \u2260 \u22123, x \u2260 2'
       },
       {
         title: 'Expression 3',
-        original: '(x^2 + 3x) / (x^2 + 5x + 6)',
         numLabel: 'x\u00B2 + 3x',
         denLabel: 'x\u00B2 + 5x + 6',
         numFactored: 'x(x + 3)',
         denFactored: '(x + 2)(x + 3)',
         common: '(x + 3)',
-        simplified: 'x / (x + 2)',
-        simpLabel: 'x/(x + 2)',
+        simpLabel: 'x / (x + 2)',
         origFn: function(x) { return (x*x + 3*x) / (x*x + 5*x + 6); },
         simpFn: function(x) { return x / (x + 2); },
         holes: [[-3, 3]],
-        asymptotes: [-2]
+        asymptotes: [-2],
+        domain: 'x \u2260 \u22123, x \u2260 \u22122'
       },
       {
         title: 'Expression 4',
-        original: '(2x^2 - 8) / (x^2 - 4x + 4)',
         numLabel: '2x\u00B2 \u2212 8',
         denLabel: 'x\u00B2 \u2212 4x + 4',
         numFactored: '2(x + 2)(x \u2212 2)',
         denFactored: '(x \u2212 2)(x \u2212 2)',
         common: '(x \u2212 2)',
-        simplified: '2(x + 2) / (x \u2212 2)',
-        simpLabel: '2(x + 2)/(x \u2212 2)',
+        simpLabel: '2(x + 2) / (x \u2212 2)',
         origFn: function(x) { return (2*x*x - 8) / (x*x - 4*x + 4); },
         simpFn: function(x) { return 2*(x + 2) / (x - 2); },
         holes: [],
-        asymptotes: [2]
+        asymptotes: [2],
+        domain: 'x \u2260 2'
       }
     ];
 
     var fracBoard = null;
     var currentExprIdx = 0;
+    var revealedSteps = 0;
+
+    // Check proximity to holes vs asymptotes separately
+    function nearHole(x, expr) {
+      for (var h = 0; h < expr.holes.length; h++) {
+        if (Math.abs(x - expr.holes[h][0]) < 0.05) return expr.holes[h];
+      }
+      return null;
+    }
+    function nearAsymptote(x, expr) {
+      for (var a = 0; a < expr.asymptotes.length; a++) {
+        if (Math.abs(x - expr.asymptotes[a]) < 0.05) return true;
+      }
+      return false;
+    }
+
+    function updateTracerReadout(x, expr) {
+      var xEl = document.getElementById('frac-tracer-x');
+      var origEl = document.getElementById('frac-tracer-orig');
+      var simpEl = document.getElementById('frac-tracer-simp');
+      var matchEl = document.getElementById('frac-tracer-match');
+      if (!xEl) return;
+
+      xEl.textContent = x.toFixed(2);
+
+      var hole = nearHole(x, expr);
+      if (hole) {
+        // Near a removable discontinuity (hole)
+        origEl.textContent = 'undefined';
+        origEl.style.color = '#ff006e';
+        var sv = expr.simpFn(x);
+        simpEl.textContent = isFinite(sv) ? sv.toFixed(4) : '\u2014';
+        simpEl.style.color = '#00d4ff';
+        matchEl.textContent = '\u2260 Hole!';
+        matchEl.style.color = '#ffd700';
+      } else if (nearAsymptote(x, expr)) {
+        // Near a vertical asymptote
+        origEl.textContent = '\u00B1\u221E';
+        origEl.style.color = '#ff006e';
+        simpEl.textContent = '\u00B1\u221E';
+        simpEl.style.color = '#00d4ff';
+        matchEl.textContent = 'Asymptote!';
+        matchEl.style.color = '#ff006e';
+      } else {
+        var ov = expr.origFn(x);
+        var sv = expr.simpFn(x);
+        if (!isFinite(ov)) {
+          origEl.textContent = 'undefined';
+          origEl.style.color = '#ff006e';
+          simpEl.textContent = isFinite(sv) ? sv.toFixed(4) : 'undefined';
+          simpEl.style.color = '#00d4ff';
+          matchEl.textContent = 'Asymptote!';
+          matchEl.style.color = '#ff006e';
+        } else {
+          origEl.textContent = ov.toFixed(4);
+          origEl.style.color = '#ff006e';
+          simpEl.textContent = sv.toFixed(4);
+          simpEl.style.color = '#00d4ff';
+          matchEl.textContent = '\u2713 Match!';
+          matchEl.style.color = '#00ff88';
+        }
+      }
+    }
 
     function buildFracBoard(idx) {
       var expr = expressions[idx];
@@ -798,77 +949,216 @@
       });
       fracBoard.containerObj.style.background = 'rgba(0,0,0,0.4)';
 
-      // Draw axes
+      // Axes
       fracBoard.create('axis', [[0,0],[1,0]], {
-        strokeColor: '#64748b', strokeWidth: 1, highlight: false,
-        ticks: { strokeColor: '#475569', label: { cssClass: 'jsxgraph-tick-label', fontSize: 10, cssStyle: 'color:#94a3b8' } }
+        strokeColor: '#94a3b8', strokeWidth: 1, highlight: false,
+        ticks: { strokeColor: '#94a3b8', label: { cssClass: 'jsxgraph-tick-label', fontSize: 10, cssStyle: 'color:#cbd5e1' } }
       });
       fracBoard.create('axis', [[0,0],[0,1]], {
-        strokeColor: '#64748b', strokeWidth: 1, highlight: false,
-        ticks: { strokeColor: '#475569', label: { cssClass: 'jsxgraph-tick-label', fontSize: 10, cssStyle: 'color:#94a3b8' } }
+        strokeColor: '#94a3b8', strokeWidth: 1, highlight: false,
+        ticks: { strokeColor: '#94a3b8', label: { cssClass: 'jsxgraph-tick-label', fontSize: 10, cssStyle: 'color:#cbd5e1' } }
       });
 
-      // Plot simplified function (cyan)
+      // Plot simplified function (cyan solid)
       fracBoard.create('functiongraph', [expr.simpFn, -6, 6], {
-        strokeColor: '#00d4ff', strokeWidth: 2.5, highlight: false,
-        name: 'Simplified', withLabel: true,
-        label: { position: 'rt', offset: [5, 10], cssClass: '', cssStyle: 'color:#00d4ff; font-size:11px;' }
+        strokeColor: '#00d4ff', strokeWidth: 2.5, highlight: false
       });
 
-      // Plot original function (pink, dashed) to show they overlap
+      // Plot original function (pink dashed)
       fracBoard.create('functiongraph', [expr.origFn, -6, 6], {
-        strokeColor: '#ff006e', strokeWidth: 1.5, dash: 2, highlight: false,
-        name: 'Original', withLabel: true,
-        label: { position: 'lft', offset: [-5, -10], cssClass: '', cssStyle: 'color:#ff006e; font-size:11px;' }
+        strokeColor: '#ff006e', strokeWidth: 1.5, dash: 2, highlight: false
       });
 
-      // Mark holes (open circles)
+      // Mark holes (open circles with gold ring)
       for (var h = 0; h < expr.holes.length; h++) {
         fracBoard.create('point', [expr.holes[h][0], expr.holes[h][1]], {
-          size: 5, strokeColor: '#ffd700', fillColor: 'rgba(0,0,0,0.6)',
-          strokeWidth: 2, fixed: true, name: 'Hole',
-          label: { offset: [8, 8], cssClass: '', cssStyle: 'color:#ffd700; font-size:10px;' }
+          size: 6, strokeColor: '#ffd700', fillColor: 'rgba(0,0,0,0.8)',
+          strokeWidth: 2.5, fixed: true, name: '',
+          label: { visible: false }
+        });
+        // Label the hole
+        fracBoard.create('text', [expr.holes[h][0] + 0.3, expr.holes[h][1] + 0.5,
+          'Hole at x=' + expr.holes[h][0]], {
+          fontSize: 10, cssStyle: 'color:#ffd700;', fixed: true, highlight: false
         });
       }
 
-      // Draw vertical asymptotes
+      // Vertical asymptotes (pink dashed)
       for (var a = 0; a < expr.asymptotes.length; a++) {
-        fracBoard.create('line', [[expr.asymptotes[a], -10], [expr.asymptotes[a], 10]], {
+        fracBoard.create('line', [[expr.asymptotes[a], 0], [expr.asymptotes[a], 1]], {
           strokeColor: '#ff006e', strokeWidth: 1, dash: 3, fixed: true, highlight: false,
           straightFirst: true, straightLast: true, point1: {visible: false}, point2: {visible: false}
         });
+        fracBoard.create('text', [expr.asymptotes[a] + 0.15, 7, 'x=' + expr.asymptotes[a]], {
+          fontSize: 10, cssStyle: 'color:#ff006e;', fixed: true, highlight: false
+        });
       }
 
-      // Update readout with step-by-step
-      var display = document.getElementById('frac-step-display');
-      if (display) {
-        display.innerHTML =
-          '<div style="margin-bottom:8px;"><strong style="color:var(--neon-cyan);">Step 1: Original</strong><br>' +
-          '<span style="font-size:1.1rem;">' + expr.numLabel + ' &frasl; ' + expr.denLabel + '</span></div>' +
-          '<div style="margin-bottom:8px;"><strong style="color:var(--neon-green);">Step 2: Factor</strong><br>' +
-          'Numerator = ' + expr.numFactored + '<br>Denominator = ' + expr.denFactored + '</div>' +
-          '<div style="margin-bottom:8px;"><strong style="color:var(--neon-gold);">Step 3: Cancel</strong><br>' +
-          'Common factor: <span style="text-decoration:line-through; color:var(--neon-red);">' + expr.common + '</span></div>' +
-          '<div><strong style="color:var(--neon-purple);">Result:</strong> ' + expr.simpLabel + '</div>' +
-          '<div style="margin-top:8px; font-size:0.85rem; color:var(--text-muted);">The <span style="color:#ff006e;">pink dashed</span> (original) and <span style="color:#00d4ff;">cyan solid</span> (simplified) curves overlap perfectly, except at the <span style="color:#ffd700;">hole</span> where the original is undefined.</div>';
+      // Legend in top-left
+      fracBoard.create('text', [-5.8, 7.3, '<span style="color:#ff006e;">\u2500\u2500 Original (dashed)</span>'], {
+        fontSize: 11, fixed: true, highlight: false, useMathJax: false
+      });
+      fracBoard.create('text', [-5.8, 6.4, '<span style="color:#00d4ff;">\u2500\u2500 Simplified (solid)</span>'], {
+        fontSize: 11, fixed: true, highlight: false, useMathJax: false
+      });
+
+      // Draggable tracer point (gold) — glides along the simplified curve
+      var tracer = fracBoard.create('glider', [1, expr.simpFn(1),
+        fracBoard.create('functiongraph', [expr.simpFn, -6, 6], {
+          strokeWidth: 0, highlight: false, visible: false
+        })
+      ], {
+        size: 7, strokeColor: '#ffd700', fillColor: '#ffd700',
+        strokeWidth: 2, name: '', showInfobox: false, highlight: true,
+        label: { visible: false }
+      });
+
+      // Dashed vertical line from tracer to x-axis
+      fracBoard.create('segment', [
+        tracer,
+        [function() { return tracer.X(); }, 0]
+      ], {
+        strokeColor: 'rgba(255,215,0,0.3)', strokeWidth: 1, dash: 2,
+        fixed: true, highlight: false, point1: {visible: false}, point2: {visible: false}
+      });
+
+      // Dashed horizontal line from tracer to y-axis
+      fracBoard.create('segment', [
+        tracer,
+        [0, function() { return tracer.Y(); }]
+      ], {
+        strokeColor: 'rgba(255,215,0,0.3)', strokeWidth: 1, dash: 2,
+        fixed: true, highlight: false, point1: {visible: false}, point2: {visible: false}
+      });
+
+      // Update tracer readout on drag
+      tracer.on('drag', function() {
+        updateTracerReadout(tracer.X(), expr);
+      });
+
+      // Initial readout
+      updateTracerReadout(1, expr);
+
+      // Build step-by-step cards
+      buildStepCards(idx);
+    }
+
+    function buildStepCards(idx) {
+      var expr = expressions[idx];
+      var container = document.getElementById('frac-steps-container');
+      if (!container) return;
+
+      var noteParts = [];
+      if (expr.holes.length > 0) {
+        noteParts.push('x = ' + expr.holes.map(function(h) { return h[0]; }).join(', ') +
+          ' creates a <span style="color:#ffd700;">hole</span> (removable discontinuity) \u2014 both numerator and denominator are zero there.');
+      }
+      if (expr.asymptotes.length > 0) {
+        noteParts.push('x = ' + expr.asymptotes.join(', ') +
+          ' is a <span style="color:#ff006e;">vertical asymptote</span> (non-removable) \u2014 only the denominator is zero there.');
+      }
+      var holeNote = noteParts.join('<br>');
+
+      container.innerHTML =
+        '<div class="frac-step-card" data-step="1">' +
+          '<div class="frac-step-label" style="color:var(--neon-cyan);">Step 1 \u2014 Write the Expression</div>' +
+          '<div class="frac-step-body"><span style="font-size:1.15rem;">' +
+            '<span style="border-bottom:2px solid rgba(0,212,255,0.4); padding-bottom:2px;">' + expr.numLabel + '</span>' +
+            ' <span style="color:var(--text-muted);"> / </span> ' +
+            '<span style="border-bottom:2px solid rgba(0,212,255,0.4); padding-bottom:2px;">' + expr.denLabel + '</span>' +
+          '</span><br><span style="font-size:0.85rem; color:var(--text-muted);">Domain: ' + expr.domain + '</span></div>' +
+        '</div>' +
+
+        '<div class="frac-step-card" data-step="2">' +
+          '<div class="frac-step-label" style="color:var(--neon-green);">Step 2 \u2014 Factor Numerator & Denominator</div>' +
+          '<div class="frac-step-body">' +
+            'Numerator: ' + expr.numLabel + ' = <strong style="color:var(--neon-green);">' + expr.numFactored + '</strong><br>' +
+            'Denominator: ' + expr.denLabel + ' = <strong style="color:var(--neon-green);">' + expr.denFactored + '</strong>' +
+          '</div>' +
+        '</div>' +
+
+        '<div class="frac-step-card" data-step="3">' +
+          '<div class="frac-step-label" style="color:var(--neon-red);">Step 3 \u2014 Identify & Cancel Common Factors</div>' +
+          '<div class="frac-step-body">' +
+            'Common factor: <span style="background:rgba(255,51,102,0.15); padding:2px 8px; border-radius:4px; text-decoration:line-through; color:var(--neon-red); font-weight:700;">' + expr.common + '</span>' +
+            '<div style="margin-top:8px; padding:8px 12px; background:rgba(255,215,0,0.08); border-left:3px solid #ffd700; border-radius:0 4px 4px 0; font-size:0.85rem; color:var(--text-secondary);">' +
+              holeNote +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+
+        '<div class="frac-step-card" data-step="4">' +
+          '<div class="frac-step-label" style="color:var(--neon-purple);">Step 4 \u2014 Simplified Result</div>' +
+          '<div class="frac-step-body" style="text-align:center;">' +
+            '<div style="font-size:1.4rem; font-weight:900; color:var(--neon-purple); padding:12px 0;">' + expr.simpLabel + '</div>' +
+            '<div style="font-size:0.85rem; color:var(--text-muted);">The <span style="color:#ff006e;">pink dashed</span> (original) and <span style="color:#00d4ff;">cyan solid</span> (simplified) curves overlap perfectly \u2014 drag the <span style="color:#ffd700;">gold tracer</span> to verify!</div>' +
+          '</div>' +
+        '</div>';
+
+      // Reset revealed steps
+      revealedSteps = 0;
+      updateRevealBtn();
+    }
+
+    function updateRevealBtn() {
+      var btn = document.getElementById('frac-reveal-btn');
+      if (!btn) return;
+      var totalSteps = 4;
+      if (revealedSteps >= totalSteps) {
+        btn.textContent = 'All Steps Revealed \u2713';
+        btn.style.borderColor = 'var(--neon-purple)';
+        btn.style.color = 'var(--neon-purple)';
+        btn.style.background = 'rgba(168,85,247,0.1)';
+      } else {
+        btn.textContent = 'Reveal Step ' + (revealedSteps + 1) + ' \u25B8';
+        btn.style.borderColor = 'var(--neon-green)';
+        btn.style.color = 'var(--neon-green)';
+        btn.style.background = 'rgba(0,255,136,0.1)';
       }
     }
+
+    // Expose to window for onclick handlers
+    window._fracSelect = function(idx) {
+      currentExprIdx = idx;
+      // Update button active states
+      for (var i = 0; i < 4; i++) {
+        var btn = document.getElementById('frac-btn-' + i);
+        if (btn) {
+          if (i === idx) {
+            btn.classList.add('frac-expr-active');
+          } else {
+            btn.classList.remove('frac-expr-active');
+          }
+        }
+      }
+      buildFracBoard(idx);
+    };
+
+    window._fracRevealNext = function() {
+      if (revealedSteps >= 4) return;
+      revealedSteps++;
+      var cards = document.querySelectorAll('.frac-step-card');
+      for (var i = 0; i < cards.length; i++) {
+        if (parseInt(cards[i].getAttribute('data-step')) <= revealedSteps) {
+          cards[i].classList.add('frac-step-visible');
+        }
+      }
+      updateRevealBtn();
+    };
+
+    window._fracResetSteps = function() {
+      revealedSteps = 0;
+      var cards = document.querySelectorAll('.frac-step-card');
+      for (var i = 0; i < cards.length; i++) {
+        cards[i].classList.remove('frac-step-visible');
+      }
+      updateRevealBtn();
+    };
 
     window.addEventListener('DOMContentLoaded', function() {
       var container = document.getElementById('jsx-fraction-simplify');
       if (!container) return;
-
       buildFracBoard(0);
-
-      var slider = document.getElementById('fracExprSlider');
-      var label = document.getElementById('fracExprLabel');
-      if (slider) {
-        slider.addEventListener('input', function() {
-          currentExprIdx = parseInt(this.value);
-          if (label) label.textContent = expressions[currentExprIdx].title;
-          buildFracBoard(currentExprIdx);
-        });
-      }
     });
   })();
   </script>

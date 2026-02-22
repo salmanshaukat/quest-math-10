@@ -133,7 +133,7 @@
           <!-- Perpendicular bisectors (simplified) -->
           <line x1="200" y1="260" x2="220" y2="80" stroke="#a855f7" stroke-width="1" stroke-dasharray="4,4" opacity="0.4"/>
           <line x1="100" y1="130" x2="300" y2="190" stroke="#a855f7" stroke-width="1" stroke-dasharray="4,4" opacity="0.4"/>
-          <text x="50" y="35" fill="#64748b" font-size="11">Perpendicular bisectors meet at centre O</text>
+          <text x="50" y="35" fill="#cbd5e1" font-size="11">Perpendicular bisectors meet at centre O</text>
         </svg>
       </div>
       <p>The answer is <strong>yes</strong> -- and the secret lies in <em>perpendicular bisectors</em>. Where the bisectors of any two sides of triangle $ABC$ intersect, that is the centre of the circle passing through all three points. This chapter teaches you every construction technique you will ever need for circles.</p>
@@ -213,6 +213,14 @@
             <div class="tip-box">
               <strong>Why it works:</strong> Every point on the perpendicular bisector of a segment is equidistant from the endpoints. Point $O$ is equidistant from $A$, $B$, and $C$, so $OA = OB = OC = $ radius.
             </div>
+            <div class="viz-section" style="margin-top:var(--space-lg);">
+              <h4>Interactive: Perpendicular Bisector Construction</h4>
+              <p>Watch the classic compass-and-straightedge construction step by step. Click <strong>Next Step</strong> to advance.</p>
+              <div id="jsx-perp-bisector" class="jsx-container" style="height: 400px;"></div>
+              <div class="jsx-readout" id="perp-bisector-readout">Click "Next Step" to begin the construction.</div>
+              <button class="btn btn-primary" id="perp-bisector-next" style="margin-top:12px;">Next Step</button>
+              <button class="btn btn-ghost" id="perp-bisector-reset" style="margin-top:12px; margin-left:8px;">Reset</button>
+            </div>
           </div>
         </div>
 
@@ -233,6 +241,12 @@
               </ol>
             </div>
             <p>This is essentially constructing the <strong>circumscribed circle</strong> (circumcircle) of triangle $ABC$.</p>
+            <div class="viz-section" style="margin-top:var(--space-lg);">
+              <h4>Interactive: Circumcircle from 3 Points</h4>
+              <p>Drag the three points. The perpendicular bisectors always meet at the centre O, and the circumcircle passes through all three.</p>
+              <div id="jsx-circumcircle" class="jsx-container" style="height: 420px;"></div>
+              <div class="jsx-readout" id="circumcircle-readout"></div>
+            </div>
           </div>
         </div>
 
@@ -284,6 +298,12 @@
               </ol>
             </div>
             <p>The tangent is perpendicular to the radius at the point of contact -- this is why we construct a $90°$ angle at $P$.</p>
+            <div class="viz-section" style="margin-top:var(--space-lg);">
+              <h4>Interactive: Tangent at a Point on the Circle</h4>
+              <p>Drag point P around the circle. The tangent is always perpendicular to radius OP &mdash; exactly 90&deg;.</p>
+              <div id="jsx-tangent-at-point" class="jsx-container" style="height: 400px;"></div>
+              <div class="jsx-readout" id="tangent-at-point-readout"></div>
+            </div>
           </div>
         </div>
 
@@ -308,6 +328,12 @@
             <div class="example-box">
               <strong>Example:</strong> Circle of radius $3\text{ cm}$, point $P$ at $8\text{ cm}$ from centre. The midpoint circle has radius $4\text{ cm}$, and the two tangents from $P$ each have length $\sqrt{8^2 - 3^2} = \sqrt{55} \approx 7.4\text{ cm}$.
             </div>
+            <div class="viz-section" style="margin-top:var(--space-lg);">
+              <h4>Interactive: Tangent from External Point (Construction)</h4>
+              <p>Drag external point P. The <strong>midpoint circle</strong> (dashed gold) through M intersects the original circle at the tangent points T&#x2081; and T&#x2082;.</p>
+              <div id="jsx-ext-tangent-construct" class="jsx-container" style="height: 420px;"></div>
+              <div class="jsx-readout" id="ext-tangent-construct-readout"></div>
+            </div>
           </div>
         </div>
 
@@ -326,6 +352,19 @@
                 <li>Construct $\angle APC = 30°$ and draw another tangent $CD$ at point $C$ intersecting the first tangent at $D$.</li>
                 <li>Measure $\angle BDC$. It should equal $30°$.</li>
               </ol>
+            </div>
+            <div class="viz-section" style="margin-top:var(--space-lg);">
+              <h4>Interactive: Angle Construction Explorer</h4>
+              <p>Select an angle to see its compass-and-straightedge construction. The arcs and intersection points show the method.</p>
+              <div style="margin-bottom: 12px;">
+                <button class="btn btn-primary jsx-angle-btn" data-angle="60" style="margin:4px;">60&deg;</button>
+                <button class="btn btn-primary jsx-angle-btn" data-angle="90" style="margin:4px;">90&deg;</button>
+                <button class="btn btn-primary jsx-angle-btn" data-angle="120" style="margin:4px;">120&deg;</button>
+                <button class="btn btn-primary jsx-angle-btn" data-angle="45" style="margin:4px;">45&deg;</button>
+                <button class="btn btn-primary jsx-angle-btn" data-angle="30" style="margin:4px;">30&deg;</button>
+              </div>
+              <div id="jsx-angle-construct" class="jsx-container" style="height: 400px;"></div>
+              <div class="jsx-readout" id="angle-construct-readout">Select an angle above to begin.</div>
             </div>
           </div>
         </div>
@@ -367,6 +406,12 @@
             <div class="warning-box">
               <strong>Key Difference:</strong> Direct tangents use the <em>difference</em> of radii. Transverse tangents use the <em>sum</em> of radii.
             </div>
+            <div class="viz-section" style="margin-top:var(--space-lg);">
+              <h4>Interactive: Common Tangents Explorer</h4>
+              <p>Drag the centres and adjust radii. Direct (external) tangents shown in green, transverse (internal) in gold. The number of common tangents depends on the circles' positions!</p>
+              <div id="jsx-common-tangents" class="jsx-container" style="height: 420px;"></div>
+              <div class="jsx-readout" id="common-tangents-readout"></div>
+            </div>
           </div>
         </div>
 
@@ -403,31 +448,6 @@
         </div>
 
       </div><!-- /reveal-group -->
-
-      <!-- JSXGraph Viz 1: Compass and Straightedge Simulator -->
-      <div class="viz-section">
-        <h4>Interactive: Compass &amp; Straightedge -- Perpendicular Bisector</h4>
-        <p>Watch the classic compass-and-straightedge construction of a perpendicular bisector, step by step. Click <strong>Next Step</strong> to advance.</p>
-        <div id="jsx-perp-bisector" class="jsx-container" style="height: 400px;"></div>
-        <div class="jsx-readout" id="perp-bisector-readout">Click "Next Step" to begin the construction.</div>
-        <button class="btn btn-primary" id="perp-bisector-next" style="margin-top:12px;">Next Step</button>
-        <button class="btn btn-ghost" id="perp-bisector-reset" style="margin-top:12px; margin-left:8px;">Reset</button>
-      </div>
-
-      <!-- JSXGraph Viz 2: Angle Construction Explorer -->
-      <div class="viz-section">
-        <h4>Interactive: Angle Construction Explorer</h4>
-        <p>Select an angle to see its compass-and-straightedge construction animated step by step. The measurement confirms the constructed angle.</p>
-        <div style="margin-bottom: 12px;">
-          <button class="btn btn-primary jsx-angle-btn" data-angle="60" style="margin:4px;">60&deg;</button>
-          <button class="btn btn-primary jsx-angle-btn" data-angle="90" style="margin:4px;">90&deg;</button>
-          <button class="btn btn-primary jsx-angle-btn" data-angle="120" style="margin:4px;">120&deg;</button>
-          <button class="btn btn-primary jsx-angle-btn" data-angle="45" style="margin:4px;">45&deg;</button>
-          <button class="btn btn-primary jsx-angle-btn" data-angle="30" style="margin:4px;">30&deg;</button>
-        </div>
-        <div id="jsx-angle-construct" class="jsx-container" style="height: 400px;"></div>
-        <div class="jsx-readout" id="angle-construct-readout">Select an angle above to begin.</div>
-      </div>
 
     </div>
 
@@ -625,227 +645,427 @@
 
   <!-- JSXGraph Visualizations -->
   <script>
-  (function() {
-    // ===== VIZ 1: Perpendicular Bisector Construction =====
-    var boardPB = JXG.JSXGraph.initBoard('jsx-perp-bisector', {
-      boundingbox: [-2, 5, 10, -5], axis: false, grid: false,
-      showNavigation: false, showCopyright: false, keepAspectRatio: true
-    });
-    boardPB.containerObj.style.background = 'rgba(0,0,0,0.4)';
+  document.addEventListener('DOMContentLoaded', function() {
 
-    var pbStep = 0;
-    var pbElements = [];
-    var pbReadout = document.getElementById('perp-bisector-readout');
+    var R2D = 180 / Math.PI;
+    function pdist(p1,p2){return Math.sqrt(Math.pow(p1.X()-p2.X(),2)+Math.pow(p1.Y()-p2.Y(),2));}
 
-    // Points A and B (always visible)
-    var pA = boardPB.create('point', [1, 0], {name: 'A', fixed: true, size: 4, color: '#ff006e', label: {color: '#ff006e', fontSize: 14, offset: [-15, -15]}});
-    var pB = boardPB.create('point', [7, 0], {name: 'B', fixed: true, size: 4, color: '#ff006e', label: {color: '#ff006e', fontSize: 14, offset: [5, -15]}});
+    /* ====== Viz 1: Perpendicular Bisector Construction (Step-by-Step) ====== */
+    (function() {
+      var el = document.getElementById('jsx-perp-bisector');
+      if (!el) return;
+      var board = JXG.JSXGraph.initBoard('jsx-perp-bisector', {
+        boundingbox: [-2, 5, 10, -5], axis: false, grid: false,
+        showNavigation: false, showCopyright: false, keepAspectRatio: true
+      });
+      board.containerObj.style.background = 'rgba(0,0,0,0.4)';
 
-    var pbSteps = [
-      function() {
-        // Step 1: Draw segment AB
-        var seg = boardPB.create('segment', [pA, pB], {strokeColor: '#00d4ff', strokeWidth: 2});
-        pbElements.push(seg);
-        pbReadout.textContent = 'Step 1: Draw line segment AB.';
-      },
-      function() {
-        // Step 2: Circle centred at A with radius > AB/2
-        var c1 = boardPB.create('circle', [pA, 4.5], {strokeColor: '#a855f7', strokeWidth: 1.5, dash: 2, fillColor: 'none'});
-        pbElements.push(c1);
-        pbReadout.textContent = 'Step 2: Draw a circle centred at A with radius greater than half of AB.';
-      },
-      function() {
-        // Step 3: Circle centred at B with same radius
-        var c2 = boardPB.create('circle', [pB, 4.5], {strokeColor: '#ffd700', strokeWidth: 1.5, dash: 2, fillColor: 'none'});
-        pbElements.push(c2);
-        pbReadout.textContent = 'Step 3: Draw a circle centred at B with the same radius.';
-      },
-      function() {
-        // Step 4: Mark intersection points
-        // Intersection of two circles of radius 4.5 centred at (1,0) and (7,0)
-        // midpoint x=4, half-chord = sqrt(4.5^2 - 3^2) = sqrt(20.25-9) = sqrt(11.25)
-        var dy = Math.sqrt(4.5*4.5 - 3*3);
-        var pP = boardPB.create('point', [4, dy], {name: 'P', fixed: true, size: 4, color: '#00ff88', label: {color: '#00ff88', fontSize: 14, offset: [5, 10]}});
-        var pQ = boardPB.create('point', [4, -dy], {name: 'Q', fixed: true, size: 4, color: '#00ff88', label: {color: '#00ff88', fontSize: 14, offset: [5, -15]}});
-        pbElements.push(pP, pQ);
-        pbReadout.textContent = 'Step 4: Mark the two intersection points P and Q of the circles.';
-      },
-      function() {
-        // Step 5: Draw line PQ -- the perpendicular bisector
-        var dy = Math.sqrt(4.5*4.5 - 3*3);
-        var bisector = boardPB.create('line', [[4, dy], [4, -dy]], {strokeColor: '#00ff88', strokeWidth: 2.5, straightFirst: true, straightLast: true});
-        // Mark midpoint M
-        var pM = boardPB.create('point', [4, 0], {name: 'M', fixed: true, size: 3, color: '#ffffff', label: {color: '#ffffff', fontSize: 13, offset: [5, -15]}});
-        // Right angle marker
-        var sq = boardPB.create('polygon', [[3.6, 0], [3.6, 0.4], [4, 0.4], [4, 0]], {
-          borders: {strokeColor: '#ffffff', strokeWidth: 1},
-          fillColor: 'rgba(255,255,255,0.1)', hasInnerPoints: false, vertices: {visible: false}
-        });
-        pbElements.push(bisector, pM, sq);
-        pbReadout.textContent = 'Step 5: Connect P and Q. Line PQ is the perpendicular bisector of AB. It crosses AB at its midpoint M at 90\u00B0.';
+      var step = 0, elems = [];
+      var readout = document.getElementById('perp-bisector-readout');
+      var pA = board.create('point', [1, 0], {name:'A', fixed:true, size:4, color:'#ff006e', label:{color:'#ff006e', fontSize:14, offset:[-15,-15]}});
+      var pB = board.create('point', [7, 0], {name:'B', fixed:true, size:4, color:'#ff006e', label:{color:'#ff006e', fontSize:14, offset:[5,-15]}});
+
+      var steps = [
+        function() {
+          elems.push(board.create('segment', [pA, pB], {strokeColor:'#00d4ff', strokeWidth:2}));
+          readout.textContent = 'Step 1: Draw line segment AB.';
+        },
+        function() {
+          elems.push(board.create('circle', [pA, 4.5], {strokeColor:'#a855f7', strokeWidth:1.5, dash:2, fillColor:'none'}));
+          readout.textContent = 'Step 2: Draw a circle centred at A with radius > AB/2.';
+        },
+        function() {
+          elems.push(board.create('circle', [pB, 4.5], {strokeColor:'#ffd700', strokeWidth:1.5, dash:2, fillColor:'none'}));
+          readout.textContent = 'Step 3: Draw a circle centred at B with the same radius.';
+        },
+        function() {
+          var dy = Math.sqrt(4.5*4.5 - 3*3);
+          elems.push(board.create('point', [4, dy], {name:'P', fixed:true, size:4, color:'#00ff88', label:{color:'#00ff88', fontSize:14, offset:[5,10]}}));
+          elems.push(board.create('point', [4, -dy], {name:'Q', fixed:true, size:4, color:'#00ff88', label:{color:'#00ff88', fontSize:14, offset:[5,-15]}}));
+          readout.textContent = 'Step 4: Mark intersection points P and Q.';
+        },
+        function() {
+          var dy = Math.sqrt(4.5*4.5 - 3*3);
+          elems.push(board.create('line', [[4,dy],[4,-dy]], {strokeColor:'#00ff88', strokeWidth:2.5, straightFirst:true, straightLast:true}));
+          elems.push(board.create('point', [4, 0], {name:'M', fixed:true, size:3, color:'#ffffff', label:{color:'#ffffff', fontSize:13, offset:[5,-15]}}));
+          elems.push(board.create('polygon', [[3.6,0],[3.6,0.4],[4,0.4],[4,0]], {borders:{strokeColor:'#ffffff', strokeWidth:1}, fillColor:'rgba(255,255,255,0.1)', hasInnerPoints:false, vertices:{visible:false}}));
+          readout.textContent = 'Step 5: Line PQ is the perpendicular bisector of AB. It crosses at midpoint M at 90\u00B0.';
+        }
+      ];
+
+      document.getElementById('perp-bisector-next').addEventListener('click', function() {
+        if (step < steps.length) { steps[step](); step++; if (step >= steps.length) { this.textContent='Done!'; this.disabled=true; } }
+      });
+      document.getElementById('perp-bisector-reset').addEventListener('click', function() {
+        for (var i=elems.length-1;i>=0;i--) board.removeObject(elems[i]);
+        elems=[]; step=0; readout.textContent='Click "Next Step" to begin the construction.';
+        var btn=document.getElementById('perp-bisector-next'); btn.textContent='Next Step'; btn.disabled=false;
+      });
+    })();
+
+    /* ====== Viz 2: Circumcircle from 3 Points ====== */
+    (function() {
+      var el = document.getElementById('jsx-circumcircle');
+      if (!el) return;
+      var board = JXG.JSXGraph.initBoard('jsx-circumcircle', {
+        boundingbox: [-7, 7, 7, -7], axis: false, grid: false,
+        showNavigation: false, showCopyright: false, keepAspectRatio: true
+      });
+      board.containerObj.style.background = 'rgba(0,0,0,0.4)';
+
+      var A = board.create('point', [-3, -2], {name:'A', size:5, color:'#ff006e', label:{color:'#ff006e', offset:[-15,-10], fontSize:13}});
+      var B = board.create('point', [4, -1], {name:'B', size:5, color:'#00ff88', label:{color:'#00ff88', offset:[8,-10], fontSize:13}});
+      var C = board.create('point', [1, 4], {name:'C', size:5, color:'#ffd700', label:{color:'#ffd700', offset:[-5,12], fontSize:13}});
+
+      // Triangle sides (dashed)
+      board.create('segment', [A, B], {strokeColor:'#94a3b8', strokeWidth:1.5, dash:2, highlight:false});
+      board.create('segment', [B, C], {strokeColor:'#94a3b8', strokeWidth:1.5, dash:2, highlight:false});
+      board.create('segment', [A, C], {strokeColor:'#94a3b8', strokeWidth:1.5, dash:2, highlight:false});
+
+      // Perpendicular bisectors
+      var mid12 = board.create('midpoint', [A, B], {visible:false});
+      var mid23 = board.create('midpoint', [B, C], {visible:false});
+      var mid13 = board.create('midpoint', [A, C], {visible:false});
+      board.create('perpendicular', [board.create('line',[A,B],{visible:false}), mid12], {strokeColor:'rgba(168,85,247,0.4)', strokeWidth:1, dash:3, highlight:false, point:{visible:false}});
+      board.create('perpendicular', [board.create('line',[B,C],{visible:false}), mid23], {strokeColor:'rgba(168,85,247,0.4)', strokeWidth:1, dash:3, highlight:false, point:{visible:false}});
+      board.create('perpendicular', [board.create('line',[A,C],{visible:false}), mid13], {strokeColor:'rgba(168,85,247,0.4)', strokeWidth:1, dash:3, highlight:false, point:{visible:false}});
+
+      // Circumcircle
+      var cc = board.create('circumcircle', [A, B, C], {
+        strokeColor:'#00d4ff', strokeWidth:2, highlight:false,
+        center:{visible:true, size:4, color:'#00d4ff', name:'O', withLabel:true, fixed:true, label:{color:'#00d4ff', offset:[8,8], fontSize:12}}
+      });
+
+      // Radii
+      board.create('segment', [function(){return [cc.center.X(),cc.center.Y()];}, A], {strokeColor:'rgba(0,212,255,0.25)', strokeWidth:1, dash:3, highlight:false});
+      board.create('segment', [function(){return [cc.center.X(),cc.center.Y()];}, B], {strokeColor:'rgba(0,212,255,0.25)', strokeWidth:1, dash:3, highlight:false});
+      board.create('segment', [function(){return [cc.center.X(),cc.center.Y()];}, C], {strokeColor:'rgba(0,212,255,0.25)', strokeWidth:1, dash:3, highlight:false});
+
+      var readout = document.getElementById('circumcircle-readout');
+      function updateReadout() {
+        var ox=cc.center.X(), oy=cc.center.Y();
+        var r = Math.sqrt(Math.pow(ox-A.X(),2)+Math.pow(oy-A.Y(),2));
+        readout.innerHTML =
+          '<span style="color:#00d4ff;">Centre O = ('+ox.toFixed(1)+', '+oy.toFixed(1)+')</span> &nbsp;|&nbsp; ' +
+          '<span style="color:#ffd700;">Radius = '+r.toFixed(2)+'</span> &nbsp;|&nbsp; ' +
+          '<span style="color:#a855f7;">Perp. bisectors meet at O</span>';
       }
-    ];
+      A.on('drag', updateReadout); B.on('drag', updateReadout); C.on('drag', updateReadout);
+      updateReadout();
+    })();
 
-    document.getElementById('perp-bisector-next').addEventListener('click', function() {
-      if (pbStep < pbSteps.length) {
-        pbSteps[pbStep]();
-        pbStep++;
-        if (pbStep >= pbSteps.length) {
-          this.textContent = 'Done!';
-          this.disabled = true;
+    /* ====== Viz 3: Tangent at a Point on the Circle ====== */
+    (function() {
+      var el = document.getElementById('jsx-tangent-at-point');
+      if (!el) return;
+      var board = JXG.JSXGraph.initBoard('jsx-tangent-at-point', {
+        boundingbox: [-6, 6, 6, -6], axis: false, grid: false,
+        showNavigation: false, showCopyright: false, keepAspectRatio: true
+      });
+      board.containerObj.style.background = 'rgba(0,0,0,0.4)';
+
+      var r = 3;
+      var O = board.create('point', [0, 0], {name:'O', size:3, color:'#00d4ff', fixed:true, label:{color:'#00d4ff', offset:[-15,10], fontSize:13}});
+      var circ = board.create('circle', [O, r], {strokeColor:'#00d4ff', strokeWidth:2, fixed:true, highlight:false});
+
+      var P = board.create('glider', [r, 0, circ], {name:'P', size:5, color:'#ff006e', label:{color:'#ff006e', offset:[8,8], fontSize:14}});
+
+      // Radius OP
+      board.create('segment', [O, P], {strokeColor:'#a855f7', strokeWidth:2.5, highlight:false});
+
+      // Tangent line at P (perpendicular to OP)
+      board.create('line', [P, function(){
+        var dx=P.X(), dy=P.Y();
+        return [P.X()+(-dy), P.Y()+dx];
+      }], {strokeColor:'#00ff88', strokeWidth:2.5, straightFirst:true, straightLast:true, highlight:false});
+
+      // Right angle marker
+      board.create('angle', [
+        function(){return [P.X()+(-P.Y())*0.3, P.Y()+P.X()*0.3];}, P, O
+      ], {radius:0.45, color:'rgba(255,215,0,0.3)', strokeColor:'#ffd700', name:'', withLabel:false, type:'square'});
+
+      // Labels
+      board.create('text', [function(){return P.X()/2-0.3;}, function(){return P.Y()/2+0.3;}, 'radius'], {color:'#a855f7', fontSize:11, fixed:true});
+      board.create('text', [function(){return P.X()+(-P.Y())*0.7;}, function(){return P.Y()+P.X()*0.7;}, 'tangent'], {color:'#00ff88', fontSize:11, fixed:true});
+      board.create('text', [function(){
+        var dx=-P.Y(),dy=P.X(),m=Math.sqrt(dx*dx+dy*dy)||1;
+        return P.X()+dx/m*0.7;
+      }, function(){
+        var dx=-P.Y(),dy=P.X(),m=Math.sqrt(dx*dx+dy*dy)||1;
+        return P.Y()+dy/m*0.7-0.25;
+      }, '90\u00B0'], {color:'#ffd700', fontSize:11, fixed:true});
+
+      var readout = document.getElementById('tangent-at-point-readout');
+      function updateReadout() {
+        var angle = Math.atan2(P.Y(), P.X()) * R2D;
+        if(angle < 0) angle += 360;
+        readout.innerHTML = 'Point P at <strong>' + angle.toFixed(1) + '\u00B0</strong> on circle &nbsp;|&nbsp; \u2220(radius, tangent) = <strong style="color:#ffd700;">90\u00B0</strong> &nbsp;(always perpendicular!)';
+      }
+      P.on('drag', updateReadout);
+      updateReadout();
+    })();
+
+    /* ====== Viz 4: Tangent from External Point (Construction Method) ====== */
+    (function() {
+      var el = document.getElementById('jsx-ext-tangent-construct');
+      if (!el) return;
+      var board = JXG.JSXGraph.initBoard('jsx-ext-tangent-construct', {
+        boundingbox: [-6, 7, 12, -7], axis: false, grid: false,
+        showNavigation: false, showCopyright: false, keepAspectRatio: true
+      });
+      board.containerObj.style.background = 'rgba(0,0,0,0.4)';
+
+      var r = 3;
+      var O = board.create('point', [0, 0], {name:'O', size:4, color:'#00d4ff', fixed:true, label:{color:'#00d4ff', offset:[-15,10], fontSize:13}});
+      var circ = board.create('circle', [O, r], {strokeColor:'#00d4ff', strokeWidth:2, fixed:true, highlight:false});
+
+      var P = board.create('point', [8, 2], {name:'P', size:5, color:'#ff006e', label:{color:'#ff006e', offset:[8,8], fontSize:14}});
+      P.on('drag', function() {
+        var d = Math.sqrt(P.X()*P.X()+P.Y()*P.Y());
+        if(d<=r+0.5) { var s=(r+0.5)/d; P.moveTo([P.X()*s,P.Y()*s]); }
+      });
+
+      // Midpoint M of OP
+      var M = board.create('midpoint', [O, P], {name:'M', size:3, color:'#94a3b8', label:{color:'#94a3b8', offset:[5,-12], fontSize:11}});
+
+      // OP segment
+      board.create('segment', [O, P], {strokeColor:'#94a3b8', strokeWidth:1, dash:3, highlight:false});
+
+      // Auxiliary circle (centre M, radius OM)
+      var auxCirc = board.create('circle', [M, function(){return pdist(O,M);}], {
+        strokeColor:'#ffd700', strokeWidth:1.5, dash:2, highlight:false, fillColor:'none'
+      });
+
+      // Tangent point computation
+      function tangPt(sign) {
+        return {
+          x: function(){ var dx=P.X(),dy=P.Y(),d=Math.sqrt(dx*dx+dy*dy); if(d<=r) return r; var a=r*r/d, h=r*Math.sqrt(d*d-r*r)/d; return a*dx/d + sign*h*(-dy/d); },
+          y: function(){ var dx=P.X(),dy=P.Y(),d=Math.sqrt(dx*dx+dy*dy); if(d<=r) return 0; var a=r*r/d, h=r*Math.sqrt(d*d-r*r)/d; return a*dy/d + sign*h*(dx/d); }
+        };
+      }
+      var tp1 = tangPt(1), tp2 = tangPt(-1);
+      var T1 = board.create('point', [tp1.x, tp1.y], {name:'T\u2081', size:5, color:'#00ff88', label:{color:'#00ff88', offset:[-15,8], fontSize:12}});
+      var T2 = board.create('point', [tp2.x, tp2.y], {name:'T\u2082', size:5, color:'#00ff88', label:{color:'#00ff88', offset:[-15,-12], fontSize:12}});
+
+      // Tangent lines
+      board.create('segment', [P, T1], {strokeColor:'#00ff88', strokeWidth:2, highlight:false});
+      board.create('segment', [P, T2], {strokeColor:'#00ff88', strokeWidth:2, highlight:false});
+
+      // Radii to tangent points
+      board.create('segment', [O, T1], {strokeColor:'#a855f7', strokeWidth:1.5, dash:2, highlight:false});
+      board.create('segment', [O, T2], {strokeColor:'#a855f7', strokeWidth:1.5, dash:2, highlight:false});
+
+      // Right angle markers
+      board.create('angle', [P, T1, O], {radius:0.4, color:'rgba(255,215,0,0.2)', strokeColor:'#ffd700', name:'', withLabel:false, type:'square'});
+      board.create('angle', [O, T2, P], {radius:0.4, color:'rgba(255,215,0,0.2)', strokeColor:'#ffd700', name:'', withLabel:false, type:'square'});
+
+      // Legend
+      board.create('text', [-5.5, -5.5, '<span style="color:#00d4ff;">\u25CB Original circle</span> &nbsp; <span style="color:#ffd700;">- - Auxiliary circle (centre M)</span>'], {fontSize:9, fixed:true});
+
+      var readout = document.getElementById('ext-tangent-construct-readout');
+      function updateReadout() {
+        var d = Math.sqrt(P.X()*P.X()+P.Y()*P.Y());
+        var tangLen = Math.sqrt(Math.max(0,d*d-r*r));
+        readout.innerHTML =
+          '<div style="display:flex; flex-wrap:wrap; gap:4px 16px; font-size:0.9rem;">' +
+            '<span style="color:#cbd5e1;">OP = '+d.toFixed(2)+'</span>' +
+            '<span style="color:#00d4ff;">r = '+r+'</span>' +
+            '<span style="color:#94a3b8;">OM = '+pdist(O,M).toFixed(2)+' (auxiliary radius)</span>' +
+          '</div>' +
+          '<div style="margin-top:4px; font-size:0.85rem;">' +
+            '<span style="color:#00ff88;">PT\u2081 = PT\u2082 = \u221A(OP\u00B2\u2212r\u00B2) = '+tangLen.toFixed(2)+'</span>' +
+            ' &nbsp;<span style="color:#00ff88; font-weight:700;">\u2705 Equal tangent lengths!</span>' +
+          '</div>';
+      }
+      P.on('drag', updateReadout);
+      updateReadout();
+    })();
+
+    /* ====== Viz 5: Angle Construction Explorer ====== */
+    (function() {
+      var el = document.getElementById('jsx-angle-construct');
+      if (!el) return;
+      var board = JXG.JSXGraph.initBoard('jsx-angle-construct', {
+        boundingbox: [-2, 6, 10, -4], axis: false, grid: false,
+        showNavigation: false, showCopyright: false, keepAspectRatio: true
+      });
+      board.containerObj.style.background = 'rgba(0,0,0,0.4)';
+
+      var readout = document.getElementById('angle-construct-readout');
+
+      function constructAngle(degrees) {
+        board.suspendUpdate();
+        var ids = [];
+        for (var id in board.objects) { if (board.objects.hasOwnProperty(id)) ids.push(id); }
+        for (var j = 0; j < ids.length; j++) { try { board.removeObject(board.objects[ids[j]]); } catch(e) {} }
+        board.unsuspendUpdate();
+
+        var Pt = board.create('point', [1, 0], {name:'O', fixed:true, size:4, color:'#ff006e', label:{color:'#ff006e', fontSize:14, offset:[-15,-15]}});
+        var rayEnd = board.create('point', [9, 0], {name:'', fixed:true, size:0, visible:false});
+        board.create('segment', [Pt, rayEnd], {strokeColor:'#00d4ff', strokeWidth:2});
+
+        var rad = degrees * Math.PI / 180;
+        var R = 3.5;
+
+        if (degrees === 60) {
+          board.create('circle', [Pt, R], {strokeColor:'#a855f7', strokeWidth:1.5, dash:2, fillColor:'none'});
+          var baseP = board.create('point', [1+R, 0], {name:'A', fixed:true, size:3, color:'#ffd700', label:{color:'#ffd700', fontSize:13, offset:[5,-15]}});
+          board.create('circle', [baseP, R], {strokeColor:'#ffd700', strokeWidth:1.5, dash:2, fillColor:'none'});
+          var ix=1+R*Math.cos(rad), iy=R*Math.sin(rad);
+          board.create('point', [ix,iy], {name:'B', fixed:true, size:4, color:'#00ff88', label:{color:'#00ff88', fontSize:14, offset:[5,10]}});
+          board.create('segment', [Pt, [ix+3*Math.cos(rad),iy+3*Math.sin(rad)]], {strokeColor:'#00ff88', strokeWidth:2});
+          board.create('arc', [Pt, [1+1.2,0], [1+1.2*Math.cos(rad),1.2*Math.sin(rad)]], {strokeColor:'#ff006e', strokeWidth:2, fixed:true});
+          readout.textContent = 'Constructed 60\u00B0: Draw equal arcs from O and A. Their intersection B gives \u2220AOB = 60\u00B0.';
+        } else if (degrees === 90) {
+          board.create('circle', [Pt, R], {strokeColor:'#a855f7', strokeWidth:1.5, dash:2, fillColor:'none'});
+          var baseP = board.create('point', [1+R, 0], {name:'A', fixed:true, size:3, color:'#ffd700', label:{color:'#ffd700', fontSize:13, offset:[5,-15]}});
+          board.create('circle', [baseP, R], {strokeColor:'#ffd700', strokeWidth:1, dash:2, fillColor:'none'});
+          var p60 = board.create('point', [1+R*Math.cos(Math.PI/3), R*Math.sin(Math.PI/3)], {name:'C', fixed:true, size:3, color:'#ffd700', label:{color:'#ffd700', fontSize:12, offset:[5,5]}});
+          board.create('circle', [p60, R], {strokeColor:'#00ff88', strokeWidth:1, dash:2, fillColor:'none'});
+          board.create('point', [1+R*Math.cos(2*Math.PI/3), R*Math.sin(2*Math.PI/3)], {name:'D', fixed:true, size:3, color:'#ffd700', label:{color:'#ffd700', fontSize:12, offset:[-15,5]}});
+          board.create('point', [1+R*Math.cos(Math.PI/2), R*Math.sin(Math.PI/2)], {name:'B', fixed:true, size:4, color:'#00ff88', label:{color:'#00ff88', fontSize:14, offset:[5,10]}});
+          board.create('segment', [Pt, [1, R+2]], {strokeColor:'#00ff88', strokeWidth:2});
+          board.create('arc', [Pt, [1+1.2,0], [1, 1.2]], {strokeColor:'#ff006e', strokeWidth:2, fixed:true});
+          readout.textContent = 'Constructed 90\u00B0: Bisect arc between 60\u00B0 and 120\u00B0. \u2220AOB = 90\u00B0.';
+        } else if (degrees === 120) {
+          board.create('circle', [Pt, R], {strokeColor:'#a855f7', strokeWidth:1.5, dash:2, fillColor:'none'});
+          var baseP = board.create('point', [1+R, 0], {name:'A', fixed:true, size:3, color:'#ffd700', label:{color:'#ffd700', fontSize:13, offset:[5,-15]}});
+          board.create('circle', [baseP, R], {strokeColor:'#ffd700', strokeWidth:1, dash:2, fillColor:'none'});
+          var p60 = board.create('point', [1+R*Math.cos(Math.PI/3), R*Math.sin(Math.PI/3)], {name:'C', fixed:true, size:3, color:'#ffd700', label:{color:'#ffd700', fontSize:12, offset:[5,5]}});
+          board.create('circle', [p60, R], {strokeColor:'#00ff88', strokeWidth:1, dash:2, fillColor:'none'});
+          var px=1+R*Math.cos(2*Math.PI/3), py=R*Math.sin(2*Math.PI/3);
+          board.create('point', [px,py], {name:'B', fixed:true, size:4, color:'#00ff88', label:{color:'#00ff88', fontSize:14, offset:[-15,10]}});
+          board.create('segment', [Pt, [px+2*Math.cos(2*Math.PI/3), py+2*Math.sin(2*Math.PI/3)]], {strokeColor:'#00ff88', strokeWidth:2});
+          board.create('arc', [Pt, [1+1.2,0], [1+1.2*Math.cos(2*Math.PI/3), 1.2*Math.sin(2*Math.PI/3)]], {strokeColor:'#ff006e', strokeWidth:2, fixed:true});
+          readout.textContent = 'Constructed 120\u00B0: Two successive 60\u00B0 arcs. \u2220AOB = 120\u00B0.';
+        } else if (degrees === 45) {
+          board.create('circle', [Pt, R], {strokeColor:'#a855f7', strokeWidth:1.5, dash:2, fillColor:'none'});
+          var baseP = board.create('point', [1+R, 0], {name:'A', fixed:true, size:3, color:'#ffd700', label:{color:'#ffd700', fontSize:13, offset:[5,-15]}});
+          var p90 = board.create('point', [1, R], {name:'C', fixed:true, size:3, color:'#ffd700', label:{color:'#ffd700', fontSize:12, offset:[5,5]}});
+          board.create('segment', [Pt, p90], {strokeColor:'#ffd700', strokeWidth:1, dash:2});
+          board.create('circle', [baseP, 3], {strokeColor:'#00ff88', strokeWidth:1, dash:2, fillColor:'none'});
+          board.create('circle', [p90, 3], {strokeColor:'#00ff88', strokeWidth:1, dash:2, fillColor:'none'});
+          var px=1+R*Math.cos(Math.PI/4), py=R*Math.sin(Math.PI/4);
+          board.create('point', [px,py], {name:'B', fixed:true, size:4, color:'#00ff88', label:{color:'#00ff88', fontSize:14, offset:[5,10]}});
+          board.create('segment', [Pt, [px+3*Math.cos(Math.PI/4), py+3*Math.sin(Math.PI/4)]], {strokeColor:'#00ff88', strokeWidth:2});
+          board.create('arc', [Pt, [1+1.2,0], [1+1.2*Math.cos(Math.PI/4), 1.2*Math.sin(Math.PI/4)]], {strokeColor:'#ff006e', strokeWidth:2, fixed:true});
+          readout.textContent = 'Constructed 45\u00B0: First construct 90\u00B0 (at C), then bisect arc AC. \u2220AOB = 45\u00B0.';
+        } else if (degrees === 30) {
+          board.create('circle', [Pt, R], {strokeColor:'#a855f7', strokeWidth:1.5, dash:2, fillColor:'none'});
+          var baseP = board.create('point', [1+R, 0], {name:'A', fixed:true, size:3, color:'#ffd700', label:{color:'#ffd700', fontSize:13, offset:[5,-15]}});
+          board.create('circle', [baseP, R], {strokeColor:'#ffd700', strokeWidth:1, dash:2, fillColor:'none'});
+          var p60 = board.create('point', [1+R*Math.cos(Math.PI/3), R*Math.sin(Math.PI/3)], {name:'C', fixed:true, size:3, color:'#ffd700', label:{color:'#ffd700', fontSize:12, offset:[5,5]}});
+          board.create('segment', [Pt, p60], {strokeColor:'#ffd700', strokeWidth:1, dash:2});
+          board.create('circle', [baseP, 3], {strokeColor:'#00ff88', strokeWidth:1, dash:2, fillColor:'none'});
+          board.create('circle', [p60, 3], {strokeColor:'#00ff88', strokeWidth:1, dash:2, fillColor:'none'});
+          var px=1+R*Math.cos(Math.PI/6), py=R*Math.sin(Math.PI/6);
+          board.create('point', [px,py], {name:'B', fixed:true, size:4, color:'#00ff88', label:{color:'#00ff88', fontSize:14, offset:[5,10]}});
+          board.create('segment', [Pt, [px+3*Math.cos(Math.PI/6), py+3*Math.sin(Math.PI/6)]], {strokeColor:'#00ff88', strokeWidth:2});
+          board.create('arc', [Pt, [1+1.2,0], [1+1.2*Math.cos(Math.PI/6), 1.2*Math.sin(Math.PI/6)]], {strokeColor:'#ff006e', strokeWidth:2, fixed:true});
+          readout.textContent = 'Constructed 30\u00B0: First construct 60\u00B0 (at C), then bisect arc AC. \u2220AOB = 30\u00B0.';
         }
       }
-    });
 
-    document.getElementById('perp-bisector-reset').addEventListener('click', function() {
-      for (var i = pbElements.length - 1; i >= 0; i--) {
-        boardPB.removeObject(pbElements[i]);
-      }
-      pbElements = [];
-      pbStep = 0;
-      pbReadout.textContent = 'Click "Next Step" to begin the construction.';
-      var btn = document.getElementById('perp-bisector-next');
-      btn.textContent = 'Next Step';
-      btn.disabled = false;
-    });
-
-    // ===== VIZ 2: Angle Construction Explorer =====
-    var boardAC = JXG.JSXGraph.initBoard('jsx-angle-construct', {
-      boundingbox: [-2, 6, 10, -4], axis: false, grid: false,
-      showNavigation: false, showCopyright: false, keepAspectRatio: true
-    });
-    boardAC.containerObj.style.background = 'rgba(0,0,0,0.4)';
-
-    var acReadout = document.getElementById('angle-construct-readout');
-
-    function constructAngle(degrees) {
-      // Clear board
-      boardAC.suspendUpdate();
-      // Remove all objects except the board itself
-      var ids = [];
-      for (var id in boardAC.objects) {
-        if (boardAC.objects.hasOwnProperty(id)) ids.push(id);
-      }
-      for (var j = 0; j < ids.length; j++) {
-        try { boardAC.removeObject(boardAC.objects[ids[j]]); } catch(e) {}
-      }
-      boardAC.unsuspendUpdate();
-
-      var O = boardAC.create('point', [1, 0], {name: 'O', fixed: true, size: 4, color: '#ff006e', label: {color: '#ff006e', fontSize: 14, offset: [-15, -15]}});
-      var rayEnd = boardAC.create('point', [9, 0], {name: '', fixed: true, size: 0, visible: false});
-      var baseRay = boardAC.create('segment', [O, rayEnd], {strokeColor: '#00d4ff', strokeWidth: 2});
-
-      var rad = degrees * Math.PI / 180;
-      var R = 3.5; // construction radius
-
-      if (degrees === 60) {
-        // Arc from O
-        var arcPt = boardAC.create('point', [1 + R, 0], {name: '', fixed: true, visible: false});
-        var c1 = boardAC.create('circle', [O, R], {strokeColor: '#a855f7', strokeWidth: 1.5, dash: 2, fillColor: 'none'});
-        // Arc from point on base ray
-        var baseP = boardAC.create('point', [1 + R, 0], {name: 'A', fixed: true, size: 3, color: '#ffd700', label: {color: '#ffd700', fontSize: 13, offset: [5, -15]}});
-        var c2 = boardAC.create('circle', [baseP, R], {strokeColor: '#ffd700', strokeWidth: 1.5, dash: 2, fillColor: 'none'});
-        // Intersection at 60 degrees
-        var ix = 1 + R * Math.cos(rad);
-        var iy = R * Math.sin(rad);
-        var intPt = boardAC.create('point', [ix, iy], {name: 'B', fixed: true, size: 4, color: '#00ff88', label: {color: '#00ff88', fontSize: 14, offset: [5, 10]}});
-        var angleLine = boardAC.create('segment', [O, [ix + 3*Math.cos(rad), iy + 3*Math.sin(rad)]], {strokeColor: '#00ff88', strokeWidth: 2});
-        // Angle arc
-        boardAC.create('arc', [O, [1 + 1.2, 0], [1 + 1.2*Math.cos(rad), 1.2*Math.sin(rad)]], {strokeColor: '#ff006e', strokeWidth: 2, fixed: true});
-        acReadout.textContent = 'Constructed 60\u00B0 angle: Draw equal arcs from O and from A. Their intersection B gives \u2220AOB = 60\u00B0.';
-
-      } else if (degrees === 90) {
-        // Draw semi-circle from O
-        var c1 = boardAC.create('circle', [O, R], {strokeColor: '#a855f7', strokeWidth: 1.5, dash: 2, fillColor: 'none'});
-        var baseP = boardAC.create('point', [1 + R, 0], {name: 'A', fixed: true, size: 3, color: '#ffd700', label: {color: '#ffd700', fontSize: 13, offset: [5, -15]}});
-        // First arc: 60 degrees
-        var p60x = 1 + R * Math.cos(Math.PI/3);
-        var p60y = R * Math.sin(Math.PI/3);
-        var p60 = boardAC.create('point', [p60x, p60y], {name: 'C', fixed: true, size: 3, color: '#ffd700', label: {color: '#ffd700', fontSize: 12, offset: [5, 5]}});
-        var c2 = boardAC.create('circle', [baseP, R], {strokeColor: '#ffd700', strokeWidth: 1, dash: 2, fillColor: 'none'});
-        // Second arc from C with same radius intersects at 120 deg
-        var p120x = 1 + R * Math.cos(2*Math.PI/3);
-        var p120y = R * Math.sin(2*Math.PI/3);
-        var p120 = boardAC.create('point', [p120x, p120y], {name: 'D', fixed: true, size: 3, color: '#ffd700', label: {color: '#ffd700', fontSize: 12, offset: [-15, 5]}});
-        var c3 = boardAC.create('circle', [p60, R], {strokeColor: '#00ff88', strokeWidth: 1, dash: 2, fillColor: 'none'});
-        // Bisect arc CD to find 90 degrees
-        var p90x = 1 + R * Math.cos(Math.PI/2);
-        var p90y = R * Math.sin(Math.PI/2);
-        var p90 = boardAC.create('point', [p90x, p90y], {name: 'B', fixed: true, size: 4, color: '#00ff88', label: {color: '#00ff88', fontSize: 14, offset: [5, 10]}});
-        var angleLine = boardAC.create('segment', [O, [p90x + 2*Math.cos(Math.PI/2), p90y + 2*Math.sin(Math.PI/2)]], {strokeColor: '#00ff88', strokeWidth: 2});
-        boardAC.create('arc', [O, [1 + 1.2, 0], [1 + 1.2*Math.cos(Math.PI/2), 1.2*Math.sin(Math.PI/2)]], {strokeColor: '#ff006e', strokeWidth: 2, fixed: true});
-        acReadout.textContent = 'Constructed 90\u00B0 angle: Bisect the arc between 60\u00B0 and 120\u00B0 to find the 90\u00B0 point B. \u2220AOB = 90\u00B0.';
-
-      } else if (degrees === 120) {
-        var c1 = boardAC.create('circle', [O, R], {strokeColor: '#a855f7', strokeWidth: 1.5, dash: 2, fillColor: 'none'});
-        var baseP = boardAC.create('point', [1 + R, 0], {name: 'A', fixed: true, size: 3, color: '#ffd700', label: {color: '#ffd700', fontSize: 13, offset: [5, -15]}});
-        // 60 degree mark
-        var p60x = 1 + R * Math.cos(Math.PI/3);
-        var p60y = R * Math.sin(Math.PI/3);
-        var p60 = boardAC.create('point', [p60x, p60y], {name: 'C', fixed: true, size: 3, color: '#ffd700', label: {color: '#ffd700', fontSize: 12, offset: [5, 5]}});
-        var c2 = boardAC.create('circle', [baseP, R], {strokeColor: '#ffd700', strokeWidth: 1, dash: 2, fillColor: 'none'});
-        // Arc from C to get 120 deg mark
-        var c3 = boardAC.create('circle', [p60, R], {strokeColor: '#00ff88', strokeWidth: 1, dash: 2, fillColor: 'none'});
-        var p120x = 1 + R * Math.cos(2*Math.PI/3);
-        var p120y = R * Math.sin(2*Math.PI/3);
-        var p120 = boardAC.create('point', [p120x, p120y], {name: 'B', fixed: true, size: 4, color: '#00ff88', label: {color: '#00ff88', fontSize: 14, offset: [-15, 10]}});
-        var angleLine = boardAC.create('segment', [O, [p120x + 2*Math.cos(2*Math.PI/3), p120y + 2*Math.sin(2*Math.PI/3)]], {strokeColor: '#00ff88', strokeWidth: 2});
-        boardAC.create('arc', [O, [1 + 1.2, 0], [1 + 1.2*Math.cos(2*Math.PI/3), 1.2*Math.sin(2*Math.PI/3)]], {strokeColor: '#ff006e', strokeWidth: 2, fixed: true});
-        acReadout.textContent = 'Constructed 120\u00B0 angle: Two successive 60\u00B0 arcs. From A mark C (60\u00B0), from C mark B (120\u00B0). \u2220AOB = 120\u00B0.';
-
-      } else if (degrees === 45) {
-        // Construct 90 first, then bisect
-        var c1 = boardAC.create('circle', [O, R], {strokeColor: '#a855f7', strokeWidth: 1.5, dash: 2, fillColor: 'none'});
-        var baseP = boardAC.create('point', [1 + R, 0], {name: 'A', fixed: true, size: 3, color: '#ffd700', label: {color: '#ffd700', fontSize: 13, offset: [5, -15]}});
-        // 90 degree point
-        var p90x = 1 + R * Math.cos(Math.PI/2);
-        var p90y = R * Math.sin(Math.PI/2);
-        var p90 = boardAC.create('point', [p90x, p90y], {name: 'C', fixed: true, size: 3, color: '#ffd700', dash: 2, label: {color: '#ffd700', fontSize: 12, offset: [5, 5]}});
-        var line90 = boardAC.create('segment', [O, p90], {strokeColor: '#ffd700', strokeWidth: 1, dash: 2});
-        // Bisect to get 45
-        var p45x = 1 + R * Math.cos(Math.PI/4);
-        var p45y = R * Math.sin(Math.PI/4);
-        var p45 = boardAC.create('point', [p45x, p45y], {name: 'B', fixed: true, size: 4, color: '#00ff88', label: {color: '#00ff88', fontSize: 14, offset: [5, 10]}});
-        var angleLine = boardAC.create('segment', [O, [p45x + 3*Math.cos(Math.PI/4), p45y + 3*Math.sin(Math.PI/4)]], {strokeColor: '#00ff88', strokeWidth: 2});
-        // Bisector arcs
-        var c2 = boardAC.create('circle', [baseP, 3], {strokeColor: '#00ff88', strokeWidth: 1, dash: 2, fillColor: 'none'});
-        var c3 = boardAC.create('circle', [p90, 3], {strokeColor: '#00ff88', strokeWidth: 1, dash: 2, fillColor: 'none'});
-        boardAC.create('arc', [O, [1 + 1.2, 0], [1 + 1.2*Math.cos(Math.PI/4), 1.2*Math.sin(Math.PI/4)]], {strokeColor: '#ff006e', strokeWidth: 2, fixed: true});
-        acReadout.textContent = 'Constructed 45\u00B0 angle: First construct 90\u00B0 (at C), then bisect arc AC to get B. \u2220AOB = 45\u00B0.';
-
-      } else if (degrees === 30) {
-        // Construct 60 first, then bisect
-        var c1 = boardAC.create('circle', [O, R], {strokeColor: '#a855f7', strokeWidth: 1.5, dash: 2, fillColor: 'none'});
-        var baseP = boardAC.create('point', [1 + R, 0], {name: 'A', fixed: true, size: 3, color: '#ffd700', label: {color: '#ffd700', fontSize: 13, offset: [5, -15]}});
-        var c2 = boardAC.create('circle', [baseP, R], {strokeColor: '#ffd700', strokeWidth: 1, dash: 2, fillColor: 'none'});
-        // 60 degree point
-        var p60x = 1 + R * Math.cos(Math.PI/3);
-        var p60y = R * Math.sin(Math.PI/3);
-        var p60 = boardAC.create('point', [p60x, p60y], {name: 'C', fixed: true, size: 3, color: '#ffd700', label: {color: '#ffd700', fontSize: 12, offset: [5, 5]}});
-        var line60 = boardAC.create('segment', [O, p60], {strokeColor: '#ffd700', strokeWidth: 1, dash: 2});
-        // Bisect to get 30
-        var p30x = 1 + R * Math.cos(Math.PI/6);
-        var p30y = R * Math.sin(Math.PI/6);
-        var p30 = boardAC.create('point', [p30x, p30y], {name: 'B', fixed: true, size: 4, color: '#00ff88', label: {color: '#00ff88', fontSize: 14, offset: [5, 10]}});
-        var angleLine = boardAC.create('segment', [O, [p30x + 3*Math.cos(Math.PI/6), p30y + 3*Math.sin(Math.PI/6)]], {strokeColor: '#00ff88', strokeWidth: 2});
-        // Bisector arcs
-        var c3 = boardAC.create('circle', [baseP, 3], {strokeColor: '#00ff88', strokeWidth: 1, dash: 2, fillColor: 'none'});
-        var c4 = boardAC.create('circle', [p60, 3], {strokeColor: '#00ff88', strokeWidth: 1, dash: 2, fillColor: 'none'});
-        boardAC.create('arc', [O, [1 + 1.2, 0], [1 + 1.2*Math.cos(Math.PI/6), 1.2*Math.sin(Math.PI/6)]], {strokeColor: '#ff006e', strokeWidth: 2, fixed: true});
-        acReadout.textContent = 'Constructed 30\u00B0 angle: First construct 60\u00B0 (at C), then bisect arc AC to get B. \u2220AOB = 30\u00B0.';
-      }
-    }
-
-    // Button listeners
-    var angleBtns = document.querySelectorAll('.jsx-angle-btn');
-    angleBtns.forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        angleBtns.forEach(function(b) { b.style.opacity = '0.5'; });
-        this.style.opacity = '1';
-        constructAngle(parseInt(this.getAttribute('data-angle')));
+      document.querySelectorAll('.jsx-angle-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('.jsx-angle-btn').forEach(function(b){b.style.opacity='0.5';});
+          this.style.opacity='1';
+          constructAngle(parseInt(this.getAttribute('data-angle')));
+        });
       });
-    });
-  })();
+    })();
+
+    /* ====== Viz 6: Common Tangents Explorer ====== */
+    (function() {
+      var el = document.getElementById('jsx-common-tangents');
+      if (!el) return;
+      var board = JXG.JSXGraph.initBoard('jsx-common-tangents', {
+        boundingbox: [-12, 9, 12, -9], axis: false, grid: false,
+        showNavigation: false, showCopyright: false, keepAspectRatio: true
+      });
+      board.containerObj.style.background = 'rgba(0,0,0,0.4)';
+
+      var O1 = board.create('point', [-4, 0], {name:'O\u2081', size:4, color:'#00d4ff', label:{color:'#00d4ff', offset:[-18,10], fontSize:12}});
+      var O2 = board.create('point', [5, 0], {name:'O\u2082', size:4, color:'#00ff88', label:{color:'#00ff88', offset:[8,10], fontSize:12}});
+
+      var r1Slider = board.create('slider', [[-10, -7], [-4, -7], [1, 3, 5]], {
+        name:'r\u2081', withLabel:true, baseline:{strokeColor:'#94a3b8'}, highline:{strokeColor:'#00d4ff'}, fillColor:'#00d4ff', label:{color:'#cbd5e1', fontSize:11}
+      });
+      var r2Slider = board.create('slider', [[2, -7], [8, -7], [0.5, 2, 4]], {
+        name:'r\u2082', withLabel:true, baseline:{strokeColor:'#94a3b8'}, highline:{strokeColor:'#00ff88'}, fillColor:'#00ff88', label:{color:'#cbd5e1', fontSize:11}
+      });
+
+      var c1 = board.create('circle', [O1, function(){return r1Slider.Value();}], {strokeColor:'#00d4ff', strokeWidth:2, highlight:false});
+      var c2 = board.create('circle', [O2, function(){return r2Slider.Value();}], {strokeColor:'#00ff88', strokeWidth:2, highlight:false});
+
+      // Direct & transverse tangent point computation
+      function directTangent(sign) {
+        return {
+          p1x: function(){ var r1=r1Slider.Value(),r2=r2Slider.Value(),dx=O2.X()-O1.X(),dy=O2.Y()-O1.Y(),d=Math.sqrt(dx*dx+dy*dy); if(d<0.1) return -99; var ux=dx/d,uy=dy/d,dr=r1-r2; if(d<=Math.abs(dr)+0.01) return -99; var sinA=dr/d,cosA=Math.sqrt(Math.max(0,1-sinA*sinA)); return O1.X()+r1*(ux*sinA+(-uy)*cosA*sign); },
+          p1y: function(){ var r1=r1Slider.Value(),r2=r2Slider.Value(),dx=O2.X()-O1.X(),dy=O2.Y()-O1.Y(),d=Math.sqrt(dx*dx+dy*dy); if(d<0.1) return -99; var ux=dx/d,uy=dy/d,dr=r1-r2; if(d<=Math.abs(dr)+0.01) return -99; var sinA=dr/d,cosA=Math.sqrt(Math.max(0,1-sinA*sinA)); return O1.Y()+r1*(uy*sinA+ux*cosA*sign); },
+          p2x: function(){ var r1=r1Slider.Value(),r2=r2Slider.Value(),dx=O2.X()-O1.X(),dy=O2.Y()-O1.Y(),d=Math.sqrt(dx*dx+dy*dy); if(d<0.1) return -99; var ux=dx/d,uy=dy/d,dr=r1-r2; if(d<=Math.abs(dr)+0.01) return -99; var sinA=dr/d,cosA=Math.sqrt(Math.max(0,1-sinA*sinA)); return O2.X()+r2*(ux*sinA+(-uy)*cosA*sign); },
+          p2y: function(){ var r1=r1Slider.Value(),r2=r2Slider.Value(),dx=O2.X()-O1.X(),dy=O2.Y()-O1.Y(),d=Math.sqrt(dx*dx+dy*dy); if(d<0.1) return -99; var ux=dx/d,uy=dy/d,dr=r1-r2; if(d<=Math.abs(dr)+0.01) return -99; var sinA=dr/d,cosA=Math.sqrt(Math.max(0,1-sinA*sinA)); return O2.Y()+r2*(uy*sinA+ux*cosA*sign); }
+        };
+      }
+      function transverseTangent(sign) {
+        return {
+          p1x: function(){ var r1=r1Slider.Value(),r2=r2Slider.Value(),dx=O2.X()-O1.X(),dy=O2.Y()-O1.Y(),d=Math.sqrt(dx*dx+dy*dy); if(d<r1+r2+0.01) return -99; var ux=dx/d,uy=dy/d,sr=r1+r2,sinA=sr/d; if(sinA>1) return -99; var cosA=Math.sqrt(1-sinA*sinA); return O1.X()+r1*(ux*cosA+(-uy)*sign*sinA); },
+          p1y: function(){ var r1=r1Slider.Value(),r2=r2Slider.Value(),dx=O2.X()-O1.X(),dy=O2.Y()-O1.Y(),d=Math.sqrt(dx*dx+dy*dy); if(d<r1+r2+0.01) return -99; var ux=dx/d,uy=dy/d,sr=r1+r2,sinA=sr/d; if(sinA>1) return -99; var cosA=Math.sqrt(1-sinA*sinA); return O1.Y()+r1*(uy*cosA+ux*sign*sinA); },
+          p2x: function(){ var r1=r1Slider.Value(),r2=r2Slider.Value(),dx=O2.X()-O1.X(),dy=O2.Y()-O1.Y(),d=Math.sqrt(dx*dx+dy*dy); if(d<r1+r2+0.01) return -99; var ux=dx/d,uy=dy/d,sr=r1+r2,sinA=sr/d; if(sinA>1) return -99; var cosA=Math.sqrt(1-sinA*sinA); return O2.X()-r2*(ux*cosA+(-uy)*sign*sinA); },
+          p2y: function(){ var r1=r1Slider.Value(),r2=r2Slider.Value(),dx=O2.X()-O1.X(),dy=O2.Y()-O1.Y(),d=Math.sqrt(dx*dx+dy*dy); if(d<r1+r2+0.01) return -99; var ux=dx/d,uy=dy/d,sr=r1+r2,sinA=sr/d; if(sinA>1) return -99; var cosA=Math.sqrt(1-sinA*sinA); return O2.Y()-r2*(uy*cosA+ux*sign*sinA); }
+        };
+      }
+
+      var dt1=directTangent(1), dt2=directTangent(-1);
+      var tt1=transverseTangent(1), tt2=transverseTangent(-1);
+
+      // Direct tangent lines (green)
+      board.create('line', [function(){return [dt1.p1x(),dt1.p1y()];}, function(){return [dt1.p2x(),dt1.p2y()];}], {
+        strokeColor:'#00ff88', strokeWidth:2, straightFirst:true, straightLast:true, highlight:false,
+        visible:function(){return dt1.p1x()>-90;}
+      });
+      board.create('line', [function(){return [dt2.p1x(),dt2.p1y()];}, function(){return [dt2.p2x(),dt2.p2y()];}], {
+        strokeColor:'#00ff88', strokeWidth:2, straightFirst:true, straightLast:true, highlight:false,
+        visible:function(){return dt2.p1x()>-90;}
+      });
+
+      // Transverse tangent lines (gold)
+      board.create('line', [function(){return [tt1.p1x(),tt1.p1y()];}, function(){return [tt1.p2x(),tt1.p2y()];}], {
+        strokeColor:'#ffd700', strokeWidth:2, dash:2, straightFirst:true, straightLast:true, highlight:false,
+        visible:function(){return tt1.p1x()>-90;}
+      });
+      board.create('line', [function(){return [tt2.p1x(),tt2.p1y()];}, function(){return [tt2.p2x(),tt2.p2y()];}], {
+        strokeColor:'#ffd700', strokeWidth:2, dash:2, straightFirst:true, straightLast:true, highlight:false,
+        visible:function(){return tt2.p1x()>-90;}
+      });
+
+      // Centre line
+      board.create('segment', [O1, O2], {strokeColor:'#94a3b8', strokeWidth:1, dash:3, highlight:false});
+
+      // Legend
+      board.create('text', [-11.5, 8, '<span style="color:#00ff88;">\u2500 Direct (external)</span> &nbsp; <span style="color:#ffd700;">- - Transverse (internal)</span>'], {fontSize:10, fixed:true});
+
+      var readout = document.getElementById('common-tangents-readout');
+      function updateReadout() {
+        var r1=r1Slider.Value(), r2=r2Slider.Value(), d=pdist(O1,O2);
+        var nTangents = 0, status = '';
+        if(d > r1+r2+0.3) { nTangents=4; status='Separate: 2 direct + 2 transverse'; }
+        else if(Math.abs(d-(r1+r2))<0.3) { nTangents=3; status='Externally touching: 2 direct + 1 common'; }
+        else if(d>Math.abs(r1-r2)+0.3 && d<r1+r2-0.3) { nTangents=2; status='Intersecting: 2 direct only'; }
+        else if(Math.abs(d-Math.abs(r1-r2))<0.3) { nTangents=1; status='Internally touching: 1 common'; }
+        else { nTangents=0; status='One inside the other: no common tangents'; }
+        readout.innerHTML =
+          '<span style="color:#00d4ff;">r\u2081='+r1.toFixed(1)+'</span> &nbsp;|&nbsp; ' +
+          '<span style="color:#00ff88;">r\u2082='+r2.toFixed(1)+'</span> &nbsp;|&nbsp; ' +
+          '<span style="color:#cbd5e1;">d='+d.toFixed(2)+'</span> &nbsp;|&nbsp; ' +
+          '<strong style="color:#ffd700;">'+nTangents+' common tangent'+(nTangents!==1?'s':'')+'</strong> &mdash; '+status;
+      }
+      O1.on('drag', updateReadout); O2.on('drag', updateReadout);
+      r1Slider.on('drag', updateReadout); r2Slider.on('drag', updateReadout);
+      updateReadout();
+    })();
+
+  });
   </script>
 
   <script src="../js/engine.js"></script>
