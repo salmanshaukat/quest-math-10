@@ -1,0 +1,1294 @@
+============================================================
+CHAPTER: Basic Statistics
+Pages: 245 - 278
+============================================================
+
+
+--- Page 245 ---
+
+|
+, Basic Statistics
+~ After studying this unit students will be able to: eae a
+* Construct cumulative frequency table, cumulative frequency polygon and cumulative frequency curve i.e.
+, | opive |
+* Interpret the quartiles, deciles, percentiles and inter quartile range(IQR) from cumulative frequency curve
+, | © Interpret and anzlyze box and whisker plot correlation ee
+| © . Construct and interpretdata from scatter diagram and also draw lines of best fit - |
+* Measure correlation using scatter diagram 4
+« — Caléulate range, standard deviation and variance for grouped data ,
+| © Use the mean and standard deviation, to compare 2 sets of data meh |
+; * Solve real life problems involving variance and SD of grouped data ee
+“Apply concepts from measures of dispersion to solve real life problems
+* Calculate the probability of combined events using (where appropriate):Sample space diagram, possibility
+diagrams, tree diagram & venn diagram ‘
+* . Apply addition law of Probability to solve problems involving mutually exclusive events ;
+
+oO \,* Apply Multiplication law of Probability to solve problems involving independent and dependent events
+Haani and Haider participated in a Qiraat re “ay eel a tae
+competition, with 8 other equally competent is
+contestants. Judges have to decide about top Geieay i &F 2
+3 performers. Can you guess the chanceof Ts: San a al me \' /f
+
+* . every contestant to be the top first? After Se SS we
+decision of First, can you guess the chanceof | Wf. { > >
+every remaining contestant to be top second? i i >
+
+F a ro iP near , al
+After decision of Second, can you guess the ~~. 4.» ss
+chance of every remaining contestant to be top } ee
+third? : } }
+|Chanceof [IT] i [it a) a}a-] 14 14 iy 3
+cc SE TOES ‘eee
+
+
+--- Page 246 ---
+
+Frequency Distribution
+
+In statistics it is very important to represent a data in a manageable way so that it becomes easy
+to understand, analyze and to draw useful results. This useful presentation of data can be made
+by various methods. Grouped frequency distribution is one of the most important methods to
+represent the quantitative data. Data can be classified in many ways for efficient usage and ,
+productivity. In previous grades we have discussed two types of data
+
+i. raw data (ungrouped data) ii. grouped data (frequency distribution)
+
+Here we will study the construction of cumulative frequency distribution by revising frequency
+polygon. , .
+
+Frequency Polygon
+
+Polygon is a many sided closed figure. To draw a frequency polygon mid points (class marks)
+are marked on the horizontal axis and frequencies are marked on the vertical axis., Points are
+plotted with class frequencies and their corresponding class marks. These points are joined by
+straight line segments. To complete a closed polygon we add extra classes at both ends with zero
+frequencies. In this way two extra points on x-axis are obtained on both ends. The points are
+joined by their nearer plotted points. Finally a frequency polygon is obtained.
+
+Cumulative Frequency Distribution
+A table in which cumulative frequencies of classes are written against classes is called a
+cumulative frequency table “The number of values of a data less than an upper-class boundary is
+called its cumulative frequency”.
+
+The cumulative frequency table is another way to analyze the frequency distribution. The
+frequency distribution tells us how many values of the data are present within each class interval,
+while a cumulative frequency tells.us how many values of a data are less than or within each
+class interval.
+
+In the following table cumulative frequencies are found and interval of 0 frequency is added at
+the top. Column of upper class boundary is also included which are necessary for construction of
+cumulative frequency polygon or ogive.
+
+THEE Qnaee 0.5) eae VO AO the Oar re|
+soe as | ea oer
+
+Esi-70 fos | +. eID] 31+ 4= 35°)
+
+
+--- Page 247 ---
+
+Cumulative Frequency Polygon and Cumulative Frequency Curve
+(Ogive) |
+A frequency distribution can also be represented by a cumulative frequency polygon or Ogive.
+An ogive and a cumulative frequency polygon are related but distinct concepts in statistics and
+data visualization. |
+_ Cumulative Frequency Polygon
+A frequency polygon made by taking cumulative frequency on y axis is called cumulative
+. frequency polygon. It is made to wisualize the cumulative distribution ofa variable,
+To draw a cumulative frequency polygon, the class boundaries are plotted on x-axis and
+cumulative frequencies on y-axis. The points are marked on the graph using the upper class
+boundaries and the respective cumulative frequencies. These points are joined by straight line
+segments and the polygon is completed by drawing a vertical line segment to join the last marked
+point with x-axis. Following is a cumulative frequency polygon representing the data given
+above. , ) {
+) Title: A cumulative frequency polygon showing ' :
+_ the marks of 35 students in a test.
+Class boundaries .
+. Example: Late arrival fine imposed to a player is shown below against the terms of 4 weeks:
+: |
+a) Construct cumulative frequency table including
+i. Column of upper class boundaries
+ii. Interval for 0 frequency
+. tii. Column of cumulative frequencies
+‘b) = How much fine is to be paid after 3 terms? .
+¢) © Construct cumulative frequency polygon of the above data. -
+
+
+--- Page 248 ---
+
+Solution: (a) Cumulative frequency table ,
+Upper class boundaries. | Amount of fine (Rs) | Cumulative frequencies |
+Lessthan 4.5 | 2000 [2000
+13-16 =| ~~ Lessthan 16.5 | 1500 | 5000 |
+b) After 3 terms, The player has to pay a total amount of Rs. 3500. . |
+c) Construction of cumulative frequency polygon is given below:
+Title: Cumutative freq polygon showing fine
+imposed on a player against terms of 4 weeks
+48004 / 3
+‘oO 4000" F, '
+: Bo 43500 rts tt rern ner !
+z 2500-7 Lf 3 tot )
+‘a a See f : 4 ,
+. 0s 45~wRSSSSC«dS 6s al
+Class boundaries
+Cumulative Frequency Curve (Ogive) i oy Jae jaa
+A graph showing the cumulative frequency (or cumulative relative frequency) of a variate ;
+as a curve, with the x-axis showing the values of the variable and the y-axis showing the
+respective cumulative frequency is called Cumulative Frequency Curve (Ogive).
+It is also known as a cumulative distribution function (CDF) |
+Example: cartel cubes SY dt cae 12h Picks tn Covobakes -
+The table below shows the cumulative frequency distribution of masses of ca’ ces in Cocobs
+- made at a festival:
+
+
+--- Page 249 ---
+
+| Mass of cakes | x <= 400|x< 500 Tx < 600 Ix< 700 [x= 800 |x< 900
+. (x grams) | | | :
+a) Draw cumulative frequency curve.
+. 6) Estimate from the curve, the number of cakes having masses 750 g or less
+c) Taking class intervals 400<x< 500, 500 < x < 600 ...construct a cumulative
+- . frequency distribution .
+Solution: (a) ‘Cumulative frequency curve (Ogive) )
+» Cumulative frequency curve of
+" the masses of 10 cakes
+Pe ee eee. ae An ogive isasmooth .-
+2s if. es curve, while a
+S. 0 | fi 3 polygonisa _ .
+. eteesvacnsntnccenscnngh Vee polygon-shaped
+40 fi tot 4 graph
+s oy ed 2 ee
+ake ee
+400 500 600 700 800 900° 1000 |
+Masses (g)
+(b) From the curve, we observe that the number of cakes having masses 750 g or less is 75,
+(c) Construction of the frequency cumulative distribution,
+| Mass of cakes |‘Cumulative | Mass of cakes] frequency
+| __—&g) | frequency ) | &g) jo |
+_ | : Measures of Distribution
+These measures are used to understand the spread and distribution of the data, and are often used
+with measures of central tendency to get a better understanding of the dataset. They include:
+
+
+--- Page 250 ---
+
+i. Quartiles bo
+The three values which divide the whole data into four equal parts are called quartiles. Quartiles
+are usually denoted by Q: , Q2 and Q;. The lower quartile Q; divides the data in | : 3. The middle
+quartile Q2 divides the data in 1 : 1. It is infect nothing different from median of data. The upper
+quartile Qs divides the data in 3: 1.
+Ql= ri th value of data & Q2= (= == )" value of data = median
+When data is arranged in some order, it can be represented by a single value that lies exactly at
+the centre of data. “The central or middle most value of an arranged data is called its median’,
+Q3= = th value of data
+The quartiles can also be estimated graphically from a cumulative frequency polygon.
+e To estimate Q; (lower quartile), mark = on y-axis.
+* Draw a line parallel to x-axis from that point to intersect cumulative frequency polygon.
+e Drop a perpendicular from this point of intersection to x-axis. The value of data where the
+perpendicular meets x-axis is lower quartile Qi.
+Similarly, Q2 and Qs; can be estimated from cumulative frequency curve, by marking > and 2
+on y-axis and following the same procedure used for Qi.
+Example:
+The scores on a test were compiled into a dataset with the following quartiles:
+Ql= 40, Q2 or median = 70, Q3= 90
+What percentage of students scored above 90 on the test?
+Solution: From the quartiles it is obvious that one fourth (25 percent) of the students scored
+above 90.
+
+ii. Deciles a ; :
+Deciles divide a dataset or a distribution into 10 equal parts, each representing 10% of the data.
+By looking at the deciles, we can get a sense of the shape of the distribution, including where the
+majority of the data points are concentrated and where the outliers are lying.
+
+Ten Deciles of a dataset are described as follows: Pe!
+
+D1: lowest 10% of the data Deciles are often used in statistics,
+D2: lowest 20% of the data economics, and social sciences to
+D3: lowest 30% of the data understand the distribution ofa ee
+
+- variable, such as:‘income, wealth or
+
+D10: highest decile under which100% of the data lies. ee .
+
+Example; A company wants to analyze the salaries of its employees. The related department
+
+compiles a dataset and calculates the deciles. The deciles are as follows:
+
+Pct ave Sasa SN Bak Ft
+
+
+--- Page 251 ---
+
+DI = Rs.40,000 , D5 or median = Rs.60,000 ; D10 = Rs.80,000
+What percentage of employees earn a salary above Rs.60,000 but below Rs.80,000? .
+Solution: From the above data, percentage of employees earning salaries above 60,000 and
+below Rs. 80,000 are between D5(median) and D10 i.e 90 % — 50% = 40 %
+(Remember: D10 represents highest 10 % i.¢ Rs. 80,000 and D9 represents below Rs. 80,000)
+lil. Percentiles | |
+_ Percentiles divide a dataset or a distribution into 100 equal parts, each representing 1% of the
+data. It's a way to understand the distribution of a dataset or a variable by looking at the
+percentage of data points that are below a specific value.
+Some common percentiles include: _ _
+* 25th percentile (Q1): 25% of data points are below this value. | Maths Play Ground: |
+* 30th percentile (Q2 or median): 50% of data is below Q2. | Help students to design quiz wheel
+« 75th percentile (Q3): 75% of data points are below this value, or quiz maonine For the |
+* 90th percentile: 90% of data points are below this value. one aca of teense of
+e 99th percentile: 99% of data points are below this value | i ; : |
+Eee - : Ik a A ia 4 i : _ a _ : - _ _ i __ | __ a | : |
+’ Percentiles are often used to:
+understand the distribution of a variable (e.g., income, scores, masses). :
+identify outliers,
+compare individual values to the overall distribution. :
+set benchmarks (e.g., top 10 %).
+evaluate performance (e.g., moving up or down. in percentiles).
+Example: Uzair scored in the 75th percentile on a test: Find how much percentage of the
+students scored below him and how much percentage of students scored above him.
+Solution: From the above information it is clear that the student's score is higher than 75% of
+the total students. It means that
+e 75% of the students scored below him ,
+* 25% scored above him
+iv. Inter Quartile Range
+IQR=Q3-QI_.
+The IQR represents the range of values within which the middle 50% of the data points fall. In
+otlier words, it's the spread of the data within the middle half of the distribution,
+IQR can describe: , :
+Spread: A small IQR indicates less scattered, while a large IQR indicates more scattered data.
+Variability: The IQR is a more efficient measure of variability than the Range.
+Outliers: The IQR can help identify outliers. (data points beyond 1.5 times the IQR from the
+quartiles are considered outliers), . |
+Comparison: IQR is useful for comparing the spread of different datasets.
+
+
+--- Page 252 ---
+
+Example = #— oo a
+A teacher wants to analyze the test scores of her students. She compiles a dataset as: ,
+first quartile Q1 = 60 and third quartile Q3 = 95
+a) What is the Interquartile Range (IQR) of the test scores?
+b) What percentage of students scored between 60 and 95 (inclusive)? |
+Solution: — )
+a} The Interquartile Range (IQR) of the test scores is given by the relation:
+b) As Q3 — QI represents spread of the middle half of a data set so 50% of students scored
+between 60 and 95 (inclusive)
+Example: ;
+The adjoining figure shows an ogive representing the distribution of time in minutes spent by 60
+preachers of SEED to deliver single Seerah lecture. Find Q1, Q2, Q3 and inter quartile range.
+Ogive of time spent to deliver
+. rr a seerah lesson
+) 3 50 -+,/ upper quartile /
+: 5. 40 sek ee
+; ‘s 20 4... 2... /
+4 20 4 “i: : |
+. Zt. Bennie’ si Pit
+at amt ae .
+19 20 30f 40 50 60 70 80
+Solution: Time spent |
+To estimate the median time spent from ogive, we observe that 50 % (half of) preachers spent
+less than or equal to the median time to deliver the lecture.
+Median corresponds to the 5" decile and 50" percentile, i.e.
+Median = Q2 = DS = P50 == x 60 = 30
+From 30 on y-axis, draw a horizontal line to meet the curve and then draw a vertical line to mect
+x-axis as in above figure. .
+From the figure, we observe that median time to deliver a lecture is 43.5 minutes.
+Lower quartile corresponds to 25th percentile i.e.
+Q1 (the lower quartile) = P25 = one quarter (25% of) total frequency = : x 60= 15
+From the curve, the lower quartile = 37 minutes.
+Upper quartile corresponds to 75th percentile i.e.
+Q3 (the upper quartile) = P75 = three quarters (75% of) total frequency = = x 60 =45
+From the curve, the upper quartile = 50.5 minutes.
+_ The inter Quartile Range = Q3 — QI = 50.5 — 37 = 13.5 .
+
+
+--- Page 253 ---
+
+1. Construct cumulative frequency column for following frequency table and give answers. a:
+_Class interval | 1-10 | 11-20 | 21-30 [31-40 [4i=50)] 51-60 |
+(i) | What is the total number of items in the data?
+(ii) In which class interval 8" item of the data lies? |
+(ii) What is number of items having worth less than 21?
+(iv) Which group contains highest number of items?
+_ (v) What is the lower boundary of the last class? :
+2. The mass gained by a newly bom baby is given below: ae
+Draw a cumulative frequency polygon (not ogive) to represent the data. Also find from the
+graph, how much he/she weighed at the age of 4 and half months? .
+3. The ages of refugees in Ghaza camp were recorded asbelow:. ie |
+|_Agesin years | 20-24] 25-29 | 30-34 | 35-39 [40-44] 45-49 |
+Draw an ogive (not polygon) to represent the data and Find... |
+a) First quartile. b)  7"decile.. c) 60" percentile.
+4. Scores of a Hifz e Quran test were grouped into the following frequency distribution.
+[scores FESO sto [o1= W071 =90 [a= [i — 10}
+Draw a cumulative frequency table and cumulative frequency curve (ogive) and tell:
+a) How many boys appeared in the test?
+b) What is median score?
+c) How many boys scored under median?
+d) How many boys fell in first decile? |
+e) How many boys fell in 30" percentile?
+f) If excellence award is to be given to boys falling in 100" percentile, how many boys
+got excellence award? :
+5. The masses measured to the nearest kg of 50 cubs are shown below:
+Pt iste Mat rl nk Fountain |
+
+
+--- Page 254 ---
+
+(i) Construct a cumulative frequency table
+(ii) Construct a cumulative frequency polygon and estimate number of cubs above 77 kg.
+(iii) Construct a cumulative frequency curve and estimate number of cubs above 77 kg.
+(iv) Compare the results of (ii) & (iii)
+6. Study the adjoining curve showing heights (m) of 100 buildings in a megacity carefully and
+find: oo
+_ (Cumulative curve of
+i OO heights of 100
+a buildings in a
+= jot mega city ,
+Fe " | —
+E wot |
+"20 30 40 50 60 70 KO
+Height of buildings
+a) Number of buildings with heights less than 50 m._
+* b) “ age of buildings higher than 40 m. :
+
+c) Ratio of the number of buildings less than 50m and more than 50m
+d) No. of Buildings falling in first quartile
+e) Maximum height of buildings falling under 8" decile, .
+f) . Maximum height of buildings not falling under 30° percentile.
+
+7. Mr. Rashid wants to analyze the salaries of his employees. The first quartile (Q1) is of .
+Rs,50,000 a second quartile (Q2) of Rs.70,000, a third quartile (Q3) of Rs.90,000 and
+maximum and minimum salaries are of Rs.25,000 & Rs.150,000 respectively. Find range
+and inter quartile range of the data. ;
+
+8. Khadeeja scored 85 on a test, and the teacher reported that her score was in the 75th
+percentile, What does this information indicate about status of Khadeeja in her class?
+
+9.. Uzair wants to price his house based on the prices of similar houses in the area. The prices
+have a Q1 of Rs. 20,000,000, Q2 of Rs. 25,000,000, Q3 of Rs. 30,000,000, and a maximum
+price of Rs, 35,000,000. What is the possible price of the house if it is in the third quartile?
+Also find IQR of the data. _ Faulty items made
+
+| 3 7 by khani colleciton
+10, The adjoining cumulative frequency curve shows 3 mo] a
+the number of faulty items in a shipment of 100° z ne f
+items produced by Khani’s Collection. Estimate 2 <04 j |
+i. The median fi. Lower quartile F wef /
+| iii. Upper quartile’ _iv. IQR & ts
+v. 7th decile vi. 30th percentile ) 10 20 3% 6 10 80
+° Faulty Items
+
+
+--- Page 255 ---
+
+SNe a EEE EEE ee
+The Box and Whisker Plot Correlation
+Box-and-Whisker Plot (or simply box plot)
+A box plot typically consists of the following components:
+Box: A rectangular box that represents the interquartile range (IQR). The box is divided into two
+parts by a vertical line, which represents the median (Q2) of the data.
+Whiskers: Two horizontal lines that extend from the box to the minimum and maximum values
+in the dataset, excluding outliers. The whiskers represent the range of the data.
+Outliers: Data points that fall beyond 1.5 times the IQR from the quartiles are considered outliers
+and are plotted individually.
+Median: The vertical line inside the box represents the median (Q2) of the data.
+Quartiles: The edges of box represent 25th percentile (Q1) and the 75th percentile (Q3).
+Box plots are useful for comparing datasets, identifying outliers, visualizing distribution and
+summarizing data
+Example: The given box and whisker plot shows the prices of stationery items, Hashir
+purchased yesterday. ~~
+Q | Q
+50 160 Q2=300 . 800 a
+* <————<—_ 190R ———__»
+a) What is the mediani price of an item?
+b) what are the min & max prices of the items purchsed by Hashir?
+c) What is IQR of the data? d) what “age of items is above Rs. 800?
+Solution:
+a) From the box plot, it is clearly seen that median price of an item is Rs. 300
+b) From the box plot, it is observed that min price of any item is Rs. 50 & max price of |
+any itemisRs. 1000
+c) IQR=Q3-QI =800- 160 = 640
+d) As items between Q3 and Q4 are 25 % so “age of items above Rs. 800(Q3) is 25%.
+Box and Whisker Plot Correlation
+The | box and whisker plot correlation means the patterns or relationships between the _
+distributions of two or more variables, Box and whisker plot correlations include:
+1. Positive correlation:
+lf the boxes and whiskers of both variables tend to move in the same direction (e.g., both
+increase or decrease together), it may indicate a positive correlation.
+2. Negative correlation:
+If the DOxeS and whiskers of both variables tend to move in opposite directions (e.g., one
+dncreases while the other decreases), it may indicate a negative correlation, |
+
+
+--- Page 256 ---
+
+3. No correlation: pe?
+If the boxes and whiskers of both variables appear unrelated or don't show a clear pattern, it may
+indicate no correlation.
+Box and whisker plots only provide a visual representation and don't quantify the
+correlation. Hitt
+Example shows volume of a gas is shown.
+in first box-and-whisker plot and increase
+in temperature is shown in second Volume — Temperature
+box-and-whisker plot in the adjoining
+figures. » $0 L__t__ 90
+In this example, we observe that the
+boxes and whiskers of both variables
+tend to move in the same direction (both increasing together), suggesting a positive correlation.
+Example:
+The following datasets show 2 Variables. Hours of Exercise and Body Mass Index, (BMI) of a
+gym members. . _ : _
+[variables | Minimax [QUQ3 [median | Q3/Q1_ [Maximin
+rawr | 30cmaxy | 28@a) [25 | 24Q1) | 20¢min)
+Draw box and whisker plots. |
+a) Find type of correlation _b) Comment on type of correlation
+Solution: "
+a) As the hours of exercise (Variable A) increase, the BMI (Variable B) tends to decrease.
+The boxes and whiskers of both variables move in opposite directions, indicating a negative
+correlation.
+b) : The negative correlation suggests that exercise may lead to weight loss, as higher
+exercise hours are associated with lower BMI values.
+‘ Box-and-whiskerplosts =
+Time (hrs) of exercise & BMI (kg/m)
+—T 8 hrs . .
+| : Q,=25 kg/m"
+po 2 = a irs fe Qi = 2 kg/m?
+| | o:=2 hrs . ——— 30 kg/m
+_ — 9 =Ohrs |
+a
+
+
+--- Page 257 ---
+
+Construction of Scatter Diagram, Lines of Best Fit and
+Interpretation of Data
+Construction of a scatter diagram consists of: ;
+i. Plotting the data points on a coordinate plane.
+il. Representing each data point by a mark (e.g., dot, circle, or square).
+We solve an example to understand the concept.
+_ Example: — Table below shows the masses and heights of 11 boys.
+rMasstkey [60 [54 [oo [48 [os [58 [os [os [st [67 [46 [63 |
+a) Draw a scatter diagram for the above data.
+b) What type of correlation is observed in the scatter diagram? :
+c) Draw a line of best fit on the scatter diagram. )
+d) Use this line of best fit to estimate mass of a boy whose height is 150cm. .
+Solution (a): . ;
+= 7 | x a €
+s ” * Pi
+40 « ra a
+height (cm)
+(b) From the graph, it is observed that there is a strong positive correlation between masses
+and heights of boys. More height, more the mass of boys.
+(c) Line of best fit is drawn having almost half the data points on either sides of it.
+(d) From scatter diagram, the boy with height 150cm should have a mass of 39 kg app.
+Interpretation of a Scatter Diagram -
+Pattern; There are several types of patterns: .
+* Positive correlation: As x increases, y also increases.
+«® Negative correlation: As x increases, y decreases.
+* Nocorrelation: No apparent relationship between x and y.
+Lc 2 Bae Se 2S ns rah Horton
+
+
+--- Page 258 ---
+
+Strength: Observe the strength of the relationship. A stronger relationship means the points are
+closer to a straight line.
+Outliers: Identify data points that don't fit the pattern.
+Drawing Lines of Best Fit
+A line of best fit helps to predict the value of a variable y for a given x. It is a line that appears to
+fit the pattern. It may or may not pass through any data points however almost equal number of
+points should lie on either side of it. The line of best fit can be represented by
+Interpretation of a Line of Best Fit includes following attributes: “Alneof
+Slope (m): The rate of change of y with respect to x. best fit is not always a
+Intercept (c): The value of y when xis 0. | _ perfect fit and it's
+Prediction: Use the equation to predict the value of y for a given x. essential to consider the
+Measuring Correlation using Scatter Diagram strength of the relation
+Measuring correlation using a scatter diagram involves analyzing the and the presence of
+pattern and strength of the relationship between two variables. outliers when
+It includes following steps: interpreting the results.
+' Plot the data
+Identify the pattern (Positive correlation, Negative correlation and No correlation)
+Assess the strength (Strong correlation, Moderate correlation and Weak correlation)
+Calculate the correlation coefficient r by:
+e Identifying the data points (x, y) by coordinates of each point on the scatter plot.
+e Finding the mean of the x-values (X) and the mean of the y-values (¥).
+* Calculating the deviation from the mean for x (xi—) and y (yi — ¥).
+e Multiplying the x-deviation by the y-deviation (xi — x)(yi — ¥).
+e Adding up the multiplied deviations for all points.
+« Dividing the sum of the products by the square root of the product of the sum of the
+squared x-deviations and the sum of the squared y-deviations. i.e.
+r= D{(xi-X)x(yi- 9} / VOI — O* x TOI - Y)4)
+Where r is the correlation coefficient, ranging from —1 (perfect negative correlation) to | (perfect
+positive correlation).
+Interpret the results high r value i.e. close to 1 or — 1 means Strong correlation, Low r value
+i.e. close to 0 means weak correlation & sign of r indicates the direction of the correlation i.e.
+positive or negative.
+
+
+--- Page 259 ---
+
+Example:
+The table below shows the reading time of 10 children aged between 11 and 16 years to win the
+50 pages reading activity in 10 minutes. ee
+
+a) Draw a scatter diagram for the above data. _ -
+
+b) What type of correlation is observed in the scatter diagram?
+
+c) Draw a line of best fit on the scatter diagram.
+
+d) Use your line to estimate the time that a participant aged 14.5 years is expected to
+
+complete 50 pages reading activity. ,
+
+e) Measure the correlation coefficient.
+
+f) Is your line of best fit reliable to estimate the time taken by a child of age 1 year?
+
+Solution:
+
+a) + |
+
+i a| Se
+| 144 “a x
+3 stQy RR ,
+En _
+ial ° ar
+Ages (years)
+
+b) From the data it is observed that older the age of child corresponds to greater speed in
+reading activity. The line is sloping down from left to right showing negative correlation
+(and neg. slope as well)
+
+c) .... drawn on the graph
+
+d) From the graph reading for 14,5 years age, expected time to complete 50 reading
+activity is 12.7min. |
+
+€) For measuring correlation coefficient, let's calculate the means:
+
+Age (x): 14.2 Time (¥): 12.9
+ATiN-h os GOSH Matisice oN ene 59 oe c ry ae “1 Natlomal Hoa B Gundivloa!! |
+
+
+--- Page 260 ---
+
+Next, we calculate the deviations, their products and squared deviations.
+
+[153 [i23[ i [ 06 [066 [zn | 036
+Bepm2, 06 | 03 | 018 | 036 | 00 |
+tia3fi23| ot | 06 | 006 [oor | 036 |
+ras[po] 14 [10 [4 | 196 [10
+rigs [i3if os [02 | 012 | 036 [004
+| Yai | Yor [2GGrD | Zoi 97 | Zoi - Dy
+Lt -) | -/) | ee ee —
+Finally, we calculate the correlation coefficient (r):
+
+r= {xi -%) x (i-)} / VEC =D x TOI - NY)
+
+r= (—5.77) / V7.93 X 5.38 =— 0.88
+
+The correlation coefficient (r) is approximately — 0.88, indicating a strong negative linear
+relationship between Age and Time. As Age increases, Time tends to decrease, and vice
+versa. |
+
+f) No, it is highly unreliable as it lies outside the range as there are no children with age less
+
+than 10 years. )
+
+1. A mechanical engineer wants to analyze the relationship befw een the mass ofacarand its
+fuel efficiency. Show the data by box and whisker plots. | oD
+variables [Min/Max [Qi [median | [Q3 [Min/Max |
+Fass (ke) [1100 [1200 | 1500___| [1700 [2000
+a. Find IQR b. What is type of correlation?
+
+-¢, What conclusion can be drawn from this? .
+
+
+--- Page 261 ---
+
+2. Adjoining box & whisker plot shows wages for part time and full-time employees:
+Hourly rate for Full and Part-time employees
+
+a) What is the amount of median wages paid to full time employees?
+
+b) What are minimum and maximum wages paid to part time employees?
+
+c) What is IQR for the dataset of fulltime employees?
+
+d) - What is IQR for the dataset of part time employees?
+
+e) What type of correlation is observed in both datasets?
+3. Maryam wants to investigate the relationship between the amount of rainfall and the number
+
+of flowers blooming in her garden. Draw the scatterdiagram.
+
+[No.offlowers [10 [22~ ‘(35 _—+|70 ~—~*4|ao—_—
+
+a. Draw a line of best fit. b. | Comment on type of correlation _
+4. Given scatter diagram is showing relation ws
+
+between practice time and marks obtained in a x x
+
+math’s test. y (oe a ®
+
+P P Be an “
+a. Find type of correlation. o nd “x x
+b, Draw line of best fit. = "Tox *
+; a w- Pus
+gS ft ttwrens
+“Time spent on math practice
+
+S. Draw the scatter diagram for the data showing the relationship between amount of pollution
+
+(measured in Air Quality Index (AQI)) and number of sick days reported by a locality:
+
+No, ofSick Days [5 18 [25 [40 [60 [80 [3 [15 [20 [27
+Find correlation and what does this suggest? 4
+
+
+--- Page 262 ---
+
+6. A teacher wants to analyze the test scores of her students. Draw box and whisker plot to
+show a median score of 75, a first quartile of 60, and a third quartile of 85. Find:
+a. What percentage of students scored above 85? b. IQR
+Measures of Dispersion
+The single value which can represent a data is known as average or measure of central tendency.
+In grade 9, different types of averages e.g. mean, median and mode are studied.
+Let us find the arithmetic mean of scores of five participants of a math quiz:
+V (Bilal’s score)  =5,5,5,5,5 => port. 2 =5
+irl a
+W (Umer’s score) | =1,3,5, 8,8 => Por = = =5
+X (Usman’s score) =2,4,5,6,8 a 2 =5
+Y (Hassan’s score) =—10,0,10,12,13 => Fas? 2=5
+Z (Abdullah’s score) =—15,—5, 10, 15,20 => Z= ef a 2 =5
+We have seen that all of the above five data have same measure of central tendency (arithmetic
+mean) but they vary in different ways. The values of above data are scattered away from their
+average in different ways. It is a confusing situation because we are unable to compare the data
+on the basis of their average. We can say that the average of a data is not more significant unless
+the scatterings of values around the average are measured. ,
+The techniques or formulas which are used to measure, how the values of a data are scattered
+around its central value, are called measures of dispersion.
+Types of Measures of Dispersion
+(a) Range
+Range is the difference between the maximum and the minimum values of the data. 1.€.
+R =xm—Xo, where xm= maximum value and x»= Minimum value
+(b) Variance
+Variance is the mean of squared deviation taken from mean.
+Usually it is denoted by S?. The formula for variance of grouped data:
+gta 2/2 - = (Proper mean formula)
+— @2a Efe? _ -Ef2 yirect formula)
+or S*= oT ( 7 )* (Direct formula)
+(c) Standard Deviation
+Standard deviation is a positive square root of variance. It is denoted by S and given by
+following formulae:
+
+
+--- Page 263 ---
+
+S=_ pee (Proper mean formula)
+a _ fez? — (ef%)2 (Direct formula’
+or § or iS , (Direct formula)
+
+Example: Data shows scores of Huffaz in a Hifz Quran test:
+
+Find Range, variance and standard deviation of the data.
+
+Solution: Range = Xm—Xo0 = 100-41 = 59
+
+For the variance and SD, we need to construct the following table: .
+a ER A
+}71-80, 175.5 [5700.25 [30 [2265 «| 7007.5 _|
+Variance: S?= Lf%2 _ -Efey2 4652125" 4 £385)2 — 126 9 an
+Variance: 5*= oy GP = = ) = 135.9 app.
+Standard deviation: $ = [EZ @L52 = [aesaaas (6385);
+Standard deviation: § J oF Gp Js = 2
+
+= ¥135.9 = 11.6
+
+Coefficient of Variation (C.V.)
+
+The percentage ratio between the standard deviation and mean of a data is called coefficient of
+
+variation i.e.
+
+ny SD,
+
+C.V. “en 100
+
+In avOve example, CV = Fog * 100 = 16.4 app.
+
+OO
+C.V. is used to compare the dispersion of different data which differ in their means and
+units. It is also used as a criterion for consistent performance. The data having smaller
+C.V is more consistent than the data having larger C.V. }
+
+
+--- Page 264 ---
+
+Comparison of 2 Data Sets using Mean and Standard Deviation
+To compare two data sets using mean and standard deviation, follow these steps:
+1. Calculate the arithmetic mean of each data set.
+2. Calculate the standard deviation of each data set.
+3. Compare the means which indicates a difference in the central tendency of the two data sets.
+4. Compare the standard deviations which indicate a difference in the variability or spread of the
+two data sets.
+Example: Following are scores of 2 girl sections orchid and teal in Math quiz.
+Score chart for Teal: - : - |
+scores [41-50_[51-@0 [6-70 [7-80 [8-90 [91-100
+| No. of 8 16 |7 ) aa
+tims | ff
+Score chart for orchid: a 7
+[No.of [3 |6 \4 9 ] {7
+rims | fe PY
+i. Calculate the arithmetic mean of each data set. _ :
+ii. Calculate the standard deviation of each data set.
+iii. Compare the means. What does this indicate?
+iy, Compare the standard deviations. What does this indicate?
+v. Calculate CV for both data sets.
+Solution:
+Co Teatsection «dred section
+[sis0 [855 [4 [saz [12s | [argo [ess|i [esa [e225
+ne
+i) x= 2E= B68 y= AL = = 72.0
+ii) SD teal : SD orchid:
+Sica = peat = ease = 146 Sorchid - Pega woe rae = 16.6
+
+
+--- Page 265 ---
+
+————————————————————EE EEE EEE
+Comparison: ; .
+iii, The mean score of Orchid section (72.0) is higher than the mean score of Teal section (68.0),
+
+indicating that the average performance of Orchid is better than Teal.
+iv. The standard deviation of Orchid (16.6) is greater than the standard deviation of Teal (14.6),
+indicating that the performance of students in teal is more consistent and less spread out than
+in Orchid. Such performance is more reliable. .
+V. CV ican x 100 = 21.47 CV orchid => * 100 = 24.41
+Real Life Application of Variance and Standard Deviation
+Variance and standard deviation have numerous real-life uses in various fields, e.g.
+Finance, Quality Control, Healthcare, Sports, Education, Environmental Science & Engineering.
+—_——_Kv ~~ ~#@€=)3FS—lti‘<STt~C~™S
+1. What is dispersion? Write names and formulae of 3 measures of dispersion.
+2. The energy consumption for a month is given below for Rabee’s home. __
+Units — {101-200 | 201-300 | 301-400 | 401-500 | 501-600 | 601-700
+| consumed | | |
+Find Range and variance of the energy consumption. = =” |
+3, Maria wants to analyze the water supply in her area, given in the data as shown:
+| a ~~ Water supply
+| Water supply (gallons) | 501-700 | 701-900 © | 901-1100 | 100 | 1101-1300 | -1300
+| No.of hours ~ No.ofhours fa 4 Ps , Ss. fz | 3 | 7
+Find i. mean supply of water in the area. _ ii. Variance of the supply of water.
+iii. | SD of the supply of water. Iv. CV of the supply of water.
+4, An organization wants to analyze salaries, grouped by department as shown below:
+Find the range, variance and standard deviation of the salaries across all departments. Also
+calculate CV of the data. |
+5. A teacher wants analyze the scores of students in different sections of class 10 as shown:
+Find the variance and standard deviation of the grades of all sections . :
+
+
+--- Page 266 ---
+
+6. Mutahhir wants to analyze the purchases made by customers, grouped by age as shown:
+AgeGroup | Purchase worth (inRs.) | ~ Number of Customers
+Find the range, variance and standard deviation of the purchases across all age groups.
+
+7. Namra wants to analyze blood pressure of patients in OT & OPD grouped by age as shown:
+[BP | 100-110 | 110-120 | 120-130 | 130-140 | 140-150 | 150-160
+ES
+[ye Pationtsin PD Patients in OPD _
+| BP —_[ 100-110 | 110-120 | 120-130 130-140 | 140-150 | 150-160 |
+Reofparewsy 9 foe | s | 7 [| 6 [2 |
+
+“Find the Range, Mean, variance and standard deviation of the blood pressure of both
+datasets. Also find CV and comment on results.
+
+8. Khola wants to forecast the temperature for the next week for Jhelum and Indiana. She has
+
+the history of a week for both of the cities asgiven:
+_ | 100 | 105 | 110 | 1I5 || _ _| 60 | 70 | 80 | 90
+Help her to find:
+i. Mean of both data sets. i. Variance of both datasets
+Also comment on the possible predictions for next week temperature for both cities.
+(Hint; In weather forecasting, variance is used to measure the spread or uncertainty in
+temperature predictions. A higher variance indicates a wider range of possible temperatures,
+making it more challenging to predict the exact temperature.) .
+
+
+--- Page 267 ---
+
+. Probability
+Probability is a measure of the likelihood of an event occurring. It is a number between 0 and |
+both inclusive that represents the chance of an event happening. Here are some key concepts in
+probability:
+Experiment: An action or process that can produce a set of outcomes.
+Outcome: A specific result of an experiment.
+Sample Space: The set of all possible outcomes of an experiment.
+Event: A set of one or more outcomes of an experiment.
+Probability of an Event: A number between 0 and 1 both inclusive that represents the likelihood
+of an event.
+Types of Probability
+There are several.types of probability such as:
+* Theoretical Probability
+The number of favorable outcomes divided by the total number of possible outcomes.
+® Experimental Probability
+sed on the results of repeated trials of an experiment.
+* Conditional Probability
+The probability of an event occurring given that another event has occurred.
+* Dependent Probability
+The probability of two or more events occurring dependently on each other.
+© Mutually Exclusive Probability
+The probability of two or more events that cannot occur simultaneously.
+* Joint Probability
+The probability of two or more events occurring together.
+Probability of Combined Events
+The probability of combined events depends on whether the events are independent, dependent,
+or mutually exclusive.
+Probability of Independent Events
+The probability of two or more independent events occurring is the product of their individual
+_ probabilities.
+ie. P(A and B) = P(A) =< P(B)
+Probability of Dependent Events
+The probability of two or more dependent events occurring is the product of their individual
+probabilities, considering the conditional probability of each event.
+ic, P(A and B)= P(A) x P(BJA)
+Probability of Mutually Exclusive Events
+The probability of two or more mutually exclusive events is the sum of their individual
+probabilities.
+
+
+--- Page 268 ---
+
+Le. P(A or B)= P(A) + P(B)
+Conditional Probability
+Probability of an event occurring given that another event has occurred.
+ie.  P(A/B) = P(A and B)/ P(B)
+For example:
+1. Probability of drawing two Kings (with replacement):
+P(King) * P(King) = 1/13 « 1/13= 1/169 = 0,006 (or 0.6%)
+Probability of drawing two Kings (without replacement):
+P(King) x P(King) = 4/52 3/51 = 3/663 = 0.0045 (or 0.45%)
+2. Probability of rolling two 6s: P(6) x P(6) = 1/6 x 1/6 = 1/36
+3. Probability of drawing a King and then a Queen:
+P(King) * P(Queen | King) = (4/52) = (4/51) = 16/2652
+Remember to consider the type of events and their relationships when calculating the probability
+of combined events.
+Probability of Combined Events using Sample Space Diagrams
+A sample space diagram is a visual representation of all possible outcomes of an experiment.
+It can be used to calculate the probability of combined events by identifying the favorable
+outcomes and dividing them by the total number of possible outcomes.
+To calculate the probability of combined events using a sample space diagram:
+« Draw a sample space diagram showing all possible outcomes of the experiment.
+« Identify the favorable outcomes that meet the conditions of the combined event.
+« Count the number of favorable outcomes.
+e Divide the number of favorable outcomes by the total number of possible outcomes in the
+sample space.
+Example:
+What is the probability that both coin A and coin B land heads up if both coins are flipped
+simultaneously?
+Solution: a | = : Say
+Favorable Outcomes: hH (both coins land heads up) i
+Number of Favorable Outcomes: 1 | |
+Total Number of Possible Outcomes: 4 | | | |
+Probability: 1/4 or 0.25 | |
+This means that the probability of both coins landing —_| | | | |
+heads up is 1/4 or 25%. | | ane
+Probability of Combined Events using Diagram
+There are several types of sample space diagram, including:
+Possibility Diagrams Tree Diagrams Venn Diagrams
+
+
+--- Page 269 ---
+
+By using an appropriate sample space diagram, we can easily visualize and calculate the
+probability of combined events. This method is especially helpful while dealing with
+complicated experiments and multiple events.
+(a) Probability of Combined Events using Possibility Diagram
+Possibility diagram is graphical representation of all possible outcomes of an experiment.
+Example:
+Raabi and Jerry are hoping on their play circles of four sectors each painted in red, green, yellow
+and blue colours.
+Find the probability that they will jump on:
+(a) At the same colour (b) At the different colours
+Solution: We can associate the ordered pair (x, y), where x represents hops of Raabi and y
+represents hops of Jerry to show an outcome in the sample space. Here (blue, green): means
+Raabi lands on blue while Jerry lands on green.
+50 the sample space is:
+S = {(red, red), (red, green), (red, yellow), (red, blue), (green, red), (green, green),
+(green, yellow), (green, blue), (yellow, red), (yellow, green), (yellow, yellow), (yellow, blue),
+(blue, red), (blue, green), (blue, yellow), (blue, blue)} |
+Which seems complicated and time taking method of writing sample space for bigger problems.
+We can express the same in more systematic and efficient a
+way through possibility diagram.. ; pn, if
+There are 16 dots representing individual outcome, Omer fe 8 Ys ¥
+Let E; be the event that both girls jump on same colour pov stiow . YL")
+And E be the event that they jump on different colours. So Green | SAff. .
+The loop on the diagonal enclosing four dots is associated” SS ff |
+“n(E\)=4 and P(E) =4/16=% — \ /
+The triangles enclosing 6+6 dots not on the diagonal are Vy Red Green Yehow Bine >
+Possible outcomes of E>. Raabi
+“n(E2)=12 and P(E2)=12/16=3/4 a
+By using a possibility diagram, we can easily visualize and calculate the probability of combined
+events. This method is especially helpful when dealing with sequential experiments and
+conditional probability. ,
+(b) Probability of Combined Events using Tree Diagram
+Tree diagram is a graphical representation of a sequence of events or decisions, showing the
+possible outcomes and their probabilities in the form of:
+Root Node (starting point) Branches (representing possible outcomes or decisions)
+__ Leaf'Nodes (representing the final outcomes)
+Meee. ia grams are used to visualize probability problems, identify possible outcomes, calculate
+probabilities, analyze decision-making processes and show conditional probability.
+
+
+--- Page 270 ---
+
+Example:
+Maria and Haleema toss 2 coins Haleema after Maria,
+(a) Draw tree diagram of the experiment. Using tree diagram, find probabilities:
+(b) Both tails up (c) Maria’s coin head up and Haleema’s coin tail up
+Solution:
+(a) Tree diagram
+(b) Let E; be the probability of both heads up, then | 7 Haleema’s |
+obviously there is only one such outcome among) Maria's (Outcomes |
+total of 4 outcomes, i.e. E; = {HH} (AL | () HH
+(c) Let E2 be the probability of Maria’s coin head up ,< p< |
+and Haleema’s coin tail up, then obviously there is ae om (4) TH |
+only one such outcome among total of 4 outcomes. —| = {T) TT |
+ahi E2- {HT} - Tree Diagram
+»P(E2) =1/4 Le __]
+(c) Probability of Combined Events using Venn Diagram
+A Venn diagram is a pictorial representation of sets and their relationships, using overlapping
+‘disjoint circles to represent the intersection of sets. It can be used to calculate the probability of
+combined events by identifying the regions that represent the favorable outcomes and calculating
+their probabilities.
+Example:
+Zainab randomly picks a book from a library shelf containing 50 books, as shown in fig:
+Find probabilities:
+(a) Itis grade7 book (b) _—‘It is an English book U
+(c) Itis an English book of grade 7 [ee ~]
+Solution: | Grade? PK Grades
+(a) The probability of picking a grade 7 book: if \ |
+P(grade7 book) = 5/50 = 1/10 Vex VF 8 7 |
+(b) ‘The probability of picking an English book Ne ee 40
+(given that it's a grade 7 book): a —
+P(Englis book from grade 7 books) = 2/5
+(c) To find the probability of picking a book that is both a grade 7 book and an English book,
+multiply the above probabilities:
+So, the probability of picking a book randomly from the 50 books that is a grade 7 English book
+is 1/25 or 4%.
+
+
+--- Page 271 ---
+
+By using a Venn diagram, we can easily visualize and calculate the probability of combined
+events. This method is especially helpful when dealing with multiple events and their
+intersections.
+~"~Probability Rules
+Addition Rule
+The probability of two mutually exclusive events is the sum of their individual probabilities.
+Multiplication Rule
+The probability of two or more events occurring independently is the product of their individual
+probabilities.
+Complement Rule
+The probability of an event not occurring is 1 minus the probability of the event occurring.
+Addition Rule of Probability for Mutually Exclusive Events
+The addition rule of probability states that the probability of two or more mutually exclusive
+events occurring is the sum of their individual probabilities.
+P(A or B)= P(A) + P(B), | where A and B are mutually exclusive events.
+Applying addition rule of probability to problems of rolling even and odd number on a dice
+The addition rule of probability can be applied to solve problems involving even and odd
+numbers rolled on a dice by treating the outcomes as mutually exclusive events
+Example: .
+Hajrah rolled a fair cubical dice once. Find the probability of rolling an even or an odd number.
+Solution:
+On a fair cubical dice, there are 3 even numbers: 2, 4, 6 and 3 odd numbers: 1,3,5
+Since the dice has 6 faces, the total number of possible outcomes is 6.
+The probability of rolling an even number or an odd number is: "
+P(Even) = 3/6 = 1/2 and P(Odd) = 3/6 = 1/2
+Since the events are mutually exclusive (a roll can't be both even and odd), we can add the
+probabilities:
+P(Even or Odd) = P(Even) + P(Odd) = 1/2 + 1/2 =1
+Applying addition rule of probability to problems involving left and right hand turns
+The addition rule of probability can be applied to solve problems involving taking left or right
+turns, by treating the outcomes as mutually exclusive events. |
+Example:
+Mr. Bilal can make either a left turn (L) or a right turn (R) at an intersection on his journey to
+Tiri Mengal. The probabilities of making a left turn and a right turn are:
+P(L) = 0.3 (30% ) & P(R) =0.7 (70%). Find the probability of making either a left or a right turn.
+Solution: )
+Since making a left turn and making a right tum are mutually exclusive events (he can't make
+
+
+--- Page 272 ---
+
+both at the same time), so
+we can apply the addition rule to find the probability of making either a left turn or a right tum:
+P(L or R) = P(L) + P(R) = 0.3 + 0.7 = 1
+Applying addition rule of probability to problems involving tossing a coin
+The addition rule of probability can be applied to solve problems involving tossing a coin by
+treating the outcomes as mutually exclusive events. .
+Example:
+Sunayna tossed a fair coin with two outcomes: Heads (H) and Tails (T). The probabilities are:
+P(H) = 0.5 (50% chance of getting Heads) and P(T)=0.5 (50% chance of getting Tails)
+find the probability of getting either Head or Tail.
+Solution:
+Since getting Head and getting Tail are mutually exclusive events (the coin can't land on both at
+the same time), so
+we can apply the addition rule to find the probability of getting either Heads or Tails:
+P(H or T) = P(H) + P(T) = 0.5 + 0.5 = 1
+Applying addition rule of probability to problems involving winning or losing
+The addition rule of probability can be applied to solve problems involving winning or losing by
+treating the outcomes as mutually exclusive events.
+Example:
+Affan played a game with two possible outcomes L and W such that P(W) = 0.4 (40%) and
+P(L) = 0.6 (60%). Find the probability of either winning or losing the game.
+Solution:
+Since winning and losing are mutually exclusive events (he can't both win and lose at the same
+time), we can apply the addition rule to find the probability of either winning or losing:
+P(W or L) = P(W) + P(L)=0.4+0.6=1
+Multiplication Rule of Probability for Independent and Dependent Events
+The multiplication rule of probability states that the probability of two or more events occurring
+is the product of their individual probabilities.
+(i) For independent events:
+P(A and B) = P(A) * P(B)
+(ii) For dependent events:
+P(A and B) = P(A) * P(BIA); where P(BIA) is the conditional probability of B given A.
+Example: (Independent Events)
+Haneen flipped a fair coin twice. What is the probability of getting heads both times?
+Solution:
+P(Heads on first flip)='4 and P(Heads on second flip) = 1/2
+Since the coin flips are independent, we can apply the multiplication rule:
+.. P (Heads on both flips) = P(Heads on first flip) x P(Heads on second flip) = 1/2 x 1/2= 1/4
+Example: (Dependent Events)
+Zeemal drew 2 cards from a standard deck of cards. What is the probability of drawing two
+
+
+--- Page 273 ---
+
+spades in a row?
+Solution:
+P(First card is spade) = 13/52 = 1/4 .
+P(Second card is spade | First card is spade) = 12/51 |
+Since the events.are dependent, we can apply the multiplication rule with conditional probability
+P(T wo spades in a row) = P(First card is spade) x P(Second card is spade | First card is spade)
+= 1/4 x 12/51 = 3/51
+Multiplication Rule of Probability Involving Trade
+The multiplication rule of probability can be applied to solve problems involving trade by
+treating the outcomes as independent events.
+Example:
+Mahmil made 2 trades, as given:
+Trade 1: Buying Mangoes (BM) and Trade 2: Selling Berries (SB)
+With the probabilities:
+Find the probabi'ity of both trades being successful. .
+Solution:
+Since the trades are independent (the outcome of one trade doesn't affect the other), we can apply
+the multiplication rule to find the probability of both trades being successful:
+P(BM and SB) = P(BM) * P(SB)= 0.6 x 0.7 = 0.42 Es
+This means there is a 42% chance of both trades being successful. |
+Multiplication Rule of Probability Involving Flipping a Coin :
+The multiplication rule of probability can be applied to solve problems involving flipping a coin
+by treating the outcomes as independent events.
+Example:
+Azkaa flipped a biased coin twice with following outcomes:
+Flip 1: Heads (H) or Tails (T) and _‘ Flip 2: Heads (H) or Tails (T)
+With the probabilities:
+P(H)=0.7 nad P(T)=0.3  -Find the probability of:
+i.  ° Both heads ii. First head then tail
+iii. First tail then head iv. Both tails
+Solution: : ,
+Since the coin flips are independent (the outcome of one flip doesn't affect the other), we can
+apply the multiplication rule to find the probability of specific outcomes:
+i, P(HH) = P(H) = P(H) = 0.7 x 0.7=0.49 (49% chance of getting Heads both times)
+i," PQHT) = PH) = P(T) = 0.7 = 0,3 = 0.21 (21% chance of getting Heads then Tails)
+iii, | P(TH)=P(T) x P(H) = 0.3 x 0.7=0.21 (21% chance of getting Tails then Heads)
+iv. P(TT)=P(T)x P(T) =0.3 x 0.3 =0.09 (9 % chance of getting Tails both times)
+Multiplication Rule of Probability for Drawing Cards with Replacement
+The multiplication rule of probability can be applied to solve problems involving drawing 2
+
+
+--- Page 274 ---
+
+ards with replacement by treating the outcomes as independent events.
+{xample:
+2omaisa draws 2 cards from standard deck with replacement as given :
+‘irstdraw > Any card (52 possibilities)
+second draw > Any card (52 possibilities, since the first card is replaced)
+‘ind the probabilities of:
+i. Both black cards ii. Both hearts
+iii. | First spade then heart iv. First Queen of Spades then King of Hearts
+solution: so
+Since the events are independent (the outcome of the second draw does not depend on the first
+jraw), we can apply the multiplication rule to find the probability of specific outcomes:
+i. P(Both black cards) = P(black) x P(black) = 26/52 x 26/52 = 1/4
+il. P(Both hearts) = P(heart) x P(heart) = 13/52 x 13/52 = 1/16
+iii. | P(spade then heart) = P(spade) x P(heart) = 13/52 * 13/52 = 1/16
+iv.  P(Queen of Spades then King of Hearts)
+= P(Queen of Spades) x P(King of Hearts)
+= 1/52 « 1/52 = 1/1704
+Multiplication Rule of Probability for Drawing Cards without Replacement
+The multiplication rule of probability can be applied to solve problems involving drawing 2
+cards without replacement by treating the outcomes as dependent events.
+Example:
+Sundas draws 2 cards one after the-other from a standard pack of playing cards, such that:
+First draw > Any card (52 possibilities) _
+Seconddraw > Any card (51 possibilities, since one card has already been drawn)
+then find the probabilities of: |
+i. Both black cards ii. Both hearts
+iii. | First spade then heart iv. First Queen of Spades then King of Hearts
+Solution:
+Since the events are dependent we can apply the multiplication rule to find the probability :
+i. P(Both black cards) = P(black)  P(black/black) = 26/52°* 25/51 = 25/102
+ii. P(Both hearts) = P(heart) x P(heart/heart) = 13/52 x12/31 = 3/51
+iii. | P(spade then heart) + P(spade) x P(heart/spade) = 13/52 = 13/51 = 13/204
+iv.  P(first Queen of Spades then King of Hearts)
+= P(Queen of Spades) x P(King of Hearts/ Queen of Spades) = 1/52 x 1/51 = 1/ 2652
+1. Musaab picked a card randomly from a box containing cards bearing numbers 1,2 and 3. He
+then replaced and picked another after well shuffling. He found product of two numbers he
+got in 2 trials. Draw the possibility diagram of this experiment and find probability of getting
+an even product.
+RENE
+
+
+--- Page 275 ---
+
+2. Ashas flipped a coin thrice. Draw tree diagram to find the probability of getting three Tails?
+
+3, Asurvey of 100 students shows that 40 like pizza, 45 like burgers. Draw venn diagram
+and find probability of students like either pizza or burgers, assuming none like both?
+
+4, What is the probability of a patient testing positive for a disease with either Test A or Test B,
+given that the probability of testing positive with Test A is 0.3 and the probability of testing
+positive with Test B is 0.4, and the tests are independent?
+
+5. What is the probability of getting either Job A or Job B, given that the probability of getting
+Job A is 0.5 and the probability of getting Job B is 0.4 and the offers are independent?
+
+6. What is the probability of taking either Volvo bus or Bedford bus to work, given that the
+probability of taking Volvo bus is 1/2 and the probability of taking Bedford bus is 1/3, and
+the buses are to be chosen independently?
+
+7. What is the probability of either Team Sudaisee or Team Huzaifee winning the
+championship, given that the probability of Team Sudaisee winning is 12/27 and the
+probability of Huzaifee team winning is 13/27, and the teams play independently?
+
+8. HJ produces party abayaas. In the products, probability of colour damage is 0.1 andthe.
+probability of bad stitching is 0.2. Find the probability of a product having either colour
+damage or bad stitching.
+
+9. Fakeha is tested for a disease with Test A and Test B and the probability of testing positive
+with A is 0.9 and the probability of testing positive with B is 0.7. Find the probability of
+Fakehaa for testing positive with both Test A and Test B, when the tests are independent?
+
+10, Cocobakes produces festive cakes. The quality control department performs 2 quality checks
+
+. A and B on an item. Find the probability of a product passing both Quality Control Test A and
+Quality Control Test B, given that the probability of passing Test A is 0.9 and the probability of
+passing Test B is 0.8, and the tests are independent?
+
+* A table consisting of values of a data along with their frequencies is.called a frequency table.
+
+° In a group data, the table consisting of class intervals and their respective frequencies is called
+frequency table or a frequency distribution.
+
+' © The representation of data by a polygon in which class marks are plotted along x-axis and
+
+frequencies along y-axis is called a frequency polygon.
+
+° In a group data, number of values less than or within the limits of a class is called cumulative
+frequency of the respective class.
+
+eA polygon made by. joining the points whose x-coordinates are class marks and y-coordinates
+are their cumulative frequencies is called a cumulative frequency polygon.
+
+
+--- Page 276 ---
+
+e An ogive is a smooth curve, while a cumulative frequency polygon is a polygon-shaped
+graph made by straight segments.
+e The three values which divide the whole data into four equal are called quartiles.
+© Deciles divide a dataset or a distribution into 10 equal parts, each representing 10% of the
+© Percentiles divide a dataset or a distribution into 100 equal parts, each representing 1% of the
+data.
+e IQR =Q3—- QI, where IQR represents the spread of the data within the middle half of the
+distribution.
+e A box-and-whisker plot is a graphical representation of a dataset that displays the distribution
+of values through 5 data points: min, max, Qi, Q2, Qs
+e A single value which can represent the whole data is called measure of central tendency,
+measure of location or an average. ,
+© The middle most value of an arranged data is called median average or simply median.
+The measures which tell us how the values of a data are scattered around their average, are
+called measures of dispersion.
+e Range is the difference of largest and smallest values of the data.
+e Variance is the ratio between sum of squares of deviations from mean and the number of
+values.
+« Standard deviation is the positive square root of variance.
++ Probability is a measure of the likelihood of an event occurring.
+e The percentage ratio between the standard deviation and mean of a data is called coefficient
+of variation ie. C.V. == * 100
+bers ta]
+1. Encircle the correct option in the following.
+i. Which of the following is not measure of dispersion?
+(a) variance (b) standard deviation (c) range (d) arithematic mean
+ij. What is median of the data 4, 3, 0, 2, 1?
+(a) 0 (b) 2 | (c) 3 (d)4
+iii. Which of the following is measure of dispersion? . |
+(a) arithmetic mean —_(b) range (c) quartile “ (d) median
+iv. Which of the following is used to compare the consistency of two data?
+(a) arithmetic mean (b) standard deviation (c)C.V. (d) G.M.
+vy. What is sum of deviations taken from arithmetic mean? 7
+@) Xf (b) Lx ()n @°
+vi. What is variance of five values 4, 4, 4, 4, 4?
+(a) does not exist (b)4 (c) 5 (d) 0
+
+
+--- Page 277 ---
+
+vii. Which of the following divides the data into four equal parts?
+(a) decile (b) quartile (c) percentile (d) median
+viii. Which of the following divides the data into ten equal parts?
+(a) decile (b) quartile (c) percentile (d) median
+ix. Which of the following divides the data into two equal parts?
+(a) decile (b) quartile (c) percentile (d) median
+x. Which of the following divides the data into hundred equal parts?
+(a) decile (b) quartile (c) percentile (d) median
+xi. line of best fit is given by the equation:
+(a) y=x? (b) y=mx? +c ()y=mx+e = @) x=?
+xii. CV is given by the formula:
+(@) =x mean (b) cme 100 (c) =x 100 (d) wean J)
+xiii. Probability of drawing a king in one draw is -------- than probability of drawing 2 kings in 2
+draws. ,
+(a) greater (b) smaller (c) equal (d)norelation .
+xiv. Probability of drawing 2 aces in 2 draws with replacement is -------- than probability of °
+drawing 2 jacks in 2 draws without replacement.
+(a) greater (b) smaller (c) equal (d) no relation
+xv. Probability of rolling a standard cubical dice for an even number in 2 attempts is --------
+than probability of rolling an odd numbers in 2 attempts.
+(a) greater (b) smaller (c) equal (d) no relation
+Z. For the following data, draw cunmilative . Ez) 5] 10 pasy] 20 [easy 30 [ISS 40]
+frequency polygon, then estimate 3 quartiles SS et
+graphically. Also find variance and stand f [2d 4 [6] 8 oy 7 psy 3 |
+_ deviation of the data,
+3. Aatika wants to examine the relationship between the time of exercise of patients and their
+blood pressure. Show the data by box and whisker plots .
+a. Find IQR of both data sets b. What is type of correlation?
+b. What conclusion can be drawn from this? .
+4, A sports coach wants to analyze the timed performance of athletes in an event. Draw the box
+and whisker plot to show a median time of 20 seconds, Q! of 10 seconds and Q3 of 30
+seconds. Find what percentage of athletes could perform in first 10 seconds? Also find IQR?
+
+
+--- Page 278 ---
+
+5. Given box and whisker plots'show the marks of 4 boys of mauve section and 4 boys of hazel
+section in math test.
+a) Find Median scores of both sections name | LU a
+b) Find IQR of scores of both sections Mauve re ie a
+F i | | , 1 —— 2
+40 30 60 70 a0 »
+Marks
+6, Bareera and Hadiya draw cookie packs, Hadiya after Bareera from a bag of 2 choco cookies
+and 3 lemon cookies. Find the probability of drawing both lemon cookies
+7. A company has two machines, A & B, which produce 60% & 40% of the total products,
+respectively. Machine A produces 20% defective products & Machine B produces 15%
+defective products. What is the probability that a randomly selected product is defective?
+| Maths Play Ground:
+Heip students to make colour wheel/ number wheel and let them perform trials of
+_ moving the wheel to record the outcomes, Then ask them different related questions of |

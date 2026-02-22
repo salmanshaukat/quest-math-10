@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en" data-chapter="12">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quest 12: Basic Statistics | Quest Math 10</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <style>
+    .chapter-hero {
+      text-align: center;
+      padding: 60px 0 30px;
+      position: relative;
+      z-index: 1;
+    }
+    .chapter-hero .chapter-number {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--neon-cyan);
+      margin-bottom: 8px;
+    }
+    .chapter-hero h1 { font-size: 2.8rem; margin-bottom: 12px; }
+    .chapter-hero .chapter-subtitle {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      padding: 8px 0;
+      transition: color var(--transition-fast);
+    }
+    .back-link:hover { color: var(--neon-cyan); }
+    .phase h2 { margin-bottom: 16px; }
+    .phase p, .phase li { margin-bottom: 10px; line-height: 1.8; }
+    .phase ul, .phase ol { padding-left: 20px; margin: 12px 0; }
+    .example-box {
+      background: rgba(168, 85, 247, 0.06);
+      border: 1px solid rgba(168, 85, 247, 0.15);
+      border-radius: var(--radius-md);
+      padding: var(--space-lg);
+      margin: var(--space-md) 0;
+    }
+    .stat-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 0.9rem;
+    }
+    .stat-table th, .stat-table td {
+      padding: 10px 14px;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .stat-table th { background: rgba(0,212,255,0.08); color: var(--neon-cyan); font-size: 0.8rem; }
+    .boss-challenge {
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 51, 102, 0.2);
+      border-radius: var(--radius-md);
+      padding: var(--space-lg);
+      margin: var(--space-md) 0;
+    }
+    .boss-challenge h4 { color: var(--neon-red); }
+    .boss-input-group { display: flex; gap: 12px; align-items: center; margin: 12px 0; flex-wrap: wrap; }
+    .boss-feedback { margin-top: 8px; font-size: 0.9rem; display: none; }
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 16px 0;
+    }
+    .comparison-grid .comp-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-md);
+      padding: var(--space-lg);
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+    .comparison-grid .comp-card h4 { font-size: 1rem; }
+    @media (max-width: 600px) {
+      .comparison-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body data-chapter="12">
+
+  <!-- Top Bar -->
+  <nav class="top-bar">
+    <div class="logo">
+      <a href="../index.html" class="back-link">&#8592; Back</a>
+      <span class="neon-text" style="margin-left: 12px;">Quest Math 10</span>
+    </div>
+    <div class="stats" id="top-bar-stats">
+      <div class="stat-badge stat-xp">
+        <span>&#11088;</span>
+        <span id="xp-count">0</span> XP
+      </div>
+      <div class="stat-badge stat-streak">
+        <span>&#128293;</span>
+        <span id="streak-count">0</span> Streak
+      </div>
+      <div class="stat-badge stat-level">
+        <span>&#9878;</span>
+        Lvl <span id="level-count">1</span>
+      </div>
+    </div>
+  </nav>
+
+  <div style="padding: 0 24px;">
+    <div class="progress-container" style="height: 4px;">
+      <div class="progress-bar progress-bar-xp" id="xp-progress" style="width: 0%"></div>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <!-- Hero -->
+    <div class="chapter-hero animate-fadeInUp">
+      <div class="chapter-number">Quest 12</div>
+      <h1><span class="neon-text">Basic Statistics</span></h1>
+      <p class="chapter-subtitle">Beyond averages: cumulative frequency, quartiles, box plots, variance, standard deviation, probability, and scatter diagrams.</p>
+    </div>
+
+    <!-- ==================== PHASE: HOOK ==================== -->
+    <div class="phase phase-hook animate-fadeInUp delay-1">
+      <div class="phase-tag">&#127918; Hook</div>
+      <h2>The Bowler Dilemma</h2>
+      <p>You are the captain of a cricket team and must pick one of two bowlers for the final over:</p>
+
+      <div class="comparison-grid">
+        <div class="comp-card">
+          <h4 class="glow-text-cyan">Bowler A -- "The Machine"</h4>
+          <p>Economy rates over 5 matches:</p>
+          <p style="font-family: 'Fira Code', monospace; color: var(--neon-green);">5.8, 6.0, 6.2, 5.9, 6.1</p>
+          <p>Average: $6.0$ runs/over</p>
+        </div>
+        <div class="comp-card">
+          <h4 class="glow-text-pink" style="color: var(--neon-pink);">Bowler B -- "The Wildcard"</h4>
+          <p>Economy rates over 5 matches:</p>
+          <p style="font-family: 'Fira Code', monospace; color: var(--neon-orange);">2.0, 4.0, 6.0, 8.0, 10.0</p>
+          <p>Average: $6.0$ runs/over</p>
+        </div>
+      </div>
+
+      <p><strong>Same average -- but vastly different!</strong> Bowler A is consistent (low spread), while Bowler B is unpredictable (high spread). To choose wisely, you need more than averages. You need <em>measures of dispersion</em>: range, variance, and standard deviation.</p>
+      <div class="key-concept">
+        <strong>Core Insight:</strong> The average tells you the centre. Dispersion tells you how spread out the data is. Together, they give the full picture.
+      </div>
+    </div>
+
+    <!-- ==================== PHASE: CHALLENGE ==================== -->
+    <div class="phase phase-challenge animate-fadeInUp delay-2">
+      <div class="phase-tag">&#9876; Challenge</div>
+      <h2>Quick Thinking</h2>
+      <div class="card card-neon-border">
+        <p><strong>Puzzle:</strong> Five identical values: $4, 4, 4, 4, 4$. What is their variance?</p>
+        <p>Variance measures how far values deviate from the mean. If every value <em>is</em> the mean, then every deviation is $0$.</p>
+        <div class="formula-box">
+          Variance $= 0$
+        </div>
+        <p style="color: var(--neon-gold); font-size: 0.9rem;">If there is zero spread, there is zero variance. The data has no dispersion at all.</p>
+      </div>
+    </div>
+
+    <!-- ==================== PHASE: DISCOVERY ==================== -->
+    <div class="phase phase-discovery">
+      <div class="phase-tag">&#128161; Discovery</div>
+      <h2>Statistical Concepts &amp; Probability</h2>
+      <p>Unlock each topic step by step. Click to reveal the concept and examples.</p>
+
+      <div class="reveal-group">
+
+        <!-- Step 1: Cumulative Frequency -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">1</span> Cumulative Frequency Distribution &amp; Ogive</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <p>A <strong>cumulative frequency</strong> for a class is the total number of values less than or equal to its upper class boundary.</p>
+            <div class="formula-box">
+              Cumulative frequency of class $i$ = $\sum_{k=1}^{i} f_k$
+            </div>
+            <p><strong>Cumulative Frequency Polygon:</strong> Plot upper class boundaries on the x-axis and cumulative frequencies on the y-axis. Connect points with straight line segments.</p>
+            <p><strong>Ogive (Cumulative Frequency Curve):</strong> Same as the polygon but with a smooth curve. An ogive shows the cumulative distribution and is used to estimate quartiles, deciles, and percentiles graphically.</p>
+            <div class="tip-box">
+              <strong>Key Difference:</strong> An ogive is a smooth curve; a cumulative frequency polygon is made of straight-line segments.
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2: Quartiles, Deciles, Percentiles -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">2</span> Quartiles, Deciles &amp; Percentiles</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <div class="formula-box">
+              $Q_1 = \frac{n}{4}\text{th value}$ &emsp; $Q_2 = \frac{n}{2}\text{th value (median)}$ &emsp; $Q_3 = \frac{3n}{4}\text{th value}$
+            </div>
+            <p><strong>Quartiles ($Q_1, Q_2, Q_3$):</strong> Divide the data into 4 equal parts.</p>
+            <ul>
+              <li>$Q_1$ (lower quartile): 25% of data below</li>
+              <li>$Q_2$ (median): 50% of data below</li>
+              <li>$Q_3$ (upper quartile): 75% of data below</li>
+            </ul>
+            <p><strong>Deciles ($D_1$ to $D_{10}$):</strong> Divide data into 10 equal parts (each 10%).</p>
+            <p><strong>Percentiles ($P_1$ to $P_{100}$):</strong> Divide data into 100 equal parts (each 1%).</p>
+            <div class="formula-box">
+              <strong>Interquartile Range (IQR):</strong> $\text{IQR} = Q_3 - Q_1$
+            </div>
+            <p>The IQR represents the spread of the middle 50% of the data. A small IQR indicates less scattered data; a large IQR indicates more scattered data.</p>
+            <div class="example-box">
+              <strong>Example:</strong> $Q_1 = 40$, $Q_2 = 70$, $Q_3 = 90$. What percentage of students scored above 90?<br>
+              Answer: $Q_3 = 90$ means 75% scored below, so <strong>25%</strong> scored above 90.
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3: Box and Whisker Plots -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">3</span> Box &amp; Whisker Plots and Correlation</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <p>A <strong>box plot</strong> displays five key values: minimum, $Q_1$, median ($Q_2$), $Q_3$, and maximum.</p>
+            <div class="diagram-container" style="min-height: 120px;">
+              <svg viewBox="0 0 500 100" style="max-width: 500px; width: 100%;">
+                <!-- Whisker left -->
+                <line x1="50" y1="50" x2="130" y2="50" stroke="#64748b" stroke-width="2"/>
+                <line x1="50" y1="35" x2="50" y2="65" stroke="#64748b" stroke-width="2"/>
+                <!-- Box -->
+                <rect x="130" y="25" width="200" height="50" fill="rgba(0,212,255,0.1)" stroke="#00d4ff" stroke-width="2" rx="4"/>
+                <!-- Median -->
+                <line x1="250" y1="25" x2="250" y2="75" stroke="#ffd700" stroke-width="3"/>
+                <!-- Whisker right -->
+                <line x1="330" y1="50" x2="430" y2="50" stroke="#64748b" stroke-width="2"/>
+                <line x1="430" y1="35" x2="430" y2="65" stroke="#64748b" stroke-width="2"/>
+                <!-- Labels -->
+                <text x="50" y="85" fill="#94a3b8" font-size="10" text-anchor="middle">Min</text>
+                <text x="130" y="85" fill="#00d4ff" font-size="10" text-anchor="middle">Q1</text>
+                <text x="250" y="85" fill="#ffd700" font-size="10" text-anchor="middle">Median</text>
+                <text x="330" y="85" fill="#00d4ff" font-size="10" text-anchor="middle">Q3</text>
+                <text x="430" y="85" fill="#94a3b8" font-size="10" text-anchor="middle">Max</text>
+                <text x="230" y="18" fill="#00d4ff" font-size="10" text-anchor="middle">IQR</text>
+              </svg>
+            </div>
+            <p><strong>Box Plot Correlation:</strong></p>
+            <ul>
+              <li><strong>Positive:</strong> Both variables' boxes move in the same direction.</li>
+              <li><strong>Negative:</strong> Boxes move in opposite directions.</li>
+              <li><strong>None:</strong> No clear pattern between the variables.</li>
+            </ul>
+            <div class="warning-box">
+              <strong>Note:</strong> Box plots provide a visual representation and do not quantify the correlation numerically. Use the correlation coefficient $r$ for a precise measure.
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 4: Range, Variance & Standard Deviation -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">4</span> Range, Variance &amp; Standard Deviation</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <div class="formula-box">
+              <strong>Range:</strong> $R = x_{\max} - x_{\min}$
+            </div>
+            <div class="formula-box">
+              <strong>Variance (grouped data):</strong><br>
+              $$S^2 = \frac{\sum f x^2}{\sum f} - \left(\frac{\sum f x}{\sum f}\right)^2$$
+            </div>
+            <div class="formula-box">
+              <strong>Standard Deviation:</strong> $S = \sqrt{S^2}$
+            </div>
+            <div class="formula-box">
+              <strong>Coefficient of Variation:</strong> $\text{C.V.} = \frac{S}{\bar{x}} \times 100$
+            </div>
+            <p>The C.V. lets you compare dispersion of different data sets -- the smaller the C.V., the more consistent the data.</p>
+            <div class="example-box">
+              <strong>Example:</strong> Hifz test scores with grouped data yield $\sum fx = 6385$, $\sum fx^2 = 465212.5$, and $\sum f = 90$:<br>
+              $\bar{x} = \frac{6385}{90} \approx 70.9$<br>
+              $S^2 = \frac{465212.5}{90} - \left(\frac{6385}{90}\right)^2 \approx 135.9$<br>
+              $S = \sqrt{135.9} \approx 11.6$<br>
+              $\text{C.V.} = \frac{11.6}{70.9} \times 100 \approx 16.4$
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 5: Scatter Diagrams & Line of Best Fit -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">5</span> Scatter Diagrams &amp; Line of Best Fit</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <p>A <strong>scatter diagram</strong> plots data points on a coordinate plane to show the relationship between two variables.</p>
+            <p><strong>Types of Correlation:</strong></p>
+            <ul>
+              <li><strong>Positive:</strong> As $x$ increases, $y$ increases. Points slope upward.</li>
+              <li><strong>Negative:</strong> As $x$ increases, $y$ decreases. Points slope downward.</li>
+              <li><strong>No correlation:</strong> No visible pattern.</li>
+            </ul>
+            <p><strong>Line of Best Fit:</strong> $y = mx + c$ -- a straight line with roughly equal numbers of data points on either side.</p>
+            <div class="formula-box">
+              <strong>Correlation Coefficient:</strong><br>
+              $$r = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum (x_i - \bar{x})^2 \cdot \sum (y_i - \bar{y})^2}}$$
+            </div>
+            <p>$r$ ranges from $-1$ (perfect negative) to $+1$ (perfect positive). Close to $0$ means weak or no correlation.</p>
+            <div class="tip-box">
+              <strong>Important:</strong> A line of best fit is not always a perfect fit. Extrapolating far beyond the data range is unreliable.
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 6: Probability Basics -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">6</span> Probability: Sample Space, Events &amp; Types</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <div class="formula-box">
+              $P(\text{Event}) = \frac{\text{Number of favourable outcomes}}{\text{Total number of outcomes}}$, where $0 \le P \le 1$
+            </div>
+            <p><strong>Key Definitions:</strong></p>
+            <ul>
+              <li><strong>Experiment:</strong> An action producing outcomes (e.g., tossing a coin).</li>
+              <li><strong>Sample Space ($S$):</strong> The set of all possible outcomes.</li>
+              <li><strong>Event:</strong> A subset of the sample space.</li>
+            </ul>
+            <p><strong>Types of Events:</strong></p>
+            <ul>
+              <li><strong>Independent:</strong> Outcome of one does not affect the other.</li>
+              <li><strong>Dependent:</strong> Outcome of one affects the other.</li>
+              <li><strong>Mutually Exclusive:</strong> Cannot occur at the same time.</li>
+            </ul>
+            <p><strong>Diagrams for Combined Events:</strong></p>
+            <ul>
+              <li><strong>Possibility Diagram:</strong> A grid showing all outcomes of two experiments.</li>
+              <li><strong>Tree Diagram:</strong> Branching structure showing sequential outcomes and probabilities.</li>
+              <li><strong>Venn Diagram:</strong> Overlapping circles showing set relationships.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Step 7: Addition Rule -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">7</span> Addition Rule of Probability (Mutually Exclusive Events)</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <div class="formula-box">
+              $P(A \text{ or } B) = P(A) + P(B)$ &emsp; (when $A$ and $B$ are mutually exclusive)
+            </div>
+            <p>If two events cannot happen at the same time, the probability of either occurring is the <strong>sum</strong> of their individual probabilities.</p>
+            <div class="example-box">
+              <strong>Example -- Dice:</strong> Probability of rolling even OR odd on a fair die:<br>
+              $P(\text{Even}) = \frac{3}{6} = \frac{1}{2}$, $P(\text{Odd}) = \frac{1}{2}$<br>
+              $P(\text{Even or Odd}) = \frac{1}{2} + \frac{1}{2} = 1$ (certain event)
+            </div>
+            <div class="example-box">
+              <strong>Example -- Game:</strong> $P(\text{Win}) = 0.4$, $P(\text{Lose}) = 0.6$<br>
+              $P(\text{Win or Lose}) = 0.4 + 0.6 = 1$
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 8: Multiplication Rule -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">8</span> Multiplication Rule of Probability (Independent &amp; Dependent Events)</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <div class="formula-box">
+              <strong>Independent:</strong> $P(A \text{ and } B) = P(A) \times P(B)$<br><br>
+              <strong>Dependent:</strong> $P(A \text{ and } B) = P(A) \times P(B|A)$
+            </div>
+            <p><strong>With Replacement (Independent):</strong></p>
+            <div class="example-box">
+              <strong>Example:</strong> Drawing 2 cards with replacement. $P(\text{both hearts}) = \frac{13}{52} \times \frac{13}{52} = \frac{1}{16}$
+            </div>
+            <p><strong>Without Replacement (Dependent):</strong></p>
+            <div class="example-box">
+              <strong>Example:</strong> Drawing 2 spades without replacement:<br>
+              $P = \frac{13}{52} \times \frac{12}{51} = \frac{156}{2652} = \frac{3}{51} \approx 0.059$
+            </div>
+            <div class="example-box">
+              <strong>Example -- Coin Flip:</strong> Probability of getting heads both times when flipping a fair coin twice:<br>
+              $P(HH) = \frac{1}{2} \times \frac{1}{2} = \frac{1}{4}$
+            </div>
+            <div class="tip-box">
+              <strong>Remember:</strong> "AND" means multiply. "OR" means add (for mutually exclusive events).
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /reveal-group -->
+    </div>
+
+    <!-- ==================== PHASE: PRACTICE ==================== -->
+    <div class="phase phase-practice">
+      <div class="phase-tag">&#127919; Practice</div>
+      <h2>Test Your Knowledge</h2>
+      <p>Answer all 8 questions on statistics and probability.</p>
+
+      <div class="scoreboard">
+        <div class="score-item">
+          <div class="score-value glow-text-cyan quiz-score">0/0</div>
+          <div class="score-label">Score</div>
+        </div>
+        <div class="score-item">
+          <div class="score-value glow-text-gold" id="quiz-streak">0</div>
+          <div class="score-label">Streak</div>
+        </div>
+      </div>
+
+      <div class="quiz-container">
+
+        <!-- Q1 -->
+        <div class="quiz-question" data-correct="d">
+          <div class="q-number">Question 1 of 8</div>
+          <div class="q-text">Which of the following is NOT a measure of dispersion?</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> Variance</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> Standard deviation</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> Range</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> Arithmetic mean</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! Arithmetic mean is a measure of central tendency, not dispersion.</div>
+          <div class="quiz-feedback incorrect-fb">Arithmetic mean is a measure of central tendency, not of dispersion.</div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="quiz-question" data-correct="b">
+          <div class="q-number">Question 2 of 8</div>
+          <div class="q-text">What is the median of the data: $4, 3, 0, 2, 1$?</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> $0$</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> $2$</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> $3$</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> $4$</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! Arranged: $0, 1, 2, 3, 4$. The middle value is $2$.</div>
+          <div class="quiz-feedback incorrect-fb">Arrange in order: $0, 1, 2, 3, 4$. The median (middle value) is $2$.</div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="quiz-question" data-correct="d">
+          <div class="q-number">Question 3 of 8</div>
+          <div class="q-text">What is the variance of five identical values $4, 4, 4, 4, 4$?</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> Does not exist</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> $4$</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> $5$</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> $0$</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! All values equal the mean, so every deviation is 0, giving variance = 0.</div>
+          <div class="quiz-feedback incorrect-fb">When all values are identical, there is zero spread and the variance is $0$.</div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="quiz-question" data-correct="b">
+          <div class="q-number">Question 4 of 8</div>
+          <div class="q-text">Which of the following divides data into four equal parts?</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> Decile</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> Quartile</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> Percentile</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> Median</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! Quartiles ($Q_1, Q_2, Q_3$) divide data into four equal parts.</div>
+          <div class="quiz-feedback incorrect-fb">Quartiles divide data into four equal parts.</div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="quiz-question" data-correct="c">
+          <div class="q-number">Question 5 of 8</div>
+          <div class="q-text">The line of best fit is given by the equation:</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> $y = x^2$</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> $y = mx^2 + c$</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> $y = mx + c$</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> $x = y^2$</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! The line of best fit is a linear equation $y = mx + c$.</div>
+          <div class="quiz-feedback incorrect-fb">A line of best fit is a straight line: $y = mx + c$.</div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="quiz-question" data-correct="c">
+          <div class="q-number">Question 6 of 8</div>
+          <div class="q-text">Which is used to compare the consistency of two data sets?</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> Arithmetic mean</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> Standard deviation</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> Coefficient of variation (C.V.)</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> Geometric mean</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! C.V. = $\frac{S}{\bar{x}} \times 100$ allows comparison of dispersion across different datasets.</div>
+          <div class="quiz-feedback incorrect-fb">The Coefficient of Variation (C.V.) compares consistency across datasets with different means and units.</div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="quiz-question" data-correct="a">
+          <div class="q-number">Question 7 of 8</div>
+          <div class="q-text">Probability of drawing a king in one draw is ______ than probability of drawing 2 kings in 2 draws.</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> Greater</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> Smaller</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> Equal</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> No relation</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! $P(\text{1 king}) = \frac{4}{52}$ is much greater than $P(\text{2 kings})$, which requires multiplying two small probabilities.</div>
+          <div class="quiz-feedback incorrect-fb">$P(\text{1 king}) = \frac{4}{52} \approx 0.077$ is greater than $P(\text{2 kings in 2 draws})$.</div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="quiz-question" data-correct="c">
+          <div class="q-number">Question 8 of 8</div>
+          <div class="q-text">Probability of rolling an even number on a standard die in 2 attempts equals the probability of rolling an odd number in 2 attempts. This makes them:</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> Greater</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> Smaller</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> Equal</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> No relation</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! Both have probability $\frac{1}{2} \times \frac{1}{2} = \frac{1}{4}$, so they are equal.</div>
+          <div class="quiz-feedback incorrect-fb">Both have probability $(\frac{1}{2})^2 = \frac{1}{4}$, making them equal.</div>
+        </div>
+
+      </div><!-- /quiz-container -->
+    </div>
+
+    <!-- ==================== PHASE: BOSS ==================== -->
+    <div class="phase phase-boss">
+      <div class="phase-tag">&#128123; Boss Level</div>
+      <h2>Final Boss: Statistics &amp; Probability Mastery</h2>
+      <p>Combine everything you have learned to conquer these challenges!</p>
+
+      <div class="boss-challenge">
+        <h4>Boss Challenge 1: IQR Calculation</h4>
+        <p>A dataset has $Q_1 = 60$ and $Q_3 = 95$. What is the Interquartile Range (IQR)?</p>
+        <div class="boss-input-group">
+          <input type="text" id="boss1-input" class="math-input" placeholder="IQR value" style="max-width: 160px;">
+          <button class="btn btn-primary" onclick="QuestMath.checkFillIn('boss1-input', '35', 'boss1-fb')">Submit</button>
+        </div>
+        <div class="boss-feedback" id="boss1-fb"></div>
+      </div>
+
+      <div class="boss-challenge">
+        <h4>Boss Challenge 2: Probability with Replacement</h4>
+        <p>You draw 2 cards from a standard deck <strong>with replacement</strong>. What is the probability of both being hearts? Express as a fraction (e.g., 1/16).</p>
+        <div class="boss-input-group">
+          <input type="text" id="boss2-input" class="math-input" placeholder="Fraction" style="max-width: 160px;">
+          <button class="btn btn-primary" onclick="QuestMath.checkFillIn('boss2-input', '1/16', 'boss2-fb')">Submit</button>
+        </div>
+        <div class="boss-feedback" id="boss2-fb"></div>
+        <div class="quiz-hint">
+          <strong>Hint:</strong> $P(\text{heart}) = \frac{13}{52} = \frac{1}{4}$. With replacement: $\frac{1}{4} \times \frac{1}{4}$.
+        </div>
+        <button class="btn btn-hint" onclick="this.previousElementSibling.classList.toggle('show')" style="margin-top: 8px;">Show Hint</button>
+      </div>
+
+      <div class="boss-challenge">
+        <h4>Boss Challenge 3: Multiplication Rule (Dependent)</h4>
+        <p>Haneen flips a fair coin twice. What is the probability of getting heads both times? Express as a fraction.</p>
+        <div class="boss-input-group">
+          <input type="text" id="boss3-input" class="math-input" placeholder="Fraction" style="max-width: 160px;">
+          <button class="btn btn-primary" onclick="QuestMath.checkFillIn('boss3-input', '1/4', 'boss3-fb')">Submit</button>
+        </div>
+        <div class="boss-feedback" id="boss3-fb"></div>
+      </div>
+
+      <div class="boss-challenge">
+        <h4>Boss Challenge 4: Coefficient of Variation</h4>
+        <p>A dataset has mean $\bar{x} = 70.9$ and standard deviation $S = 11.6$. Calculate the coefficient of variation (C.V.) rounded to one decimal place.</p>
+        <div class="boss-input-group">
+          <input type="text" id="boss4-input" class="math-input" placeholder="C.V. value" style="max-width: 160px;">
+          <button class="btn btn-primary" onclick="QuestMath.checkFillIn('boss4-input', '16.4', 'boss4-fb')">Submit</button>
+        </div>
+        <div class="boss-feedback" id="boss4-fb"></div>
+        <div class="quiz-hint">
+          <strong>Hint:</strong> $\text{C.V.} = \frac{S}{\bar{x}} \times 100 = \frac{11.6}{70.9} \times 100$.
+        </div>
+        <button class="btn btn-hint" onclick="this.previousElementSibling.classList.toggle('show')" style="margin-top: 8px;">Show Hint</button>
+      </div>
+
+      <div style="text-align: center; margin-top: 32px;">
+        <button class="btn btn-success" onclick="QuestMath.completeChapter('12')" style="font-size: 1.1rem; padding: 16px 40px;">
+          &#127942; Complete Quest 12 -- Journey Complete!
+        </button>
+      </div>
+    </div>
+
+    <!-- Back to Dashboard -->
+    <div style="text-align: center; padding: 40px 0;">
+      <a href="../index.html" class="btn btn-ghost">&#8592; Return to Quest Dashboard</a>
+    </div>
+
+  </div><!-- /container -->
+
+  <script src="../js/engine.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      QuestMath.init();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en" data-chapter="11">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quest 11: Practical Geometry of Circles | Quest Math 10</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <style>
+    .chapter-hero {
+      text-align: center;
+      padding: 60px 0 30px;
+      position: relative;
+      z-index: 1;
+    }
+    .chapter-hero .chapter-number {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--neon-cyan);
+      margin-bottom: 8px;
+    }
+    .chapter-hero h1 { font-size: 2.8rem; margin-bottom: 12px; }
+    .chapter-hero .chapter-subtitle {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      padding: 8px 0;
+      transition: color var(--transition-fast);
+    }
+    .back-link:hover { color: var(--neon-cyan); }
+    .phase h2 { margin-bottom: 16px; }
+    .phase p, .phase li { margin-bottom: 10px; line-height: 1.8; }
+    .phase ul, .phase ol { padding-left: 20px; margin: 12px 0; }
+    .construction-steps {
+      background: var(--bg-card);
+      border: 1px solid rgba(0, 212, 255, 0.15);
+      border-radius: var(--radius-md);
+      padding: var(--space-lg);
+      margin: var(--space-md) 0;
+    }
+    .construction-steps h4 { color: var(--neon-cyan); margin-bottom: 12px; }
+    .construction-steps ol li { margin-bottom: 8px; color: var(--text-primary); }
+    .example-box {
+      background: rgba(168, 85, 247, 0.06);
+      border: 1px solid rgba(168, 85, 247, 0.15);
+      border-radius: var(--radius-md);
+      padding: var(--space-lg);
+      margin: var(--space-md) 0;
+    }
+    .boss-challenge {
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 51, 102, 0.2);
+      border-radius: var(--radius-md);
+      padding: var(--space-lg);
+      margin: var(--space-md) 0;
+    }
+    .boss-challenge h4 { color: var(--neon-red); }
+    .boss-input-group { display: flex; gap: 12px; align-items: center; margin: 12px 0; flex-wrap: wrap; }
+    .boss-feedback { margin-top: 8px; font-size: 0.9rem; display: none; }
+  </style>
+</head>
+<body data-chapter="11">
+
+  <!-- Top Bar -->
+  <nav class="top-bar">
+    <div class="logo">
+      <a href="../index.html" class="back-link">&#8592; Back</a>
+      <span class="neon-text" style="margin-left: 12px;">Quest Math 10</span>
+    </div>
+    <div class="stats" id="top-bar-stats">
+      <div class="stat-badge stat-xp">
+        <span>&#11088;</span>
+        <span id="xp-count">0</span> XP
+      </div>
+      <div class="stat-badge stat-streak">
+        <span>&#128293;</span>
+        <span id="streak-count">0</span> Streak
+      </div>
+      <div class="stat-badge stat-level">
+        <span>&#9878;</span>
+        Lvl <span id="level-count">1</span>
+      </div>
+    </div>
+  </nav>
+
+  <div style="padding: 0 24px;">
+    <div class="progress-container" style="height: 4px;">
+      <div class="progress-bar progress-bar-xp" id="xp-progress" style="width: 0%"></div>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <!-- Hero -->
+    <div class="chapter-hero animate-fadeInUp">
+      <div class="chapter-number">Quest 11</div>
+      <h1><span class="neon-text">Practical Geometry of Circles</span></h1>
+      <p class="chapter-subtitle">Compass, straightedge, and pure logic. Construct tangent lines, circumscribed circles, and more -- no computer needed.</p>
+    </div>
+
+    <!-- ==================== PHASE: HOOK ==================== -->
+    <div class="phase phase-hook animate-fadeInUp delay-1">
+      <div class="phase-tag">&#127918; Hook</div>
+      <h2>The Architect's Challenge</h2>
+      <p>An architect needs to draw a <strong>perfect circle through 3 given points</strong> on a plot of land. No computer, no laser tools -- just a compass and a straightedge. Can it be done?</p>
+      <div class="diagram-container">
+        <svg viewBox="0 0 400 300" style="max-width: 400px;">
+          <!-- Three points -->
+          <circle cx="120" cy="200" r="6" fill="#ff006e"/>
+          <text x="108" y="225" fill="#ff006e" font-size="13" font-weight="700">A</text>
+          <circle cx="280" cy="210" r="6" fill="#ff006e"/>
+          <text x="268" y="235" fill="#ff006e" font-size="13" font-weight="700">B</text>
+          <circle cx="220" cy="80" r="6" fill="#ff006e"/>
+          <text x="225" y="75" fill="#ff006e" font-size="13" font-weight="700">C</text>
+          <!-- The circumscribed circle -->
+          <circle cx="207" cy="163" r="100" fill="none" stroke="#00d4ff" stroke-width="2" stroke-dasharray="6,4" opacity="0.6"/>
+          <!-- Centre O -->
+          <circle cx="207" cy="163" r="3" fill="#ffd700"/>
+          <text x="212" y="158" fill="#ffd700" font-size="12">O</text>
+          <!-- Perpendicular bisectors (simplified) -->
+          <line x1="200" y1="260" x2="220" y2="80" stroke="#a855f7" stroke-width="1" stroke-dasharray="4,4" opacity="0.4"/>
+          <line x1="100" y1="130" x2="300" y2="190" stroke="#a855f7" stroke-width="1" stroke-dasharray="4,4" opacity="0.4"/>
+          <text x="50" y="35" fill="#64748b" font-size="11">Perpendicular bisectors meet at centre O</text>
+        </svg>
+      </div>
+      <p>The answer is <strong>yes</strong> -- and the secret lies in <em>perpendicular bisectors</em>. Where the bisectors of any two sides of triangle $ABC$ intersect, that is the centre of the circle passing through all three points. This chapter teaches you every construction technique you will ever need for circles.</p>
+      <div class="key-concept">
+        <strong>Core Principle:</strong> The perpendicular bisectors of any chord of a circle always pass through the centre. Three non-collinear points determine exactly one circle.
+      </div>
+    </div>
+
+    <!-- ==================== PHASE: CHALLENGE ==================== -->
+    <div class="phase phase-challenge animate-fadeInUp delay-2">
+      <div class="phase-tag">&#9876; Challenge</div>
+      <h2>Before You Construct...</h2>
+      <p>Here is a warm-up question. Think carefully about circle properties:</p>
+      <div class="card card-neon-border">
+        <p><strong>Puzzle:</strong> How many circles can be drawn through three non-collinear points?</p>
+        <p>If you think about it, three points that do not lie on a single line form a unique triangle. The circumscribed circle (circumcircle) of that triangle is the one and only circle passing through all three vertices.</p>
+        <div class="formula-box">
+          Answer: Exactly <strong>1</strong> circle.
+        </div>
+        <p style="color: var(--neon-gold); font-size: 0.9rem;">This is why the perpendicular bisector method always works -- there is always exactly one centre equidistant from all three points.</p>
+      </div>
+    </div>
+
+    <!-- ==================== PHASE: DISCOVERY ==================== -->
+    <div class="phase phase-discovery">
+      <div class="phase-tag">&#128161; Discovery</div>
+      <h2>Constructions &amp; Techniques</h2>
+      <p>Unlock each construction step by step. Click a topic to reveal the method.</p>
+
+      <div class="reveal-group">
+
+        <!-- Step 1: Locate Centre of a Circle -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">1</span> Locating the Centre of a Given Circle</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <div class="construction-steps">
+              <h4>Construction Steps</h4>
+              <ol>
+                <li>Take any three points $A$, $B$, and $C$ on the circle.</li>
+                <li>Join them to form triangle $ABC$.</li>
+                <li>Draw the perpendicular bisectors of sides $AB$, $BC$, and $AC$.</li>
+                <li>These bisectors meet at a single point $O$. This is the centre.</li>
+              </ol>
+            </div>
+            <div class="tip-box">
+              <strong>Why it works:</strong> Every point on the perpendicular bisector of a segment is equidistant from the endpoints. Point $O$ is equidistant from $A$, $B$, and $C$, so $OA = OB = OC = $ radius.
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2: Circle Through 3 Points -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">2</span> Drawing a Circle Through Three Non-Collinear Points</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <div class="construction-steps">
+              <h4>Construction Steps</h4>
+              <ol>
+                <li>Mark three non-collinear points $A$, $B$, $C$ on paper.</li>
+                <li>Join the points to form triangle $ABC$.</li>
+                <li>Draw perpendicular bisectors of $BC$ and $AC$; they meet at point $O$.</li>
+                <li>With centre $O$ and radius $OA$ (or $OB$ or $OC$), draw the circle.</li>
+              </ol>
+            </div>
+            <p>This is essentially constructing the <strong>circumscribed circle</strong> (circumcircle) of triangle $ABC$.</p>
+          </div>
+        </div>
+
+        <!-- Step 3: Complete a Circle from an Arc -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">3</span> Completing a Circle from a Given Arc</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <p><strong>Method A -- By finding the centre:</strong></p>
+            <div class="construction-steps">
+              <h4>Steps</h4>
+              <ol>
+                <li>Take three points $A$, $B$, $C$ on the given arc.</li>
+                <li>Join them to form a triangle and draw perpendicular bisectors.</li>
+                <li>The bisectors meet at centre $O$. Draw the full circle with radius $OA$.</li>
+              </ol>
+            </div>
+            <p><strong>Method B -- Without finding the centre:</strong></p>
+            <div class="construction-steps">
+              <h4>Steps</h4>
+              <ol>
+                <li>Take three points $A$, $B$, $C$ on the arc with $AB = BC$.</li>
+                <li>Construct congruent triangles: draw $BD = AC$, $CD = BC$, then continue with $CE = BD$, $DE = CD$, etc.</li>
+                <li>Join the new points in a circular path to complete the circle.</li>
+              </ol>
+            </div>
+            <div class="tip-box">
+              <strong>Alternative:</strong> Draw chords of equal length with internal angles of $120°$ between consecutive chords. This generates a regular hexagon inscribed in the circle.
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 4: Tangent from a Point on the Circle -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">4</span> Drawing a Tangent from a Point on the Circle</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <div class="construction-steps">
+              <h4>Construction Steps</h4>
+              <ol>
+                <li>Construct the circle with centre $O$ and mark point $P$ on the circumference.</li>
+                <li>Join $O$ to $P$.</li>
+                <li>At point $P$, construct an angle of $90°$ with $OP$.</li>
+                <li>The resulting line $PQ$ is the required tangent.</li>
+              </ol>
+            </div>
+            <p>The tangent is perpendicular to the radius at the point of contact -- this is why we construct a $90°$ angle at $P$.</p>
+          </div>
+        </div>
+
+        <!-- Step 5: Tangent from an External Point -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">5</span> Drawing Tangents from an External Point</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <div class="construction-steps">
+              <h4>Construction Steps</h4>
+              <ol>
+                <li>Construct a circle of radius $r$ with centre $O$.</li>
+                <li>Mark point $P$ at distance $d$ from $O$ (where $d > r$).</li>
+                <li>Bisect $OP$ at point $Q$.</li>
+                <li>Draw a dotted circle with centre $Q$ and radius $OQ = PQ$.</li>
+                <li>This circle intersects the original circle at points $A$ and $B$.</li>
+                <li>Draw $PA$ and $PB$ -- these are the two required tangents.</li>
+              </ol>
+            </div>
+            <div class="example-box">
+              <strong>Example:</strong> Circle of radius $3\text{ cm}$, point $P$ at $8\text{ cm}$ from centre. The midpoint circle has radius $4\text{ cm}$, and the two tangents from $P$ each have length $\sqrt{8^2 - 3^2} = \sqrt{55} \approx 7.4\text{ cm}$.
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 6: Two Tangents at a Given Angle -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">6</span> Two Tangents Meeting at a Given Angle</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <div class="construction-steps">
+              <h4>Construction Steps (e.g., angle = 30&deg;)</h4>
+              <ol>
+                <li>Draw a circle of given radius and draw a diameter $AB$.</li>
+                <li>Draw a tangent $BX$ at point $B$.</li>
+                <li>Construct $\angle APC = 30°$ and draw another tangent $CD$ at point $C$ intersecting the first tangent at $D$.</li>
+                <li>Measure $\angle BDC$. It should equal $30°$.</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 7: Direct & Transverse Common Tangents -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">7</span> Common Tangents to Two Circles (Direct &amp; Transverse)</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <p><strong>Direct Common Tangents (External):</strong></p>
+            <div class="construction-steps">
+              <h4>For Equal Circles</h4>
+              <ol>
+                <li>Draw the line $AB$ joining centres of both circles.</li>
+                <li>Draw perpendicular diameters $CD$ (at $B$) and $EF$ (at $A$) perpendicular to $AB$.</li>
+                <li>Join $E$ to $D$ and $F$ to $C$. These are the direct common tangents.</li>
+              </ol>
+            </div>
+            <div class="construction-steps">
+              <h4>For Unequal Circles</h4>
+              <ol>
+                <li>Draw the two circles and join their centres $A$ and $B$.</li>
+                <li>With centre $A$, draw a circle of radius equal to the <em>difference</em> of radii.</li>
+                <li>Bisect $AB$ at $M$ and draw a circle of radius $AM$.</li>
+                <li>Where these circles intersect, draw lines to find the tangent points on both circles.</li>
+              </ol>
+            </div>
+            <p><strong>Transverse Common Tangents (Internal):</strong></p>
+            <div class="construction-steps">
+              <h4>For Unequal Circles</h4>
+              <ol>
+                <li>With centre $A$, draw a circle of radius equal to the <em>sum</em> of radii.</li>
+                <li>Bisect $AB$ at $M$ and draw a circle of radius $AM$.</li>
+                <li>Proceed similarly to find the tangent points and connect them.</li>
+              </ol>
+            </div>
+            <div class="warning-box">
+              <strong>Key Difference:</strong> Direct tangents use the <em>difference</em> of radii. Transverse tangents use the <em>sum</em> of radii.
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 8: Tangent to Touching / Intersecting Circles -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">8</span> Tangent to Touching &amp; Intersecting Circles</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <p><strong>Touching Circles (External):</strong></p>
+            <div class="construction-steps">
+              <h4>Steps</h4>
+              <ol>
+                <li>Draw two circles touching externally at point $C$.</li>
+                <li>Join centres $A$ and $B$; bisect $AB$ at $M$.</li>
+                <li>Draw a semi-circle on $AB$; erect perpendicular $CD$ at $C$ meeting the semi-circle at $D$.</li>
+                <li>With centre $D$, draw an arc of radius $CD$ cutting both circles at $E$ and $F$.</li>
+                <li>Join $E$ to $F$ -- this is the common tangent.</li>
+              </ol>
+            </div>
+            <p><strong>Intersecting Circles:</strong></p>
+            <div class="construction-steps">
+              <h4>Steps</h4>
+              <ol>
+                <li>Draw two intersecting circles meeting at $C$ and $D$.</li>
+                <li>Join centres $A$ and $B$; bisect $AB$ at $M$; draw semi-circle on $AB$.</li>
+                <li>Produce $DC$ to meet the semi-circle at $E$.</li>
+                <li>With centre $E$, draw an arc of radius $EF$ (where $F$ is on $AB$) to find tangent points $G$ and $H$.</li>
+                <li>Join $G$ to $H$ -- this is the common tangent.</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /reveal-group -->
+    </div>
+
+    <!-- ==================== PHASE: PRACTICE ==================== -->
+    <div class="phase phase-practice">
+      <div class="phase-tag">&#127919; Practice</div>
+      <h2>Test Your Knowledge</h2>
+      <p>Answer all 8 questions about practical geometry constructions.</p>
+
+      <div class="scoreboard">
+        <div class="score-item">
+          <div class="score-value glow-text-cyan quiz-score">0/0</div>
+          <div class="score-label">Score</div>
+        </div>
+        <div class="score-item">
+          <div class="score-value glow-text-gold" id="quiz-streak">0</div>
+          <div class="score-label">Streak</div>
+        </div>
+      </div>
+
+      <div class="quiz-container">
+
+        <!-- Q1 -->
+        <div class="quiz-question" data-correct="d">
+          <div class="q-number">Question 1 of 8</div>
+          <div class="q-text">The angle between a tangent and the radial segment at the point of contact is:</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> $30°$</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> $45°$</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> $60°$</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> $90°$</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! The tangent is always perpendicular ($90°$) to the radial segment.</div>
+          <div class="quiz-feedback incorrect-fb">The tangent and radius always meet at $90°$.</div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="quiz-question" data-correct="a">
+          <div class="q-number">Question 2 of 8</div>
+          <div class="q-text">Direct common tangents of two equal circles are:</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> Parallel</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> Intersecting</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> Converging</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> Not parallel</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! For equal circles, the direct common tangents are parallel to each other.</div>
+          <div class="quiz-feedback incorrect-fb">Direct common tangents of equal circles are parallel.</div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="quiz-question" data-correct="b">
+          <div class="q-number">Question 3 of 8</div>
+          <div class="q-text">How many common tangents can be drawn to two intersecting circles?</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> 1</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> 2</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> 3</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> Infinite</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! Two intersecting circles have exactly 2 common tangents (both direct, no transverse).</div>
+          <div class="quiz-feedback incorrect-fb">Two intersecting circles admit exactly 2 common tangents.</div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="quiz-question" data-correct="c">
+          <div class="q-number">Question 4 of 8</div>
+          <div class="q-text">Two circles of radii $3\text{ cm}$ and $3.2\text{ cm}$ touch externally. The distance between their centres is:</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> $6\text{ cm}$</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> $0.2\text{ cm}$</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> $6.2\text{ cm}$</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> $5.3\text{ cm}$</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! Externally touching: $d = r_1 + r_2 = 3 + 3.2 = 6.2\text{ cm}$.</div>
+          <div class="quiz-feedback incorrect-fb">For externally touching circles: $d = 3 + 3.2 = 6.2\text{ cm}$.</div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="quiz-question" data-correct="b">
+          <div class="q-number">Question 5 of 8</div>
+          <div class="q-text">How many circles can be drawn through three non-collinear points?</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> Infinite</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> 1</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> 2</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> 3</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! Exactly one unique circle passes through any three non-collinear points.</div>
+          <div class="quiz-feedback incorrect-fb">Only 1 circle can pass through three non-collinear points.</div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="quiz-question" data-correct="d">
+          <div class="q-number">Question 6 of 8</div>
+          <div class="q-text">Perpendicular bisectors of chords of a circle always pass through:</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> The tangent point</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> The midpoint of the arc</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> The end of the diameter</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> The centre of the circle</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! The perpendicular bisector of any chord passes through the centre of the circle.</div>
+          <div class="quiz-feedback incorrect-fb">Perpendicular bisectors of chords always pass through the centre.</div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="quiz-question" data-correct="c">
+          <div class="q-number">Question 7 of 8</div>
+          <div class="q-text">In which type of triangle are the incentre and circumcentre coincident?</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> Scalene</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> Isosceles</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> Equilateral</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> Right triangle</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! In an equilateral triangle, all centres (incentre, circumcentre, centroid, orthocentre) coincide.</div>
+          <div class="quiz-feedback incorrect-fb">Only in an equilateral triangle do the incentre and circumcentre coincide.</div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="quiz-question" data-correct="d">
+          <div class="q-number">Question 8 of 8</div>
+          <div class="q-text">Two circles with radii $4\text{ cm}$ and $4.8\text{ cm}$ touch internally. The distance between their centres is:</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> $4\text{ cm}$</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> $8\text{ cm}$</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> $8.8\text{ cm}$</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> $0.8\text{ cm}$</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! Internally touching: $d = |r_1 - r_2| = |4.8 - 4| = 0.8\text{ cm}$.</div>
+          <div class="quiz-feedback incorrect-fb">For internally touching circles: $d = |4.8 - 4| = 0.8\text{ cm}$.</div>
+        </div>
+
+      </div><!-- /quiz-container -->
+    </div>
+
+    <!-- ==================== PHASE: BOSS ==================== -->
+    <div class="phase phase-boss">
+      <div class="phase-tag">&#128123; Boss Level</div>
+      <h2>Final Boss: Real-World Constructions</h2>
+      <p>Apply your construction knowledge to practical problems!</p>
+
+      <div class="boss-challenge">
+        <h4>Boss Challenge 1: The Satellite Problem</h4>
+        <p>A satellite orbits Earth at an altitude of $7600\text{ km}$ from the surface. The radius of Earth is $6400\text{ km}$. How far is the satellite from its centre? (Think of it as: what is the distance from Earth's centre to the satellite?)</p>
+        <div class="boss-input-group">
+          <input type="text" id="boss1-input" class="math-input" placeholder="km" style="max-width: 160px;">
+          <button class="btn btn-primary" onclick="QuestMath.checkFillIn('boss1-input', '14000', 'boss1-fb')">Submit</button>
+        </div>
+        <div class="boss-feedback" id="boss1-fb"></div>
+        <div class="quiz-hint">
+          <strong>Hint:</strong> Distance from centre = Earth's radius + altitude = $6400 + 7600$.
+        </div>
+        <button class="btn btn-hint" onclick="this.previousElementSibling.classList.toggle('show')" style="margin-top: 8px;">Show Hint</button>
+      </div>
+
+      <div class="boss-challenge">
+        <h4>Boss Challenge 2: The Strap Problem</h4>
+        <p>Two cylindrical rods, each of diameter $12\text{ cm}$, are bound together with a strap. What is the radius of each rod?</p>
+        <div class="boss-input-group">
+          <input type="text" id="boss2-input" class="math-input" placeholder="Radius in cm" style="max-width: 160px;">
+          <button class="btn btn-primary" onclick="QuestMath.checkFillIn('boss2-input', '6', 'boss2-fb')">Submit</button>
+        </div>
+        <div class="boss-feedback" id="boss2-fb"></div>
+      </div>
+
+      <div class="boss-challenge">
+        <h4>Boss Challenge 3: Tangent Distance</h4>
+        <p>A circle inscribed in a square has the square's side length equal to $6\text{ cm}$. What is the radius of the inscribed circle?</p>
+        <div class="boss-input-group">
+          <input type="text" id="boss3-input" class="math-input" placeholder="Radius in cm" style="max-width: 160px;">
+          <button class="btn btn-primary" onclick="QuestMath.checkFillIn('boss3-input', '3', 'boss3-fb')">Submit</button>
+        </div>
+        <div class="boss-feedback" id="boss3-fb"></div>
+        <div class="quiz-hint">
+          <strong>Hint:</strong> The inscribed circle touches the middle of each side. Its diameter equals the side length.
+        </div>
+        <button class="btn btn-hint" onclick="this.previousElementSibling.classList.toggle('show')" style="margin-top: 8px;">Show Hint</button>
+      </div>
+
+      <div style="text-align: center; margin-top: 32px;">
+        <button class="btn btn-success" onclick="QuestMath.completeChapter('11')" style="font-size: 1.1rem; padding: 16px 40px;">
+          &#127942; Complete Quest 11
+        </button>
+      </div>
+    </div>
+
+    <!-- Back to Dashboard -->
+    <div style="text-align: center; padding: 40px 0;">
+      <a href="../index.html" class="btn btn-ghost">&#8592; Return to Quest Dashboard</a>
+    </div>
+
+  </div><!-- /container -->
+
+  <script src="../js/engine.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      QuestMath.init();
+    });
+  </script>
+</body>
+</html>

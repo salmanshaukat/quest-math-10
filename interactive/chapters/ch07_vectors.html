@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en" data-chapter="7">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quest 07: Vectors in Plane | Quest Math 10</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <style>
+    .chapter-hero {
+      text-align: center;
+      padding: 60px 0 30px;
+    }
+    .chapter-hero .ch-number {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--neon-cyan);
+    }
+    .chapter-hero h1 {
+      font-size: 2.8rem;
+      font-weight: 900;
+      margin: 8px 0 12px;
+    }
+    .chapter-hero .ch-desc {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      padding: 8px 0;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--neon-cyan); }
+    .boss-problem {
+      background: rgba(0,0,0,0.3);
+      border: 1px solid rgba(255,51,102,0.2);
+      border-radius: var(--radius-md);
+      padding: var(--space-lg);
+      margin: var(--space-md) 0;
+    }
+    .boss-problem h4 { color: var(--neon-red); margin-bottom: var(--space-sm); }
+    .interactive-canvas {
+      background: rgba(0,0,0,0.4);
+      border: 1px solid rgba(0,212,255,0.15);
+      border-radius: var(--radius-md);
+      padding: var(--space-lg);
+      margin: var(--space-md) 0;
+      text-align: center;
+    }
+    .interactive-canvas canvas { border-radius: var(--radius-md); }
+    .example-box {
+      background: rgba(0,212,255,0.04);
+      border: 1px solid rgba(0,212,255,0.12);
+      border-radius: var(--radius-md);
+      padding: var(--space-lg);
+      margin: var(--space-md) 0;
+    }
+    .example-box h4 { color: var(--neon-cyan); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <nav class="top-bar">
+    <div class="logo">
+      <span style="font-size:1.4rem;">&#9889;</span>
+      <span class="neon-text">Quest Math 10</span>
+    </div>
+    <div class="stats" id="top-bar-stats">
+      <div class="stat-badge stat-xp">
+        <span>&#11088;</span>
+        <span id="xp-count">0</span> XP
+      </div>
+      <div class="stat-badge stat-streak">
+        <span>&#128293;</span>
+        <span id="streak-count">0</span> Streak
+      </div>
+      <div class="stat-badge stat-level">
+        <span>&#9878;</span>
+        Lvl <span id="level-count">1</span>
+      </div>
+    </div>
+  </nav>
+  <div style="padding:0 24px;">
+    <div class="progress-container" style="height:4px;">
+      <div class="progress-bar progress-bar-xp" id="xp-progress" style="width:0%"></div>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <a href="../index.html" class="back-link">&#8592; Back to Quest Map</a>
+
+    <!-- Hero -->
+    <div class="chapter-hero animate-fadeInUp">
+      <div class="ch-number">Quest 07</div>
+      <h1><span class="neon-text">Vectors in Plane</span></h1>
+      <p class="ch-desc">Direction + Magnitude. Master the math behind GPS navigation, game physics, drone flight, and force analysis.</p>
+    </div>
+
+    <!-- ===================== PHASE 1: HOOK ===================== -->
+    <div class="phase phase-hook animate-fadeInUp">
+      <div class="phase-tag">&#127917; The Hook</div>
+      <h2>The Drone Navigation Problem</h2>
+      <p style="font-size:1.15rem; margin-bottom:var(--space-md);">
+        A drone needs to fly from point A to point B while wind pushes it sideways. How does it calculate the correct path?
+      </p>
+      <p>
+        If the drone's engine pushes it north at 10 m/s but the wind blows east at 3 m/s, the drone doesn't end up going straight north. It drifts. The actual path, speed, and direction are determined by <strong style="color:var(--neon-cyan);">vectors</strong> &mdash; quantities that carry both magnitude and direction.
+      </p>
+      <div class="tip-box" style="margin-top:var(--space-md);">
+        <strong>Real-World Vectors:</strong> Flight navigation uses vector addition to correct for crosswinds. GPS systems use position vectors to pinpoint locations. Game engines use vectors for every moving object on screen.
+      </div>
+    </div>
+
+    <!-- ===================== PHASE 2: CHALLENGE ===================== -->
+    <div class="phase phase-challenge animate-fadeInUp">
+      <div class="phase-tag">&#127919; The Challenge</div>
+      <h2>Can You Solve This?</h2>
+      <p>Before learning the formal theory, try this intuitively:</p>
+      <div class="card" style="margin-top:var(--space-md);">
+        <p><strong>Challenge:</strong> An airplane flies north at 150 km/h. A steady wind blows east at 50 km/h.</p>
+        <ul style="margin:var(--space-md) 0; padding-left:var(--space-lg);">
+          <li>What is the actual speed of the plane?</li>
+          <li>How far from its starting point will it be after 10 hours?</li>
+        </ul>
+        <p style="color:var(--text-secondary); font-size:0.9rem;">Think about it using what you know about right triangles. By the end of this chapter, you'll solve this with vector methods.</p>
+      </div>
+    </div>
+
+    <!-- ===================== PHASE 3: DISCOVERY ===================== -->
+    <div class="phase phase-discovery">
+      <div class="phase-tag">&#128161; Discovery Zone</div>
+      <h2>Concepts Unlocked</h2>
+
+      <div class="reveal-group">
+
+        <!-- Step 1: Scalar vs Vector -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">1</span> Scalar vs Vector Quantities</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <div class="key-concept">
+              <strong>Scalar:</strong> A quantity with magnitude only (e.g., mass, time, speed, distance, area, volume).
+            </div>
+            <div class="key-concept" style="margin-top:var(--space-md);">
+              <strong>Vector:</strong> A quantity with both magnitude and direction (e.g., displacement, velocity, force, acceleration, weight).
+            </div>
+            <p style="margin-top:var(--space-md);">
+              Speed is a scalar: "60 km/h". Velocity is a vector: "60 km/h heading north". The direction makes all the difference.
+            </p>
+            <p style="margin-top:var(--space-sm);">
+              Geometrically, a vector is represented by a directed line segment (an arrow). The length represents magnitude; the arrowhead indicates direction. If a vector goes from point $A$ (tail) to point $B$ (head), we write it as $\overrightarrow{AB}$.
+            </p>
+            <div class="tip-box">
+              Vectors are denoted by bold letters like $\mathbf{a}$, $\mathbf{b}$, or with arrows: $\vec{a}$, $\vec{b}$. The magnitude is written as $|\vec{a}|$ or $\|\vec{a}\|$.
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2: Magnitude of a Vector -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">2</span> Magnitude (Norm) of a Vector</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <p>If $\vec{u} = [x, y]$, the <strong>magnitude</strong> (length) is:</p>
+            <div class="formula-box">
+              $$|\vec{u}| = \sqrt{x^2 + y^2}$$
+            </div>
+            <p>Properties:</p>
+            <ul style="padding-left:var(--space-lg); margin:var(--space-sm) 0;">
+              <li>$|\vec{u}| \geq 0$ for any vector $\vec{u}$</li>
+              <li>$|\vec{u}| = 0$ if and only if $\vec{u} = \vec{0}$</li>
+              <li>$|c\vec{u}| = |c| \cdot |\vec{u}|$ where $c$ is a scalar</li>
+              <li>$|-\vec{u}| = |\vec{u}|$</li>
+            </ul>
+            <div class="example-box">
+              <h4>Example</h4>
+              <p>Find the magnitude of $\vec{u} = [-5, 12]$.</p>
+              <p>$|\vec{u}| = \sqrt{(-5)^2 + 12^2} = \sqrt{25 + 144} = \sqrt{169} = 13$ units</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3: Unit Vectors -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">3</span> Unit Vectors &amp; Normalization</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <p>A <strong>unit vector</strong> has magnitude 1 and points in the direction of a given vector. For any non-zero vector $\vec{u}$:</p>
+            <div class="formula-box">
+              $$\hat{u} = \frac{\vec{u}}{|\vec{u}|}$$
+            </div>
+            <p>This process is called <strong>normalizing</strong> the vector.</p>
+            <p style="margin-top:var(--space-sm);">If $\vec{u} = [x, y]$, then:</p>
+            <div class="formula-box">
+              $$\hat{u} = \left[\frac{x}{\sqrt{x^2+y^2}},\; \frac{y}{\sqrt{x^2+y^2}}\right]$$
+            </div>
+            <p style="margin-top:var(--space-md);">
+              The standard unit vectors along the $x$-axis and $y$-axis are $\hat{i} = [1, 0]$ and $\hat{j} = [0, 1]$. Any vector in the plane can be written as:
+            </p>
+            <div class="formula-box">
+              $$\vec{u} = x\hat{i} + y\hat{j}$$
+            </div>
+            <div class="example-box">
+              <h4>Example</h4>
+              <p>Find the unit vector of $\vec{u} = [-5, 12]$ (magnitude 13 from above).</p>
+              <p>$\hat{u} = \frac{1}{13}[-5, 12] = \left[-\frac{5}{13},\; \frac{12}{13}\right]$</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 4: Vector Operations -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">4</span> Vector Addition, Subtraction &amp; Scalar Multiplication</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <p>If $\vec{u} = [x_1, y_1]$ and $\vec{v} = [x_2, y_2]$:</p>
+            <div class="formula-box">
+              $$\vec{u} + \vec{v} = [x_1 + x_2,\; y_1 + y_2]$$
+              $$\vec{u} - \vec{v} = [x_1 - x_2,\; y_1 - y_2]$$
+            </div>
+            <p><strong>Scalar multiplication:</strong> If $\lambda$ is a scalar:</p>
+            <div class="formula-box">
+              $$\lambda\vec{u} = [\lambda x_1,\; \lambda y_1]$$
+            </div>
+            <ul style="padding-left:var(--space-lg); margin:var(--space-sm) 0;">
+              <li>If $\lambda > 0$: same direction, scaled magnitude</li>
+              <li>If $\lambda < 0$: opposite direction, scaled magnitude</li>
+              <li>If $\lambda = 0$: zero vector $\vec{0}$</li>
+            </ul>
+            <p style="margin-top:var(--space-md);"><strong>Graphical methods:</strong></p>
+            <div class="key-concept">
+              <strong>Head-to-Tail Rule (Triangle Law):</strong> Place the tail of $\vec{v}$ at the head of $\vec{u}$. The resultant $\vec{u}+\vec{v}$ goes from the tail of $\vec{u}$ to the head of $\vec{v}$.
+            </div>
+            <div class="key-concept" style="margin-top:var(--space-sm);">
+              <strong>Parallelogram Law:</strong> Place both vectors at the same point. The diagonal of the parallelogram is the resultant.
+            </div>
+            <p style="margin-top:var(--space-md);">Vector addition is <strong>commutative</strong>: $\vec{u}+\vec{v} = \vec{v}+\vec{u}$</p>
+            <div class="example-box">
+              <h4>Example</h4>
+              <p>If $\vec{a} = [4, 6]$, $\vec{b} = [-3, 1]$, $\vec{c} = [2, -2]$, find $\vec{a} + 2\vec{b} + \vec{c}$.</p>
+              <p>$= [4,6] + 2[-3,1] + [2,-2] = [4,6] + [-6,2] + [2,-2] = [0, 6]$</p>
+              <p>$|\vec{a} + 2\vec{b} + \vec{c}| = \sqrt{0^2 + 6^2} = 6$ units</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 5: Position Vectors & Components -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">5</span> Position Vectors &amp; Rectangular Components</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <div class="key-concept">
+              <strong>Position Vector:</strong> The vector from the origin $O$ to a point $P(x,y)$ is the position vector: $\overrightarrow{OP} = x\hat{i} + y\hat{j}$.
+            </div>
+            <p style="margin-top:var(--space-md);">If $\vec{a}$ and $\vec{b}$ are position vectors of points $A$ and $B$:</p>
+            <div class="formula-box">
+              $$\overrightarrow{AB} = \vec{b} - \vec{a}$$
+            </div>
+            <p style="margin-top:var(--space-md);"><strong>Rectangular Components:</strong> For a vector $\vec{F}$ of magnitude $|F|$ making angle $\theta$ with the $x$-axis:</p>
+            <div class="formula-box">
+              $$F_x = |F|\cos\theta \quad\text{and}\quad F_y = |F|\sin\theta$$
+            </div>
+            <p>Conversely: $|F| = \sqrt{F_x^2 + F_y^2}$ and $\theta = \tan^{-1}\!\left(\frac{F_y}{F_x}\right)$</p>
+            <div class="key-concept" style="margin-top:var(--space-md);">
+              <strong>Parallel Vectors:</strong> $\vec{u} \| \vec{v}$ if $\vec{u} = \lambda\vec{v}$ for some scalar $\lambda$. In components: $\frac{x_1}{x_2} = \frac{y_1}{y_2}$.
+            </div>
+            <div class="key-concept" style="margin-top:var(--space-sm);">
+              <strong>Equal Vectors:</strong> $\vec{u} = \vec{v}$ iff $x_1 = x_2$ and $y_1 = y_2$.
+            </div>
+            <div class="example-box">
+              <h4>Example</h4>
+              <p>A ball is thrown at 25 m/s at 45 degrees. Find horizontal and vertical components.</p>
+              <p>$V_x = 25\cos 45° = 25 \times 0.707 = 17.68$ m/s</p>
+              <p>$V_y = 25\sin 45° = 25 \times 0.707 = 17.68$ m/s</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 6: Section/Ratio Formula -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">6</span> Section Formula (Ratio Formula) &amp; Applications</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <p>If point $P$ divides line segment $AB$ in the ratio $m:n$ internally, where $\vec{a}$ and $\vec{b}$ are position vectors of $A$ and $B$:</p>
+            <div class="formula-box">
+              $$\vec{r} = \frac{m\vec{b} + n\vec{a}}{m + n}$$
+            </div>
+            <p><strong>Midpoint:</strong> When $m = n$, $P$ is the midpoint:</p>
+            <div class="formula-box">
+              $$\vec{r} = \frac{\vec{a} + \vec{b}}{2}$$
+            </div>
+            <p style="margin-top:var(--space-md);"><strong>Translation:</strong> Moving a point $(x, y)$ by vector $[a, b]$ gives $(x+a,\; y+b)$.</p>
+            <div class="example-box">
+              <h4>Example</h4>
+              <p>Position vectors of $A$ and $B$ are $2\hat{i} - \hat{j}$ and $3\hat{i} + 2\hat{j}$. Find position vector of $P$ dividing $AB$ in ratio $3:4$.</p>
+              <p>$\vec{r} = \frac{3(3\hat{i}+2\hat{j}) + 4(2\hat{i}-\hat{j})}{3+4} = \frac{9\hat{i}+6\hat{j}+8\hat{i}-4\hat{j}}{7} = \frac{17\hat{i}+2\hat{j}}{7} = \frac{17}{7}\hat{i}+\frac{2}{7}\hat{j}$</p>
+            </div>
+            <div class="tip-box" style="margin-top:var(--space-md);">
+              <strong>Geometry Applications:</strong> Vectors can prove that diagonals of a parallelogram bisect each other, find vertices of quadrilaterals, and verify collinearity of points.
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /reveal-group -->
+    </div>
+
+    <!-- ===================== PHASE 4: PRACTICE ===================== -->
+    <div class="phase phase-practice">
+      <div class="phase-tag">&#128142; Practice Arena</div>
+      <h2>Test Your Knowledge</h2>
+      <p style="color:var(--text-secondary); margin-bottom:var(--space-lg);">Answer all 8 questions. Earn XP for each correct answer and build your streak!</p>
+
+      <div class="quiz-container">
+
+        <!-- Q1 -->
+        <div class="quiz-question" data-correct="b">
+          <div class="q-number">Question 1 of 8</div>
+          <div class="q-text">Which of the following is a <strong>scalar</strong> quantity?</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> Velocity</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> Speed</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> Force</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> Displacement</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! Speed has magnitude only &mdash; no direction. It is a scalar.</div>
+          <div class="quiz-feedback incorrect-fb">Not quite. Speed is the scalar. Velocity, force, and displacement all have direction.</div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="quiz-question" data-correct="d">
+          <div class="q-number">Question 2 of 8</div>
+          <div class="q-text">If $\vec{u} = -5\hat{i} + 12\hat{j}$, then $|\vec{u}|$ is equal to:</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> 17</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> 7</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> 169</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> 13</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! $|\vec{u}| = \sqrt{(-5)^2 + 12^2} = \sqrt{25+144} = \sqrt{169} = 13$</div>
+          <div class="quiz-feedback incorrect-fb">The answer is 13. Remember: $|\vec{u}| = \sqrt{x^2 + y^2} = \sqrt{25 + 144} = 13$.</div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="quiz-question" data-correct="c">
+          <div class="q-number">Question 3 of 8</div>
+          <div class="q-text">If $\vec{a}$ and $\vec{b}$ are position vectors of points $A$ and $B$, then $\overrightarrow{AB}$ is:</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> $\vec{b} + \vec{a}$</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> $\vec{a} - \vec{b}$</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> $\vec{b} - \vec{a}$</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> $-\vec{b} - \vec{a}$</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! $\overrightarrow{AB} = \vec{b} - \vec{a}$ (terminal minus initial).</div>
+          <div class="quiz-feedback incorrect-fb">Remember: $\overrightarrow{AB} = \vec{b} - \vec{a}$ (destination minus starting point).</div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="quiz-question" data-correct="c">
+          <div class="q-number">Question 4 of 8</div>
+          <div class="q-text">If $\overrightarrow{OP} = [-6, 7]$, then $-\overrightarrow{OP}$ is:</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> $[-6, 7]$</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> $[6, 7]$</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> $[6, -7]$</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> $[-6, -7]$</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! Negating a vector reverses both components: $-[-6,7] = [6,-7]$.</div>
+          <div class="quiz-feedback incorrect-fb">The negative of $[-6,7]$ is $[6,-7]$. Negate each component.</div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="quiz-question" data-correct="b">
+          <div class="q-number">Question 5 of 8</div>
+          <div class="q-text">If $\vec{a} = \lambda\vec{b}$ where $\vec{a} = [12\hat{i} - 18\hat{j}]$ and $\vec{b} = [-2\hat{i} + 3\hat{j}]$, then $\lambda$ equals:</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> $3$</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> $-6$</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> $6$</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> $-3$</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! $\frac{12}{-2} = -6$ and $\frac{-18}{3} = -6$. So $\lambda = -6$.</div>
+          <div class="quiz-feedback incorrect-fb">Divide corresponding components: $12 \div (-2) = -6$. The answer is $\lambda = -6$.</div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="quiz-question" data-correct="a">
+          <div class="q-number">Question 6 of 8</div>
+          <div class="q-text">If $\vec{p} = [5, 6]$ and $\vec{q} = [2, 6]$, then $\vec{p} - 2\vec{q}$ is:</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> $[1, -6]$</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> $[9, 18]$</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> $[1, 18]$</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> $[-9, -18]$</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! $[5,6] - 2[2,6] = [5,6] - [4,12] = [1, -6]$.</div>
+          <div class="quiz-feedback incorrect-fb">$\vec{p} - 2\vec{q} = [5-4,\; 6-12] = [1, -6]$.</div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="quiz-question" data-correct="c">
+          <div class="q-number">Question 7 of 8</div>
+          <div class="q-text">What type of quadrilateral is $ABCD$ if $2\overrightarrow{AB} = \overrightarrow{DC}$?</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> Parallelogram</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> Rectangle</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> Trapezium</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> Rhombus</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! $AB \| DC$ but $|DC| = 2|AB|$, so one pair of parallel sides with different lengths = trapezium.</div>
+          <div class="quiz-feedback incorrect-fb">Since $AB \| DC$ but $|DC| = 2|AB|$, one pair is parallel but not equal &mdash; that's a trapezium.</div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="quiz-question" data-correct="b">
+          <div class="q-number">Question 8 of 8</div>
+          <div class="q-text">If $\vec{t} = [-5x, 8]$ and $\vec{v} = [10, 4y]$ are equal vectors, then:</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> $x = 2,\; y = 2$</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> $x = -2,\; y = 2$</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> $x = -2,\; y = -2$</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> $x = 2,\; y = -2$</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! $-5x = 10 \Rightarrow x = -2$ and $8 = 4y \Rightarrow y = 2$.</div>
+          <div class="quiz-feedback incorrect-fb">Equal vectors: $-5x = 10$ gives $x = -2$, and $4y = 8$ gives $y = 2$.</div>
+        </div>
+
+      </div><!-- /quiz-container -->
+    </div>
+
+    <!-- ===================== PHASE 5: BOSS LEVEL ===================== -->
+    <div class="phase phase-boss">
+      <div class="phase-tag">&#128123; Boss Level</div>
+      <h2>Final Challenge: Vector Mastery</h2>
+      <p>Combine everything you've learned to defeat these multi-step problems.</p>
+
+      <div class="boss-problem">
+        <h4>Boss Problem 1: Crosswind Navigation</h4>
+        <p>An airplane leaves the airport on a bearing of 45 degrees traveling at 380 mph. The wind is blowing at a bearing of 135 degrees at 50 mph. Find the actual velocity (magnitude and direction) of the airplane.</p>
+        <p style="margin-top:var(--space-sm); color:var(--text-secondary); font-size:0.9rem;"><strong>Hint:</strong> Write each velocity as a component vector using $\hat{i}$ and $\hat{j}$, then add.</p>
+      </div>
+
+      <div class="boss-problem">
+        <h4>Boss Problem 2: Geometry Proof</h4>
+        <p>Using vectors, prove that the diagonals of a rhombus bisect each other.</p>
+        <p style="margin-top:var(--space-sm); color:var(--text-secondary); font-size:0.9rem;"><strong>Hint:</strong> Let $\vec{p}, \vec{q}, \vec{r}, \vec{s}$ be position vectors of the vertices. Use the fact that $\overrightarrow{PQ} = \overrightarrow{SR}$ to show that midpoints of both diagonals have the same position vector.</p>
+      </div>
+
+      <div class="boss-problem">
+        <h4>Boss Problem 3: Force Resolution</h4>
+        <p>Two forces $\vec{F_1}$ and $\vec{F_2}$ with magnitudes 30 N and 40 N act at angles 45 degrees and 150 degrees with the $x$-axis respectively. Find the resultant force $\vec{F} = \vec{F_1} + \vec{F_2}$ and its magnitude.</p>
+        <p style="margin-top:var(--space-sm); color:var(--text-secondary); font-size:0.9rem;"><strong>Hint:</strong> $\vec{F_1} = 30\cos 45°\hat{i} + 30\sin 45°\hat{j}$ and similarly for $\vec{F_2}$.</p>
+      </div>
+
+      <div style="text-align:center; margin-top:var(--space-xl);">
+        <button class="btn btn-success" onclick="QuestMath.completeChapter('7')">
+          &#127942; Complete Chapter 7
+        </button>
+      </div>
+    </div>
+
+    <!-- Back to Map -->
+    <div style="text-align:center; padding:var(--space-2xl) 0;">
+      <a href="../index.html" class="btn btn-ghost">&#8592; Return to Quest Map</a>
+    </div>
+
+  </div><!-- /container -->
+
+  <script src="../js/engine.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      QuestMath.state.currentChapter = 7;
+      QuestMath.renderKaTeX();
+    });
+  </script>
+</body>
+</html>

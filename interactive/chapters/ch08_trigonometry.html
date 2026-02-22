@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en" data-chapter="8">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quest 08: Application of Trigonometry | Quest Math 10</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <style>
+    .chapter-hero {
+      text-align: center;
+      padding: 60px 0 30px;
+    }
+    .chapter-hero .ch-number {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--neon-cyan);
+    }
+    .chapter-hero h1 {
+      font-size: 2.8rem;
+      font-weight: 900;
+      margin: 8px 0 12px;
+    }
+    .chapter-hero .ch-desc {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      padding: 8px 0;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--neon-cyan); }
+    .boss-problem {
+      background: rgba(0,0,0,0.3);
+      border: 1px solid rgba(255,51,102,0.2);
+      border-radius: var(--radius-md);
+      padding: var(--space-lg);
+      margin: var(--space-md) 0;
+    }
+    .boss-problem h4 { color: var(--neon-red); margin-bottom: var(--space-sm); }
+    .example-box {
+      background: rgba(0,212,255,0.04);
+      border: 1px solid rgba(0,212,255,0.12);
+      border-radius: var(--radius-md);
+      padding: var(--space-lg);
+      margin: var(--space-md) 0;
+    }
+    .example-box h4 { color: var(--neon-cyan); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <nav class="top-bar">
+    <div class="logo">
+      <span style="font-size:1.4rem;">&#9889;</span>
+      <span class="neon-text">Quest Math 10</span>
+    </div>
+    <div class="stats" id="top-bar-stats">
+      <div class="stat-badge stat-xp">
+        <span>&#11088;</span>
+        <span id="xp-count">0</span> XP
+      </div>
+      <div class="stat-badge stat-streak">
+        <span>&#128293;</span>
+        <span id="streak-count">0</span> Streak
+      </div>
+      <div class="stat-badge stat-level">
+        <span>&#9878;</span>
+        Lvl <span id="level-count">1</span>
+      </div>
+    </div>
+  </nav>
+  <div style="padding:0 24px;">
+    <div class="progress-container" style="height:4px;">
+      <div class="progress-bar progress-bar-xp" id="xp-progress" style="width:0%"></div>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <a href="../index.html" class="back-link">&#8592; Back to Quest Map</a>
+
+    <!-- Hero -->
+    <div class="chapter-hero animate-fadeInUp">
+      <div class="ch-number">Quest 08</div>
+      <h1><span class="neon-text">Application of Trigonometry</span></h1>
+      <p class="ch-desc">Measure the unmeasurable. Find heights of buildings, distances across rivers, and areas of land &mdash; all with angles and triangles.</p>
+    </div>
+
+    <!-- ===================== PHASE 1: HOOK ===================== -->
+    <div class="phase phase-hook animate-fadeInUp">
+      <div class="phase-tag">&#127917; The Hook</div>
+      <h2>The Minar-e-Pakistan Problem</h2>
+      <p style="font-size:1.15rem; margin-bottom:var(--space-md);">
+        You need to find the height of Minar-e-Pakistan but can't climb it. All you have is a measuring tape and a protractor. How do you measure something you can't reach?
+      </p>
+      <p>
+        Stand some distance from the base. Measure the angle between the ground and the top of the tower (angle of elevation). Measure how far you are from the base. With just these two measurements and the power of trigonometry, you can calculate the exact height.
+      </p>
+      <div class="tip-box" style="margin-top:var(--space-md);">
+        <strong>But what if the triangle isn't right-angled?</strong> Real-world triangles rarely have a 90-degree angle. For oblique triangles, we need more powerful tools: the <strong>Law of Cosines</strong> and the <strong>Law of Sines</strong>. These unlock the ability to solve <em>any</em> triangle.
+      </div>
+    </div>
+
+    <!-- ===================== PHASE 2: CHALLENGE ===================== -->
+    <div class="phase phase-challenge animate-fadeInUp">
+      <div class="phase-tag">&#127919; The Challenge</div>
+      <h2>Can You Solve This?</h2>
+      <p>Before learning the laws, try this with intuition:</p>
+      <div class="card" style="margin-top:var(--space-md);">
+        <p><strong>Challenge:</strong> Two fire towers A and B are located 10 miles apart. Rangers at tower A spot a fire at an angle of 42 degrees from line AB. Rangers at tower B spot the same fire at 64 degrees from line AB.</p>
+        <ul style="margin:var(--space-md) 0; padding-left:var(--space-lg);">
+          <li>Can you figure out how far the fire is from tower A?</li>
+          <li>What information would you need?</li>
+        </ul>
+        <p style="color:var(--text-secondary); font-size:0.9rem;">This is a classic ASA triangle problem. By the end of this chapter, you'll solve it easily with the Law of Sines.</p>
+      </div>
+    </div>
+
+    <!-- ===================== PHASE 3: DISCOVERY ===================== -->
+    <div class="phase phase-discovery">
+      <div class="phase-tag">&#128161; Discovery Zone</div>
+      <h2>Concepts Unlocked</h2>
+
+      <div class="reveal-group">
+
+        <!-- Step 1: Law of Cosines -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">1</span> Law of Cosines</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <p>For any triangle $ABC$ with sides $a$, $b$, $c$ opposite to angles $\alpha$, $\beta$, $\gamma$:</p>
+            <div class="formula-box">
+              $$a^2 = b^2 + c^2 - 2bc\cos\alpha$$
+              $$b^2 = a^2 + c^2 - 2ac\cos\beta$$
+              $$c^2 = a^2 + b^2 - 2ab\cos\gamma$$
+            </div>
+            <div class="key-concept">
+              <strong>When to use:</strong>
+              <ul style="padding-left:var(--space-lg); margin-top:var(--space-sm);">
+                <li><strong>SAS</strong> &mdash; Two sides and the included angle are given</li>
+                <li><strong>SSS</strong> &mdash; All three sides are given (find angles)</li>
+              </ul>
+            </div>
+            <p style="margin-top:var(--space-md);">To find angles when three sides are known:</p>
+            <div class="formula-box">
+              $$\cos\alpha = \frac{b^2 + c^2 - a^2}{2bc}, \quad \cos\beta = \frac{a^2 + c^2 - b^2}{2ac}, \quad \cos\gamma = \frac{a^2 + b^2 - c^2}{2ab}$$
+            </div>
+            <div class="tip-box">
+              <strong>Special case:</strong> When $\gamma = 90°$, $\cos 90° = 0$, so $c^2 = a^2 + b^2$, which is the <strong>Pythagorean Theorem</strong>! The Law of Cosines is a generalization of Pythagoras.
+            </div>
+            <div class="example-box">
+              <h4>Example</h4>
+              <p>Solve triangle $ABC$ when $a = 12$ cm, $b = 7$ cm, $\gamma = 59°30'$.</p>
+              <p>$c^2 = 12^2 + 7^2 - 2(12)(7)\cos 59°30' = 144 + 49 - 168 \times 0.506 = 108$</p>
+              <p>$c = \sqrt{108} \approx 10.4$ cm</p>
+              <p>$\cos\alpha = \frac{7^2 + 10.4^2 - 12^2}{2(7)(10.4)} = \frac{49 + 108.16 - 144}{145.6} \approx 0.0904$</p>
+              <p>$\alpha \approx 84°49'$, and $\beta = 180° - 84°49' - 59°30' = 35°41'$</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2: Law of Sines -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">2</span> Law of Sines</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <p>For any triangle $ABC$:</p>
+            <div class="formula-box">
+              $$\frac{a}{\sin\alpha} = \frac{b}{\sin\beta} = \frac{c}{\sin\gamma}$$
+            </div>
+            <div class="key-concept">
+              <strong>When to use:</strong>
+              <ul style="padding-left:var(--space-lg); margin-top:var(--space-sm);">
+                <li><strong>AAS / ASA</strong> &mdash; Two angles and one side</li>
+                <li><strong>SSA</strong> &mdash; Two sides and an angle not included (ambiguous case)</li>
+              </ul>
+            </div>
+            <div class="warning-box" style="margin-top:var(--space-md);">
+              <strong>The Ambiguous Case (SSA):</strong> When given two sides and an angle opposite one of them, there may be <strong>0, 1, or 2</strong> possible triangles. Always check whether $\sin\beta \leq 1$ and whether $\alpha + \beta < 180°$.
+            </div>
+            <div class="example-box">
+              <h4>Example</h4>
+              <p>Solve triangle $ABC$: $a = 25$ cm, $\alpha = 66°51'$, $\gamma = 44°12'$.</p>
+              <p>$\beta = 180° - 66°51' - 44°12' = 68°57'$</p>
+              <p>$c = \frac{25 \times \sin 44°12'}{\sin 66°51'} \approx 18.96$ cm</p>
+              <p>$b = \frac{25 \times \sin 68°57'}{\sin 66°51'} \approx 25.37$ cm</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3: Half-Angle Formulas -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">3</span> Half-Angle Formulas</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <p>When three sides $a, b, c$ of a triangle are known, let the semi-perimeter be $S = \frac{a+b+c}{2}$. Then:</p>
+            <p style="margin-top:var(--space-md);"><strong>Cosines of half angles:</strong></p>
+            <div class="formula-box">
+              $$\cos\frac{\alpha}{2} = \sqrt{\frac{S(S-a)}{bc}}, \quad \cos\frac{\beta}{2} = \sqrt{\frac{S(S-b)}{ac}}, \quad \cos\frac{\gamma}{2} = \sqrt{\frac{S(S-c)}{ab}}$$
+            </div>
+            <p style="margin-top:var(--space-md);"><strong>Sines of half angles:</strong></p>
+            <div class="formula-box">
+              $$\sin\frac{\alpha}{2} = \sqrt{\frac{(S-b)(S-c)}{bc}}, \quad \sin\frac{\beta}{2} = \sqrt{\frac{(S-a)(S-c)}{ac}}, \quad \sin\frac{\gamma}{2} = \sqrt{\frac{(S-a)(S-b)}{ab}}$$
+            </div>
+            <p style="margin-top:var(--space-md);"><strong>Tangents of half angles:</strong></p>
+            <div class="formula-box">
+              $$\tan\frac{\alpha}{2} = \sqrt{\frac{(S-b)(S-c)}{S(S-a)}}, \quad \tan\frac{\beta}{2} = \sqrt{\frac{(S-a)(S-c)}{S(S-b)}}, \quad \tan\frac{\gamma}{2} = \sqrt{\frac{(S-a)(S-b)}{S(S-c)}}$$
+            </div>
+            <div class="example-box">
+              <h4>Example</h4>
+              <p>Solve triangle $ABC$ with $a = 5$, $b = 6$, $c = 7$ using half-angle cosines.</p>
+              <p>$S = \frac{5+6+7}{2} = 9$</p>
+              <p>$\cos\frac{\alpha}{2} = \sqrt{\frac{9 \times 4}{6 \times 7}} = \sqrt{\frac{36}{42}} = \sqrt{0.857} \approx 0.926$</p>
+              <p>$\frac{\alpha}{2} \approx 22.18° \Rightarrow \alpha \approx 44.36°$</p>
+              <p>$\cos\frac{\beta}{2} = \sqrt{\frac{9 \times 3}{5 \times 7}} = \sqrt{0.771} \approx 0.878 \Rightarrow \beta \approx 57.20°$</p>
+              <p>$\gamma = 180° - 44.36° - 57.20° = 78.44°$</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 4: Area of Triangle -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">4</span> Area of a Triangle (Multiple Formulas)</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <p><strong>(a) Two sides and included angle (SAS):</strong></p>
+            <div class="formula-box">
+              $$\Delta = \frac{1}{2}bc\sin\alpha = \frac{1}{2}ac\sin\beta = \frac{1}{2}ab\sin\gamma$$
+            </div>
+            <p style="margin-top:var(--space-md);"><strong>(b) Two angles and one side (AAS):</strong></p>
+            <div class="formula-box">
+              $$\Delta = \frac{a^2 \sin\beta\sin\gamma}{2\sin\alpha} = \frac{b^2 \sin\alpha\sin\gamma}{2\sin\beta} = \frac{c^2 \sin\alpha\sin\beta}{2\sin\gamma}$$
+            </div>
+            <p style="margin-top:var(--space-md);"><strong>(c) Three sides (Heron's Formula):</strong></p>
+            <div class="formula-box">
+              $$\Delta = \sqrt{S(S-a)(S-b)(S-c)} \quad\text{where } S = \frac{a+b+c}{2}$$
+            </div>
+            <div class="example-box">
+              <h4>Example &mdash; Heron's Formula</h4>
+              <p>Find the area of a triangle with sides 16, 18, 20.</p>
+              <p>$S = \frac{16+18+20}{2} = 27$</p>
+              <p>$\Delta = \sqrt{27(27-16)(27-18)(27-20)} = \sqrt{27 \times 11 \times 9 \times 7} = \sqrt{18711} \approx 136.79$ sq. units</p>
+            </div>
+            <div class="example-box">
+              <h4>Example &mdash; SAS Formula</h4>
+              <p>Find area of triangle $DEF$ if $DE = 10$, $EF = 8$, $\angle E = 30°$.</p>
+              <p>$\Delta = \frac{1}{2}(10)(8)\sin 30° = 40 \times 0.5 = 20$ sq. units</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 5: Circumradius -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">5</span> Circumradius (R) of a Triangle</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <div class="key-concept">
+              <strong>Circumcircle:</strong> The circle passing through all three vertices of a triangle. Its centre is the intersection of perpendicular bisectors of the sides.
+            </div>
+            <p style="margin-top:var(--space-md);">The circumradius $R$ can be found using:</p>
+            <div class="formula-box">
+              $$R = \frac{a}{2\sin\alpha} = \frac{b}{2\sin\beta} = \frac{c}{2\sin\gamma}$$
+            </div>
+            <p>Or in terms of sides and area:</p>
+            <div class="formula-box">
+              $$R = \frac{abc}{4\Delta}$$
+            </div>
+            <p>where $\Delta$ is the area of the triangle.</p>
+            <div class="example-box">
+              <h4>Example</h4>
+              <p>Find $R$ when $a = 8$, $b = 9$, $c = 11$.</p>
+              <p>$S = 14$, $\Delta = \sqrt{14 \times 6 \times 5 \times 3} = \sqrt{1260} \approx 35.5$</p>
+              <p>$R = \frac{8 \times 9 \times 11}{4 \times 35.5} = \frac{792}{142} \approx 5.58$</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 6: Inradius -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">6</span> Inradius (r) and E-Radii of a Triangle</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <div class="key-concept">
+              <strong>Incircle:</strong> The largest circle that fits inside a triangle, touching all three sides. Its centre is the intersection of angle bisectors.
+            </div>
+            <p style="margin-top:var(--space-md);">The inradius $r$:</p>
+            <div class="formula-box">
+              $$r = \frac{\Delta}{S}$$
+            </div>
+            <p>where $\Delta$ is the area and $S$ is the semi-perimeter.</p>
+            <p style="margin-top:var(--space-md);"><strong>Escribed circle (e-circle):</strong> A circle touching one side externally and extensions of the other two sides. The e-radii are:</p>
+            <div class="formula-box">
+              $$r_1 = \frac{\Delta}{S-a}, \quad r_2 = \frac{\Delta}{S-b}, \quad r_3 = \frac{\Delta}{S-c}$$
+            </div>
+            <div class="example-box">
+              <h4>Example</h4>
+              <p>Find $r$, $R$, and $r_2$ when $a = 8$, $b = 9$, $c = 11$.</p>
+              <p>$S = 14$, $\Delta \approx 35.5$</p>
+              <p>$r = \frac{35.5}{14} \approx 2.54$</p>
+              <p>$R = \frac{792}{142} \approx 5.58$</p>
+              <p>$r_2 = \frac{35.5}{14 - 9} = \frac{35.5}{5} = 7.1$</p>
+            </div>
+            <div class="tip-box" style="margin-top:var(--space-md);">
+              <strong>Useful identity:</strong> $r \cdot r_1 \cdot r_2 \cdot r_3 = \Delta^2$
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /reveal-group -->
+    </div>
+
+    <!-- ===================== PHASE 4: PRACTICE ===================== -->
+    <div class="phase phase-practice">
+      <div class="phase-tag">&#128142; Practice Arena</div>
+      <h2>Test Your Knowledge</h2>
+      <p style="color:var(--text-secondary); margin-bottom:var(--space-lg);">Answer all 8 questions. Earn XP for each correct answer and build your streak!</p>
+
+      <div class="quiz-container">
+
+        <!-- Q1 -->
+        <div class="quiz-question" data-correct="a">
+          <div class="q-number">Question 1 of 8</div>
+          <div class="q-text">In right triangle $ABC$ with $a = 2$ cm and $c = 4$ cm (hypotenuse), what is $\alpha$?</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> $30°$</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> $45°$</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> $60°$</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> $120°$</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! $\sin\alpha = \frac{a}{c} = \frac{2}{4} = 0.5$, so $\alpha = 30°$.</div>
+          <div class="quiz-feedback incorrect-fb">$\sin\alpha = \frac{2}{4} = 0.5 \Rightarrow \alpha = 30°$.</div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="quiz-question" data-correct="c">
+          <div class="q-number">Question 2 of 8</div>
+          <div class="q-text">The area of an equilateral triangle with side $a$ is:</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> $\frac{a^2}{2}$</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> $\frac{a^2}{4}$</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> $\frac{\sqrt{3}}{4}a^2$</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> $\frac{\sqrt{3}}{2}a^2$</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! $\Delta = \frac{1}{2}a \cdot a \cdot \sin 60° = \frac{a^2}{2} \cdot \frac{\sqrt{3}}{2} = \frac{\sqrt{3}}{4}a^2$.</div>
+          <div class="quiz-feedback incorrect-fb">Use the SAS formula with the 60-degree angle: $\Delta = \frac{1}{2}a^2\sin 60° = \frac{\sqrt{3}}{4}a^2$.</div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="quiz-question" data-correct="c">
+          <div class="q-number">Question 3 of 8</div>
+          <div class="q-text">Area of triangle $ABC$ with $a = 20$, $b = 30$, $\gamma = 90°$ is:</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> 0</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> 30</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> 300</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> 600</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! $\Delta = \frac{1}{2}(20)(30)\sin 90° = \frac{1}{2}(600)(1) = 300$.</div>
+          <div class="quiz-feedback incorrect-fb">$\Delta = \frac{1}{2}ab\sin\gamma = \frac{1}{2}(20)(30)(1) = 300$.</div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="quiz-question" data-correct="c">
+          <div class="q-number">Question 4 of 8</div>
+          <div class="q-text">For an equilateral triangle, $r : r_1 : R$ equals:</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> $1 : 2 : 3$</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> $3 : 2 : 1$</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> $1 : 1 : 2$</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> $1 : 3 : 2$</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! For an equilateral triangle, $r : r_1 : R = 1 : 1 : 2$.</div>
+          <div class="quiz-feedback incorrect-fb">For an equilateral triangle with side $a$: $r = \frac{a}{2\sqrt{3}}$, $r_1 = \frac{a}{2\sqrt{3}}$, $R = \frac{a}{\sqrt{3}}$, giving ratio $1:1:2$.</div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="quiz-question" data-correct="c">
+          <div class="q-number">Question 5 of 8</div>
+          <div class="q-text">The radius of the circumcircle for a triangle with sides 6, 8, 10 is:</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> $3$</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> $4$</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> $5$</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> $6$</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! Since $6^2 + 8^2 = 10^2$, it's a right triangle with hypotenuse 10. $R = \frac{c}{2} = \frac{10}{2} = 5$.</div>
+          <div class="quiz-feedback incorrect-fb">This is a right triangle ($6^2+8^2=10^2$). The circumradius of a right triangle equals half the hypotenuse: $R = 5$.</div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="quiz-question" data-correct="b">
+          <div class="q-number">Question 6 of 8</div>
+          <div class="q-text">The shadow of a 5.6 ft tall man makes an angle of elevation of 45 degrees with the sun. The length of the shadow is:</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> 2.8 ft</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> 5.6 ft</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> 8.4 ft</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> 11.2 ft</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! $\tan 45° = \frac{5.6}{\text{shadow}}$. Since $\tan 45° = 1$, shadow $= 5.6$ ft.</div>
+          <div class="quiz-feedback incorrect-fb">$\tan 45° = 1 = \frac{5.6}{\text{shadow}}$, so shadow $= 5.6$ ft.</div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="quiz-question" data-correct="a">
+          <div class="q-number">Question 7 of 8</div>
+          <div class="q-text">If $a = 5$, $b = 10$, $c = 20$ are given as sides of a triangle, then:</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> Triangle is not possible</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> Angle $\alpha$ is acute</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> Angle $\alpha$ is obtuse</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> Angle $\alpha = 0°$</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! $5 + 10 = 15 < 20$. The triangle inequality fails, so no triangle exists.</div>
+          <div class="quiz-feedback incorrect-fb">Check the triangle inequality: $5 + 10 = 15 < 20$. The sum of two sides must exceed the third. No triangle is possible.</div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="quiz-question" data-correct="b">
+          <div class="q-number">Question 8 of 8</div>
+          <div class="q-text">If in a triangle $a = 10$, $b = 15$, $\alpha = 32°$, then $\beta$ is approximately:</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> $42.5°$</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> $52.7°$</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> $46.5°$</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> $62.8°$</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! By Law of Sines: $\sin\beta = \frac{15 \sin 32°}{10} = \frac{15 \times 0.5299}{10} \approx 0.7949$, so $\beta \approx 52.7°$.</div>
+          <div class="quiz-feedback incorrect-fb">$\frac{\sin\beta}{15} = \frac{\sin 32°}{10} \Rightarrow \sin\beta = 0.7949 \Rightarrow \beta \approx 52.7°$.</div>
+        </div>
+
+      </div><!-- /quiz-container -->
+    </div>
+
+    <!-- ===================== PHASE 5: BOSS LEVEL ===================== -->
+    <div class="phase phase-boss">
+      <div class="phase-tag">&#128123; Boss Level</div>
+      <h2>Final Challenge: Trigonometry Mastery</h2>
+      <p>Apply all laws to defeat these multi-step real-world problems.</p>
+
+      <div class="boss-problem">
+        <h4>Boss Problem 1: The Fire Tower</h4>
+        <p>Fire towers A and B are 10 miles apart. Rangers at tower A spot a fire at 42 degrees, and rangers at tower B spot the same fire at 64 degrees. How far is the fire from tower A?</p>
+        <p style="margin-top:var(--space-sm); color:var(--text-secondary); font-size:0.9rem;"><strong>Hint:</strong> The angle at the fire is $180° - 42° - 64° = 74°$. Use Law of Sines with the side between the towers.</p>
+      </div>
+
+      <div class="boss-problem">
+        <h4>Boss Problem 2: The Triangular Plot</h4>
+        <p>Two sides of a triangular plot have lengths 400 m and 600 m. The angle between them is 45 degrees. Find both the perimeter and area of the plot.</p>
+        <p style="margin-top:var(--space-sm); color:var(--text-secondary); font-size:0.9rem;"><strong>Hint:</strong> Use Law of Cosines to find the third side, then the SAS area formula for the area.</p>
+      </div>
+
+      <div class="boss-problem">
+        <h4>Boss Problem 3: Circles in Triangles</h4>
+        <p>The sides of a triangle are 7 cm, 12 cm, and 15 cm. Find the radius of the incircle ($r$) and the circumcircle ($R$).</p>
+        <p style="margin-top:var(--space-sm); color:var(--text-secondary); font-size:0.9rem;"><strong>Hint:</strong> Find $S$ and $\Delta$ first using Heron's formula. Then $r = \frac{\Delta}{S}$ and $R = \frac{abc}{4\Delta}$.</p>
+      </div>
+
+      <div style="text-align:center; margin-top:var(--space-xl);">
+        <button class="btn btn-success" onclick="QuestMath.completeChapter('8')">
+          &#127942; Complete Chapter 8
+        </button>
+      </div>
+    </div>
+
+    <!-- Back to Map -->
+    <div style="text-align:center; padding:var(--space-2xl) 0;">
+      <a href="../index.html" class="btn btn-ghost">&#8592; Return to Quest Map</a>
+    </div>
+
+  </div><!-- /container -->
+
+  <script src="../js/engine.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      QuestMath.state.currentChapter = 8;
+      QuestMath.renderKaTeX();
+    });
+  </script>
+</body>
+</html>

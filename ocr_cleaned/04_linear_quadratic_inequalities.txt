@@ -1,0 +1,653 @@
+============================================================
+CHAPTER: Linear and Quadratic Inequalities
+Pages: 78 - 96
+============================================================
+
+--- Page 78 ---
+
+a a Weranr — . fe oe _B*a² mc
+Linear and Quadratic Inequalities
+[ After studying this unit students will be able to: | :
+* Solve linear inequalities in one variable. . |
+* Solve quadratic inequalities in one variable.
+| © Solve two linear inequalities with two unknowns simultaneously. |
+* Interpret and identify the region in plane bounded by two linear inequalities in two unknowns. |
+You are checking a bag at an airport. Bags can weigh no more than 60 pounds.
+"Your bag weighs 26.5 pounds. Find the possible weights “Ww (in pounds) that you
+can add to the bag.
+Write a model:
+Weight of bag + Weight you can add = Weight limit
+265 +w = 60 (writing inequalities)
+. 26.5 + w — 26.5. < 60 — 26.5 (subtracting 26.5 from both sides)
+w<=33.5 (simplifying)
+You can add less than 33.5 pounds.
+| 7 ‘ fi Pe @ - P 0 f
+—- ‘ ee —_—" P é os :
+ph atiealog geen, a ~ =
+| a = ~ ce * of Ls ;
+
+--- Page 79 ---
+
+: Inequalities in One Variable crease aa
+Furgan and Qasim are the hockey players in the school hockey team. , % . , |
+If we compare their scoring for the season, only one of the following | €
+statements will be true: if *' “ |
+
+‘  Furgan scored fewer goals than Qasim. ~ ae
+Furqan scored same number of goals as Qasim. ”
+Furgan scored more goals than Qasim. ) =o
+Let ‘a’ represents the number of goals of Furqan Trichotomy Property ej
+_ and ‘b’ represents the number of goals of Qasim. For any two real rumbers a and b,
+We can compare the score using an inequality exactly one of the following
+or an equation. . , | a statements will be true:
+@ <b, a>b, a=b _a<b, a>b, az=b
+This is an example of trichotomy property.
+Graph of Inequality
+On a number line, the graph of an inequality in one variable is the set of points that represents
+all solutions of the inequality. To graph an inequality in one variable, we use open circle for the
+symbols ‘<’ or ‘>’ and a closed circle for the symbols ‘<’ or ‘>’. .
+' The graph of × < 1,x = 1 and × > 1 respectively are:
+: x< | |
+“3° 2 Is 1 2
+. x=] .
+3 2 -1 0 1,2 3
+iy . ¥e2l
+3 2 -l 0 1 2 3
+Example: Solve 9x+6<8x-2, Graph the solution set,
+Solution: 9x+6< 8x-—2
+9x + 6 + (—8x) < 8x + (-8x)−2 (Add — 8x to both sides) |
+x+6< -−2 .
+x + 6+ (—6) < −2 + (-6) (Add — 6 to both sides)
+x<-8 }
+SS
+. AN -13° -12 -11 -10 a8 4, | :
+= aa Circle indicates that -: ism tin luded. -
+Any real number less than — 8 is solution, Himesh Sanat inca.
+
+--- Page 80 ---
+
+' Check: Substitute -8 for × in 9x+16<8x—2, the inequalities should not be trueThen substitute a
+number less than —8, the inequality should be true.
+(i) Addition and subtraction properties of inequalities. -
+- For any real number a, b and c: .
+e If a>b, then a+c>5+c and a-—c>b-e
+@ Ifa<b, then a+c<b+c and a—c<b—c Le
+(ii) Multiplication and division properties of inequalities.
+e Ifcis positive and a <b, then ac < be and a< 2
+c ,¢
+e Ifcis positive and a > b, then ac > be and s > -
+e Ifc is negative and a < b, then ac > be and = >2
+| GSES |
+e Ifcisnegative and a > b, then ac < be and mo
+Example: Solve 6x—7 2 2x+17. Graph the solution.
+Solution: 6x — 7 = 2x + 17. .
+6x—-7+722x+17+7 (adding 7 on both sides)
+6x > 2x +24
+6x — 2x > 2x —2x+24 (subtracting 2x from both sides)
+4x > 24 (dividing both sides by 4) |
+| xz6 x26
+5 6 7 8 9§ AO oll
+Example: Solve and graph the solution Po Check Points
+10.7x-—6+5.5x 2 3(5x—3) Describe and correct the error. ©
+Solution: 10.7x -—6+5.5x 2 3(5x —3) so a. 17-—3x 256 .
+16.2 × -— 6215x-9 . -3x 239 => x2-13
+x ne — b. —4(2x — 3) <'‘28
+6.2x-15x2—-9+
+16.2x—15x2—9+6 ; -8x —12 < 28
+1.2x 2-3 . —8x< —40 = x>5
+x2—-2.5
+x2-2.5
+——————
+
+--- Page 81 ---
+
+Solving Quadratic Inequalities ;
+We will discuss the solution of quadratic inequalities in one variable. Quadratic inequalities can
+be derived from quadratic equations. The word ‘Quadratic’ comes from the word ‘Quadratum’
+' which means square in Latin. From this, we can define quadratic inequalities on second degree
+equation. The general form of a quadratic equation is ax” +bx+c =0. Further if the quadratic
+polynomial ax’?+bx+c is not equal to zero, then they are either ax’+hx+c>0 or
+. ax’ +bx+c<0 and are called quadratic inequalities. We explain quadratic inequalities with
+daily life example. .
+Consider a ball is thrown upward with an initial velocity of 64 feet per second.
+The function h(t) = 64 t — 16 t? gives the height of the ball after ) rts
+t seconds. During what time span is the ball in flight? We can find ' *; ,
+the times that the ball is in flight by solving the inequality ; :
+64t—16t?>0. |» ¢ ‘|
+64t — 16t? > 0 P | : i
+—16t* + 64t > 0 |
+—16t(t-—4) >0 VA Z |
+This inequality shows that the product of two numbers is positive Rte
+if both of the numbers (-16r, t—4) are positive or both are negative.
+Case I: Case II: |
+When both numbers are positive | When both numbers are negative
+-l6t>0 and r-4>0 —l6t<0 and ¢-4<0
+_t<0 and t>4 t>0 and t<4
+Here, t< 0 and at the same time t > 4 Means: 0<f and 1<4
+is never true. 2 eae: O<tr<4
+The solution set is {0 < t < 4}. So, the ball is in flight between 0 and 4 seconds after it is thrown.
+Example; Solve x’-4x-12>0 ° | .
+Solution: x² —4x—-12>0
+/ x*—6x+2x-12>0 => x(x-6)+2(x-6)>0 :
+=> § (x-6)(x+2)50 |
+Another way that you can solve quadratic inequalities is by using three test points. }
+First solve the equation (x—6)(x+2)=0 - ‘
+x-6=0o0rx+2=0.
+=> x=6,x=-2
+These solutions are called critical points. The points −2 and 6 separate the x-axis into three
+regions:-x<-—2, -2<x<6, x>6.
+
+--- Page 82 ---
+
+| | | | “2<x<60 0 | |
+4 3 f 1 0 1 2 3 4 7
+_ x=−2 x=6
+Choose a value from each of the parts and substitute it into(x—6)(x+ 2) >0.
+Construct a table to organize your results.
+Peete | of x-axis ee × a | —6)(x +2) | (x—6)(x+2)>0?
+The part of x-axis where points are solution of (x—6)(x+2)>0, belongs to the solution set.
+The solution set is {x]x < −2 or × > 6}.
+x<-2, , 2>6
+| 4 3 °2 of Oo4 2 °3 4 5 $f 7
+Example: Find the solution set of x’ +6x—27<0.
+Solution: x’ +6x-—27<0 > x² +9x—3x~=2750 :
+x(x+9)-3(x+9)50 =. (x+9)(x-3) <0
+First solve the equation (x -—3)(x+9)=0
+x-3=0 or x+9=0 => x=3,x=-9
+The point 3 and—9 are separate, its x-axis in three parts.
+Make a table to organize results.
+es 04° Linea ait OusiraNe Tred TTS a RS Nasir Book Fowndcion
+
+--- Page 83 ---
+
+. -9sx53 |
+x2-9 ©. x3 ,
+The part of x-axis where points are solution to (x—3)(x+9) <0 belong to the solution set.
+The solution set is{x|-9 <x< 3}. .
+, Solve the inequality and graph the solution.
+1. Sx-12<3x-4 2. 1-8xs-4(2x-1) 3. Fx-2< 5x48 |
+4. 8-= xs-1442x 5. 0.6(x 5) < 15 6. 7-(x-12)>-2
+Translate the phrase into-an inequality. Then solve the inequality and graph the solution.
+7. Four more than the product of 3 and × is less than 40.
+7 8. Twice the sum of × and 8 appears less than or equal to —2.
+Write and solve an inequality to find the possible values of .
+‘9. Area > 81 square feet 10, Area $44 square centimeters
+. (x«+1)cm
+Solve each inequality . é
+11. (x+1)(x-3)>0 12. (x-—9)(x+1) <0 13. x*-x-90>0 .
+14, x7+4x-21<0 15. x² 48x4+16 20 16. 9x² —-6x+1<0
+17. Mr, Khalid has a field and want to make a rectangular garden with perimeter of 68ft. He
+_ would like the area of a garden to be at least 240 square feet. What would the width of
+the garden be?
+18. Are -2,-1, 0, 1, 2 solution of the inequality 2x² +3x+1<0. .
+19. The stopping distance d(x) (in meters) of a car traveling at × km/h is modeled by
+d(x) =0.05x" +0.2x. If the maximum stopping distance allowed in a school zone is 35
+meters, find the speed range that ensures the stopping distance does not exceed this
+20. A rectangular garden is to be enclosed with a fence. The total length of the fence is at
+most 60 meters and the width × of the garden is twice its length. Find the possible
+, dimensions of the garden. , _
+
+--- Page 84 ---
+
+Solving System of Linear Inequalities .
+Mr. Waleed wants to rent a car for a business trip. A car rental company advertises that their
+rental rate is Rs.9000 plus Rs.60 per km. Mr. Waleed would like to compare this rate with the
+
+rates offered by other car rental agencies. First, he determines the equation containing the points
+
+that represent the relationship between the numbers
+
+of km (x) and the total cost of the rental (y). The | /
+
+initial cost of the car is Rs. 9000. Since this is the 15000 -- -
+
+point where zero km are driven, it would be the | y,
+
+y-intercept of the graph. 14000 -+- y
+
+The slope would be the rate of change in the total 13000 . Va y
+
+cost. In this case, the rate is Rs.60 per km. | . Sf
+
+Since the slope is 60. Thus, an equation of the 42999 + /
+
+line is y= 60x +9000. /
+
+11000 +- WA
+
+The graph of y = 60x +9000 separates the ha , /
+coordinate plane into two regions. | #
+
+The line is called boundary of the region. To -14000-- /
+graph an inequality, first yougraphthe boundary ;
+
+and then determine which region to shade. The 9 79°°0- 5 ,
+
+graph y > 60x +9000 contains the points thatare = 4 4999-4— , |
+located above the boundary. - PA
+
+In that region, the value of the dependent 10000---§ ” .
+
+variable y is greater than the value of 60x +9000. /
+
+This graph represents car rental costs that are 9000 i .
+
+greater than those offered by carrental company . | : 1 | | >
+A: For example, another company B charges ott es 100 ,
+14000 fora car rental with 50km.
+
+The point (50, 14000) lies above the boundary.
+
+--- Page 85 ---
+
+The graph of y>60x+9000 contains pointsthat = ——s Sf
+are located below the boundary. In that region, minal P fis
+the value of y is less than the value of 60x+9000. 14000 - 7 fr
+The graph representscarrentalcoststhatareless- = ——s| 4 f
+than those offered by company A. aia | fa |
+For example, a company C charges 14000 Fora 12000 / / f
+‘car rental with 100km. the point (100,.14000) |, |
+. I wc: testeaear tees er a 11000 = Aa
+lies below the boundary. , Pee .
+: 10000 -- . 7” |
+* When graphing an inequality, the boundary = PT T_T ! Lan
+you draw may be solid or dashed, aon wm
+e If the inequality uses the symbol<or> — ee —
+which include equality then the boundary will
+be solid. Otherwise, it will be dashed. A linear inequality in two variables: such
+e After graphing the boundary, you must 35 x—3y <6, is the result of replacing
+determine which region is to be shaded. Test the “=” in a linear equation with
+a point on one side of the line. If the ordered <,S,> or 2. A solution of an inequality
+pair satisfies the inequality, that region | imtwo variables × and y is an ordered pair
+contains solution of the inequality. If the | ( y) that produces a true statement
+ordered pair does not satisfy the inequality, », Wen the values of × and y are satisfied
+the other region is the solution. into the inequality.
+Example: Which ordered pair is not a solution of x—3y < 6?
+a. (0,0) b. (6,-1) c. (10, 3) d. (-1, 2)
+Solution: Feasible region =
+Test (0, 0): x-3y $6 (Write inequality) Inquatien represen rege graphy. Blow we te
+—3(0) =6 (Substitute 0 for × and 0 for y.) sate a dewriog femlie regen SS reas
+- 0<6 (True) | | Tre)
+Test (6, -1): x-3y <6 (Write inequality) ae we
+6—3(−1) <6 (Substitute 6 for × and −1 for y.) | aa yemerg Joey A
+9=6 (False) | eg
+. Similarly (10, 3) and (—1, 2) also true but aie : i Ws a
+(6, -1) is not a solution. | ‘ wae LS pee fe
+
+--- Page 86 ---
+
+Example: Graph the inequality y>$x—4,00 —_—_—_—_—________
+Solution: , | ST
+Step I: Graph the equation y = 5x-4. a i 5p 1 |
+The inequality is >, use a dashed line. If oy |
+Step II: Test (0, 0) in y > 5x—4. |e 3 — ; |
+0>4(0)-4 , 7 a |
+0>-3 (True) | pase, |
+Step III: Shade the half plane that ues 4 ek iH : |
+contains (0, 0) because (0, 0) is a f | bee +
+solution of the inequality, | Be ee + 4 |
+Example: Graph the in equality x+2y<0. [| _—_________,—__—_ ]
+Solution: | | |
+Step I: Graph the equationx+2y =0.. Pe oe ,
+The inequality is <, use a solid line. oe Oe > |
+Step II: Test (1, 0) in x+2y <0, _ a aN : 4
+1+2(0) <0 | bee : ea | eb
+1<0 (False) | | RESET
+Step III: Shade the half plane that bE sgh Coreen ~~ -
+does not contain (1, 0) because (1, 0) is | | Pak. fanaa < |
+not a solution of the inequality. acer ieee eee eee Sn
+Example: Graph the in equality y 2-2.
+Solution: ; |
+Step I: Graph the equation y=—-2. _
+‘The inequality is 2, use a solid line.
+Step II: Test (0, 0) in y 2-2 } |
+| 02-2 (True) | |
+Step III: Shade the half plane that r | =|
+contains (0, 0) because (0, 0) is | |
+a solution of the inequality. | | |
+| !
+
+--- Page 87 ---
+
+Example: Graph the in equality x<−1. | na |
+e lotion: bir eae s Veeaeal | | |
+Solution: “pict gee | = ss
+. ae ey: et 2 : : | |
+Step I: Graph the equationx =−1. | - : sea ee i | |
+The inequality is 2, use a solid line. | | i g |
+Step II: Test (0, 0) in x<-I CO, es
+a 0<-1 (False) a aE | . | ; |
+Step III: Shade the half plane that 1 I fameia | | |
+does not contain (0, 0) because (0, 0) | | Ir iia
+| is not a solution of the.inequality. | eee el i fh |
+} _ Tell whether the ordered pair is a solution of the inequality. _ a |
+1. (0,0); x+y<—-4 2. (-2,-3); y-x>-2
+. 3. (5,2); 2x+3y 214 | 4. (-1,5); 4x-Ty > 28 :
+5. (-9,-7); ys8 6. (-4,0); x2-3 oo
+Graph the inequality. , we
+1 x-y<-3 8. -3y-2x<12 ,
+9. x-y22 10. 2x4 y28 ay So
+ll. x-ys-I 12, y<-5 oe
+13.x24 | rer .
+oo 14. 5 (x+2)43y<8
+15. Can we use (0, 0) as a test point when graphing x+ y > 0? Explain with reason.
+Write the verbal sentence as an inequality. Then graph the inequality:
+16. Three less than × is greater than or equal to y. Hank .
+'»: 17, The product of -2 and y is less than or equal to the sumofxand6,.
+18. The sum of × and the product of 4 and yislessthan -2, —_-
+
+--- Page 88 ---
+
+Absolute Valued Equations and Inequalities
+Equations with Absolute Value . . yo |
+Suppose you and your friend, each live in the same street as your school, but on opposite sides
+of the school. You each live 6 km from the school. What can you say about your trips to school
+each day² Do you each travel the same distance?
+Consider placing both houses and the school on a number line with the school at the origin. .
+Your home is located at 6, and your friend is located at —6. ‘
+Certainly, —6. and 6 are quite different but they do have something in common. They have the
+same distance from 0 on the number line. This means that you and your friend travel the same
+distance, but in different direction, when you go to school.
+: 6 units _ 6 units
+We say that —6 and 6 have the same absolute value. The absolute value of a number is the
+number of units it is from 0 in the number line. |
+We use the symbol |x| to represent the absolute value of a number x.
+The absolute value of 6 is |6|=6, and absolute value of —6. is |-6|=6. |
+i — For any real number x
+| | e If x20, then |x|=x _?
+Absolute value L—, e If x>0,then |x|=-x |
+| | × when x20
+, | ® Or [x| = |
+| —x when x>0
+In words: The definition states that the absolute value of a non-negative is the number itself and
+the absolute value of a negative number is the opposite of the number.
+Since distance is always non-negative, we can think of a number’s absolute value as its distance
+from zero on number line.
+Example: Find the absolute value of 7 and —11.
+Sotution: |7|=7 Ei=-Cip=i The absolute value of a number is
+Example: Find the absolute value of × —5. always positive or zero.
+Solution: Let's make a list of possible cases. -
+Ifx is 5 or greater, then |x—-5|20,
+Bier and OenrctiVigualiied BRI Natit Bok Foundation |
+
+--- Page 89 ---
+
+|x—5|=x-5
+If xis less than 5, then” |x-5|<0, .
+. |x-5|=-(x-5) =5-x
+Example; Find the solution set. , , .
+a, |2x+5|=11 ; b. |3-—2x|=-5
+c, |2x-3|=|x+6| . d. 2|x+3|+2=16
+a. |2x+5|=11 b. [3-2x{=-5 — .
+2x+5=11 or 2x+5=-11 The absolute value principle reminds us
+9x=11-5 9x=-11-5 that absolute value is always non-
+, x=6 2x=-16 negative. The equation. |3-2%|=—5 has
+x=3 x=-8 no solution. The solution set is ¢.
+c. |2x-3|=|x+6 d. 2|x+3|/+2=16 wo,
+2x-3=x+6 or 2x-3=-(x+6) — Ofx4+3]4+2=16 ,
+- 2x-x=643 2x-3=—x-6 2\x+3|=14-2 .
+x=9 2x+x=—64.5 [x+3]=7
+2, a —, /. &€t3=7 or x+3=-7
+5.5 = {-l, 9} 7 : x=4 x=-10
+| S.S= {4-10} | 7
+Student can verify the solution. ) . .
+Example: A machine that fills the boxes of sugar is to fill the boxes with 14 kg of sugar. After
+the boxes are filled, another machine weighs the boxes. If the box is more than'0.3 kg above or
+below the desired weight, the box is rejected. What is the weight of the heaviest and the lightest
+box that the machine will pass² -" Solution: Let w= the weight of the box, then: .
+|w—14|=0,3 (as per condition) , Z
+w-14=03 or w-14=-03 .
+. - w=143 or w= 13.7 7 | :
+The heaviest weight allowed to pass is 14.3kg. The. lightest weight allowed to pass is 13.7kg.
+
+--- Page 90 ---
+
+Inequalities With Absolute Value
+The absolute value of a number is its distance from 0 on the number line. We can use this idea
+to solve inequalities involving absolute value.
+Example: Solve |x| < 5. .
+Solution: |x|<5S means that the distance between × and 0 is less than five units. To make jx]<5
+true, we must substitute the values of × that are less than five units from 0.
+6 4932 4 1 2 4 5 6
+All the number between — 5 and 5 are less than 5 units from zero.
+The absolute solution set = {|x|:—5 < × < 5}.
+_ Example: Solve|x| 23... Graph the solution. .
+Solution: The solution of |x| 23. are those numbers whose distance from 0 is greater than or
+equal to 3. In other words, those numbers × such that x<—3 or x23. The solution set is
+{|x|:x < —3 or × = 3}.
+a —— — ; $i = —s 7
+6 5 4 3 2 1°90 12.3 4 5 6
+Example: Solve and graph the solution.
+a, |2x-7|211 b.. [3x-2|<4
+Solution: _
+a. |2x-7|/211 ~~ (Apply |x| =a:x 2 aorx =< —a)
+2x—7211 or 2x-7 5-11
+2x211+7 or 2x<-11+7 |
+2x218 or 2x<-4
+x>9 or x=s-2~.
+Solution set = {x|x = 9 or × <= —2}
+7 6 56 4 3 2 0 3 6 9 10 11 12
+b. [3x — 2| <4 (Apply: |x]|<a: -a<x<a)
+—4<3x-2<4
+
+--- Page 91 ---
+
+—4<3x-2 and 3x-2<4
+—4+2<3x and 3x<4+4+2
+—2<3x and 3x <6
+_ Solution set = \ F<x<2}
+(654324012345 6 .
+Example: Solve|-4x —5|+3<9. Graph the solution. |
+Solution: |-4x-5|/+3<9 => |-4x-5|<6 . |
+—6 < —4x—5/and —4x-5 <6
+—1<-—4x and —4x<11 eet,
+i = >x and a vm a EF '
++ il a , _¢« |x|<a implies that -a<x<a
+We can write as: -F S¥SG * |x{2q implies that × <—a orx2a
+Solution set= 4x: ——<x<-—}
+5 94 3.240 ½345 6)
+Example:
+You are buying a new calculator and find 10 models in a shop. The’prices are Rs. 980, Rs. 570,
+Rs. 470, Rs. 820, Rs. 560, Rs.-770, Rs. 580, Rs. 390, Rs. 680 and Rs. 550. .
+' a. Find the mean of the calculator price. .
+b. You are willing to pay the mean price with an absolute deviation of at most Rs. 100. How
+many of the calculator prices meet your condition² | |
+' * Solution: . |
+a. Find the mean first: | i
+faan — 280+570+470+820+560+7704+590+390+6904+550
+Mean = ——————_______— rrr
+10
+6380, | ;
+
+--- Page 92 ---
+
+b. Write and solve an inequality.
+An absolute deviation of at most Rs.100 from the mean 638, is given by the inequality.
+|x- 638] < 100
+—100 < × — 638 < 100 , | ,
+—100 <x — 638 and x-638<100 © )
+538 =x and × = 738
+Wewriteas: 538 <x <= 738 ,
+The price of calculator must be at least 538 and at most 738. Five prices meet your condition that
+is Rs. 570, Rs. 560, Rs. 580, Rs. 690 and Rs. 550. |
+<< SSS
+Solve the absolute valued equations (1-6). .
+1. 8|x-3|=88 . 2. |2x+9|=30 | |
+3. |x—3|=-26 b/ 4, 3|x+6|=9x-6
+5, |x-3|=2x , 6. a 2 a,
+7. Explain, why the equation |3x-6|+7=4. has no solution. .
+8. Before the start of a professional basketball game, a basketball must be inflated to an air
+pressure of 8 pounds per square inch (psi) (Absolute error is the absolute deviation). Find
+- the minimum and maximum air pressure acceptable for the basketball.
+Solve the inequality and graph the solution (9-1 4). é
+9, |9x-1|<10 10. f2x=7[<1
+
+1. six+3 es zs 12. 3|14—x]> |
+
+, |3x-2| : : es» 2 ;
+
+3. |2X=4l<2 - 14.-———2= .
+
+ed | r \<2 1 | 4 3 ,
+
+15. An essay contest requires that essay entries consists of 500 words with an absolute
+deviation of at most 30 words. What are the possible number of words that the essay can
+have?
+
+Fn Linear and Quadrate Inequalities 9 Nita Book Foundation
+
+--- Page 93 ---
+
+- Solving Systems of Linear Inequalities |
+A system of linear inequalities in two variables or simply a system of inequalities consists of
+two or more linear inequalities in the same variable. As:
+x-y>9 Inequality I } kk .
+2x+y<9 Inequality I
+A solution of a system of linear inequalities is an ordered pair that is a solution of each
+inequality in the system. For example, (7, — 6) is a solution of the system A. .
+The graph of a system of linear inequalities is the graph of all solutions of the system.
+Example: Graph the system of inequalities: [ = es |
+x+y>−2 b |
+3x-—y2-6 ai pt ag
+Solution: | | N |
+* Step I: Graph both inequalities inthe same | — | hy
+coordinate plane. - __ 1% |
+Step IT: Find the solution of each inequality, 1 7 |
+Preferably taking (0, 0) as test point to decide | | ; |
+the solution region. | | Beal
+Step III: The graph of the system in the | _ | | |
+intersection of the two half planes. Which is | Ts
+shaded red. aa EEN
+| Check: Choose a point in the region such as (0,1). | This dark shaded region
+To check this solution, substitute 0 for × and I for y is a solution of these
+into each inequality. inequalities.
+Inequality I: | Inequality II:
+aie a 3x-y2-6
+| * aa 3(0)-12>-6
+pon: Tre -12-6 True — )
+¢ _ Graph each inequality in the cartesian plane.
+* Find the intersection of the half planes. -
+° The graph of system is the intersection.
+
+--- Page 94 ---
+
+Example: Graph the system: | ee — re
+x+ys4 | ce ey uae at |
+x—y<4 ' Nem ee Pe
+
+Solution: | phi alee pos ae
+
+. “, 4 | as oho ie a
+
+To graph the inequality x+y<4, we graph Sate |
+
+x+y=4  usinga solid line. We then consider | | ‘el
+
+(0, 0) as a test point and find that it isasolution, | | AN = |
+
+we shade all points in that region. | Lum , |
+
+Pes. SAT PEN .
+
+Next, we graph x-y <4. We graph x-y=4 | | Fe ‘ tee oN
+
+as a dashed line and consider (0, 0) as a test point. | LE See oT ;
+
+Again (0,.0) is a solution, wé shade that region. Feet oii ie Ce beast
+
+Finally, the solution set of the system is the region — ws : —
+
+that is commonly shaded in both inequalities. This dark shaded region
+
+} , is a solution of these
+inequalities.
+
+Example: Graph the system of inequalities. | | ae Ta ae! Panes eee | |
+
+x 2 −2 | Solution eer 4 |
+xS2 | ay |
+Solution: a |
+Graph two inequalities in the same coordinate , | | |
+system. telat |
+y=−2 (The region is above the line) |
+x=2 (The region is left of the line) | ora ee | fo
+1. Describe the steps you would take to graph the system of inequalities shown.
+_ . x-y <6......(Inequality I)
+y 23......(Inequality I)
+2. Tell whether the ordered pair is a solution of the system of inequalities. .
+a. (3,1), (0,0), (-3,1),(4,1); x+y» <Lx-y <2
+b. (L=1,(4,D,(2,0),(3,2); 2x-y $5,242 >2
+
+--- Page 95 ---
+
+. 3, Graph the system of inequalities.
+_ =x+ty<0 _ b x-y<0 .
+- x+y>3 " xty<l
+_ y-ax23 a² s-2
+c. site . .
+| y-2xs3 x22 .
+™ 2x+y<3 " yeys4
+ye2x=1 x<8
+"  p<nx+4 x—4ys-8
+4. Does the system of inequalities have any solution² x-y>5 —
+: x-y<l
+5. Open-Ended Question: Describe a real-world situation that can be modeled by a system of
+linear inequalities. Then’write and graph the system of inequalities.
+es have Learnt
+e Ona number line, the graph of an inequality in one variable is the set of points that
+represent all solutions of the inequality. .
+© To graph an inequality in one variable are an open circle for < or > and a closed
+circle for = or =.
+* Dividing / multiplying each side of an inequality by a positive number produces an
+equivalent inequality.
+_ © Dividing / multiplying each side of an inequality by anegative number and
+reversing the direction of the inequality symbol produces an equivalent inequality.
+© A linear inequality in two variables, such as ax +by <c is the result of replacing
+the “=” sign in a linear equation with <, <, > or >. -
+* A solution of an inequality in two variables × and y is an ordered pair (x, y) that
+_ produces a true statement when the values of × and y are substituted.into the
+inequality. ;
+. © The boundary line for an inequality in one variable is either vertical or horizontal.
+* Ifan inequality has only the variable x, substitute the x-coordinate of the test point
+*. into the inequality.
+¢ Ifan inequality has only the variable y, substitute the y-coordinate of the test point
+into the inequality.
+* A solution ofa system of linear inequalities is an ordered pair that is a solution of
+_ €ach inequality inthe system. _
+, * The graph of a system of linear inequalities is the graph of all solutions of the system.
+
+--- Page 96 ---
+
+es N1SCELLANEOUS EXERCISE-4 Ss
+1. Tick the correct option. ,
+i. The solution of the iriequality 6x—7 =2x+17 is:
+a. x<6 b. x36 c. x>6 " d. x26
+ii. . The solution of the inequality x<3 forx € Nis: ia
+a. {0, 1,2} b. {—2,-—2, 0, 1,2} ce. {1,2} © ad {I}
+iii. In general, we use a test point when graphing the inequality:
+. a. (-1,-1) b. (0,0) c. (2,2) d. (-3,-3)
+iv, The solution of the = <3-x is: .
+a x<2\_ b. x<6' c. x>2. d. x<-2
+v. Which-ordered pair.is a solution of the inequality 4x— y 2377?
+a. (0, 0) b. (1,2) - c (1,1 d. (0,−2)
+vi. Which ordered pair is a solution of the system 2x-—y<5 and x+2y> 2?
+a. (1,-1) be (4,1). c.: (2, 0) d. (3,2)
+vii. The solution for —5x 2-80 is: ‘
+a. {x|x<16} b. {x]x<16} - c. {x|x>16} d. {x]x216}
+_ viii. (7, -2) is a solution of the inequality;
+a..x-yp<—4_ b. 2x+y<10 c. x+10y<1 d. -x-y>-3
+Solve the inequalities, if possible, graph the solution. | | .
+9 x-421 3. 1-3x5-14+2x
+4. W(x-l)>-84+7x §.. -3(2x-1)21—-8x ,
+Graph on a plane..
+6. y>2x . rs 8 y2-5
+7.. y<3x — 9. x<6 |
+Graph the system of inequalities: |
+10.3x+4y212 0°, db yox2l
+5x+6y $30 . y-4<4 |
+12. 8x+5y 540 13. 2x+y S12
+x20 y20
+Write a system of inequalities for the shaded region described.
+14. The shaded region is a rectangle with vertices (2, 1), (2, 4), (6, 4) and (6, 1). -
+15. The shaded region is a triangle with vertices at (3, 0), (3, 2) and (0,-2).
+Pt ob Led ani lh hl

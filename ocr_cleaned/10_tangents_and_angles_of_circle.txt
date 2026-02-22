@@ -1,0 +1,566 @@
+============================================================
+CHAPTER: Tangents and Angles of a Circle
+Pages: 215 - 231
+============================================================
+
+--- Page 215 ---
+
+Se Feet . Gee So eae pSyt lo ty oe
+- wy 2 . ie - * =e - ee of “ SS an
+Tangents and Angles of a Circle.
+-* After studying this unit students will be able to: be
+| « Ifa line is drawn perpendicular to a radial segment of a circle at its outer end point, it is tangent to the |
+circle, |
+| - © The tangent to a circle and the radial segment joining the point of contact and the centre are |
+perpendicular to each other, ; ‘ °
+| « The two tangents drawn to a circle froma point outside the circle are equal in length.
+« — If two circles touch externally (internally), the distance between their centres is equal to the sum
+(difference) of their radii. |
+* The measure of a central angle of a minor are of a circle, is double that of the angle subtended by the
+| corresponding major arc. |
+* Any two angles in the same segment of a circle are equal,
+| * The angle in a semi-circle is a right angle. ‘
+
+* The angle in a segment greater than semi-circle is less than a right angle.
+
+| © The angle in a segment less than semi-circle is greater than a right angle.
+
+| * The opposite angles of any quadrilateral inscribed in a circle are supplementary.
+
+| ® Apply concepts of tangents and angles to real life world problems such as architecture, monuments |
+
+a and pyramids etc, 7
+
+Tangents have several important applications across various fields, particularly in mathematics, physics,
+
+engineering, and geometry. Some applications of tangents are:
+
+* Tangents play an important role in the study of curves. They are lines that touch a curve at a single point,
+perpendicular to the curve's radius at that point. Tangents are used to define geometric properties such as the
+radius, diameter, chord, and arc length of circles.
+
+* Tangents are used to design curves in buildings, such as arches and domes.
+
+* Tangents are used to design curves in roads, bridges, and other structures. By using tangents, engineers can
+create curves that are safe and efficient for travel.
+
+* Tangents are used to analyse the motion of objects. For example, whena car or bike travels down a road, the
+road becomes tangent at each location where the wheels roll. )
+
+. Tangent Line _- a mls
+
+--- Page 216 ---
+
+Tangent to a Circle |
+Tangent Line
+A line which touches the circle at only one point is called tangent line. A tangent line is
+perpendicular to the radial segment. More over the distance of tangent line from the centre is
+equal to radius of the circle.
+Theorem 10.1
+Statement: ~
+If a line is drawn perpendicular to a radial segment of a circle at its outer end point, it is
+tangent to the circle.
+Class Activity: —_ =
+(i) Draw a radial segment AB (AB) of a | a ii :
+circle as shown in the adjoining figure. / \
+(ii) Draw a perpendicular line PQ (PQ) at the ) At. |
+outer end of AB. | pO j
+(iii) Check whether PQ touches the circle at only \ | a /
+one point or not. _ a .
+Is PQ tangent line? P 8 C Q
+(iv) Take any point C on PG and join C to A.
+Why AC is not the radial segment? ~
+Theorem 10.2
+Statement: |
+The tangent to a circle and the radial segment joining the point-of contact and the centre are
+perpendicular to each other. .
+Class Activity: -<fs>~
+(i) Draw a radial segment AB (AB) of a circle as Lf, \
+shown in the adjoining figure. / \
+(ii) Draw a tangent PQ at point B. | At.
+(iii) Measure the angel between AB and PY
+tangent PO. ie. ZABC ‘ - | a.
+What is the measure of ZABC ? _— ee oe —»
+(v) Take any point C on PG and join F 8 Cc, Q
+~ Cto A. Which is shortest AB or AC ? Why ZABQ = 90° and ZACB # 90°?
+Corollaries: . ;
+(i) The line perpendicular to the tangent at point of contact passes through the centre of
+circle.
+(ii) The lines perpendicular to the diameter of a circle at its end points are tangents to the
+circle.
+Unit: Tangenis and amates of a Circle DTG) Sage Nata Book Foundation
+
+--- Page 217 ---
+
+(iii) The line perpendicular to the tangent of circle from centre passes through point of
+contact. .
+(iv) The tangents at end points of diameter of a circle are parallel.’
+Statement: , |
+| The two tangents drawn to a circle from a point outside the circle are equal in length.
+Class Activity:
+(i) Draw a circle with centre O. “5
+(ii) Take a point A outside the circle fo
+and join with O. f
+. _ (iii) Draw two tangents AB and AC. 0” T =
+where B and C are points on the circle. \ }
+(iv) Measure AB and AC. —
+Are they equal? ,
+Corollary: .
+The two tangents drawn to a circle from an outer point make equal angles with the line
+. Segment joining the centre and outer point.
+Theorem 10.4 |
+Statement: ,
+If two circles touch externally, the distance between their centres is equal to the sum of their
+radii.
+Class Activity: / hy
+(i) Draw two circles of radii 2 cm and 1 cm with centres / ‘a .
+A and B respectively such that the circles touch (eae ears
+externally as shown in the figure. ; \ z ©
+(ii) Join the centres of both circles by drawing AB. XQ /—
+(iii) Measure AB. It will be 3 cm. . ~~ _
+Is 3 cm equal to the sum of radii of both the circles? Can we write AB = AC + BC?
+Corollary: . ,
+If two congruent circles touch externally, the distance between their centres is equal to
+diameter of each circle. .
+Theorem 10.5
+Statement: .
+If two circles touch internally, the distance between their centres is equal to the difference of
+their radii,
+
+--- Page 218 ---
+
+Class Activity: . |
+(i) Draw two circles of radii 3.5 cm and.1 cm with centres A and B ——~
+respectively such that the circles touch internally as shown in fo \
+the figure. f ~~)
+(ii) Draw AB. , | oe .
+(iii) Measure AC. It will be 2.5 cm. \ et
+Is 2.5 cm equal to the difference of radii of both the circles? \ J
+Can we write AC = AB-— BC ? . a
+where AB and BC are radii of both circles.
+Corollary:
+If two congruent circles touch intarnally, the distance between their centres is equal to zero.
+Theorem 10.6 (Alternate Segment Theorem) .
+Statement:
+An angle between a tangent and chord of a circle through the point of contact is equal to the
+angle in the alternate segment.
+Class Activity: ae.
+(i) Draw a tangent PT and a chord PA at the point of he) /\
+contact T of a circle centered at O. Y « ff
+(ii) Measure ZAPT and note it. , \ oF |
+(iii) Draw angle ZABP in the alternate segment and A P . ,
+measure it. ; ry .
+You will see that ZAPT = ZABP
+Example: : tg
+In the figure, AB is tangent to the circle of centre P. f A — = = 15¢m
+(i) Express the length AP in terms of r.
+(ii) What is measure of ZABP? and why² og —EE
+sine, _ ss ie ei P Cc 93cm A
+(iii) What is the radius of the circle? \ i —_—————_*
+Solution: _ /
+
+. fi) AP=AC+PC=(9+r)cm
+(ii) ZABP = 90° because tangent line and radial segment are perpendicular to each other. }
+(iii) ABP is right angled triangle, therefore using Pythagoras theorem, we have:
+
+(AP)? = (AB) + (BP)? .
+=>: (9+ =(15P +r => 8ltr+18r=225+r
+“=> 18r=225-81= 144 => r=144+18=8
+.. Radius of the circle = 8 cm
+Example:
+In the figure, OP and OQ are tangents to a circle .
+centered at S. If ZPOQ = 40°, then find: |
+
+--- Page 219 ---
+
+ees O and S. | a [rvntooo-- BORE 0
+As OPS is right angled triangle, therfore: \ \) J =
+ZOPS = 90° | | hy
+. Also ZPOS = 20° (Half of 40°. OS is angle bisector of ZPOQ.) _
+Hence, ZPSQ = ZPSO + Z£QSO = 70° + 70° = 140° (ZPSO = ZQSO)
+(ii) In APQS, PS=QS_ (Radii of same circle) |
+, “. ZSPQ= ZSQP (Opposite angles of congruent sides of triangle)
+Let ZSPQ = ZSQP = × | |
+Then, × + × +.ZPSQ = 180° =>  2x+140°=180°
+=> 2 =180°-140° =40° => x=20° |
+7 Hence, ZSPQ =ZSQP = 20° 4
+Example: Find the measures of angles a and b in of
+the adjoining figure. . a
+Solution: _ . Ai \p \
+As OQ and OR are tangents, therefore: /\ ay
+Now OQPR is a kite, eo eS aS .
+2. 45° + 90° + a +90° = 360° na di
+As RS is nea a line and Fie “ ee ee
+/ ae ee _ centre O of a circle of radius 6 cm, is
+“ at £QPS=180° = 135°+ ZQPS = 180° 10cm: Find the length of tangents to.
+> ZOPS = 180° 135° = 45° ““thecireléfiomP.
+In APQS, PQ=PS_ (Radi of same circle) . a UE eae
+:. ZPQS= ZPSQ (Opposite angles of congruent sides of triangle)
+Then, b+ 5+ 45° = 180° - =>  2b+45°= 180°
+Example; Find the measures of angles x,y and z in .
+the adjoining figure. ~_. . .
+Solution: | ae
+We know that: \™
+ZBDC = ZBCA (Theorem 10.6) D A
+y = 60° Lz [607
+In triangle BCD: 7 OSL ne
+. S56°+y+z =180° oO
+Pins ime au Arg Of TEER NNT 21 Ye REN! Book Feidarion
+
+--- Page 220 ---
+
+=> z =180°-56°- 60° = 64° ,
+Now, .
+‘x= ZCBD (Theorem 10.6)
+=> x=56°
+1. Find the values of unknown in the following figures. .
+i) wha . jij) wo_w
+oo P12 em 0 P63 cm
+, ~x Sc y zen] \ > |
+>< | 7 > +
+ee ag =r"c
+- 8 pa 3A
+Waa _15em (v1) — TK \
+i _/_. 1 es va 490° KS
+) hb A: y , 120° \ Mey
+Ba _— B
+. \ / . A ° P | |
+é r B | | ~¢
+:
+
+--- Page 221 ---
+
+2. In the figure AB and AC are two tangents +B | : ;
+__ of acircle with centre O at point B and C ff ,rvr— _
+respectively. If ZBOC = 120°, then find: fo fl - : L ‘\
+' (i) ZOBA (ii) ZOCB , OF rani A)
+. (iii) ZBAC (iv) ZABC \ . | ee —
+3. O is centre of two concentric circles. AB and CD Pe nia.
+_ are chords of outer circle tangent to inner circle. A fog \B
+Prove that AB = CD. fF , \ |
+. bi c : = _ Po
+4. Ali is whirling a stone tied with a string of length 3 feet. All of a sudden string is broken
+and the stone moves along tangent direction of circular path and hits a point 5 feet away
+from Ali. Find the distance covered by the stone. g e
+5. Three circles touch externally. / \,
+The ratio of distances between centers NAY)
+is 2: 3:4, The perimeter of triangle f * <\ <—.
+joining the centers is 36 cm. / JA NT\ \
+Find radius of each circle. | a | |
+6. In the figure, AD = 5 em, CD=4 cm © oe
+and BD =4.5 cm. Find the distance a ~ /\\
+between centres of circles. / ra \— ~
+| a >
+7. In the adjoining figure, ZPEF = 20°. , G ,
+H is mid-point of FG. Find ZPGH. { “4 ast Al
+: E F
+1 Tagents inl rae of Cie QBN Nationa Book Foundation
+
+--- Page 222 ---
+
+8. In the figure, triangle ABC, AB = AC. si, ES sae
+Find the values of angles × and y. >
+geome’
+Angle in a Segment of a Circle
+Segment of the Circle .
+A chord of a circle divides the circular region into two parts, a
+called segment of the circle. fo \
+The region between chord and minor arc is called minor f ——alor Sepmenst \
+segment and the region between chord and major arc is
+called major segment. In the figure, the shaded region is ~ a a: SET
+minor segment and remaining region is major segment. = y
+Angle in a Segment oo
+An angle whose vertex is a point on the arc of a circle | Pa j yn
+and whose arms pass through end points of chord, is Lf RK \
+known as inscribed angle of the arc. f /er\}
+In the adjoining figure, angles a and b are examples of angles . ZN |
+in the segment. ANGEL ©
+
+' Major segment is greater than semi-circular region and always contains the centre
+of the circle while minor segment is smaller than the semi-circular region.
+Theorem 10.7
+Statement:
+The measure of a central angle of a minor arc of a circle, is double that of the angle subtended
+by the corresponding major arc. : P i" _
+Class Activity: E G .
+(i) Draw the circle O and take points E, F and G on the f I~) OO ,
+same segment of the circle, : J <\
+(ii) Measure angles E, F, G and central angle COD. ‘ \e- — ~\ 5
+(iii) Check whether: aN /
+24E=22F =22G=2ZCOD SN wn
+
+--- Page 223 ---
+
+* Prove theorem 10.7 by taking central angle ZCOD = 180° and ZCOD > 180° (reflex
+angle). ae ee i
+| _ Theorem 10.8
+Statement: Any two angles in the same segment of a circle are equal.
+Class Activity:
+(i) Draw two circles of different radii. ,
+(ii) Draw a chord AB in both the circles.
+(iii) Take three points C, D and E on the same segment and join them with end points of
+chord AB.
+. D , D
+(iv) Complete the following table,
+Are £C=ZD=ZE ? , -
+Result:
+Any number of angles in the same segment of a circle are equal.
+. Theorem 10.9 . } |
+Statement: }
+The angle in a semi-circle is a right angle,
+Class Activity: ;
+~ (i) Draw a semicircle O, sO
+(ii) Take a point P on the semi-circle and draw AP andPB, ~~ <3
+(iii) Measure angle APB.
+What do you notice² - ak \\
+You will see that angle APB is equal to 90°. \, ° /
+
+--- Page 224 ---
+
+Corrolary: .
+If an arc of a circle subtends a right angle at any point of the remaining part of the circle, then
+the arc is a semi-circle. |
+Theorem 10.10
+Statement: .
+The angle in a segment greater than semi-circle is less than a right angle.
+Class Activity: .
+(i) Draw a circle O. - a
+(ii) | Draw achord AB such that the centre lies in the Po JR
+major segment. /, j ™ LS , aN
+(iii) Take three points P, Q and R on the major segment f/f NN
+. and join them with end points of chord AB.
+(iv) Measure 4P=4Q=2R Ae 0 SY 5
+You will see that angles P, Q, R are less than \ J
+right angles (acute angles). “Mo”
+Theorem 10.11
+Statement:
+The angle in a segment less than semi-cifcle is greater than a right angle.
+Class Activity: ray
+(i) Draw acircle O. Pe Wok
+(ii) Draw achord AB such that the centre lies in the
+major segment. A EN B
+(iii) Take three points P,Q and R on the minor segment .
+and join them with end points of chord AB. \ is) | .
+(iv) Measure “P=ZQ=2R \ /
+You will see that the angles P, Q, R are greater than ON Pa
+right angle (obtuse angle)
+, Cyclic Quadrilateral -
+A quadrilateral inscribed in a circle is called cyclic quadrilateral. / , yy, co
+Or a quadrilateral having vartices on the circle is called a ak NN c
+cyclic quadrilateral. - . Ls _9 /,
+In the adjoining figure, ABCD is cyclic quadrilateral. YY Ny
+The four points on the circle are called concyclic. √2
+
+--- Page 225 ---
+
+Statement: ° |
+The opposite angles of any quadrilateral inscribed in a circle are supplementary. Or
+The sum of opposite angles in a cyclic quadrilateral is 180°. : .
+Class Activity: .
+(i) Draw acircle O and inscribe a quadrilateral ABCD in the circle as shown in the
+adjoining figure. D>
+(ii) Measure interior angles A, B, C and D of quadrilateral. iw
+(iii) Add ZA and ZC. .
+What is the sum of these angles? Yes! it is 180°. AK gM T
+(iv) Again add 2B and 2D. : CN)
+What is the’ sum of these angles? Yes! it is 180°. a VA :
+What is sum of opposite interior angles of cyclic quadrilateral?
+Example:
+In the figure, OP and 0Q are tangents to a circle __P a
+centered at S. If ZPOQ = 36°, then find: a / > \— oo
+(i) ZPSQ (ii) ZSQP ii) ZPTQ | Qi Oo)
+Solution: TK Yr, —_
+(i) Join O and. Len
+As OPS is right angled triangle, therfore: —a
+Also ZPOS ='18° (Half of 36°. OS is angle bisector of ZPOQ.)
+:. ZPSO=90° — 18°=729
+Hence, ZPSQ = ZPSO + ZQSO = 72° + 72° = 144°, (ZPSO,= ZQSO) :
+(ii): In APQS,PS=QS (Radii of same circle)
+“ Z3PQ=ZSQP (Opposite angles of congruent sides of triangles)
+Let SPQ = ZSQP =x
+__Then,x+x+ZPSQ=180° +4 2x+144°=180°
+=> 2x =180°- 144° =36° = _ x¥=18°
+Hence, ZSPQ = ZSQP = 18° ne
+(ili) As, the measure of a central angle of a minor arc of a circle, is double that of the angle
+subtended by the corresponding major arc.
+ie er en ee :
+“ ZPTQ = 5(ZPSQ) ==> × 144°=72° * P aw
+Example: / / \a20%8
+In the figure, A, B, C and D are points ona circle. \ -f)
+If ZPOQ © 100°, ZQRS = 120°, then find:
+(i) ZPSQ (ii) ZOPQ (iii) ZSPO #
+
+--- Page 226 ---
+
+Solution:
+(i) ZPOQ=100° (Central angle)
+As, 2ZPSQ is angle subtended by the corresponding major arc.
+= ZPSQ = 50° A cyclic trapezium is
+(ii) APQS is isosceles with OP = OQ = radii. Therefore: isosceles and its diagonal
+ZOPQ + ZOQP + ZPOQ = 180° | bisect each other. ;
+= 2Z0PQ + 100° = 180° (ZOPQ = ZOQP) jf \
+=> ZOPQ=80°+2=40° X 7
+(iii) PQRS is a cyclic quadrilateral. Therefore:
+ZSPQ + ZSRQ = 180° (Opposite angles in cyclic quadrilateral PQRS.)
+=> ZSPQ + 120°= 180° = ZSPQ= 180° - 120° = 60°
+Now, ZSPO + ZOPQ=ZSPQ => ZSPO+40°=60°
+= ZSPO = 60° — 40° = 20°
+Example:
+In the figure, A, B, C, D and E lie on the circumference of a circle. ——
+wii ib gk P ah’ @ 5 at Da or
+If ZABD = 46° and ZACB = 70° and ZBAB = 50°, then find: NS
+(i) ZDCA (ii) ZAEB ff 7
+(i) ZADB = ZACB = 70° (angles in same segments are equal.) ANIso 7 B
+In AABD:
+ZABD + ZADB + ZBAD = 180° E
+= 46°+70°+ ZBAD= 180° = ZBAD=180°-—46°~70° = 64°
+ZBAD + ZBCD = 180° (Opposite angles in cyclic quadrilateral ABCD.)
+64° + ZBCD = 180° = 64°+ (70° + ZDCA) = 180°
+~ => ZDCA = 180° — 64° — 70° = 46°
+(ii) ZAEB + ZACB = 180° (Opposite angles in cyclic quadrilateral AEBC,)
+| ZAEB +70°= 180° = ZAEB= 180°-70°= 110°
+1.’ In the adjoining figure 2P = 30°. | Fd ~\
+Find values of 2Q and ZROS. | {» |
+
+--- Page 227 ---
+
+2. In the adjoining figure ZBAO = 30°. = § SS
+Find ZABO, ZAOB, ZACB. A 7
+3. In the adjoining figure 2BAC = 40° and ye 7 \ aoe *
+ZACD = 60°, Find ZABC, ZBCA, 2 CAD. |
+4. In the figure, AOB is equilateral triangle. ei agee
+Find the measurés of ZO and ZC. / : NG:
+3. In the figure, AB is parallel to CD. ee
+Find the values of ZAEB, 2B, ZC and / Se |
+/ ol AA See ot AGS L
+6. Inthe figure, BG is diameter and CD is tangent “f A if ox
+touching the circle at B. If × = 30°, then find: f- ya Nea We
+(i) radius of circle - ff HARON i
+(iii) ZABC VV | INS, i!
+| (iv) ZEBD E IW ae
+
+--- Page 228 ---
+
+7. Inthe figure, ABCD is a square having side 10cm. sg, - é
+Triangle BOP is enlarged as triangle BCQ. Find: | oa, a
+(i) Scale factor of enlargement if OP = 2 cm. Ook \
+(ii) CQ | P\ | \
+(iii) ZBQC and ZBPO | KT? |
+(iv) AO ae a | /
+wo 7 ae R
+8. In the adjoining figure, ZQPR = 60°. Find: P |
+(i) ZQSR | PO
+(ii) ZPRS | {/ / » '
+(iii) ZPQS { So I)
+(iv) ZQTR” ? be | \
+(v) Why ZOTR is acute angle? SS La R
+9. Inthe given figure, P is the centre of the circle. al >, P
+and ZBPD =.130°. Find: — Os er \
+(Gj)  ZBAD sk pw... V
+(ii) <BCD | : i ) 130 Bes
+- (ii) += ZABC + ZADC Mie
+'B
+10. In the given figure, PQ I SR and 2QPS=95°. Find) =. | —R
+n egiven igure, PQ || SR and 2Q im ., f
+(ii) ZPQR “py 9° :
+(iii) ZPSR . ‘le ose §=0/
+11. In the adjoining figure, ZADC = 120°. | 5
+_ @i)_—“ Find 2BAC. ff 1200
+(ii) Find 2CAD if AD=CD. Pa \
+
+--- Page 229 ---
+
+12. In the figure, ZABE = 95° and 2BAE = 65° 5 sche , a:
+Find (i) ZECD (ii) ZCDE (iii) 2CED + er, gl
+AKY6s° 00 a |
+13. A circular wall clock of radius 1 ft is hung by a4 feet
+long string with a nail at P. /\
+_ (i) Find distance between centre of clock and nail. / / ) \
+(ii) How far above the clock is the nail? . oo = :
+
+14. A wooden wheel moving on the ground is 99cm away from a point A. Find diameter of
+the wheel if the distance between centre of wheel and point A is 101 cm. How much
+distance does the wheel cover in one round?
+
+S82 "En
+A7IN
+| % Ifa line is drawn perpendicular to a radial segment of a circle at its outer end point, it
+no is tangent to the circle. .
+_ * The tangent to a circle and the radial segment joining the point of contact and the
+. entre are perpendicular to each other,
+‘*» The two tangents drawn to a circle froma point outside the circle are equal in length.
+* Iftwo circles touch externally (internally), the distance between their centres is equal
+to the sum (difference) of their radii. . oe ma
+
+--- Page 230 ---
+
+* The measure of a central angle of a minor arc of a circle, is double that of the angle
+subtended by the corresponding major arc.
+“* Any two angles in the same segment of a circle are equal.
+“* The angle in a semi-circle is a right angle.
+“ The angle in a segment greater than semi-circle is less than a right angle.
+“> The angle in a segment less than semi-circle is greater than a right angle.
+“ The opposite angles of any quadrilateral inscribed in a circle are supplementary.
+1. Encircle the correct option in the following. -
+i. A tangent line touches the circle at ........... point(s).
+(a) 1 (b) 2 (c) 3 (d) 4
+ii. A tangent line is ............... to radial segment.
+(a) parallel (b) equal (c) perpendicular (d) similar
+iii, How many tangents can be drawn on the circle from a point outside the circle?
+(a) 1 (b) 2 (c) 3 (d) infinite
+iv. If two tangents are drawn on both ends of diameter of a circle, they are:
+(a) perpendicular (b) parallel (c) intersecting (d) none
+v. Given that radius of a circle is 4 cm. The distance between two tangents drawn
+at the outer ends of diameter is: |
+(a) 2cm (b)4cm (c) 6cm (d) 8cm
+vi. How many tangents can be drawn on the circle from a point on the circle?
+vii. Two tangents drawn from a point outside the circle are:
+(a) perpendicular (b) parallel (c) not congruent (d) congruent
+viii, If two circles touch externally, the distance between their centres is equal to
+sum of ........,.-. of both circle.
+(a) radii (b) diameters | (c)circumferences = (d) area
+ix. If two congruent circles touch externally, the distance between their centres is
+equal to ........... of a circle.
+(a) radius (b) diameter ‘ (c) chord (d) sector
+x. If two circles of radii 1.4cm and 2.5 cm touch internally, the distance between their
+centres is equal to:
+(a) 1.4 cm - (b) 2.5 cm (c) Liem .° (4) 3.9em
+xi. Angle subtended by an arc at centre of circle is called ...........-. angle.
+(a) reflex (b) inseribed —_(c) straight ~ (@) central
+xii. An angle inscribed in a half circle is:
+(a) 0° (b) 45° (c) 90° (d) 180°
+P Uniet0s Tangentsand Angles ofa Cele 230 a ik ii
+
+--- Page 231 ---
+
+xiii. If central angle of minor arc of a circle is 100°, angle inscribed in corresponding
+major arc is:
+(a) 200° (b) 100° (c) 75° (d) 50°
+xiv. Central angle of minor arc of a circle is: )
+(a) less than 360° (b) less than 180°
+(c) greater than 360° (d) greater than 180°
+xv. Central angle of major arc of a circle is:
+(a) less than 90° (b) less than 180°
+(c) greater than 90° . (d) greater than 180°
+xvi. All angles in a same segment of a circle are:
+(a) equal (b) acute (c) obtuse (d) supplementary
+xvii. If ABCD is a cyclic quadrilateral and 2A = 60°, then 2C=......
+(a) 180° (b) 150° (c) 120° - (d) 60°
+xviii. An exterior angle of a cyclic quadrilateral is ............ the opposite interior
+angle.
+(a) greater than’ (b) less than (c) equal to - (d) supplement of
+xix. Inscribed angle ofa quadrant of a circle is:
+(a) 45° — (b) 90° —— (c) 145° (d) 130°
+xx. In the figure, angle @ is equal to: A _ op
+(a) 45° (b) 94°
+
+2. Inacircle whose diameter is 12 cm, there is a central angle whose measure is 90°. A
+chord joins the endpoints of the arc cut off by the angle. Find the length of the chord.
+
+3. The diameter of a circle is 20 cm long and a chord parallel to it is. 12cm long. Find the
+distance between the chord and the center of the circle. }
+
+4. In acyclic quadrilateral ABCD with sides a = AB, b = BC, c = CD, and d= DA, and
+diagonals p=AC and q=BD. Wecan express diagonals in terms of the sides as:
+p*q=(a*c)+(bxd). :
+Find qifa = 4cm,b= 5cm,c= 6cm,d = 3cmandp = 8cm. A << a>. B

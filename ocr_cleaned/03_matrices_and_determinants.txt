@@ -1,0 +1,787 @@
+============================================================
+CHAPTER: Matrices and Determinants
+Pages: 55 - 77
+============================================================
+
+--- Page 55 ---
+
+Lee eta eee i EN a a a teres ;
+Baie arate RS , Le a
+Po, oe ee Rr <a
+Matrices And Determinants
+
+After studying this unit students will be able to: !
+. | ¢ Display information in the form of matrices of order 2. igbaes |
+e Calculate product of scalar quantity and a matrix. , |
+| e Solve situations involving sum, difference and product of two matrices. — - |
+| « Evaluate the determinant and inverse of a matrix of order 2 by 2. :
+* Solve the simultaneous linear cquations in two-variables using matrix inversion method and |
+Cramer's rule, -
+e Explain with examples, how mathematics plays a key role in the development of new scientific |
+theories and technologies. ;
+| «# Apply concepts of matrices to real world problems. |
+ae Re eee |
+Matrices are used for’ solving ea sbap eile ie a A Pee Ti AH EM ean
+system of linear equations by ordinal ho 6G hiabskicery ae: |
+several methods. These methods —_—* f Peigcd <4 ences |
+are used in computer programs, [ |* ty =7) =y at a er, [7] ee
+in traffic flow, schedule airline J \*- ¥ = 3 Valens yrs AE 2) |
+a | a ‘it re i i — eel fe) 4 : Pel a
+flights, engineering, accounting, a. we feegee | (5 6) fees!
+economics etc fie a seve cee RS ana |
+| | ei tc d) [Ree (* ¥] fae
+ee |
+
+--- Page 56 ---
+
+Introduction of Matrices |
+In a mathematical quiz between girls and boys, Class 8 (girls) scored 95 points, class 8 (boys)
+scored 97 points, Class 9 (girls) scored 93 points, class 9 (boys) scored 90 points, class 10 (girls)
+scored 96 points and class 10 (boys) scored 94 points. This information can be displayed as under:
+gh goth 79%
+Q=(95 93 96] girls
+”  ~. .,| boys
+This method is no doubt easy to write and manipulate. In 1850, Sylvester introduced such
+rectangular arrangement and he named it ‘Matrix’. Later Hamilton and Cayley made further
+significant contributions to the Matrix Algebra, Today matrices are being used in almost every
+academic discipline in building models, organizing data and solving real world problems.
+Matrix (plural Matrices) . .
+A Matrix is a rectangular arrangement of numbers. |
+nema IfA= [a] is a matrix, with only one
+e.g. [7] ; ? , , {5 6], [0] rowandonlyonecolumn.Canitbe
+21°15 6) called a row matrix or a column
+matrix² A Model Matrix .
+95 93 96) R.- | _
+MairicName*—Q=197 99 94] ne — P70 }
+Square bracket a it i i 5 ) |
+an Ke i i | ac f 2 : _ _ __ 7 : _ _ a _ - _ __ 7 :
+© | Thenumbers used ina matrix are called 'elements' or'entries' of the matrix.
+e Elements ofa matrix are written within the square brackets in'a definite order, in rows and
+e Capital alphabets are used to name a matrix while elements of a matrix are usually
+represented by small alphabets and numbers.
+Row: Horizontal arrangement of elements in a matrix is called a row.
+First row and second row of a matrix are represented by Ri and R2 respectively.
+Column: . Vertical arrangement of elements is in a matrix called a column.
+[5 2 6)
+First column, second column and third column of a matrix are represented by Ci, C2, C3
+respectively. .
+| Nini AMatices And Detertnaile ne SG Nallal Book Foundation UntieO: Matrives And Determinants pes. AG.) Beate Wass ets a NAN ATRLR Bok ame
+
+--- Page 57 ---
+
+The number of rows and columns may be equal or unequal in any matrix, however the number of
+elements in different rows and in different columns remains the same. In ; ; 9) there are 2
+rows and 3 columns. There are 3 elements in each row and 2 elements ineach column.
+Order of Matrix
+If ‘A’ is a matrix with ‘m’ number of rows and ‘n’ number
+of —_ then order of the matrix is m-by-n. Tue taaitices aks eqiiivalent
+Order of [3 is 2-by-1 i.e. 2 rows and | column. if and only if they have same
+Equal Matrices
+Two matrices are said to be equal if and only if their: *
+(i) orderissame (ii) corresponding elements are same.
+Example: .
+Check whether the following pairs of matrices are equal or not. Mention the reason in each case.
+ay [v4 _ [27 |
+© bane = [os]
+. ® Matrices on both sides of equality are of order 2-by-1
+° Corresponding elements of the matrices on both sides of equality are also equal. |
+Hence both matrices are equal.
+(ii) A= Ped ,B=[13 17] , |
+Order of matrix A is 2-by-1. Order of matrix B is 1-by-2. Order is different, we can say A + B.
+GiE= ¢] . F-[3 2] rnin
+Since the corresponding elements are not equal. -. E+ F, Can you find the value of x
+Example: 7 from A al I.
+Find unknowns from the following if possible. Mention the reason, if your
+[* +2 065 | = (? >] answer is no.
+13 y-4)"l3 7 .
+Comparing the corresponding élements of two equal matrices, we get ©.
+“x+2=9,5=5,3=3, y—4=7. .
+Now from × + 2=9, we have x=7 and from y — 4 = 7, we have y = 11.
+ot, Types of Matrices
+Row and Column Matrices
+| A matrix having only one row is called a row matrix while a matrix having only one column is
+called a column matrix,
+Row matrices: [5 3], [a+s+d], [= | : )
+Antimn matieac [2] [@+S) fs) _
+-olumn matrices: [ AF (° + ah [E].
+SUnie lh Matic And Deterinantt. 222 SJ ca ESE Nollonal Book Foundation”
+
+--- Page 58 ---
+
+Rectangular Matrix .
+A matrix with unequal number of rows and columns is called a rectangular matrix.
+fate cp fi 4 7] rs
+jd+e f | ; | > 3) 3) and |~ | are all rectangular matrices.
+lgth i] |3 £8 6]
+Square Matrix |
+A matrix with equal number of rows and columns is called a square matrix.
+( : |: 0 8 = 2 | and [5] are all square matrices.
+2 5 11 .
+Null Matrix (Zero Matrix, Additive Identity Matrix)
+A matrix of any order, having all the elements equal to zero, is called a null matrix.
+A null matrix is represented by capital English alphabet ‘OQ’, while its elements are all zeros.
+Null matrices may have any order.
+O2 -( al O1= [0], O12= [0 0] are all null matrices. .
+Diagonal Matrix
+A square matrix in which every element except the primary (principal) diagonal elements is zero
+is called a diagonal matrix.
+A -|√3 8 | B= F ah -C=|0 © Ofarediagonal matrices but D -( >| is nota
+.0 15 0 SI. 3 ol
+diagonal matrix.
+Scalar Matrix .
+A diagonal matrix in which all the elements of primary diagonal are equal and non-zero is called
+ascalar matrix. .
+mS oO]. — ee Dep’ at CL < ‘O 5]. not a scalar matrix, since its pi mary
+P= 0 si: is a scalar matrix of order 2, but Q= 5 al is nota sealar matrix, since its primary
+diagonal clements are zeros and secondary. diagonal elements are nonzero.
+Some more examples of scalar matrices are:
+«(3+7 0 0
+[; 0 | [ 2 0 | | oO 20 0
+ogo Yorl3-3 4+2!| 2 |
+0 v9 i 0 0 2x5
+Unit Matrix (Multiplicative Identity Matrix) ee ett ci ect
+A scalar matrix in which all the primary diagonal elements are equal to I, is called a unit matrix.
+Unit matrix is represented by I.
+1 0] eae
+
+--- Page 59 ---
+
+Write the most appropriate type of following matrices.
+, [25,0 fo 3) | Se
+5 ~10 = , B=(, al ; as 5_4 35. |
+ie ae i: ‘ kesek2 5x3 |
+Transpose of a Matrix
+If rows (columns) of a matrix P are changed into columns (rows) then the resulting matrix is called
+transpose of the matrix P. Itis represented by P’. ,
+Example: ms
+If a matrix G represents number of gold medals and silver medals won by three friends, as under:
+Gold = Silver
+medals medals .
+[s 3] Azka _
+G=| 5 6| Aemen then find g'. ok
+11 | eheansa If order of a matrix P
+Solution: — Azgka Aemen Khansa bar: ve cnen ceder
+wt a of p' is n-by-m. :
+_t_|> 2 1 | Gold medals A
+S13 6 7| Silver medals
+‘ Symmetric Matrices and Skew Symmetric Matrices
+eee
+From the following, check for symmetric and skew symmetric matrices.
+, If § F sl then, § [3 =|. . a
+As S=S', therefore S is a symmetric matrix.
+If T=[2 7] en T=] iby. seaeeah
+As T #T', therefore T is a not a symmetric matrix. eae ic ee
+‘If v-| 7 | i rine aah eet es a
+. l=2 OI .
+As V=-V', therefore V is.a skew symmetric matrix. — '
+B03 Sarices And Determinants ST Nios! Bak Fondation
+
+--- Page 60 ---
+
+© All the square matrices of order 1 are symmetric e.g. [9].
+e All the symmetric matrices are square but every square matrix is not necessarily symmetric. —
+1. Write the number of rows, columns and order of the given matrices.
+a am ace? my fats 07 ~. fF] 4) [442x145]
+@ H+2 4451 © [75° gy) OG] @ 4+2x14+5)
+2. Check whether the following pairs of matrices are equal or not.
+(a) lo 1 " IE 5 _ ‘ (b) {1 2 3], [1+2+3]
+: vr. v16 — 16|
+4 5x5 3x0
+7v{1} fy pa fl FO 040) 25 “7 |
+ii Bt Ll @ loxo"1 = ob ; —174+15 17x A
+3. | Hyder, Hassan and Ahmed scored 7 points, 11 points and 10 points respectively ina
+mathematical quiz. Display the data in a row matrix (R) and a column matrix (C).
+4. Write the most appropriate type of the following matrices.
+; a m6 07 A 0 0 7 «- 15™3
+(a) Fs 5 (b) lo 3 +0 (c) [FI
+| vers 17+15 — 32 —.) [ 642 07
+18-19+1 % Tm *
+5. Check for symmetric and skew symmetric matrices from the following. .
+(d) E 0 (e) [_s 0
+6. Write asymmetric and a skew symmetric matrix of order 3.
+Addition, Subtraction and Scalar Multiplication of Matrices
+Addition and Subtraction of Matrices
+Two matrices can be added or subtracted only if their order is same.
+Consider A = A ,B=[5 3],C= [I Here addition and subtraction of A and B is impossible
+because their order is not same.
+However, addition and subtraction of A and C is possible as their order is same.
+
+--- Page 61 ---
+
+e Inthe process of addition or subtraction of matrices, only corresponding elements are
+added or subtracted. |
+¢ Matrices of same order are conformable for addition and subtraction.
+Example: If 4 = [7.9] and B= [7] then find A+B, A—B, B+A, B—A.
+cee ap (2-3) 1 781.2 —3+ 78] _[77
+Solution: A + B = 65 ]+ 5-2] = [654 9-2 J= [72
+4p —[2-—3)_|] 78 ]_-[2-3-78]—[-79] epee
+4-B=["65"]-[o~a]=[és— 9 42 I= I sel
+Stet Raga [78t2—-3 ] [77] | Can you add
+B-A =| 78-2+-3 J=[ 73 ] Mae Res
+Scalar Multiplication of a Matrix ot
+Scalar multiplication of a matrix means multiplication of a matrix with a constant.
+If a matrix ‘C’ is multiplied by 2, then each of its element is doubled.
+¢ cH l2 9) wan o¢a>, [2 O]-f2x2 2x0])_[4 0
+Ht c= [5 og] then 2c=2x[F o]-D Xs 2x almli2 ol
+Commutative Property of Matrix Addition
+If A and B are two matrices of same order, then A+B=B +A, is called commutative property
+of matrix addition. .
+Example: .
+If P= F sland = [; sh then verify the commutative property of matrix addition.
+Solution: } i
+Commutative property of addition for above matrices is P + Q=Q+tP.
+HS:P+Q=[) oh ol bes 949 [sal |
+me QrP [5 le d-bt2 otal-ls ae
+As, P+Q=Q+P, therefore commutative property of matrix addition is verified. |
+EE Cc heck F ai i i: : : E ; = _ ™ _ i = : - |
+Can you verify the commutative property of matrix addition for:
+A = [x] and B = [x y]? ) ; a
+Associative Property of Matrix Addition
+IfA, B and Care three matrices of same order, then (A + B)+C=A+ (B + C), is called
+associative property of matrix addition, °. .
+
+--- Page 62 ---
+
+ee fio 12) =f 5] at
+Example: If R = ° : S= 4 7 | and T= s 7 | then verify associative property of
+mairix addition.
+Solution: Associative property of addition for matrices is (R-+S) +T = R+ (S+T).
+A FL 10 12] fd SS] P9410 7412) PL 5]
+LHS:(R+S)+T=|(5 3)4+]13 7))+/6 7|=|5+13 3 +7) G |
+: =|18 10}/+|6 7 | = pe +6 1047 | = 4 u
+R.H.S:R+(S+T)=|5 3)+]])13 7 I+ 6 7 \
+is 6) \i54+5 24+(-4)],
+=|5 314/19 14)=|54+19 3+ | =|24 |
+As, L.H.S = R.HS, therefore associative property of matrix addition is verified.
+Additive Identity in Matrices
+Additive identity is such a matrix which causes no change in any matrix A while ‘adding to’ or
+‘subtracting from’ it. Any matrix and its additive identity matrix have the same order.
+IfA aa then O = 9 is the additive identity of A. T aking Ss aiiceil and B of game
+a mes order, verify that:
+It is observed that A+O=OQ+A=A Gi) : k(A 3) =kA +
+If B= [√7], then the associated additive identity (ii) (h+kK)A=hA+kA
+matrix will be O1 =[0]. ) Se ype z pee :
+where h and k are constants.
+Additive Inverse of a Matrix . |
+Additive inverse of a matrix ‘A’ is such a matrix which when added to Ay gives additive identity
+matrix of the same order. __ Z y -
+Example (a): If X= ‘| then find ‘-X’. —* )
+ple (a) Ls A son 5 4 e Matrices A and B are called
+(b): Find T from 5 Es [* A -2T= F 31 additive inverses (negative) of
+mC eS OT each otherifA+B=0.
+Solution (a): If X =| - al then —X =| 9 >| e Additive inverse of a matrix has
+— = . the same order as that of the
+ay «xl? 219 T= [2 5| matrix.
+Sx3 5x2] 57_f5 4
+7 E x1 5™x al at [3 2|
+
+--- Page 63 ---
+
+fiS 10) 57_f5 4) _ _5__J[5 4) _[15 10
+=[p 9]-27 A al > -2T-[3 ol-[s ol
+_, 57. [5-15 4-10]_ f-10 —6]
+2-2T= [Roe oool= ta 3] ,
+[-10 -6
+- _7if-10 -—6) _|-2 -2] _f5 3
+=T-31, al-]2 zl-G 3!
+Multiplication of Matrices
+Two matrices A and B are conformable for product AB, if: .
+number of columns in A = number of rows in B .
+- Example: . )
+IA=|5 _5]-and B=| [ |, then find AB and BA, if possible.
+Solution: .
+Finding AB
+As number of columns in A= 2 = number of rows in B. So, product AB is possible. ,
+ap - 5 3 [e)-[Sx8 +3) a4 -|” + . |
+~  |D 42) \@rlax@+e2)x@] "16 - glo l-2s
+Here are — 4
+— £_______¥' lclements of Ci of B |
+Finding the sum of products of corresponding elements of Ri of A and C; of B. .
+, -£___ | elements of C.of B, |
+. Finding the sum of products of corresponding elements of R2 of A and C; of B. os
+Finding BA ,
+Since number of columns of B = 1, but number of rows in A = 2.
+So, product BA is not possible.
+A)
+* In multiplication, the first matrix contributes its number of rows and the second matrix
+contributes its number of columns, in the resultant matrix. i.e. If order of matrix A is m-by-n
+and order of matrix B is n-by-p, then order of AB is m-by-p.
+¢ If A and B are two matrices which are conformable for product AB then B and A are not
+necessarily confirmable for product BA.
+,
+
+--- Page 64 ---
+
+Example:
+Check whether the following pairs of matrices are conformable for multiplication or not?
+Mention order of product if possible.
+@® A=[s]anaB=[3] dy E=(3] andF=[)| |
+Solution:
+@ A=[3]andB [3 .
+Here, number of columns in B 4 number of rows in A, so product AB is not possible.
+, pall are atangR=f®
+(i) E=[3] =[6 3] andF= 3]
+Here, number of columns of E = number of rows of F. So, product EF is possible.
+Order of E is 1-by-2 and order of F is 2-by-1, so order of EF is 1-by-1.
+Example: If A= F 3] and B= [i ‘| then find AB and BA. Also check whether
+AB = BA or not, What is concluded from the result?
+Solution: AB=[> 6] » 4 sl ye
+= bs x7) + GX4) (5X2) + 3X I [fAandBarediagonal
+BA l, al * 2 sl
+a [i xot2x² IxS+2x 6
+4x5+9x2 4x3+9x 6!
+_ | 35+4 21+ =| _ 2? 33)
+We see that AB # BA.
+From this result it is concluded that:
+Commutative property does not hold in matrix multiplication, in general.
+Associative Property of Matrix Multiplication
+Associative property of multiplication holds in matrices. If A, B, and C are matrices and products
+AB and BC are possible, then:
+(AB) C=A (BC) |
+Example: Verify Associative property of matrix multiplication for:
+X= F sh Y= [5 4 | Z= lal ,
+Solution: Associative property of matrix multiplication is: (XY)Z = X (YZ)
+to ww² -(f 37 7-77) (§=[% 1+3x5 sxtnaeeal °)
+LHS: (XY)Z = (5 s * F 4 )) × 4 2x14+6x5 2x(-7)+6x 414
+
+--- Page 65 ---
+
+[20 -23][6] [20x6-23x4] [120-92 | 28 |
+: ~ “I32 10 |[4] [32x6+4+10x4] [192 +40] ~| 232.
+ruc xyewrnal> 31/11 —-71y[61)_[5 3]f1x6+(-7) x4
+RES: X{(YZ) Be: l*(([s 4 }x[aD- > all Sx6+4x4 |
+_[5 3), [6—28]_[5 3] [—-22]_[5 × (-22) +3 × i = [28
+7 Lb A " L30 + 161 - D | x| 46 — F × (—22) + 6 × 46] L321
+As L.H.S = R.H.S, so associative property of matrix multiplication is verified.
+Distributive Property of Multiplication over Addition / Subtraction
+e A(B+C)=AB+AC (left distributive property of multiplication over addition)
+e A(B-C)=AB-AC (left distributive property of multiplication over subtraction)
+Example (a): Verify A(B + C) = AB+ AC ,
+A=[5( 2],B=[ land Cc I. |
+(b): Verify A(B— C)= AB - AC if A=[2], B= [5], C=[7].
+Solution: | .
+ce care ave. 1/161 111). ce 6+1)_ ;- 417)
+@LHS; ABt+O=[5 2I([{]+[)- alpysl=6 2I[f]
+| =([5x7+2x 6] =[35 +12] =[47]
+RHS: AB+AC=[5 2] Che 2][5]= 15 x6+2% 4] + [5x 1+22]
+= [30 + 8] + [5 + 4] = [384 9] = [47]
+Comparing both the results, it is concluded that L.H.S = R.H.S
+. Left distributive property of multiplication over addition is verified.
+) on 4], . [4]. fa].
+| , 8x (−2)] l-16!
+pic an.ac =! [e1_| 4] 7145] _ [47
+R.H.S: AB- AC =[*][s5]-| “|[7] = _ [4x
+HES: ABs AC [alls] i =[5 xsl [sx]
+| _ [20] _ (28)_/-8] a
+| liol- [eel = [tel
+From both the results, it is concluded that L.H.S = R.H.S
+.. Left distributive property of multiplication over subtraction is verified.
+(A +B)C=AC+BC (Right distributive property of multiplication over addition)
+(A-B)C=AC -—BC (Right distributive property of multiplication over subtraction) -
+
+--- Page 66 ---
+
+Multiplicative Identity in Matrices :
+Multiplicative identity is such a matrix which causes no change in any matrix A when multiplied
+e Multiplicative identity matrices of orders'1, 2, 3, ...n are represented by li, b, Is, ... In
+or simply by I. ) ,
+e If] is multiplicative identity matrix of square matrix ‘S’, then IS = SI=S. .
+° [i ih [I [1 1] etc. are not multiplicative identities. .
+e Since multiplicative identity matrix can never be a rectangular matrix, so multiplicative
+identity matrices are only possible for square matrices.
+e Commutative property of matrix multiplication can hold in particular cases:
+() AxI=I1xA =A GfA and I are conformable for either multiplication.)
+(ii) BxO=OxB=0O (if O and B are conformable for either multiplication.) —
+1. Find x, y, z, from the followings, if possible. Mention the reason if not possible.
+oy Eis end 6 a,{6 31_[7 3 [2X] <a 201
+— @k Il 9» of eid © [3%] -f-10 20)
+in [2x 3y-[8 6] @/* AGP -6] «@lel=lx a
+(d) lar 101 =(32 tol (c) ¢ x+y! F ey 6 q ~~ ; |
+[ety] — 11] 75 107,75 yJ_f2z 15]
+~ f*)_136)-5/-24) «al* YY Aaexf 3 2=[° 0° 07
+) 5[3yl - [eel = 2| y | ol, 24 slt2*lh 6 i=l 8 ul
+2. Find the additive inverses of the following. |
+R=|7 -9 -1|, S=|3 -6|.T=[5 -6 1).
+8 5 6 -9 4) 1 ;
+ae aefS 3) pal 8) c=f'5 6 1len ea. |
+3. If As fey al = [25 al. C=[ _S.,| » then find |
+()2AHB-ZC (ii) A-ZB | :
+ae aul 21 pelt 2. cHf? % v-fLe-[% 2 .
+at A=[5 2b8-[3 Sh cn[s ob² lebe-[6 ol
+Then check whether: (i) A+B=C @i)C+D=E (iii) D+ D=E (iv) E-D=C
+5, Taking matrices A and B from Q.3, verify commutative property of matrix addition.
+6. Taking matrices A, B and C from Q. 3, verify associative property of matrix addition.
+7, Taking matrices A and B from Q. 4, verify that A'+ B'= (A + By
+
+--- Page 67 ---
+
+8. Find the matrix ‘Z’ from these equations.
+al 5] _e7 — JE l√45] ay 715] 2 27_]9] .
+(i) 4[ Fol ~5Z=√5 k VE | (ii) Z+ [>] = 3Z- [3I- 7
+9, (a) Mention the order of the indicated products where possible.
+@® [5 ok 3] @ & alx[; gl Gd[, ol × [3 —
+(iv) [I × Pr aI (v) [5] × fs | (vi) E 4 | x[5]
++ ee + re at ¥ va ante ana. [-2
+(xiii) [3 × [5 10] (xiv) E | | × [; A (xv) B al x[5 -2]
+(b) Perform the indicated products in part (a) where possible.
+to. walt (pel? 1] angc-l32 | the
+10. A=[, 3) B=[ —] ndc=[*, 3] then ,
+(i) Find AB and BA, check whether AB = BA or not?
+(ii) | Find AC and CA, check whether AC = CA or not?
+(iii) Verify A(B+C)=AB+AC |
+(iv) Verify (A-B) C=AC—BC .
+(v) Verify the associative property of matrix multiplication. )
+(vi) Find A?, B?, A+B, A- B,(A+B)(A —B), A?-B?,
+(vii) Check.whether (A + B) × (A—B) = A?- B? or not?
+(viii) Check whether (A — B) × (A + B)=A?— B? or not?
+(ix) | Check whether (A + B) × (A — B)=(A-—B) × (A + B) or not?.
+_ (x) Verify that (AB)' = BYA' and (A'!'= A |
+Multiplicative Inverse of a Matrix :
+Before we discuss inverse of a matrix, we need to examine the determinant of a matrix.
+Determinant ofa Matrix = . |
+When a matrix has m rows and n columns, it is called an “‘ m-by-n” matrix and is also called
+dimensions of a matrix. If a matrix has the same number of rows and columns, it is called a square
+matrix. With every square matrix is associated a number called its determinant, defined as follows °
+for 2-by-2 matrices:
+The determinant of its matrix ; ‘| isdenoted ; | andis defined as follows: ,
+Cl nad —oe | |
+
+--- Page 68 ---
+
+Example: - —
+Find Al, when A= [P e. eet ) ; . _ BO
+) Is rs 3} The theory of determinants is attributed toa .
+Det A=|A]| = F 31 German, Gotttfried Wilhelm Leibiz. His work
+pee eee expanded upon the earlier work of Japanese
+~ 6S × 3) - (6 × 2) mathematician Seki Kowa.
+e Every square matrix has a determinant either zero or nonzero.
+e Determinants can be represented by Di, Dz, Ds,... .
+e The determinant of a matrix is not a matrix rather it is a number.
+© While writing determinant of a matrix, the elements of the matrix should bewritten inside
+the vertical bars instead of brackets used for matrices.
+Example: Evaluate the determinants |
+bp, =|," 3 |=C4x-2-@x =8-8=0
+dp = |S √4| = Sx -√8) = IT × VA) = -(√5)" — VE=-5-2=-7
+Singular and Non-singular Matrices ; . .
+Example:
+From the followings, check for the singular and non-singular matrices.
+A={; 6 | B= 3 √5) |
+Solution: [4] =|2 10|=5x6—3x 10 = 30-30 =0
+As |A| = 0, therefore A is a singular matrix.
+pil? 2° | Fae Can you find determinant of
+1B 3 v5 7S 0. | a rectangular matrix² As |B| + 0, therefore B is non-singular matrix. ”
+Adjoint of a Matrix
+Adjoint of a square matrix A (of order 2) is a square matrix obtained by:
+(i) interchanging the positions of primary diagonal elements of A.
+(ii) changing the signs of secondary diagonal elements of A.
+
+--- Page 69 ---
+
+Adjoint of matrix A is represented by adj A.
+wea 15 3] Eeaeilauiue an cades Cr-3) apc (−2 3]_.. 7
+, elements rd — . .
+Finding Multiplicative Inverse of a Matrix
+Any matrix A=]. a , will have an inverse A™ if and only b d #0 mean Aisnon singular.
+e @ a |
+_ Then Av =———|.__-__|. We canalsowrite: A’ =———— A djoint of A. -
+-ad—be|-c a ad —bc
+Example: If A=|— _|, find A”.
+Solution: A= > 6\’ Compute the value of the determinant A.
+a ,
+-|Al=l)  |=5x6-4x2=30- 8 =22,
+, 2 6 , .
+' . Since the determinant does not equal 0, therefore A” exists. ,
+1 176 -4 _ aS, -
+Aten _ |, use formula: A™ Da! Adioint of A.
+22|-2 5 ad —be
+‘This can be written as: A~'= ms aa = I ¥ -
+2 Ss) ya 5
+¢ Inverse of a square matrix, if exists, is unique and(A~2)~1 = A.
+. ¢ A matrix A is invertible if its inverse.exists.
+© ATASI, Lis identity matrix. '
+Example: If B= gap find B™ also verify that BB“ = B™ B=I. :
+ei mam. [Oe d ; | set oe vos
+Solution: IfB -|; | then |B| =5x3—2x 6=15-12 =3+ 0, B" exists.
+Adjoint of B= 6 5p apply formula; B= [By eointof B
+
+--- Page 70 ---
+
+B= 3} 3 sl 3 3 - 3 If A and B are square )
+3-6 5 6 5 » 3 matrices, then |AB|=|A| × |B.
+Cheek: B= 4) 3-25 2]_af 15-12 6-6 ]_af3_ 0] _f1O}_,
+3[-6 =S5)6 3] 3[-304+30 -12+15} 3,0 3) [0 Ij.
+Similarly=BB'=1{5 2) 3 -2).1) 15-12 6-6 | 1/3) 0) ft OF
+3{6 3}[-6 5S} 3|-304+30 -12+15} 3/0 3] [0 1
+Verify:. (AB)! = BA" , by taking Aand B nonsingular matrix.
+Solution of Simultaneous Linear Equations
+A large-scale use of matrices in almost every field is in the form of solution of simultaneous linear
+equations, While studying Economics, Statistics, Medical Sciences, Engineering etc, one has to
+find the solution of linear equations in two or more variables. However, our study at this level is
+confined to the solution of simultaneous linear equations only in two variables.
+Conversion of Matrix Equation into System of Linear Equations .
+Cee 2 TIX) 99 1 car no written ac [2% 1. 2¥ | -[? |
+A matrix equation [3 1 ol × [| = Pa) can be written as [3x +10y| = [5 3/-
+Now comparing the corresponding elements of equal matrices
+Sx +2y=9, 3x+ ly =23
+Which is a system of two linear equations in two variables × and y.
+Conversion of System of Linear Equations into Matrix Equations”
+By the converse process mentioned above, the system of linear equations can be rewritten in matrix
+equation: ; en
+ie. Sx-+2y=9, 3x+ 10y=23
+writing in matric form, we have Is AB =1 = BA always true?
+3x +10y) 23 -
+5 27) [*]_ [9 |). av = ic the required matrix equation.
+or [3 1 A [| = [53] or jai B is the required matrix equation |
+) Solution of System of two Linear Equations in Two Variables
+We discuss here two methods for finding solution of liner equations in two variables.
+(a) Matrix inversion method (b) Cramer’s rule
+
+--- Page 71 ---
+
+(a) Matrix Inversion Method
+Let us find the solution of:
+Sxt4y=14 ; 3x+Ty=13 ” ,
+This system of equations can'be rewritten in matrix equation as follows: .
+[5 4) [x] _ 714) _ F | : .
+L 7 OI 7 lial sean AY . . . -
+Where A = P ,] is a matrix of coefficients, X = | is a matrix of variables and
+B= [3] is a matrix of constants, ,
+Now equation (i) can also be written as: ;
+AX=B , , :
+ATAX=A™B — (Pre multiplying with A” if it exists.)
+IX=A"B (A'A=1T ,
+This equation indicates that the values of the variables in the matrix X are equal to the
+_ _, Corresponding elements:in the matrix A™' B. To find A“! B, we need A”.
+As, |A| =|? ‘| = 35 — 12 = 23 + 0, so inverse is possible,
+Also, adjA=[3 —*| .
+Now, A“ = lal adj A = 23 * 3 5 | .
+Substituting the values in equation (ii), we get:
+| 2 ) ge =X 46
+F] =ix[7 Ay [4] = 2 [8-52 23 * |
+y) 2 t-3 654113) 23° l—42 + 65 Ix 23
+. 3
+bi a Al ,
+Comparing the elements of both matrices, we see that × = 2 and y= 1 solution set = {(2,1)}
+Solve system of linear equation 3y = 24 — 9x, 2y + 6x = 10 (if possible) by matrix inversion
+method. | ,
+_. Solution: Writing the given system of linear equations in arranged form. i.e.
+9x + 3y=24, 6x+2y=10. .
+“Which can be written in matrix equation as: .
+24 | le abby 110. . .
+"OF AX=B=>X = A'B c
+_ Now lal=|2 5|=9x2-6x3 = 18-18 =0
+
+--- Page 72 ---
+
+As the matrix A is a singular, so its multiplicative inverse does not exist and solution of given
+system of equation is not possible. .
+(b) Cramer’s Rule
+This method is named after Gabriel Cramer (1704 -1752). This rule uses determinants to find the
+solution of system of linear equations.
+Consider a system of linear equations as × + 2y=6, 4x-—2y = 4. |
+Writing it in matrix equation, we get:
+‘1 #2) [x])_ 6) yw _aq
+lL, -21 LI =|;) of AX= 8
+The special formulae used in this method are: × = 2 and y= =z
+Where, D = |A| = Fi 3 i--2-8=- 10 #0. (non singular)
+Now D, = Ie Be ~12-8 = ~-20 a
+ee
+Dy = lH al=4 24 = =20
+Ff | Contributed byB | .
+. Using x= = and y= 4 .
+vo gi THE
+* = Zio ¥ = Zio
+x= 2 y = 2 and solution set = {(2,2)}
+“ee races | Exercise 3.3] ~ Exercise 3.3 5 oo
+1. (a) Mention singular and nonsingular matrices from the followings.
+ , f6 4 _[-5 7 ._ [9 18) .
+4=[ 3 B=[75 a) | c= a] -
+d=(* b | E=(@ d+ el (where a + 0 bu )
+(o)If|P|=9and P=[? §,] , then findk.
+= . ‘ae _ [5 X] an Bn
+(ce) If | T]=3 and adj T= ‘ 1 then find x.
+Ci EET TZ) Natal Book Foundation
+
+--- Page 73 ---
+
+2. (a) Find the multiplicative inverses of these matrices if possible.
+_f4 -1 _ [5] ~_[25 2 ,_(|* real fe ao 4
+r=[", ol] s=[)-7=[50 4l - v=[) yr ip tray
+()IfR=[*, 9] then verify that RR" =R™ R=I. |
+3. If Y= [5 al and Z= [5 5 - then verify that (YZ)“!=Z-'y~,
+4. What is relationamong | A|,| A™| and |adj A| if A = E 4 ?
+5. Write these matrix equations into system of linear equations if possible.
+- 4 ..2][*] _ [6] an 5 0) [x] _ [10]
+@) [ il LI ” i] : ji) | 4) bl = Gol
+we [0] f*]—. [12 ay mr v ler
+(iii) [3 × Cl = F al (iv) [* ¥] [3] [2] ,
+6. (a) Write the systems of linear equations in matrix form. : |
+. (i) xty=2 i)» 2x+y=90 (iii) y=3
+x-y=4 5y-x=10 x=4
+ect Bs wie enn OH! , }
+. - (iv) =x = 3y =1 —-y —4x% = 2
+(iv) 5x 3y = 1, 57 4n, = 2
+(b) If matrix of coefficients of 5x —4y = 30, 10x — ky = 60 is singular then find k.
+7. (a) Use Matrix Inversion Method to solve the following systems of linear equations
+ifpossible. - ; .
+(i) 4e+3y=-6 (ii) -x+2y=1.5
+weap ad 5x+4y=3
+_ o (iit) 2y = 10 16x (iv) 99-x =Ty |
+24x = 15-3y l4y + 2x =18
+) (b) Use Cramer's rule to solve following systems of linear equations if possible.
+(i) x+3y=5 (i) x=t-2y_
+5x+ 10y= 10 4y=3-3x -
+(ii) Sx +Sy = 20 (iv) 16r-10+2y=0
+B66 ean ae
+io* 7 Tg2 = 10. 15 —3y —- 24x =0
+
+--- Page 74 ---
+
+~ OO Applications of Matrices
+The most difficult part of solving a problem in algebra is almost always translating the problem
+situation to mathematical language. Once an equation is translated, the rest is usually
+straightforward. In this section, we study systems of equations and how to solve them using
+matrices. We can use matrices to help us solve problems that involve. systems of equations. Using
+matrices often simplifies the process of solving these systems. . |
+Example: .
+Anas bought 3 cream puffs and 5 pringle packs paying Rs.650. Abid bought 4 cream puffs and 2
+pringle packs paying Rs. 400. Find how much each item costs? (Hint: Either matrix inversion
+method or Cramer’s rule can be used).
+Solution: _
+Let × be the cost of a cream puff and y be the cost of 4 pringle pack, then Anas’s shopping is
+represented by 3x + 5y= 650 and Abid’s shopping is represented by equation 4x + 2y = 400
+Writing in matrix equation
+3 5) [x] .. 7650) | y=
+hi 2 | “€ [tool or = AX=B Ry
+Now by using Cramer’s rule
+D=|Al=|{ 3|=6-20=~-14
+D, = | 400 | = 1300 — 2000 = -700, Dy | 1 1001 1200 — 2600 = —1400
+Now, × = = and y = “ -
+x= 2 and y= => x=50° and y= 100 ,
+So, each cream puff costs Rs, 50 and each pringle pack costs Rs. 100.
+Example: &
+Naveed is a chemist who is preparing an acid solution to be used as a cleaner for machine parts.
+The machine shops need several batches of 200 ml of solution at a 48% concentration. He only
+has 60% and 40% concentration solutions. The two solutions can be combined to make the 48%
+solution. How much of each solution should Naveed use to make 200 ml of solution² Solution: . )
+Let × represent the amount of 60% solution and let y represent the amount of 40% solution.
+x+y=200 The total of two amount must be 200 ml.
+Now write an equation that represents the proportions of each solution needed.
+(Mate — 60% + 40% =48% - : .
+“60% (x) + 40% (v) = 48% (x+y) Each part contribute to the total
+0.60 (x) +:0.40 (vy) = 0.48 (x+y) Multiply 100 to remove the decimals
+"  12x-8y=0 ' _ Write the equation in standard form .
+Step 1: Write a system of equations. Then write the system as a matrix equation.
+RnB Maes Ald Determines) DN GTA eS Net Boa Foundation “Unit-tii- Matéloes Arid Determinanes eae % eae < ih ERG we ‘ aS STS Natianal Hook Foundation |
+
+--- Page 75 ---
+
+x+y=200, 12x-8y=0 inmatrix form: AX=B, and X=A"B »
+Step 2: To solve the matrix equation, first, find the inverse of the matrix A.
+Ata [Bese where |A| =—8—12 =—20and Adjoint of | ~ i
+4 f-8 -17[2007 _
+. × aL TN whereX=A“B -
+x] 1 [-1600] | 80 ]
+7 ly} —20|-2400] |120,
+We have x= 80 and y = 120. .
+This means that 80:ml of the 60% solution is added to 120 ml of the 40% solution to make
+200 ml of the 48% solution.
+: res ll
+Y Exercis Exercise dd ote . |
+I. From the two acute angles of a right triangle, one angle is 10 (degrees) less than the
+other. Find both the acute angles by using Cramer's rule. -
+2. In a quiz, Abdullah correctly replied 15 out of 20 questions from literature and science,
+getting Rs.125. If every correct literature reply is credited Rs. 5 and every correct
+science reply is credited Rs. 10, then find the number of correct replies of literature and
+scienceseparately.
+
+3. If Asad bought 3 notebooks and 2 books paying Rs. 600 and Iman bought 4 notebooks
+
+and 1 book paying Rs. 550, find the cost of each notebook and book? (Use Cramer's
+rule). ,
+
+4. Sum of ages of two sisters Sundas and Zenab is 22 years, If Sundas is | year older than
+
+twice the age of Zenab. Find the ages of both the sisters by using matrix inversion
+oo method.
+
+5. Two trucks have capacities of 10 tons and 12 tons. They made a total of 20 round trips to
+haul 226 tons of sand to the community park. How many round trips did each truck
+“' make?
+
+6. To make 20 kg of aluminum alloy with 70% aluminum, a metallurgist wants to use two -
+
+| metals with 55% and 80% aluminum content. How much of each metal should he use.
+
+4 Soybean meal contains 16% protein and corn meal contains 9% protein. How many
+pounds of each should be mixed together in order to get a 350-Ib mixture that is 12%
+
+protein² ‘ ;
+
+8. The perimeter of a lot is 190 m. The width is one fourth of the length. Find the
+
+dimensions. |
+t
+
+--- Page 76 ---
+
+~~ es [have Learnt. rs
+e Displaying information in the form of matrices of order 2. .
+e Calculating product of scalar quantity and a matrix.
+e Solving situations involving sum, difference and product of two matrices.
+e Evaluating the determinant and inverse of a matrix of order 2 by 2. .
+e Solving the simultaneous linear equations in two variables using matrix inversion method
+and Cramer’s rule.
+e Explaining with examples, how mathematics plays a key role in the development of new -
+scientific theories and technologies. ;
+« Applying concepts of matrices to real world problems
+ee Wl MISCELLANEOUS EXERCISE-3 J — "
+1. Encircle the correct option in the following. . .
+3° [5 2]. ony = —
+i, If [> al -[° | then × =
+(a) 6 (b), A (c) -6 (dd) -4
+y Ox
+ii, If 13=]0 z 0 | then
+(a) y=x = 1 (bb) x=z=0 (c) x=z=1 (4) y=z =1,x=0
+iii. Additive, inverse of unit matrix of order 2, is
+®@ fb fd © [o> 4] © Lf oo © |p -al
+iv. Multiplicative inverse of a null matrix of order 2, is .
+® 2 1 © fl © © ©: © _ impossible
+vy. Ais asymmetric matrix if
+— @A'EA WG) #-A OM) =-A -@ Y=4'
+@ [3 o [3 ©) [Eg] —_—-@)_impossible
+vii, Order of matrix A is 1-by-2 and order of matrix B is 2-by-3 then order of AB is
+(a)  1-by-3 (b)  3-by-1 (c)  2-by-2 (d) 3-by-2
+viii. If AB=B, then A=..... ;
+(a) I (b) A” (c) B (d) B'
+. 15lonm ne
+. isl” —_ 5 45 30
+- @ [95] OE Ee © 45 50 @ [PF sol
+
+--- Page 77 ---
+
+x. If |T]=—-1 then T-'=
+(a) -T (b)  adjT (c) —adjT (d) T
+xi. Matrix equation for y+ x= 144+ y and x+2y=x+ 13 is
+_. fl 11. (*]_ 1144 ny [12 OTL f*] — [144] |
+. 71 OV, *] 7144 as (1 Oy. py] _ [144
+© [> Jxbl=fs!] © [ axbl=lsl .
+xii. The matrix of coefficients for × — y = 3, is
+, [*) , [1
+(@) [3] ‘OO -1] of @ [4]
+xiii] 2)3)= — - .
+| (a)(3 6] (b) [2] (© [5] (d) impossible
+xiv. If A and B are two matrices, conformable for the product AB then (AB)'=
+(a) A'B' (b) (BA) (c) B'A' (d) AB
+xv. If [3 ais ils singular matrix, then × | a
+(a) 4 (b) 6 ' (c)-6 (d)-4
+xvi. Ifadj A = 3 | then |A|=~ . . | |
+(a) |adjA| ~~ (b) JA] (c) |-A] (d) all a,b,c
+21 P=l> 1] then chow that PP! = pip.
+2.1f P=[5 — 7], then show that PP = Pp =|. |
+3. Solve: 5x-4=y: 2y+8= 10x, by Matrix Inversion Method if possible.
+LA Use Cramer’s rule for solution of 5x + 2y = 19 and 10x.+ 4y = 38, if possible,
+5. The daily sum of labour and the material costs of Haani’s and Massab’s Home Industries are
+Rs.20,000 and Rs.40,000 respectively. If labour and the material rate, for both the Home
+__ Industries is same but Haani’s Home Industry has 6 workers who make 80 items and Massab’s
+Home Industry has 12 workers who make 160 items, find the labour and the material cost.

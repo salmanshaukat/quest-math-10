@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(powershell:*)",
+      "Bash(python:*)",
+      "Bash(winget install:*)",
+      "Bash(wc:*)",
+      "Bash(ls:*)",
+      "Bash(start:*)",
+      "Bash(cd:*)"
+    ]
+  }
+}

@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quest 04: Linear & Quadratic Inequalities | Quest Math 10</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <style>
+    .chapter-hero {
+      text-align: center;
+      padding: 60px 0 30px;
+      position: relative;
+      z-index: 1;
+    }
+    .chapter-hero .chapter-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--neon-cyan);
+      margin-bottom: 8px;
+    }
+    .chapter-hero h1 { font-size: 2.8rem; font-weight: 900; }
+    .chapter-hero .chapter-subtitle {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      margin-top: 8px;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.85rem;
+      padding: 8px 0;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--neon-cyan); }
+    .objectives-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 12px;
+      margin: 16px 0;
+    }
+    .objective-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 12px;
+      background: rgba(0,212,255,0.05);
+      border-radius: var(--radius-md);
+      font-size: 0.9rem;
+    }
+    .objective-item .obj-icon {
+      color: var(--neon-green);
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .interactive-demo {
+      background: rgba(0,0,0,0.3);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl);
+      margin: var(--space-lg) 0;
+    }
+    .slider-group {
+      margin: 16px 0;
+    }
+    .slider-group label {
+      display: block;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+    }
+    .slider-group input[type="range"] {
+      width: 100%;
+      accent-color: var(--neon-cyan);
+    }
+    .demo-result {
+      font-size: 1.2rem;
+      text-align: center;
+      padding: 16px;
+      margin-top: 12px;
+      background: rgba(0,212,255,0.08);
+      border-radius: var(--radius-md);
+      font-weight: 600;
+    }
+    .number-line-svg { width: 100%; max-width: 500px; margin: 16px auto; display: block; }
+    .example-box {
+      background: rgba(0,0,0,0.2);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-md);
+      padding: var(--space-lg);
+      margin: var(--space-md) 0;
+    }
+    .example-box .example-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--neon-green);
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+    .step-math {
+      margin: 8px 0;
+      padding: 8px 16px;
+      background: rgba(0,212,255,0.04);
+      border-radius: var(--radius-sm);
+    }
+    .boss-timer {
+      font-size: 1.5rem;
+      color: var(--neon-red);
+      text-align: center;
+      font-weight: 900;
+      margin: 16px 0;
+    }
+  </style>
+</head>
+<body data-chapter="4">
+
+  <!-- Top Bar -->
+  <nav class="top-bar">
+    <div class="logo">
+      <span style="font-size: 1.4rem;">&#9889;</span>
+      <span class="neon-text">Quest Math 10</span>
+    </div>
+    <div class="stats" id="top-bar-stats">
+      <div class="stat-badge stat-xp">
+        <span>&#11088;</span>
+        <span id="xp-count">0</span> XP
+      </div>
+      <div class="stat-badge stat-streak">
+        <span>&#128293;</span>
+        <span id="streak-count">0</span> Streak
+      </div>
+      <div class="stat-badge stat-level">
+        <span>&#9878;</span>
+        Lvl <span id="level-count">1</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- XP Progress -->
+  <div style="padding: 0 24px;">
+    <div class="progress-container" style="height: 4px;">
+      <div class="progress-bar progress-bar-xp" id="xp-progress" style="width: 0%"></div>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <a href="../index.html" class="back-link">&#8592; Back to Quest Dashboard</a>
+
+    <!-- Chapter Hero -->
+    <div class="chapter-hero animate-fadeInUp">
+      <div class="chapter-label">Quest 04</div>
+      <h1><span class="neon-text">Linear &amp; Quadratic Inequalities</span></h1>
+      <p class="chapter-subtitle">When equal isn't enough &mdash; explore the world of &gt; and &lt;</p>
+    </div>
+
+    <!-- Learning Objectives -->
+    <div class="card animate-fadeInUp delay-1">
+      <h3>&#127919; Learning Objectives</h3>
+      <div class="objectives-grid">
+        <div class="objective-item"><span class="obj-icon">&#9733;</span> Solve linear inequalities in one variable</div>
+        <div class="objective-item"><span class="obj-icon">&#9733;</span> Solve quadratic inequalities in one variable</div>
+        <div class="objective-item"><span class="obj-icon">&#9733;</span> Graph inequality solutions on the number line</div>
+        <div class="objective-item"><span class="obj-icon">&#9733;</span> Solve and graph two-variable linear inequalities</div>
+        <div class="objective-item"><span class="obj-icon">&#9733;</span> Solve systems of linear inequalities</div>
+        <div class="objective-item"><span class="obj-icon">&#9733;</span> Solve absolute value equations and inequalities</div>
+      </div>
+    </div>
+
+    <!-- ============================== -->
+    <!-- PHASE 1: HOOK                  -->
+    <!-- ============================== -->
+    <div class="phase phase-hook animate-fadeInUp">
+      <div class="phase-tag">&#128165; Hook</div>
+      <h2>Airport Luggage Limit &mdash; Can Your Bag Fly?</h2>
+      <p>You are checking your bag at the airport. The airline says: <strong>"Bags can weigh no more than 60 pounds."</strong> Your bag currently weighs <strong>26.5 pounds</strong>. How much more weight can you add?</p>
+
+      <div class="interactive-demo">
+        <h4>&#9992; Luggage Weight Simulator</h4>
+        <p style="font-size:0.9rem; color:var(--text-secondary);">Drag the slider to add items to your bag. Watch the inequality in real time!</p>
+        <div class="slider-group">
+          <label>Weight to add: <strong id="weightValue">0</strong> lbs</label>
+          <input type="range" id="weightSlider" min="0" max="50" value="0" step="0.5">
+        </div>
+        <div class="demo-result" id="luggageResult">
+          Current total: <span class="glow-text-cyan">26.5 lbs</span> &mdash; &#9989; Good to fly!
+        </div>
+        <div class="formula-box" style="margin-top:16px;">
+          The inequality: $26.5 + w \leq 60$, so $w \leq 33.5$ lbs
+        </div>
+      </div>
+
+      <div class="tip-box">
+        <strong>Real Life Insight:</strong> Inequalities aren't just math symbols &mdash; they govern airline limits, speed limits, age restrictions, budget constraints, and much more. The symbol $\leq$ (less than or equal to) means there's a boundary you must not cross.
+      </div>
+    </div>
+
+    <!-- ============================== -->
+    <!-- PHASE 2: CHALLENGE             -->
+    <!-- ============================== -->
+    <div class="phase phase-challenge animate-fadeInUp">
+      <div class="phase-tag">&#128170; Challenge</div>
+      <h2>Think Before You Learn</h2>
+      <p>Before we dive in, test your intuition. Can you figure these out?</p>
+
+      <div class="card">
+        <h4>Challenge 1: Scoring Goals</h4>
+        <p>Furqan and Qasim play hockey. If Furqan scored $a$ goals and Qasim scored $b$ goals, exactly ONE of these must be true:</p>
+        <p style="text-align:center; font-size:1.1rem; margin:12px 0;">$a < b$, &nbsp; $a = b$, &nbsp; or &nbsp; $a > b$</p>
+        <p>This is called the <strong class="glow-text-cyan">Trichotomy Property</strong>. For any two real numbers, exactly one relationship holds.</p>
+      </div>
+
+      <div class="card">
+        <h4>Challenge 2: The Ball in Flight</h4>
+        <p>A ball is thrown upward with initial velocity 64 ft/s. Its height is given by $h(t) = 64t - 16t^2$. During what time period is the ball in the air (height $> 0$)?</p>
+        <p style="color:var(--text-secondary); font-size:0.9rem;">Think about it &mdash; we'll solve this step by step in the Discovery section below!</p>
+      </div>
+    </div>
+
+    <!-- ============================== -->
+    <!-- PHASE 3: DISCOVERY             -->
+    <!-- ============================== -->
+    <div class="phase phase-discovery animate-fadeInUp">
+      <div class="phase-tag">&#128161; Discovery</div>
+      <h2>Core Concepts Revealed</h2>
+      <p>Click each step to reveal the concepts. Master them one by one.</p>
+
+      <div class="reveal-group">
+
+        <!-- Step 1: Properties of Inequalities -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">1</span> Properties of Inequalities</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <div class="key-concept">
+              <h4>Trichotomy Property</h4>
+              <p>For any two real numbers $a$ and $b$, exactly one of the following is true:</p>
+              <p style="text-align:center;">$a < b$, &nbsp; $a = b$, &nbsp; or &nbsp; $a > b$</p>
+            </div>
+
+            <h4 style="margin-top:20px;">(i) Addition &amp; Subtraction Properties</h4>
+            <div class="formula-box">
+              If $a > b$, then $a + c > b + c$ and $a - c > b - c$<br>
+              If $a < b$, then $a + c < b + c$ and $a - c < b - c$
+            </div>
+
+            <h4 style="margin-top:16px;">(ii) Multiplication &amp; Division Properties</h4>
+            <div class="formula-box">
+              If $c > 0$ and $a < b$, then $ac < bc$ and $\dfrac{a}{c} < \dfrac{b}{c}$
+            </div>
+            <div class="warning-box">
+              <strong>Critical Rule:</strong> If $c < 0$ (negative), the inequality <strong>REVERSES</strong>!<br>
+              If $c < 0$ and $a < b$, then $ac > bc$ and $\dfrac{a}{c} > \dfrac{b}{c}$
+            </div>
+
+            <div class="tip-box">
+              <strong>Memory Trick:</strong> "Multiply or divide by a negative? FLIP the sign!" Think of a mirror &mdash; negatives reverse everything.
+            </div>
+
+            <h4 style="margin-top:16px;">Graph Notation on Number Lines</h4>
+            <p>We use <strong>open circles</strong> $\circ$ for strict inequalities ($<$, $>$) and <strong>closed circles</strong> $\bullet$ for inclusive inequalities ($\leq$, $\geq$).</p>
+
+            <svg class="number-line-svg" viewBox="0 0 400 90" xmlns="http://www.w3.org/2000/svg">
+              <!-- x < 1 -->
+              <line x1="40" y1="20" x2="360" y2="20" stroke="#64748b" stroke-width="1.5"/>
+              <text x="15" y="24" fill="#94a3b8" font-size="10">x &lt; 1</text>
+              <circle cx="220" cy="20" r="5" fill="none" stroke="#00d4ff" stroke-width="2"/>
+              <line x1="40" y1="20" x2="215" y2="20" stroke="#00d4ff" stroke-width="3"/>
+              <polygon points="40,16 40,24 32,20" fill="#00d4ff"/>
+              <!-- Labels -->
+              <text x="100" y="35" fill="#94a3b8" font-size="9">-2</text>
+              <text x="140" y="35" fill="#94a3b8" font-size="9">-1</text>
+              <text x="180" y="35" fill="#94a3b8" font-size="9">0</text>
+              <text x="218" y="35" fill="#94a3b8" font-size="9">1</text>
+              <text x="260" y="35" fill="#94a3b8" font-size="9">2</text>
+              <text x="300" y="35" fill="#94a3b8" font-size="9">3</text>
+              <!-- x >= 1 -->
+              <line x1="40" y1="65" x2="360" y2="65" stroke="#64748b" stroke-width="1.5"/>
+              <text x="10" y="69" fill="#94a3b8" font-size="10">x &ge; 1</text>
+              <circle cx="220" cy="65" r="5" fill="#00ff88" stroke="#00ff88" stroke-width="2"/>
+              <line x1="225" y1="65" x2="360" y2="65" stroke="#00ff88" stroke-width="3"/>
+              <polygon points="360,61 360,69 368,65" fill="#00ff88"/>
+              <text x="100" y="80" fill="#94a3b8" font-size="9">-2</text>
+              <text x="140" y="80" fill="#94a3b8" font-size="9">-1</text>
+              <text x="180" y="80" fill="#94a3b8" font-size="9">0</text>
+              <text x="218" y="80" fill="#94a3b8" font-size="9">1</text>
+              <text x="260" y="80" fill="#94a3b8" font-size="9">2</text>
+              <text x="300" y="80" fill="#94a3b8" font-size="9">3</text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Step 2: Solving Linear Inequalities -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">2</span> Solving Linear Inequalities in One Variable</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <p>Linear inequalities are solved just like linear equations &mdash; with one key difference: <strong>multiplying or dividing by a negative number reverses the inequality</strong>.</p>
+
+            <div class="example-box">
+              <div class="example-label">Example 1</div>
+              <p>Solve $9x + 6 < 8x - 2$</p>
+              <div class="step-math">$9x + 6 + (-8x) < 8x + (-8x) - 2$ &mdash; Subtract $8x$ from both sides</div>
+              <div class="step-math">$x + 6 < -2$</div>
+              <div class="step-math">$x + 6 + (-6) < -2 + (-6)$ &mdash; Subtract $6$ from both sides</div>
+              <div class="step-math">$x < -8$</div>
+              <p style="margin-top:8px;">Solution set: $\{x \mid x < -8\}$. Open circle at $-8$, arrow pointing left.</p>
+            </div>
+
+            <div class="example-box">
+              <div class="example-label">Example 2</div>
+              <p>Solve $6x - 7 \geq 2x + 17$</p>
+              <div class="step-math">$6x - 7 + 7 \geq 2x + 17 + 7$ &mdash; Add 7 to both sides</div>
+              <div class="step-math">$6x \geq 2x + 24$</div>
+              <div class="step-math">$6x - 2x \geq 24$ &mdash; Subtract $2x$</div>
+              <div class="step-math">$4x \geq 24$</div>
+              <div class="step-math">$x \geq 6$ &mdash; Divide by 4 (positive, sign stays)</div>
+              <p style="margin-top:8px;">Solution set: $\{x \mid x \geq 6\}$. Closed circle at $6$, arrow pointing right.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3: Solving Quadratic Inequalities -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">3</span> Solving Quadratic Inequalities</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <p>The word "Quadratic" comes from the Latin "Quadratum" meaning <em>square</em>. Quadratic inequalities have the form $ax^2 + bx + c > 0$ (or $<$, $\leq$, $\geq$).</p>
+
+            <div class="key-concept">
+              <h4>Three-Test-Point Method</h4>
+              <ol>
+                <li>Set the quadratic expression equal to zero and find <strong>critical points</strong> (roots).</li>
+                <li>The critical points divide the number line into <strong>three regions</strong>.</li>
+                <li>Test a value from each region in the original inequality.</li>
+                <li>The regions that satisfy the inequality form the solution set.</li>
+              </ol>
+            </div>
+
+            <div class="example-box">
+              <div class="example-label">Example: Ball in Flight</div>
+              <p>Solve $64t - 16t^2 > 0$</p>
+              <div class="step-math">$-16t(t - 4) > 0$</div>
+              <p>Factor and find critical points: $t = 0$ and $t = 4$</p>
+              <div class="step-math">Test regions: $t < 0$, $0 < t < 4$, $t > 4$</div>
+              <p>Only when $0 < t < 4$ is the product positive. The ball is in flight between <strong class="glow-text-green">0 and 4 seconds</strong>.</p>
+            </div>
+
+            <div class="example-box">
+              <div class="example-label">Example</div>
+              <p>Solve $x^2 - 4x - 12 > 0$</p>
+              <div class="step-math">$(x-6)(x+2) > 0$ &mdash; Factor</div>
+              <div class="step-math">Critical points: $x = 6$, $x = -2$</div>
+              <p>Three regions: $x < -2$, $-2 < x < 6$, $x > 6$</p>
+              <table>
+                <tr><th>Region</th><th>Test Point</th><th>$(x-6)(x+2)$</th><th>$ > 0$?</th></tr>
+                <tr><td>$x < -2$</td><td>$x = -3$</td><td>$(-9)(-1) = 9$</td><td style="color:var(--neon-green);">Yes</td></tr>
+                <tr><td>$-2 < x < 6$</td><td>$x = 0$</td><td>$(-6)(2) = -12$</td><td style="color:var(--neon-red);">No</td></tr>
+                <tr><td>$x > 6$</td><td>$x = 7$</td><td>$(1)(9) = 9$</td><td style="color:var(--neon-green);">Yes</td></tr>
+              </table>
+              <p style="margin-top:8px;">Solution set: $\{x \mid x < -2 \text{ or } x > 6\}$</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 4: Two-Variable Inequalities -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">4</span> Graphing Linear Inequalities in Two Variables</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <p>A linear inequality in two variables (e.g., $x - 3y < 6$) divides the coordinate plane into two <strong>half-planes</strong>. The boundary line separates them.</p>
+
+            <div class="key-concept">
+              <h4>Steps to Graph</h4>
+              <ol>
+                <li><strong>Graph the boundary line</strong> &mdash; use solid for $\leq$, $\geq$ and dashed for $<$, $>$.</li>
+                <li><strong>Choose a test point</strong> (usually $(0,0)$ if it's not on the line).</li>
+                <li><strong>Shade the region</strong> that makes the inequality true.</li>
+              </ol>
+            </div>
+
+            <div class="example-box">
+              <div class="example-label">Example</div>
+              <p>Graph $y > 5x - 4$</p>
+              <div class="step-math">Step 1: Graph $y = 5x - 4$ as a <strong>dashed</strong> line (strict $>$)</div>
+              <div class="step-math">Step 2: Test $(0, 0)$: $0 > 5(0) - 4 \Rightarrow 0 > -4$ &mdash; TRUE</div>
+              <div class="step-math">Step 3: Shade the half-plane containing $(0, 0)$</div>
+            </div>
+
+            <div class="tip-box">
+              <strong>Feasible Region:</strong> In real-world problems (like budget constraints or production limits), the shaded region represents all <em>feasible</em> solutions &mdash; combinations that satisfy the constraints.
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 5: Absolute Value -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">5</span> Absolute Value Equations &amp; Inequalities</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <p>The <strong>absolute value</strong> of a number $x$ is its distance from $0$ on the number line: $|x|$.</p>
+
+            <div class="formula-box">
+              $|x| = \begin{cases} x, & \text{if } x \geq 0 \\ -x, & \text{if } x < 0 \end{cases}$
+            </div>
+
+            <div class="key-concept">
+              <h4>Key Rules</h4>
+              <p>For $a > 0$:</p>
+              <ul style="margin:8px 0 0 20px;">
+                <li>$|x| = a \implies x = a$ or $x = -a$</li>
+                <li>$|x| < a \implies -a < x < a$</li>
+                <li>$|x| > a \implies x < -a$ or $x > a$</li>
+              </ul>
+            </div>
+
+            <div class="example-box">
+              <div class="example-label">Example</div>
+              <p>Solve $|2x + 5| = 11$</p>
+              <div class="step-math">$2x + 5 = 11 \implies 2x = 6 \implies x = 3$</div>
+              <div class="step-math">$2x + 5 = -11 \implies 2x = -16 \implies x = -8$</div>
+              <p>Solution set: $\{-8, 3\}$</p>
+            </div>
+
+            <div class="example-box">
+              <div class="example-label">Example</div>
+              <p>Solve $|2x - 7| \geq 11$</p>
+              <div class="step-math">$2x - 7 \geq 11 \implies 2x \geq 18 \implies x \geq 9$</div>
+              <div class="step-math">$2x - 7 \leq -11 \implies 2x \leq -4 \implies x \leq -2$</div>
+              <p>Solution set: $\{x \mid x \leq -2 \text{ or } x \geq 9\}$</p>
+            </div>
+
+            <div class="warning-box">
+              <strong>Watch Out:</strong> $|3 - 2x| = -5$ has <strong>NO SOLUTION</strong> because absolute value is always $\geq 0$. Any equation $|f(x)| = \text{negative}$ has no solution.
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 6: Systems of Inequalities -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">6</span> Systems of Linear Inequalities</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <p>A system of linear inequalities consists of two or more inequalities. The solution is the <strong>intersection</strong> of all the half-planes.</p>
+
+            <div class="formula-box">
+              System: $\begin{cases} x + y > -2 \\ 3x - y \geq -6 \end{cases}$
+            </div>
+
+            <div class="key-concept">
+              <h4>Steps</h4>
+              <ol>
+                <li>Graph each inequality on the <strong>same</strong> coordinate plane.</li>
+                <li>Identify the solution region for each inequality.</li>
+                <li>The <strong>overlapping region</strong> is the solution of the system.</li>
+                <li>Verify by testing a point from the overlap in both inequalities.</li>
+              </ol>
+            </div>
+
+            <div class="example-box">
+              <div class="example-label">Example: Car Rental Problem</div>
+              <p>Company A charges $y = 60x + 9000$ (Rs. 60/km + Rs. 9000 base). The region $y < 60x + 9000$ represents cheaper alternatives. If company C charges Rs. 14000 for 100 km, the point $(100, 14000)$ lies below the boundary &mdash; so C is cheaper!</p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /reveal-group -->
+    </div>
+
+    <!-- ============================== -->
+    <!-- PHASE 4: PRACTICE              -->
+    <!-- ============================== -->
+    <div class="phase phase-practice animate-fadeInUp">
+      <div class="phase-tag">&#127935; Practice</div>
+      <h2>Test Your Skills</h2>
+      <p>Answer all 8 questions. Build your streak for bonus XP!</p>
+
+      <div class="scoreboard">
+        <div class="score-item">
+          <div class="score-value glow-text-purple quiz-score">0/0</div>
+          <div class="score-label">Score</div>
+        </div>
+        <div class="score-item">
+          <div class="score-value glow-text-gold" id="streak-display">0</div>
+          <div class="score-label">Streak</div>
+        </div>
+      </div>
+
+      <div class="quiz-container">
+
+        <!-- Q1 -->
+        <div class="quiz-question" data-correct="d">
+          <div class="q-number">Question 1 of 8</div>
+          <div class="q-text">What is the solution of $6x - 7 \geq 2x + 17$?</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> $x < 6$</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> $x \leq 6$</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> $x > 6$</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> $x \geq 6$</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! $6x - 7 \geq 2x + 17 \Rightarrow 4x \geq 24 \Rightarrow x \geq 6$</div>
+          <div class="quiz-feedback incorrect-fb">Not quite. Simplify: $4x \geq 24$, so $x \geq 6$.</div>
+          <button class="btn btn-hint" style="margin-top:8px;">&#128161; Hint</button>
+          <div class="quiz-hint">Move all $x$ terms to one side and constants to the other. Then divide by the coefficient of $x$.</div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="quiz-question" data-correct="c">
+          <div class="q-number">Question 2 of 8</div>
+          <div class="q-text">The solution of $x < 3$ for $x \in \mathbb{N}$ (natural numbers) is:</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> $\{0, 1, 2\}$</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> $\{-2, -1, 0, 1, 2\}$</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> $\{1, 2\}$</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> $\{1\}$</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! Natural numbers less than 3 are $\{1, 2\}$.</div>
+          <div class="quiz-feedback incorrect-fb">Remember: Natural numbers start from 1, so $\{1, 2\}$.</div>
+          <button class="btn btn-hint" style="margin-top:8px;">&#128161; Hint</button>
+          <div class="quiz-hint">Natural numbers: $\mathbb{N} = \{1, 2, 3, 4, \ldots\}$. Which are less than 3?</div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="quiz-question" data-correct="b">
+          <div class="q-number">Question 3 of 8</div>
+          <div class="q-text">When graphing a two-variable inequality, we generally use which test point?</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> $(-1, -1)$</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> $(0, 0)$</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> $(2, 2)$</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> $(-3, -3)$</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! The origin $(0, 0)$ is the easiest point to test, unless the line passes through it.</div>
+          <div class="quiz-feedback incorrect-fb">We use $(0, 0)$ because it makes calculations simplest.</div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="quiz-question" data-correct="a">
+          <div class="q-number">Question 4 of 8</div>
+          <div class="q-text">What happens to the inequality sign when you multiply both sides by a <strong>negative</strong> number?</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> The inequality sign reverses (flips)</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> The inequality sign stays the same</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> The inequality becomes an equation</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> The solution set becomes empty</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! Multiplying or dividing by a negative REVERSES the inequality sign.</div>
+          <div class="quiz-feedback incorrect-fb">Key rule: multiplying/dividing by a negative number REVERSES the sign.</div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="quiz-question" data-correct="b">
+          <div class="q-number">Question 5 of 8</div>
+          <div class="q-text">Solve: $x^2 + 6x - 27 < 0$. The solution set is:</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> $x < -9$ or $x > 3$</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> $-9 < x < 3$</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> $x < 3$</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> $-3 < x < 9$</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! $(x+9)(x-3) < 0$ gives critical points $-9, 3$. The expression is negative between them.</div>
+          <div class="quiz-feedback incorrect-fb">Factor: $(x+9)(x-3) < 0$. Critical points: $x = -9, 3$. Test the middle region.</div>
+          <button class="btn btn-hint" style="margin-top:8px;">&#128161; Hint</button>
+          <div class="quiz-hint">Factor the quadratic first. Then use the three-test-point method with critical points at $x = -9$ and $x = 3$.</div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="quiz-question" data-correct="b">
+          <div class="q-number">Question 6 of 8</div>
+          <div class="q-text">Which ordered pair is NOT a solution of $x - 3y \leq 6$?</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> $(0, 0)$</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> $(6, -1)$</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> $(10, 3)$</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> $(-1, 2)$</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! Substituting $(6, -1)$: $6 - 3(-1) = 9 \leq 6$ is FALSE.</div>
+          <div class="quiz-feedback incorrect-fb">Test $(6, -1)$: $6 - 3(-1) = 6 + 3 = 9$, and $9 \leq 6$ is false.</div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="quiz-question" data-correct="a">
+          <div class="q-number">Question 7 of 8</div>
+          <div class="q-text">Solve $|2x + 5| = 11$. The solution set is:</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> $\{-8, 3\}$</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> $\{-3, 8\}$</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> $\{3\}$</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> No solution</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! $2x + 5 = 11 \Rightarrow x = 3$ and $2x + 5 = -11 \Rightarrow x = -8$.</div>
+          <div class="quiz-feedback incorrect-fb">Split into two equations: $2x + 5 = 11$ and $2x + 5 = -11$.</div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="quiz-question" data-correct="c">
+          <div class="q-number">Question 8 of 8</div>
+          <div class="q-text">The solution of $-5x \geq -80$ is:</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> $\{x \mid x > 16\}$</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> $\{x \mid x < 16\}$</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> $\{x \mid x \leq 16\}$</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> $\{x \mid x \geq 16\}$</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! Dividing by $-5$ flips the sign: $x \leq 16$.</div>
+          <div class="quiz-feedback incorrect-fb">Divide both sides by $-5$ and REVERSE the sign: $x \leq 16$.</div>
+          <button class="btn btn-hint" style="margin-top:8px;">&#128161; Hint</button>
+          <div class="quiz-hint">When dividing by a negative number, remember to flip the inequality sign!</div>
+        </div>
+
+      </div><!-- /quiz-container -->
+    </div>
+
+    <!-- ============================== -->
+    <!-- PHASE 5: BOSS LEVEL            -->
+    <!-- ============================== -->
+    <div class="phase phase-boss animate-fadeInUp">
+      <div class="phase-tag">&#128123; Boss Level</div>
+      <h2>The Ultimate Inequality Challenge</h2>
+      <p>You've learned the skills. Now prove your mastery with this multi-step problem.</p>
+
+      <div class="card card-neon-border">
+        <h3 style="color:var(--neon-red);">&#9876; The Garden Problem</h3>
+        <p>Mr. Khalid wants to build a rectangular garden with a perimeter of 68 ft. He needs the area to be <strong>at least 240 square feet</strong>.</p>
+        <p>If the width is $w$ feet, then the length is $\frac{68 - 2w}{2} = 34 - w$ feet.</p>
+
+        <div class="formula-box">
+          Area inequality: $w(34 - w) \geq 240$
+        </div>
+
+        <div style="margin: 16px 0;">
+          <label style="font-size:0.9rem; color:var(--text-secondary);">Enter the width range (e.g., "10,24"):</label>
+          <input type="text" id="boss-input" class="math-input" placeholder="lower bound, upper bound" style="margin-top:8px;">
+          <div style="margin-top:12px; display:flex; gap:8px;">
+            <button class="btn btn-primary" onclick="checkBoss()">&#9876; Submit Answer</button>
+          </div>
+          <div id="boss-feedback" style="margin-top:12px;"></div>
+        </div>
+
+        <div class="tip-box" id="boss-hint" style="display:none;">
+          <strong>Hint:</strong> Expand: $34w - w^2 \geq 240 \Rightarrow w^2 - 34w + 240 \leq 0$. Factor or use the quadratic formula to find $w = 10$ and $w = 24$. Since the coefficient of $w^2$ is positive and the inequality is $\leq 0$, the solution is between the roots: $10 \leq w \leq 24$.
+        </div>
+        <button class="btn btn-hint" onclick="document.getElementById('boss-hint').style.display='block'" style="margin-top:8px;">&#128161; Show Hint</button>
+      </div>
+
+      <div class="card" style="text-align:center; margin-top:24px;">
+        <h3>&#127942; Quest Complete?</h3>
+        <p style="color:var(--text-secondary);">Once you've mastered all concepts, mark this quest as done!</p>
+        <button class="btn btn-success" onclick="QuestMath.completeChapter('4')" style="margin-top:12px;">
+          &#9989; Complete Quest 04
+        </button>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div style="text-align:center; padding:40px 0; color:var(--text-muted); font-size:0.85rem;">
+      <p>Quest Math 10 &mdash; Chapter 4: Linear &amp; Quadratic Inequalities</p>
+      <p>Federal Board Pakistan | National Book Foundation</p>
+    </div>
+
+  </div><!-- /container -->
+
+  <!-- Scripts -->
+  <script src="../js/engine.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <script>
+    // Luggage weight simulator
+    const slider = document.getElementById('weightSlider');
+    const weightVal = document.getElementById('weightValue');
+    const luggageResult = document.getElementById('luggageResult');
+
+    if (slider) {
+      slider.addEventListener('input', function() {
+        const w = parseFloat(this.value);
+        weightVal.textContent = w;
+        const total = 26.5 + w;
+        if (total <= 60) {
+          luggageResult.innerHTML = `Current total: <span class="glow-text-cyan">${total.toFixed(1)} lbs</span> &mdash; &#9989; Good to fly! (${(60 - total).toFixed(1)} lbs remaining)`;
+          luggageResult.style.borderColor = 'rgba(0,255,136,0.3)';
+        } else {
+          luggageResult.innerHTML = `Current total: <span class="glow-text-cyan">${total.toFixed(1)} lbs</span> &mdash; &#10060; OVERWEIGHT by ${(total - 60).toFixed(1)} lbs!`;
+          luggageResult.style.borderColor = 'rgba(255,51,102,0.3)';
+        }
+      });
+    }
+
+    // Boss level checker
+    function checkBoss() {
+      const input = document.getElementById('boss-input').value.trim();
+      const feedback = document.getElementById('boss-feedback');
+      const parts = input.split(',').map(s => parseFloat(s.trim()));
+
+      if (parts.length === 2 && parts[0] === 10 && parts[1] === 24) {
+        feedback.innerHTML = '<div class="quiz-feedback correct-fb show">&#127942; BOSS DEFEATED! The width must be between 10 and 24 feet. $w^2 - 34w + 240 \\leq 0$ factors as $(w-10)(w-24) \\leq 0$, giving $10 \\leq w \\leq 24$.</div>';
+        QuestMath.addXP(QuestMath.XP_BOSS_CLEAR, 'boss_clear');
+        QuestMath.launchConfetti();
+        if (typeof renderMathInElement !== 'undefined') {
+          renderMathInElement(feedback, {
+            delimiters: [
+              { left: '$$', right: '$$', display: true },
+              { left: '$', right: '$', display: false }
+            ],
+            throwOnError: false
+          });
+        }
+      } else {
+        feedback.innerHTML = '<div class="quiz-feedback incorrect-fb show">Not quite. Set up $w(34-w) \\geq 240$ and solve the quadratic inequality. Enter both bounds separated by a comma.</div>';
+        if (typeof renderMathInElement !== 'undefined') {
+          renderMathInElement(feedback, {
+            delimiters: [
+              { left: '$$', right: '$$', display: true },
+              { left: '$', right: '$', display: false }
+            ],
+            throwOnError: false
+          });
+        }
+      }
+    }
+  </script>
+</body>
+</html>

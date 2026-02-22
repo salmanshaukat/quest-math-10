@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en" data-chapter="3">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 3: Matrices and Determinants | Quest Math 10</title>
+
+  <!-- KaTeX CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
+  <!-- Project CSS & JS -->
+  <link rel="stylesheet" href="../css/style.css">
+  <script defer src="../js/engine.js"></script>
+
+  <style>
+    /* Chapter-specific styles */
+    .matrix-grid-demo {
+      display: inline-grid;
+      grid-template-columns: repeat(3, 60px);
+      gap: 4px;
+      margin: 16px auto;
+    }
+    .matrix-grid-demo .cell {
+      width: 60px; height: 50px;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(0, 212, 255, 0.1);
+      border: 1px solid rgba(0, 212, 255, 0.25);
+      border-radius: 6px;
+      font-family: 'Fira Code', monospace;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--neon-cyan);
+      transition: all 0.3s ease;
+    }
+    .matrix-grid-demo .cell:hover {
+      background: rgba(0, 212, 255, 0.25);
+      transform: scale(1.1);
+      box-shadow: var(--glow-cyan);
+    }
+    .matrix-grid-demo .cell.highlight-primary {
+      background: rgba(168, 85, 247, 0.2);
+      border-color: rgba(168, 85, 247, 0.5);
+      color: var(--neon-purple);
+    }
+
+    .interactive-matrix-builder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      padding: 24px;
+      background: rgba(0, 0, 0, 0.25);
+      border-radius: var(--radius-lg);
+      margin: 16px 0;
+    }
+    .interactive-matrix-builder .matrix-inputs {
+      display: inline-grid;
+      grid-template-columns: repeat(2, 80px);
+      gap: 8px;
+    }
+    .interactive-matrix-builder input[type="number"] {
+      width: 80px; height: 48px;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.4);
+      border: 2px solid rgba(0, 212, 255, 0.3);
+      border-radius: 8px;
+      color: var(--text-bright);
+      font-size: 1.1rem;
+      font-family: 'Fira Code', monospace;
+      transition: border-color 0.2s;
+    }
+    .interactive-matrix-builder input[type="number"]:focus {
+      outline: none;
+      border-color: var(--neon-cyan);
+      box-shadow: var(--glow-cyan);
+    }
+    .result-display {
+      min-height: 48px;
+      padding: 12px 24px;
+      background: rgba(0, 255, 136, 0.08);
+      border: 1px solid rgba(0, 255, 136, 0.2);
+      border-radius: 8px;
+      font-family: 'Fira Code', monospace;
+      font-size: 1.1rem;
+      color: var(--neon-green);
+      text-align: center;
+    }
+
+    .op-symbol {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: var(--neon-gold);
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .example-box {
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-md);
+      padding: var(--space-lg);
+      margin: var(--space-md) 0;
+    }
+    .example-box .example-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--neon-gold);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .types-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+      margin: 16px 0;
+    }
+    .type-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      text-align: center;
+      transition: all 0.3s;
+    }
+    .type-card:hover {
+      border-color: rgba(0, 212, 255, 0.3);
+      transform: translateY(-2px);
+    }
+    .type-card .type-name {
+      font-weight: 700;
+      color: var(--neon-cyan);
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+    .type-card .type-example {
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+    .type-card .type-desc {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    .step-formula {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin: 12px 0;
+    }
+    .step-num-big {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(0, 212, 255, 0.2);
+      color: var(--neon-cyan);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .boss-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 51, 102, 0.2);
+      color: var(--neon-red);
+      padding: 4px 14px;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ========== TOP BAR ========== -->
+  <nav class="top-bar">
+    <div class="logo">
+      <span class="neon-text">Quest Math 10</span>
+      <span style="color: var(--text-muted); font-size: 0.8rem;">/ Ch 3: Matrices</span>
+    </div>
+    <div class="stats" id="top-bar-stats">
+      <div class="stat-badge stat-xp">XP: <span id="xp-count">0</span></div>
+      <div class="stat-badge stat-streak">Streak: <span id="streak-count">0</span></div>
+      <div class="stat-badge stat-level">Lv <span id="level-count">1</span></div>
+    </div>
+  </nav>
+
+  <!-- XP Progress Bar -->
+  <div class="progress-container" style="border-radius: 0;">
+    <div class="progress-bar progress-bar-xp" id="xp-progress" style="width: 0%;"></div>
+  </div>
+
+
+  <div class="container">
+
+    <!-- ========== CHAPTER HEADER ========== -->
+    <header style="text-align: center; padding: var(--space-3xl) 0 var(--space-xl);" class="animate-fadeInUp">
+      <div style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 3px; color: var(--neon-cyan); margin-bottom: 8px;">
+        Chapter 3
+      </div>
+      <h1 class="neon-text" style="font-size: 2.8rem; margin-bottom: 12px;">Matrices &amp; Determinants</h1>
+      <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto; font-size: 1rem;">
+        Organize data, solve systems of equations, and unlock the power of rectangular arrays of numbers.
+      </p>
+    </header>
+
+
+    <!-- ==========================================================
+         PHASE 1: HOOK
+         ========================================================== -->
+    <section class="phase phase-hook animate-fadeInUp">
+      <div class="phase-tag">&#127919; Phase 1 &mdash; Hook</div>
+
+      <h2>The Data Nightmare</h2>
+
+      <p style="font-size: 1.15rem; margin-bottom: 20px;">
+        Imagine you own a shop that sells <strong>3 types of items</strong> &mdash; pens, notebooks, and erasers &mdash; each at different prices. Every day, <strong>50 customers</strong> walk in and buy different combinations. At the end of the month, you need to track <strong>ALL</strong> transactions at once.
+      </p>
+
+      <div class="diagram-container" style="flex-direction: column; min-height: auto; padding: 24px; gap: 16px;">
+        <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 8px;">A small slice of the chaos...</p>
+        <table style="max-width: 400px; margin: 0 auto;">
+          <thead>
+            <tr>
+              <th>Customer</th><th>Pens</th><th>Notebooks</th><th>Erasers</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Ali</td><td>3</td><td>1</td><td>5</td></tr>
+            <tr><td>Sara</td><td>0</td><td>4</td><td>2</td></tr>
+            <tr><td>Ahmed</td><td>7</td><td>2</td><td>0</td></tr>
+            <tr><td colspan="4" style="text-align: center; color: var(--text-muted);">... 47 more rows ...</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p style="margin-top: 16px;">
+        Writing all of this as separate equations would be <strong>madness</strong>. But what if there was a single, compact mathematical object that could hold ALL this data at once, and let you perform calculations on the entire set with one operation?
+      </p>
+
+      <div class="formula-box" style="margin-top: 20px;">
+        <p style="margin-bottom: 8px; color: var(--neon-cyan); font-weight: 700;">That object is a <span style="font-size: 1.4rem;">MATRIX</span>!</p>
+        $$\begin{pmatrix} 3 & 1 & 5 \\ 0 & 4 & 2 \\ 7 & 2 & 0 \end{pmatrix}$$
+      </div>
+    </section>
+
+
+    <!-- ==========================================================
+         PHASE 2: CHALLENGE
+         ========================================================== -->
+    <section class="phase phase-challenge animate-fadeInUp">
+      <div class="phase-tag">&#9889; Phase 2 &mdash; Challenge</div>
+
+      <h2>Can You Keep Up?</h2>
+
+      <p style="font-size: 1.1rem; margin-bottom: 16px;">
+        Try solving this by hand: Find $x$ and $y$ such that:
+      </p>
+
+      <div class="formula-box">
+        $$x + y = 7 \qquad \text{and} \qquad x - y = 3$$
+      </div>
+
+      <p style="margin: 16px 0;">
+        Easy enough, right? Add both equations: $2x = 10$, so $x = 5$ and $y = 2$.
+      </p>
+
+      <div class="warning-box">
+        <strong>Now imagine this:</strong> You have <strong>100 equations with 100 unknowns</strong>. Writing each step by hand would take weeks. This is exactly where <strong>matrix methods</strong> shine &mdash; computers use matrices to solve thousands of equations in milliseconds!
+      </div>
+
+      <p style="margin-top: 16px;">
+        In this chapter, you will learn how to represent systems of equations as matrices, compute determinants and inverses, and use the <strong>Matrix Inversion Method</strong> and <strong>Cramer's Rule</strong> to solve systems efficiently.
+      </p>
+    </section>
+
+
+    <!-- ==========================================================
+         PHASE 3: DISCOVERY
+         ========================================================== -->
+    <section class="phase phase-discovery">
+      <div class="phase-tag">&#128218; Phase 3 &mdash; Discovery</div>
+
+      <h2>The Matrix Toolbox</h2>
+      <p style="margin-bottom: 24px; color: var(--text-secondary);">Click each topic to expand and learn. Work through them in order for the best experience.</p>
+
+      <div class="reveal-group">
+
+        <!-- STEP 1: What is a Matrix? -->
+        <div class="reveal-step open">
+          <div class="reveal-header">
+            <span><span class="step-num">1</span>What is a Matrix?</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <div class="key-concept">
+              <strong>Definition:</strong> A <em>matrix</em> is a rectangular arrangement of numbers organized in rows and columns, enclosed in square brackets.
+            </div>
+
+            <p style="margin: 12px 0;">
+              If a matrix has $m$ rows and $n$ columns, its <strong>order</strong> is $m \times n$ (read "$m$-by-$n$").
+            </p>
+
+            <div class="example-box">
+              <div class="example-label">Example</div>
+              <p>$A = \begin{pmatrix} 5 & 3 \\ 6 & -2 \end{pmatrix}$ is a $2 \times 2$ matrix (2 rows, 2 columns).</p>
+              <p style="margin-top:8px;">$B = \begin{pmatrix} 1 & 0 & 7 \end{pmatrix}$ is a $1 \times 3$ row matrix.</p>
+              <p style="margin-top:8px;">$C = \begin{pmatrix} 4 \\ -1 \end{pmatrix}$ is a $2 \times 1$ column matrix.</p>
+            </div>
+
+            <p style="margin: 12px 0;"><strong>Terminology:</strong></p>
+            <ul style="margin-left: 20px; color: var(--text-secondary); line-height: 2;">
+              <li><strong>Elements (entries):</strong> The individual numbers inside a matrix.</li>
+              <li><strong>Row:</strong> A horizontal arrangement of elements (e.g., $R_1, R_2$).</li>
+              <li><strong>Column:</strong> A vertical arrangement of elements (e.g., $C_1, C_2$).</li>
+              <li><strong>Equal matrices:</strong> Same order <em>and</em> all corresponding elements equal.</li>
+            </ul>
+
+            <div class="tip-box" style="margin-top: 16px;">
+              <strong>Historical Note:</strong> The term "Matrix" was introduced by James Joseph Sylvester in 1850. Later, Arthur Cayley and William Rowan Hamilton developed the algebra of matrices extensively.
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 2: Types of Matrices -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">2</span>Types of Matrices</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <div class="types-grid">
+              <div class="type-card">
+                <div class="type-name">Row Matrix</div>
+                <div class="type-example">$\begin{pmatrix} 5 & 3 & -1 \end{pmatrix}$</div>
+                <div class="type-desc">Only one row</div>
+              </div>
+              <div class="type-card">
+                <div class="type-name">Column Matrix</div>
+                <div class="type-example">$\begin{pmatrix} 2 \\ 7 \end{pmatrix}$</div>
+                <div class="type-desc">Only one column</div>
+              </div>
+              <div class="type-card">
+                <div class="type-name">Rectangular Matrix</div>
+                <div class="type-example">$\begin{pmatrix} 1 & 4 & 7 \\ 3 & 8 & 6 \end{pmatrix}$</div>
+                <div class="type-desc">Rows &ne; Columns</div>
+              </div>
+              <div class="type-card">
+                <div class="type-name">Square Matrix</div>
+                <div class="type-example">$\begin{pmatrix} 2 & 5 \\ 1 & 3 \end{pmatrix}$</div>
+                <div class="type-desc">Rows = Columns</div>
+              </div>
+              <div class="type-card">
+                <div class="type-name">Null (Zero) Matrix</div>
+                <div class="type-example">$O = \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix}$</div>
+                <div class="type-desc">All elements are 0. Additive identity.</div>
+              </div>
+              <div class="type-card">
+                <div class="type-name">Diagonal Matrix</div>
+                <div class="type-example">$\begin{pmatrix} 3 & 0 \\ 0 & 8 \end{pmatrix}$</div>
+                <div class="type-desc">Non-diagonal elements are 0</div>
+              </div>
+              <div class="type-card">
+                <div class="type-name">Scalar Matrix</div>
+                <div class="type-example">$\begin{pmatrix} 5 & 0 \\ 0 & 5 \end{pmatrix}$</div>
+                <div class="type-desc">Diagonal elements equal &amp; non-zero</div>
+              </div>
+              <div class="type-card">
+                <div class="type-name">Unit (Identity) Matrix</div>
+                <div class="type-example">$I = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}$</div>
+                <div class="type-desc">Diagonal = 1, rest = 0. Multiplicative identity.</div>
+              </div>
+            </div>
+
+            <div class="key-concept" style="margin-top: 16px;">
+              <strong>Transpose:</strong> If we swap the rows and columns of matrix $P$, we get its transpose $P'$ (or $P^T$).
+              <div style="margin-top: 8px;">
+                If $P = \begin{pmatrix} 1 & 2 \\ 3 & 4 \\ 5 & 6 \end{pmatrix}$ then $P' = \begin{pmatrix} 1 & 3 & 5 \\ 2 & 4 & 6 \end{pmatrix}$
+              </div>
+            </div>
+
+            <div class="tip-box" style="margin-top: 12px;">
+              <strong>Symmetric Matrix:</strong> $S = S'$ (equals its own transpose).<br>
+              <strong>Skew Symmetric:</strong> $V = -V'$ (transpose equals its negative).
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 3: Addition & Subtraction -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">3</span>Addition &amp; Subtraction of Matrices</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <div class="key-concept">
+              Two matrices can be added or subtracted <strong>only if they have the same order</strong>. We simply add (or subtract) corresponding elements.
+            </div>
+
+            <div class="example-box" style="margin-top: 16px;">
+              <div class="example-label">Example</div>
+              <p>If $A = \begin{pmatrix} 2 & -3 \\ 6 & 5 \end{pmatrix}$ and $B = \begin{pmatrix} 7 & 8 \\ -5 & -2 \end{pmatrix}$, then:</p>
+              <div style="margin-top: 12px;">
+                $$A + B = \begin{pmatrix} 2+7 & -3+8 \\ 6+(-5) & 5+(-2) \end{pmatrix} = \begin{pmatrix} 9 & 5 \\ 1 & 3 \end{pmatrix}$$
+              </div>
+              <div style="margin-top: 8px;">
+                $$A - B = \begin{pmatrix} 2-7 & -3-8 \\ 6-(-5) & 5-(-2) \end{pmatrix} = \begin{pmatrix} -5 & -11 \\ 11 & 7 \end{pmatrix}$$
+              </div>
+            </div>
+
+            <h4 style="margin-top: 20px;">Properties of Matrix Addition</h4>
+            <ul style="margin-left: 20px; color: var(--text-secondary); line-height: 2.2;">
+              <li><strong>Commutative:</strong> $A + B = B + A$</li>
+              <li><strong>Associative:</strong> $(A + B) + C = A + (B + C)$</li>
+              <li><strong>Additive Identity:</strong> $A + O = O + A = A$ (where $O$ is the null matrix)</li>
+              <li><strong>Additive Inverse:</strong> $A + (-A) = O$</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- STEP 4: Scalar Multiplication -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">4</span>Scalar Multiplication</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <div class="key-concept">
+              Multiply each element of the matrix by the scalar (constant).
+            </div>
+            <div class="example-box" style="margin-top: 12px;">
+              <div class="example-label">Example</div>
+              <p>If $C = \begin{pmatrix} 2 & 0 \\ 5 & 8 \end{pmatrix}$ then:</p>
+              $$2C = 2 \times \begin{pmatrix} 2 & 0 \\ 5 & 8 \end{pmatrix} = \begin{pmatrix} 4 & 0 \\ 10 & 16 \end{pmatrix}$$
+            </div>
+            <div class="tip-box" style="margin-top: 12px;">
+              <strong>Properties:</strong><br>
+              $k(A + B) = kA + kB$ &nbsp;&nbsp;&nbsp; $(h + k)A = hA + kA$ &nbsp;&nbsp;&nbsp; where $h, k$ are constants.
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 5: Matrix Multiplication -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">5</span>Matrix Multiplication</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <div class="key-concept">
+              Two matrices $A$ and $B$ can be multiplied ($AB$) <strong>only if</strong> the number of <em>columns in $A$</em> equals the number of <em>rows in $B$</em>.
+              <br><br>
+              If $A$ is $m \times n$ and $B$ is $n \times p$, then $AB$ is $m \times p$.
+            </div>
+
+            <div class="formula-box" style="margin-top: 16px;">
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px;">Row-by-column method:</p>
+              $$\begin{pmatrix} a & b \\ c & d \end{pmatrix} \begin{pmatrix} e & f \\ g & h \end{pmatrix} = \begin{pmatrix} ae+bg & af+bh \\ ce+dg & cf+dh \end{pmatrix}$$
+            </div>
+
+            <div class="example-box" style="margin-top: 16px;">
+              <div class="example-label">Example</div>
+              <p>$A = \begin{pmatrix} 5 & 3 \\ 2 & 6 \end{pmatrix}$, $B = \begin{pmatrix} 7 & 2 \\ 4 & 9 \end{pmatrix}$</p>
+              <div style="margin-top: 12px;">
+                $$AB = \begin{pmatrix} 5 \times 7 + 3 \times 4 & 5 \times 2 + 3 \times 9 \\ 2 \times 7 + 6 \times 4 & 2 \times 2 + 6 \times 9 \end{pmatrix} = \begin{pmatrix} 47 & 37 \\ 38 & 58 \end{pmatrix}$$
+              </div>
+            </div>
+
+            <div class="warning-box" style="margin-top: 16px;">
+              <strong>Important:</strong> In general, $AB \neq BA$. Matrix multiplication is <strong>NOT commutative</strong>.
+            </div>
+
+            <h4 style="margin-top: 20px;">Properties of Matrix Multiplication</h4>
+            <ul style="margin-left: 20px; color: var(--text-secondary); line-height: 2.2;">
+              <li><strong>Associative:</strong> $(AB)C = A(BC)$</li>
+              <li><strong>Distributive (left):</strong> $A(B + C) = AB + AC$</li>
+              <li><strong>Distributive (right):</strong> $(A + B)C = AC + BC$</li>
+              <li><strong>Multiplicative Identity:</strong> $AI = IA = A$</li>
+              <li><strong>Null Property:</strong> $AO = OA = O$</li>
+              <li><strong>Transpose Rule:</strong> $(AB)' = B'A'$</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- STEP 6: Determinant of a 2x2 Matrix -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">6</span>Determinant of a 2&times;2 Matrix</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <div class="key-concept">
+              Every square matrix has an associated number called its <strong>determinant</strong>. For a $2 \times 2$ matrix, the determinant is calculated as:
+            </div>
+
+            <div class="formula-box" style="margin-top: 16px;">
+              $$\text{If } A = \begin{pmatrix} a & b \\ c & d \end{pmatrix}, \quad \text{then } |A| = ad - bc$$
+            </div>
+
+            <div class="example-box" style="margin-top: 16px;">
+              <div class="example-label">Example</div>
+              <p>$A = \begin{pmatrix} 5 & 6 \\ 2 & 3 \end{pmatrix}$</p>
+              <p style="margin-top: 8px;">$|A| = (5)(3) - (6)(2) = 15 - 12 = 3$</p>
+            </div>
+
+            <div class="tip-box" style="margin-top: 16px;">
+              <strong>Singular vs. Non-singular:</strong>
+              <ul style="margin-left: 20px; margin-top: 8px; line-height: 2;">
+                <li>If $|A| = 0$: Matrix is <strong>singular</strong> (no inverse exists).</li>
+                <li>If $|A| \neq 0$: Matrix is <strong>non-singular</strong> (inverse exists).</li>
+              </ul>
+            </div>
+
+            <!-- Interactive determinant calculator -->
+            <div class="interactive-matrix-builder" style="margin-top: 20px;">
+              <p style="color: var(--neon-cyan); font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Interactive Determinant Calculator</p>
+              <p style="color: var(--text-muted); font-size: 0.85rem;">Enter values and see the determinant computed live!</p>
+              <div class="matrix-inputs">
+                <input type="number" id="det-a" value="5" onchange="calcDeterminant()" oninput="calcDeterminant()">
+                <input type="number" id="det-b" value="6" onchange="calcDeterminant()" oninput="calcDeterminant()">
+                <input type="number" id="det-c" value="2" onchange="calcDeterminant()" oninput="calcDeterminant()">
+                <input type="number" id="det-d" value="3" onchange="calcDeterminant()" oninput="calcDeterminant()">
+              </div>
+              <div id="det-result" class="result-display">|A| = (5)(3) - (6)(2) = 15 - 12 = 3</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 7: Adjoint & Inverse -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">7</span>Adjoint &amp; Multiplicative Inverse</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <h4>Adjoint of a 2&times;2 Matrix</h4>
+            <div class="key-concept">
+              For $A = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$, the adjoint is obtained by:
+              <ol style="margin: 8px 0 0 20px; line-height: 2;">
+                <li>Swap the primary diagonal elements ($a \leftrightarrow d$).</li>
+                <li>Change the signs of secondary diagonal elements ($b \to -b$, $c \to -c$).</li>
+              </ol>
+              $$\text{adj } A = \begin{pmatrix} d & -b \\ -c & a \end{pmatrix}$$
+            </div>
+
+            <h4 style="margin-top: 24px;">Multiplicative Inverse</h4>
+            <div class="formula-box">
+              $$A^{-1} = \frac{1}{|A|} \text{adj } A = \frac{1}{ad - bc} \begin{pmatrix} d & -b \\ -c & a \end{pmatrix}$$
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 8px;">Exists only when $|A| \neq 0$ (non-singular).</p>
+            </div>
+
+            <div class="example-box" style="margin-top: 16px;">
+              <div class="example-label">Worked Example</div>
+              <p>Find $A^{-1}$ if $A = \begin{pmatrix} 5 & 4 \\ 2 & 6 \end{pmatrix}$</p>
+              <div class="step-formula"><span class="step-num-big">1</span> $|A| = (5)(6) - (4)(2) = 30 - 8 = 22 \neq 0$ &nbsp; (inverse exists)</div>
+              <div class="step-formula"><span class="step-num-big">2</span> $\text{adj } A = \begin{pmatrix} 6 & -4 \\ -2 & 5 \end{pmatrix}$</div>
+              <div class="step-formula"><span class="step-num-big">3</span> $A^{-1} = \dfrac{1}{22} \begin{pmatrix} 6 & -4 \\ -2 & 5 \end{pmatrix}$</div>
+            </div>
+
+            <div class="tip-box" style="margin-top: 12px;">
+              <strong>Verification:</strong> $AA^{-1} = A^{-1}A = I$. Also, $(A^{-1})^{-1} = A$.
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 8: Solving Systems - Matrix Inversion Method -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">8</span>Matrix Inversion Method</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <div class="key-concept">
+              A system of two linear equations in two variables can be written as:<br>
+              $$AX = B$$
+              where $A$ = coefficient matrix, $X$ = variable matrix, $B$ = constant matrix.<br><br>
+              Multiply both sides by $A^{-1}$: $\quad X = A^{-1}B$
+            </div>
+
+            <div class="example-box" style="margin-top: 16px;">
+              <div class="example-label">Worked Example</div>
+              <p>Solve: $5x + 4y = 14$ and $3x + 7y = 13$</p>
+
+              <div class="step-formula" style="margin-top: 12px;">
+                <span class="step-num-big">1</span>
+                <span>Write as $AX = B$: $\begin{pmatrix} 5 & 4 \\ 3 & 7 \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 14 \\ 13 \end{pmatrix}$</span>
+              </div>
+
+              <div class="step-formula">
+                <span class="step-num-big">2</span>
+                <span>$|A| = (5)(7) - (4)(3) = 35 - 12 = 23 \neq 0$</span>
+              </div>
+
+              <div class="step-formula">
+                <span class="step-num-big">3</span>
+                <span>$\text{adj } A = \begin{pmatrix} 7 & -4 \\ -3 & 5 \end{pmatrix}$, so $A^{-1} = \dfrac{1}{23} \begin{pmatrix} 7 & -4 \\ -3 & 5 \end{pmatrix}$</span>
+              </div>
+
+              <div class="step-formula">
+                <span class="step-num-big">4</span>
+                <span>
+                  $X = A^{-1}B = \dfrac{1}{23} \begin{pmatrix} 7 & -4 \\ -3 & 5 \end{pmatrix} \begin{pmatrix} 14 \\ 13 \end{pmatrix} = \dfrac{1}{23} \begin{pmatrix} 98 - 52 \\ -42 + 65 \end{pmatrix} = \dfrac{1}{23} \begin{pmatrix} 46 \\ 23 \end{pmatrix} = \begin{pmatrix} 2 \\ 1 \end{pmatrix}$
+                </span>
+              </div>
+
+              <p style="margin-top: 12px; color: var(--neon-green); font-weight: 700;">Solution: $x = 2$, $y = 1$ &nbsp;&rarr;&nbsp; Solution set = $\{(2, 1)\}$</p>
+            </div>
+
+            <div class="warning-box" style="margin-top: 16px;">
+              <strong>Note:</strong> If $|A| = 0$, the matrix is singular and the system <strong>cannot</strong> be solved by this method.
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 9: Cramer's Rule -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">9</span>Cramer's Rule</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <div class="key-concept">
+              <strong>Cramer's Rule</strong> uses determinants to solve a system of linear equations directly, without computing the inverse matrix.
+            </div>
+
+            <p style="margin: 12px 0;">For the system $a_1 x + b_1 y = c_1$ and $a_2 x + b_2 y = c_2$:</p>
+
+            <div class="formula-box">
+              $$D = \begin{vmatrix} a_1 & b_1 \\ a_2 & b_2 \end{vmatrix}, \quad
+              D_x = \begin{vmatrix} c_1 & b_1 \\ c_2 & b_2 \end{vmatrix}, \quad
+              D_y = \begin{vmatrix} a_1 & c_1 \\ a_2 & c_2 \end{vmatrix}$$
+              <p style="margin-top: 12px; font-size: 1.2rem;">
+                $$x = \frac{D_x}{D}, \qquad y = \frac{D_y}{D} \qquad (D \neq 0)$$
+              </p>
+            </div>
+
+            <div class="example-box" style="margin-top: 16px;">
+              <div class="example-label">Worked Example</div>
+              <p>Solve: $x + 2y = 6$ and $4x - 2y = 4$</p>
+
+              <div style="margin-top: 12px;">
+                <div class="step-formula">
+                  <span class="step-num-big">1</span>
+                  <span>$D = \begin{vmatrix} 1 & 2 \\ 4 & -2 \end{vmatrix} = (1)(-2) - (2)(4) = -2 - 8 = -10$</span>
+                </div>
+                <div class="step-formula">
+                  <span class="step-num-big">2</span>
+                  <span>$D_x = \begin{vmatrix} 6 & 2 \\ 4 & -2 \end{vmatrix} = (6)(-2) - (2)(4) = -12 - 8 = -20$</span>
+                </div>
+                <div class="step-formula">
+                  <span class="step-num-big">3</span>
+                  <span>$D_y = \begin{vmatrix} 1 & 6 \\ 4 & 4 \end{vmatrix} = (1)(4) - (6)(4) = 4 - 24 = -20$</span>
+                </div>
+                <div class="step-formula">
+                  <span class="step-num-big">4</span>
+                  <span>$x = \dfrac{D_x}{D} = \dfrac{-20}{-10} = 2, \qquad y = \dfrac{D_y}{D} = \dfrac{-20}{-10} = 2$</span>
+                </div>
+              </div>
+
+              <p style="margin-top: 12px; color: var(--neon-green); font-weight: 700;">Solution set = $\{(2, 2)\}$</p>
+            </div>
+
+            <div class="tip-box" style="margin-top: 16px;">
+              <strong>Tip:</strong> In $D_x$, replace the <em>first column</em> of $D$ with the constants. In $D_y$, replace the <em>second column</em> of $D$ with the constants.
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /reveal-group -->
+    </section>
+
+
+    <!-- ==========================================================
+         PHASE 4: PRACTICE (Quiz)
+         ========================================================== -->
+    <section class="phase phase-practice">
+      <div class="phase-tag">&#127919; Phase 4 &mdash; Practice Arena</div>
+
+      <h2>Test Your Skills</h2>
+      <p style="color: var(--text-secondary); margin-bottom: 8px;">10 questions covering the entire chapter. Choose wisely &mdash; streaks earn bonus XP!</p>
+
+      <div class="scoreboard" style="margin-bottom: 24px;">
+        <div class="score-item">
+          <div class="score-value glow-text-purple"><span class="quiz-score">0/0</span></div>
+          <div class="score-label">Score</div>
+        </div>
+        <div class="score-item">
+          <div class="score-value glow-text-gold" id="streak-count-display">0</div>
+          <div class="score-label">Streak</div>
+        </div>
+      </div>
+
+      <div class="quiz-container">
+
+        <!-- Q1 -->
+        <div class="quiz-question" data-correct="b">
+          <div class="q-number">Question 1 of 10</div>
+          <div class="q-text">What is the order of the matrix $\begin{pmatrix} 3 & 5 & -1 \\ 2 & 0 & 7 \end{pmatrix}$?</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> $3 \times 2$</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> $2 \times 3$</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> $2 \times 2$</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> $3 \times 3$</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! 2 rows and 3 columns make it $2 \times 3$.</div>
+          <div class="quiz-feedback incorrect-fb">Not quite. Count rows first, then columns: 2 rows, 3 columns = $2 \times 3$.</div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="quiz-question" data-correct="c">
+          <div class="q-number">Question 2 of 10</div>
+          <div class="q-text">Which of the following is a scalar matrix?</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> $\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}$</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> $\begin{pmatrix} 3 & 0 \\ 0 & 5 \end{pmatrix}$</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> $\begin{pmatrix} 4 & 0 \\ 0 & 4 \end{pmatrix}$</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> $\begin{pmatrix} 0 & 5 \\ 5 & 0 \end{pmatrix}$</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! A scalar matrix has equal, non-zero diagonal elements and zeros elsewhere. Option A is a unit matrix (special scalar), but C is the standard scalar matrix.</div>
+          <div class="quiz-feedback incorrect-fb">A scalar matrix must have all primary diagonal elements equal and non-zero, with zeros elsewhere. $\begin{pmatrix} 4 & 0 \\ 0 & 4 \end{pmatrix}$ fits perfectly.</div>
+          <button class="btn btn-hint" style="margin-top: 8px;">Show Hint</button>
+          <div class="quiz-hint">A scalar matrix is a diagonal matrix where all diagonal elements are the same non-zero value.</div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="quiz-question" data-correct="a">
+          <div class="q-number">Question 3 of 10</div>
+          <div class="q-text">If $A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}$ and $B = \begin{pmatrix} 5 & 6 \\ 7 & 8 \end{pmatrix}$, what is $A + B$?</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> $\begin{pmatrix} 6 & 8 \\ 10 & 12 \end{pmatrix}$</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> $\begin{pmatrix} 6 & 8 \\ 9 & 12 \end{pmatrix}$</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> $\begin{pmatrix} 5 & 12 \\ 21 & 32 \end{pmatrix}$</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> $\begin{pmatrix} 4 & 4 \\ 4 & 4 \end{pmatrix}$</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! Add corresponding elements: $1+5=6$, $2+6=8$, $3+7=10$, $4+8=12$.</div>
+          <div class="quiz-feedback incorrect-fb">Add corresponding elements: $(1+5, 2+6, 3+7, 4+8)$. The answer is $\begin{pmatrix} 6 & 8 \\ 10 & 12 \end{pmatrix}$.</div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="quiz-question" data-correct="b">
+          <div class="q-number">Question 4 of 10</div>
+          <div class="q-text">If $A$ is a $2 \times 3$ matrix and $B$ is a $3 \times 4$ matrix, what is the order of $AB$?</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> $3 \times 3$</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> $2 \times 4$</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> $3 \times 2$</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> Not possible</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! $(2 \times \cancel{3}) \times (\cancel{3} \times 4) = 2 \times 4$. The inner dimensions must match; the outer dimensions give the result.</div>
+          <div class="quiz-feedback incorrect-fb">For multiplication: $(m \times n)(n \times p) = m \times p$. So $(2 \times 3)(3 \times 4) = 2 \times 4$.</div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="quiz-question" data-correct="c">
+          <div class="q-number">Question 5 of 10</div>
+          <div class="q-text">What is the determinant of $\begin{pmatrix} 4 & 3 \\ 2 & 5 \end{pmatrix}$?</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> $26$</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> $-14$</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> $14$</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> $23$</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! $|A| = (4)(5) - (3)(2) = 20 - 6 = 14$.</div>
+          <div class="quiz-feedback incorrect-fb">Apply: $ad - bc = (4)(5) - (3)(2) = 20 - 6 = 14$.</div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="quiz-question" data-correct="a">
+          <div class="q-number">Question 6 of 10</div>
+          <div class="q-text">A matrix is <strong>singular</strong> when:</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> Its determinant equals zero</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> It has no rows</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> Its determinant is negative</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> It is a unit matrix</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! A singular matrix has $|A| = 0$, meaning no inverse exists.</div>
+          <div class="quiz-feedback incorrect-fb">A matrix is singular if and only if its determinant equals zero ($|A| = 0$).</div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="quiz-question" data-correct="d">
+          <div class="q-number">Question 7 of 10</div>
+          <div class="q-text">What is the adjoint of $\begin{pmatrix} 3 & 7 \\ 2 & 5 \end{pmatrix}$?</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> $\begin{pmatrix} 3 & -2 \\ -7 & 5 \end{pmatrix}$</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> $\begin{pmatrix} 5 & 7 \\ 2 & 3 \end{pmatrix}$</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> $\begin{pmatrix} -3 & -7 \\ -2 & -5 \end{pmatrix}$</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> $\begin{pmatrix} 5 & -7 \\ -2 & 3 \end{pmatrix}$</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! Swap diagonal ($3 \leftrightarrow 5$) and negate off-diagonal ($7 \to -7$, $2 \to -2$).</div>
+          <div class="quiz-feedback incorrect-fb">For adj $\begin{pmatrix} a & b \\ c & d \end{pmatrix} = \begin{pmatrix} d & -b \\ -c & a \end{pmatrix}$. So it's $\begin{pmatrix} 5 & -7 \\ -2 & 3 \end{pmatrix}$.</div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="quiz-question" data-correct="b">
+          <div class="q-number">Question 8 of 10</div>
+          <div class="q-text">If $AB = B$, then $A$ must be:</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> A null matrix $O$</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> The identity matrix $I$</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> Equal to $B$</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> The inverse of $B$</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! Only the identity matrix $I$ satisfies $IB = B$ for any matrix $B$.</div>
+          <div class="quiz-feedback incorrect-fb">The identity matrix is the multiplicative identity: $IB = B$ always. So $A = I$.</div>
+        </div>
+
+        <!-- Q9 -->
+        <div class="quiz-question" data-correct="c">
+          <div class="q-number">Question 9 of 10</div>
+          <div class="q-text">Using Cramer's rule for $2x + 3y = 8$ and $x - y = 1$: what is $D$ (determinant of coefficient matrix)?</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> $1$</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> $-1$</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> $-5$</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> $5$</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! $D = \begin{vmatrix} 2 & 3 \\ 1 & -1 \end{vmatrix} = (2)(-1) - (3)(1) = -2 - 3 = -5$.</div>
+          <div class="quiz-feedback incorrect-fb">$D = \begin{vmatrix} 2 & 3 \\ 1 & -1 \end{vmatrix} = (2)(-1) - (3)(1) = -2 - 3 = -5$.</div>
+          <button class="btn btn-hint" style="margin-top: 8px;">Show Hint</button>
+          <div class="quiz-hint">$D = a_1 d_2 - b_1 c_2$ where the coefficient matrix is $\begin{pmatrix} 2 & 3 \\ 1 & -1 \end{pmatrix}$.</div>
+        </div>
+
+        <!-- Q10 -->
+        <div class="quiz-question" data-correct="a">
+          <div class="q-number">Question 10 of 10</div>
+          <div class="q-text">If $(AB)' = ?$ for matrices $A$ and $B$, then the correct identity is:</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> $(AB)' = B'A'$</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> $(AB)' = A'B'$</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> $(AB)' = AB$</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> $(AB)' = (BA)'$</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! The transpose of a product reverses the order: $(AB)' = B'A'$.</div>
+          <div class="quiz-feedback incorrect-fb">Remember: transposing a product reverses order. $(AB)' = B'A'$.</div>
+        </div>
+
+      </div><!-- /quiz-container -->
+    </section>
+
+
+    <!-- ==========================================================
+         PHASE 5: BOSS LEVEL
+         ========================================================== -->
+    <section class="phase phase-boss">
+      <div class="phase-tag">&#128128; Phase 5 &mdash; Boss Level</div>
+
+      <h2>Final Challenge</h2>
+      <p style="color: var(--text-secondary); margin-bottom: 24px;">
+        Three tough problems that combine multiple concepts. Each correct answer earns massive XP. Show no mercy!
+      </p>
+
+      <div class="quiz-container">
+
+        <!-- BOSS Q1 -->
+        <div class="quiz-question" data-correct="b">
+          <div class="boss-badge">BOSS 1</div>
+          <div class="q-text">
+            Anas bought 3 cream puffs and 5 pringle packs paying Rs. 650. Abid bought 4 cream puffs and 2 pringle packs paying Rs. 400. Using Cramer's rule, what is the cost of one cream puff?
+          </div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> Rs. 100</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> Rs. 50</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> Rs. 75</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> Rs. 150</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Excellent! Setting $3x + 5y = 650$ and $4x + 2y = 400$: $D = 6 - 20 = -14$, $D_x = 1300 - 2000 = -700$, $x = -700 / -14 = 50$. Each cream puff costs Rs. 50!</div>
+          <div class="quiz-feedback incorrect-fb">$3x + 5y = 650$, $4x + 2y = 400$. $D = -14$, $D_x = -700$. So $x = 50$. The cream puff costs Rs. 50.</div>
+          <button class="btn btn-hint" style="margin-top: 8px;">Show Hint</button>
+          <div class="quiz-hint">Let $x$ = cream puff cost, $y$ = pringle cost. Form two equations and apply Cramer's rule: $D = \begin{vmatrix} 3 & 5 \\ 4 & 2 \end{vmatrix}$.</div>
+        </div>
+
+        <!-- BOSS Q2 -->
+        <div class="quiz-question" data-correct="c">
+          <div class="boss-badge">BOSS 2</div>
+          <div class="q-text">
+            If $A = \begin{pmatrix} 5 & 2 \\ 6 & 3 \end{pmatrix}$, what is $A^{-1}$?
+          </div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> $\begin{pmatrix} 3 & -2 \\ -6 & 5 \end{pmatrix}$</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> $\dfrac{1}{3}\begin{pmatrix} 3 & -2 \\ -6 & 5 \end{pmatrix}$</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> $\begin{pmatrix} 1 & -\frac{2}{3} \\[4pt] -2 & \frac{5}{3} \end{pmatrix}$</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> Does not exist (singular matrix)</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Excellent! $|A| = 15 - 12 = 3$. adj $A = \begin{pmatrix} 3 & -2 \\ -6 & 5 \end{pmatrix}$. $A^{-1} = \frac{1}{3}\begin{pmatrix} 3 & -2 \\ -6 & 5 \end{pmatrix} = \begin{pmatrix} 1 & -2/3 \\ -2 & 5/3 \end{pmatrix}$.</div>
+          <div class="quiz-feedback incorrect-fb">$|A| = (5)(3) - (2)(6) = 3$. adj $A = \begin{pmatrix} 3 & -2 \\ -6 & 5 \end{pmatrix}$. Multiply by $\frac{1}{3}$ to get $\begin{pmatrix} 1 & -2/3 \\ -2 & 5/3 \end{pmatrix}$.</div>
+          <button class="btn btn-hint" style="margin-top: 8px;">Show Hint</button>
+          <div class="quiz-hint">First find $|A|$, then adj $A$ (swap diagonal, negate off-diagonal), then divide by $|A|$.</div>
+        </div>
+
+        <!-- BOSS Q3 -->
+        <div class="quiz-question" data-correct="d">
+          <div class="boss-badge">BOSS 3</div>
+          <div class="q-text">
+            Naveed wants to mix a 60% acid solution with a 40% acid solution to make 200 ml of 48% solution. Using the matrix inversion method, how much of the 60% solution is needed?
+          </div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> 100 ml</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> 60 ml</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> 120 ml</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> 80 ml</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Outstanding! Equations: $x + y = 200$ and $0.60x + 0.40y = 96$ (which simplifies to $12x - 8y = 0$ after rearranging). Solving gives $x = 80$ ml of 60% solution.</div>
+          <div class="quiz-feedback incorrect-fb">Set up: $x + y = 200$ and $0.60x + 0.40y = 0.48(200) = 96$. The system reduces to $x + y = 200$ and $3x + 2y = 480$. Solving: $x = 80$ ml.</div>
+          <button class="btn btn-hint" style="margin-top: 8px;">Show Hint</button>
+          <div class="quiz-hint">Let $x$ = amount of 60% solution, $y$ = amount of 40% solution. Set up: total volume = 200 and total acid content = 48% of 200 = 96 ml.</div>
+        </div>
+
+      </div><!-- /quiz-container -->
+
+      <!-- Chapter complete button -->
+      <div style="text-align: center; margin-top: 32px;">
+        <button class="btn btn-success" onclick="QuestMath.completeChapter('3')" style="font-size: 1.1rem; padding: 16px 48px;">
+          Complete Chapter 3
+        </button>
+        <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 8px;">+100 XP for completing this quest</p>
+      </div>
+    </section>
+
+
+    <!-- ========== CHAPTER SUMMARY ========== -->
+    <section class="card card-neon-border" style="margin-top: 48px;">
+      <h3 class="neon-text" style="margin-bottom: 16px;">Chapter 3 &mdash; Summary</h3>
+      <ul style="margin-left: 20px; line-height: 2.2; color: var(--text-secondary);">
+        <li>A <strong>matrix</strong> is a rectangular array of numbers with order $m \times n$.</li>
+        <li>Types include: row, column, rectangular, square, null, diagonal, scalar, unit (identity), symmetric, and skew-symmetric matrices.</li>
+        <li>Matrices of the <strong>same order</strong> can be added or subtracted element-wise.</li>
+        <li>Scalar multiplication multiplies every element by the constant.</li>
+        <li>Matrix multiplication requires columns of $A$ = rows of $B$; it is <strong>not commutative</strong>.</li>
+        <li>For $2 \times 2$: $|A| = ad - bc$. If $|A| = 0$, $A$ is singular.</li>
+        <li>$A^{-1} = \dfrac{1}{|A|} \text{adj } A$ exists only when $|A| \neq 0$.</li>
+        <li><strong>Matrix Inversion Method:</strong> $X = A^{-1}B$.</li>
+        <li><strong>Cramer's Rule:</strong> $x = D_x / D$, $y = D_y / D$.</li>
+      </ul>
+    </section>
+
+
+    <footer style="text-align: center; padding: 48px 0 32px; color: var(--text-muted); font-size: 0.8rem;">
+      Quest Math 10 &mdash; Federal Board Pakistan, Grade 10 Mathematics<br>
+      Chapter 3: Matrices and Determinants
+    </footer>
+
+  </div><!-- /container -->
+
+
+  <!-- ========== INLINE SCRIPTS ========== -->
+  <script>
+    // Interactive Determinant Calculator
+    function calcDeterminant() {
+      const a = parseFloat(document.getElementById('det-a').value) || 0;
+      const b = parseFloat(document.getElementById('det-b').value) || 0;
+      const c = parseFloat(document.getElementById('det-c').value) || 0;
+      const d = parseFloat(document.getElementById('det-d').value) || 0;
+      const det = a * d - b * c;
+      const product1 = a * d;
+      const product2 = b * c;
+      const resultEl = document.getElementById('det-result');
+      resultEl.textContent = `|A| = (${a})(${d}) - (${b})(${c}) = ${product1} - ${product2} = ${det}`;
+
+      if (det === 0) {
+        resultEl.style.color = 'var(--neon-red)';
+        resultEl.textContent += '  [SINGULAR - No inverse!]';
+      } else {
+        resultEl.style.color = 'var(--neon-green)';
+        resultEl.textContent += '  [Non-singular]';
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,692 @@
+============================================================
+CHAPTER: Complex Numbers
+Pages: 6 - 26
+============================================================
+
+--- Page 6 ---
+
+} Complex Numbers
+
+~” After studying this unit students will be able to:
+| * Recognize complex numbers, conjugate and modulus of a complex numbers. |
+| © Apply basic operations on complex numbers. i
+
+« Define commutative laws, associative laws and distributive laws for complex numbers.
+-« Recognize additive and multiplicative identity and find additive and multiplicative
+
+inverse of complex numbers.
+* Find real and imaginary parts of | sy | for n=l, £2,... ;
+. xy +i,
+
+« Find solution of equations having complex values.
+| Apply the geometric interpretation of a complex numbers. |
+| « Solve daily life problems involving complex numbers. |
+Until the sixteenth century, mathematicians were puzzled by square roots of a negative numbers.
+For example, the solutions of.x² — 2 = 0 are √2, and — √2. But what are the solution of x² + 2 = 0?
+To find the solution of this equation, imaginary numbers were defined.
+A French mathematician René Descartes was the first to emphasize the imaginary nature of
+numbers, positing that “one can imagine as many (numbers) as already mentioned in each
+equation, but sometimes, there is no quantity that matches what we imagine.”
+However, in 16th century an Italian mathematician Gerolamo Cardano, proved that having a
+negative term inside a square root can lead to the solution of an equation. .
+Later, in the 18th century, mathematician Carl Friedrich Gauss consolidated Cardano’s
+premises, in addition to developing a treatise on complex numbers in a plane and thereby
+established the modern bases of the term. .
+
+| ; 1 _ F | ma
+René Descartes Gerolamo Cardano —— Carl Friedrich Gauss ny
+
+--- Page 7 ---
+
+Imaginary and Complex Numbers
+Negative numbers do not have square roots in the real number system. However, a larger number
+_ system that contains the real number system is designed so that negative numbers do have square
+roots. This system is called the complex number system and it makes use of a number that is a
+square root of −1. We call this new number i. ee,
+Let us find the solution of: Interesting Information
+e+1= (i) Girolamo Cardano began his
+From (i),x²=−1 which implies x= +V−1 = +i ekraniv Lae lt oa she
+The number / is the solution of x* + 1 = 0, and is defined as: mee a hain: aa ’
+= Ji where (? © <1 | side line. He held important —
+: ws " ii on a ae ..  o: , positions at The University of
+Since the square ofa real number Is not negative, therefore Pavia and Bologna in Italy and
+A isnota real number and is called the imaginary unit. | wrote many works on arithmetic,
+Using i we can define square root of any negative number. astronomy, physics and medicine. -
+To express the roots of negative numbers in terms of i, we can use the fact that in the complex
+numbers, J—x = J—1√x =ivx When × is a positive real number and / is the imaginary number,
+_ the number iyx is called a pure imaginary number.
+_ Example: Express each number in terms of i. }
+a, √-5 b. √9 c. √-17
+d. —/-64 e. 3ix5i . f. √-5x./-20 .
+Solution: ee
+a. √-5 = √-1x5 = √-1x √5 = iv5 = √5i We prefer to write ia as ai,
+; _ re where a is rational number.
+b. √-9 = √-1 x9 = √-1x √9 =i x3 =3i )
+: ce. —V=17 = —V=1 × 17 = —V~1 × √17 =-iv17 = -VI7i
+d. —V—64 = —√-1x 64 = —y−1 × √64 = -i√64 = -i8 = -8i
+e, 3ix5i=15i2=15x(-1)=-15 where (i² =−1)
+f. ¥—5 × V—20 = √-1x 5 × V—1x 20 = (V−1 × √5) × (W=1 × √20)
+= ivS × iVv20 = i2√5 × 20 = -1√100 = —10
+Imaginary Number
+An imaginary number is a number that can be written a+5i, where a and b are real
+numbers, 520.
+
+--- Page 8 ---
+
+Complex Numbers ,
+
+When a and 8 are real numbers and b is allowed to be 0, the number a+ / is said to be complex.
+A complex number is any number that can be written in the form of a+5i, where a and 6 are
+any real numbers and both a and 6 can be zero.
+
+wr re
+e The numbers 2 + 5i, 7 —11i, 18i are imaginary as b # 0 in these numbers. But they
+_ are also complex numbers. ;
+¢ Complex number like 5i in which a=Qand 50 are imaginary number with no real
+part. Such numbers are called pure imaginary numbers.
+e As 6can be written as: 6 + Oi. Therefore, every real number is a complex number with
+Qas imaginary part. ‘
+e The set of complex numbers is denoted by C and R & C.
+i The complex number i aU, eae
+: a + bi ies os
+amie sca, if. ial Se CEE
+
+1 Imaginary number 1 t Complex numbers that are fi ed
+
+1 1 H | I
+
+at+bi,b#0 H real numbers. a+5i, b=0 1
+
+; i 7 tae
+F — i we asa.  iiedaia aeons’ aiden a :
+i i ee Nee iH ;
+‘4 %, F ~ | rH gt 4
+/ ‘ FA . \ 1 Irrational tt Rational . |
+/ Complex numbers \,/ Pure imaginarynumbers} | ie «=f = numbers}
+| u 3 yo H 27 1925 4
+! iaz0, bs! rh a+bi,a=0,b4#0 1} - - i =, 7, —19, 2.
+
+\ orca ii a » Oo: } Ji. i 3 ;
+
+\ 2+3h0— 1 i \ -Ti, -i, 191 foi H i]
+‘ : oN 3 weet . HI H
+
+‘, ? a - I H] 4
+ues. ar a fr A if |
+ieee 2 fs le ee Lanna nen nso wenn asasenaa4
+
+--- Page 9 ---
+
+Addition and Subtraction of Complex Numbers
+The complex numbers obey the commutative, associative and distributive law. Thus, we can add anc
+subtract them as we do binomials. Moreover, the sum and difference of two complex numbers is also :
+complex number. Ifz, =a + bi and z,=c + di are two complex numbers then their sum and difference i:
+defined as:
+Sum: Add real part.in real part and imaginary part in imaginary part.
+Z, + Z2= (a + bi) +(c + di)=(a +c) +(b+d)i ,
+Difference: Subtract real part in real part and imaginary part in imaginary part.
+“Z, —Z,=(a + bi) -(e + di) =(a—c)+ (b-ad)i
+Example: Simplify:
+a. (74+5i)+(44+3i) b. (5+6f)-(7-4i)
+Solution: . | |
+a, (7+5i)+(4+3i) p, (5+6i)-(7-4i)
+=7+5i+44+3i =5+6i-74+4i
+= 7+4+5i+3i (combine real and =5-—7+6i+4i (combining real and
+ef =11+8 | imiginary parts) =—-2+10i imiginary parts)
+Multiplication of Complex Numbers .
+Ifa + bi and c + di are two complex numbers then their product can be found by using distributive
+law.
+(a + bi\(c + di) = ale + di) + bile + di) = ac + adi + bei + bd?*
+=ac +adi+bci-bd =(ac—bd)+(ad+be)i .....(as2=-1) -
+Therefore, the product of two complex numbers is also:a complex number. .
+For complex numbers, the property VaVb =~J/ab does not hold in general, but it does when a -
+is negative and b is a non-négative number, —
+_ To express square root of negative numbers, we first express them in terms of i. For example:
+‘ √-3x4/ —7 = -1√3 × J-1√7 = i3xiv7 = 7/21 =—√21: correct: :
+But, f-2 x√-5 = J-Q)-5) = VI0 is wrong.
+_ Example: Multiply and simplify:
+a. V—2v-11 b. —2i.5i c. —3i(2 —Bi)
+d. V—9 /—36 e. (3—2i)(1 + Si) ff. 6-09-30
+Solution: , |
+a, V—2V=11 = V=1√2 × V=IVl = iv2 × iVT1 = 2√2x11 = -√22 |
+b. —2i.5i = —10(i²) = —10(−1) = 10 (as i² = −1)
+
+--- Page 10 ---
+
+c. —3i(2 —8i) = —6i + 24(i7) = -6i + 24(−1) = —6i — 24 = —24 - Gi
+
+d. V—9¥—36 = V—-1x 9 v−1 × 36 = V—1√9 × V—1√36 = i3 × i6 = 1817 = -18
+
+e. (3—2{)(1+5i) = 3+ 15i—2i — 10? = 3 + 13 — 10(—-1) = 13 + 13%
+
+f (5—i)(9 —3i) = 45 — 15i — 91 + 3i* = 45 — 241 + 3(—-1) = 42 — 24
+Powers of i .
+We now want to simplify certain expressions involving higher powers of i. simplifying powers
+of j can then be done by using the fact that i> =−1 and expressing the given power of / in terms
+of i’. Consider: , .
+
+4 (72)\2 = (-1)2 = 1
+
+3 =i2.¢=(-1).i=-i piel ie (p=)
+The powers of i cycle themselves through the values of i, -1, —i and |.
+Example: Simplify:
+
+a. i b. i” c, i" d. i”
+
+* - ” . CY d=CDiss Imaginary numbers appear
+
+b. P=)" =(-)" =-1 in the field of engineering
+
+ce M=a(?7Pis(-—l s=()i=i and physical sciences.
+
+df’ =(7?)* =(-1)" =1
+Example: Write the expressions inthe form of a+ib.
+
+a 2+7 . b. 19477 ce i² +i" d. . 47° +87°
+Solution: —
+
+a. 24° =24+?4=24+(-l)i=2-i b. 19477 =19+7(-1) =19-—7 =12+ 07
+
+c. i425 =(77)' +7) f=(-D' +(-) a d. 4248 =47 74-87) =4(-li+8(-D’
+
+=1+(-li=1-i =—4/+8(−1) =—4i-8 =-8-4i
+, Conjugates of Complex Numbers )
+
+Conjugate of complex number is a complex number obtained by changing the sign of the
+imaginary part. In simple words, conjugate of a complex number is a number that has the same
+real part as the original complex number, and the imaginary part has the same magnitude but
+opposite sign. “
+The conjugate of a complex number a + ib is a — ib, .
+For example, the conjugate of 5+ 6 is 5— 6 and that of 3—11i is 3+11i.
+Commonly, the complex number is denoted by z and its conjugate by Z.
+For example, if z=11+7/ then z= 11+ 7i = 11-—7i
+
+--- Page 11 ---
+
+Example: Find the conjugate: .
+a. 5497 ~b. 13-Si c. —5—-Ti . d. Il
+Solution: 7 |
+a, 54+97 the conjugate is 5—9j b. 13—5y the conjugate is 13+5i
+c. —5—7i the conjugate is —5+7/ d. 11i the conjugate is -11i
+, Division of Complex Numbers
+Dividing complex numbers is a little more complicated than addition, subtraction, and
+multiplication of complex numbers because it is difficult to divide a number by an imaginary
+number.
+For dividing complex numbers, we need to find a term by which we can multiply the numerator and
+the denominator that will eliminate the imaginary part of the denominator so that we end up with a
+real number in the denominator.
+Ifz,=x,+iy, andz,=x,+iy, are the two complex numbers, then division of z, by z, is written as:
+a= 50%... (i) .
+Zz X2+lyz
+To eliminate the imaginary part in the denominator, we multiply the numerator and denominator
+of (i) by the conjugate of x, + iy, i.e. by x, — iy,
+oo Zz = xXgtivz x2-iy2 a .
+After that, we simplify the expression (ii).
+Steps for Dividing Complex Numbers .
+To divide the two complex numbers, follow these steps: .
+« First, calculate the conjugate of the complex number-that is at the denominator of the
+’ fraction. oo
+. ¢ Multiply the conjugate with the numerator and the denominator of the complex fraction.
+: ° Apply the algebraic identity (a + b) (a—b) =a?—&* in the denominator and substitute
+« Apply the distributive property in the numerator and simplify.
+* Separate the real part and the imaginary part of the resultant complex number.
+Example: Divide and simplify to the form a+ib.
+a, ate at : ob, —— = 2 c, eS
+2-5; 10i . 3+4i
+Solution:
+4. >
+2-5i :
+2-51 245; Wiplying and dividing by conjugate of denominator
+
+--- Page 12 ---
+
+_ (-743i(24+5i) -14-35i+ 67 +157
+(2—5i)(2 +5i) (2) -(5i)
+_ —14-351+6i+15(-1) _-14-29-15
+4-25 4-25(-1)
+4+25 29 29
+10/
+NSE ANE tet he arnt ate nf cdemnminatr fifi = flO}
+ar arr multiplying and dividing by conjugate of denominator (10/ = 0+10/)
+_ (11+5i(-10%) . 1107-507? _ -110/—-50(-1)
+(107)(—10/) +1002 = -100(-1)
+_-H0i+50_ 50-110), 50 110,
+~ 100 100 100. 100
+=>-—i
+2 10
+"344i.
+I-7i 3-476 we
+= —— × ——_ multiplying and dividing by conjugate of denominator
+344i 3-4i.
+_ (-7)GB—4i) _ 3-47-21 +287" _ 3-251+28(-1)
+~ (34+41G-4i)  ()*-(4i? 9-167"
+_ 3-25-28 -25-25i _-25-25i _ 25(-1-i)
+~ 9-16(--1) 9 +16 25. 25 .
+1. Simplify and express intermsof iy.
+i √3 ii, 6v-4 Hi 4
+iv. —√-20 v. 4-√-60 — vi. √-8√-2
+i. (4-1) +(5+5)) ii. © (7-61) -(5-6i) ttt, «= (-2 + 81) -(7 +3)
+iv. (4-2i)-(5—2/) v. (244i)(1+2i) vi. (1-47)(2-31)
+vii, 842-27) viii, (342i) . ix, (3-—6i)(3+ 6i) .
+
+--- Page 13 ---
+
+x. (-5-3i)? xi, (14+ √2i1-√3i) xd, «= (√2 +(√2-9
+3. Simplify: : ,
+i & ii, i: iii, i”
+iv. (-i)" v. Gi? vi. (21)
+"_ 4, Simplify in the form of a+0i. : g
+i 9488 ii, -17+i° iii,. #-108
+5. Divide and simplify inthe form of a+bi.
+tes — iii 3-ivS iv. 240
+| 4+5i .. 342i | OS4+i an’ atib
+4—5i 2th 1+ 2i a-ib
+Ax, conto X. Gray 2iy }
+Developing skilled knowledge
+¥ What is an imaginary number²) :
+. “Is an imaginary number real number² “ - Provide examples of numbers that are pure imaginary numbers. Bae
+v . What is the pattern formed by the powers of i² __
+¥ Can we say product of (2—3i)(2—3/) is imaginary² v _Ifconjugate of = is Z, then is zZ a real number² Properties of Complex Numbers OM
+Letz=a+ bi,w=c +diand v =e + fi be any three complex numbers, then the following
+properties hold.
+°* zg+w=wez (commutative law of addition) . i
+* Z*w== wz (commutative law of multiplication) . |
+* z2+0=0+z=z (existence of additive identity where 0 = 0 + 0/)
+om 1=1xz=z (existence of multiplicative identity where 1 = 1 + 01)
+® (z+w)+v=z+(wtv) (associative law of addition)
+© (2*w)*v=zx(wxv) (associative law of multiplication)
+© 2(w+v)=zw+zv (distributive law of ‘multiplication over addition)
+a 2(w—v)=zw—zv
+Prove the above properties by taking, z=1+2i,w=3-jandv=2+2i;  ©°
+
+--- Page 14 ---
+
+Additive Inverse of Complex Numbers .
+If z= a+ biis a complex number then its additive inverse is -z = —a — bi.
+In the same way, additive inverse of —z = —a — bi is z = a + Di.
+Sum of a complex number and its additive inverse is zero.
+z+(—z) = (a+ bi) + (-a— bi) =a+bi-—a—bi=0=0+01
+Example: -
+Find the additive inverse of 3—2i. vs 7 |
+Solution: . Equality of Complex Numbers
+Let.a+bi be the additive inverse of 3—2/. ee complex numbers sie:
+wii 6 tats ee and c + di are equal then:
+Then by additive inverse rule: - -
+(3 — 2i) + (a + bi) = 0 + 01 earEatend
+(3 +a) +(-2i+ bd) =0+0i
+(3 +a) + (—2+b)i=0+0i |
+Comparing real and imaginary parts of both sides, we get:
+3+a=0;-24+b=0 = a=-3;b=2
+Thus, additive inverse of 3 = 2i is 3 + 2i.
+- Direct Method: )
+We can apply the rule that additive inverse is the opposite sign of 3-2 that is —3+2i,
+Similarly the additive inverse of —7+11f is 7−1 li.
+Multiplicative Inverse of Complex Numbers
+The multiplicative inverse of a+bi is =a The product of a complex
+a+bi number and its multiplicative
+Example: Find the multiplicative inverse of 7 —5i. inverse is 1.
+Solution: The multiplicative inverse of 7—5i is ae
+Now, simplifying the expression ee —!_»/+s multiplying by conjugate
+=Hi-Gp* 49-25% 49—25(-1)
+~ 49425 84 84° 84
+: 1 5.
+ey 2s 2-1
+Verification: (7-51) × (= + =i) = (7 — 51) (—)
+49425 84 |
+=—e4 p47!
+
+--- Page 15 ---
+
+Properties of Conjugate of Complex Number
+a. Zz isa real number. ; - The complex number a + ib
+Considerz = 7—6i then Z7=7—6i =7 + 6i can be written as (a, b), a is
+zz = (7 — 6i)(7 + 6i) = (7)? — (61)? = 49-—36i? areal part and bis imaginary
+Consider z, = 1 — 2i and z2 = 4 + 3i, then:
+Z, =1+2i and z, =4-3i ,
+Now, LHS= 2.2) = (1—20)(4+ 3 = 4+ 31 —8i — 6?
+= 4—Si-6(-1) =4-5i+6=10-5i : ,
+: Z.@ = 10—Si=10+5i | :
+RHS =%.Z, = (1 + 2i)(4 — 31) = 4 — 31 + Bi — 67?
+“ ; (2) -
+- Consider z; = —1+ Si and = z,=2+i |
+Then, %=-1-5i, %=2-i
+aking Zi — ritSi _ -145i) 2-i _ (-14+5(2-0
+toking Zz 2ei2+l 2-1 (2+i(2-
+_ ~2+i+10i-Si? _ -24+11i-5(-1) _ -2+11i+5 _ 34+11i _ 3 421;
+@P-GP ~~ > -4(-1) 4d USCS
+LHS () “5 5°
+RHS = 2 = TES! = mioSl y Bet _ (cas +) .
+Zz 202 2-1“ 2+f  (2-i)(2+1) .
+— r2-i-10i-5i? _ -2-11i-5(-1) _ -2-11/+5 _ 3-11 _3 11,
+Hence, (=) ==
+Graphical Representation of Complex Number
+In complex number = =a+ib, there are two pa its of z, el
+ais a real part and d is an imaginary part associated with io
+i. On the graphical representation of complex number z,
+part is taken along y-axis and considered as to real axis le + bi
+and imaginary axis respectively. The coordinate plane ‘iar
+itself is called the complex plane or z-plane, |
+O a x
+
+--- Page 16 ---
+
+Example: Represent the numbers in the complex plane. 7
+2+3i, 3-—2i, -3+i, -2—3i .
+Solution: | _ — ee
+} 3 +31 The complex plane is also called
+- — “The Argand Diagram” after the
+34: + French-Swiss mathematician Jean
+@ , Robert Argand (1768-1822) who
+_ as a was the first to represent a complex
+BO pt | "umber geometrically as point in |
+3-2 the plane.
+
+-2-3i |
+r — 1
+We observe that the complex numbers appear in all the four quadrants due to the negative and
+positive signs of their real and imaginary parts.
+. If x=0, then × + yi=yi is an imaginary number located on vertical axis.
+If y=0, then × + yi =x isa real number located on horizontal axis.
+Absolute Value or Modulus of a Complex Number Ya
+Let z = (a,b) = a + ib be a complex number. | ts bi
+The absolute value or modulus of z, denoted by b A. (a,b)
+|z| is defined as: - fi
+} |z| = Va² + b² Y
+which is a real number. From the diagram, itis clearthat < 5 - -
+the modulus of a complex number is the distance OP of “?¥ : }
+complex number from the origin.
+If, z = a+ ib. then |z| = ,/(real part)? + (img part)? = Real Number
+Example: Find the absolute value of the complex numbers:
+a. 5i b. 2 ec. 4-71 d. —3+2i:
+Solution: |
+a. z2=S5i=045i=|z2)= √0? +5*=√25=5 :
+b. z=2=240i=|z| = √2? +0? =V√4=2
+
+--- Page 17 ---
+
+ce. z=4—7i=|2| =./(4)? + (—7)7 = √16 + 49 = √65
+d. z=-342i = |z| =,/(-3)? + 2) =√9+4=Vi13
+Properties of Modulus
+Ifz is a complex number, then following properties holds:
+a, |z| = |—2| = [2] = |-2| b. Z.z = |z2|?
+a, Consider a complex number z = 2 — 5i . b. Consider z = 2—Si
+—z=—(2—-Si)=—-2+5i Z.z = (2+ 5i)(2 —5i)
+|-2| = (2)? + G)? = √4 +25 = √29......() | =)? — Gi? = 4— 257?
+wie tee, sas = 4—25(-1) =4+25
+—z=-2-5i =29 .....(i)
+[2] = √2? + 5? = √4+ 25 = √29 se eee (ii) | [z] = (2)? + (—5)?
+Z=2-S5i=2+5i | =√44+25 =v29
+2— ¢./90\2 — 9 saat
+-2| = (24 CS = VFO = VB... (iv) | 21? = 6/29)? = 29...)
+, |-2| = /(−2)? + (—5)? = √4425 = √29... (iv) From (i) and (ii),
+From (i), (ii), (iii), and (iv): |z| = |-z)=[zZ]=|-Z] = Z2z=|z|?
+Example: Find the real and imaginary parts of the complex numbers: |
+a. (2-3i) b. (1+2i)? c. (2 +iN3y* , q Gc)"
++i (+i
+Solution: |
+a, (2-3i) =(2)' +(3i)? -12i= 44-97? -123 =449(-1)-12i
+(l+2i)" (1° +(2i)°+4i 1447? +47 14+4(-1)+4i
+- 1-4447 -34+4) -3447 3-47
+(3) -(4i" 9-167? 9-16(-1)
+--#@ _ 3-4 38 4, UD 3 4
+9416 25.25 25° NOM Part= 35, Imiginarypart = ~=
+Ln Compl Mb Neenah Book Formation
+
+--- Page 18 ---
+
+«B+ iv3) _ (√2)? + √5) +2123 _ 2437 + 2iN3 x2
+_2+3(-1)+2i√6 _ 2-3+2i√6 _ -1+2i√6 —
+1+i es Cs ee Eo
+_n1+2i√6 Ii _ (14+ 2i√6)(1=i) _ -1+2i√6 +i-21° √6
+l+i = 1-i (ly -(i’ 1-7?
+_-1+(2√6+Di+2√6 _-1 +2√6+(2√6+I)i _-1+2√6 | (2√6 +1),
+1-(-l 2 2 2:
+a Gen² _ OP @? 21 _ Ie 1~2i _-2i
+" 4? (9? 4+@? 42% 1-142) 27
+Real part =—1, Imiginary part = 0
+Geometrical Representation of Algebraic Operations
+
+The graphical representation of algebraic operations in the complex number system
+makes it easier to understand the concepts.
+(i) Geometrical Representation of Addition QZ) RZ +25)
+Geometrically, addition of two complex numbers z, and z, —a .
+can be visualized as addition of the vectors by using the ij
+parallelogram law. The vector sum Z, + 2, is represented [A PZ)
+by the diagonal of the parallelogram formed by the two “~~ Ol Real axix
+original vectors. | a
+If two points P and Q represent complex numbers z, and z,
+respectively in the Argand Plane, then the sum z, + Z, is
+represented by the point R of the diagonal OR of
+parallelogram OPRQ having OP and OQ as two adjacent
+sides. |
+(ii) Geometrical Representation of Subtraction
+The representation of the difference of two complex
+numbers, is slightly complicated than the addition of the
+complex numbers. The easiest way of presenting the
+subtraction is to think of addition ofa negative vector.
+
+--- Page 19 ---
+
+If we want to represent z, — z,, then the easiest way of | of \ ;
+representing it would be to think of adding a negative | . 2
+vector z,+ (—z,). fi \e
+The negative vector is the same as the positive one, the only | / 2
+difference being that the negative vector points in the V _—"4u ft -
+opposite direction. . iN | :
+The difference vector z, —z, is represented in the Py Py No ;
+adjoining figure. * | VY |
+Pe
+Itis important to note here that the vector representing the difference of the vectors z,—z, may
+also be drawn joining the end point of z, to the tip of z, instead of the origin, This kind of
+representation does not alter the meaning or interpretation of the difference operator.
+Can you think about a geometric interpretation of the addition of three or more complex
+numbers? a Ey ile:
+Represent sum and difference of z; = 4 + 2i and z2 = 2 + 3i graphically.
+Solution:
+Given, z1 = 4+ 27 = (4, 2) and z2 = 2 + 37 = (2, 3) oA
+Sum = 2) + z2 = (4+ 2i)+(2+3)= 6+ 5i =(6, 5)
+Difference = z; — z2 = (4 + 21) -—(2 + 31) =2-i = (2, -1)
+/ —Z2 |
+
+--- Page 20 ---
+
+(iii) Geometrical Representation of Multiplication and Division
+Consider, z1 = 4 + 34 and zz = 2 — 2i.
+Now, Z1 Z2 = (4 + 37)(2 — 2i) ' _
+=8 —8i + 61 - 67° + %
+=8-2i+6=14-2i 7 _®
+Product z: z2 is shown in the a [are F a .
+adjoining diagram. | ON SK
+Again, consider z| = 4 + 67 J i f
+and z2 = — 2i then: 7 jt /-
+z1 +22 = (4 + 61) + (-2i) Ve «CLS
+=-3+2i /
+The result is shown in the diagram. © ¢ +--+ ‘a! oe ee a Hl
+\. Find the additive inverse of each complex number. |
+a —4+5i - b -3-3 c. 5-Si d. 4i
+2. Show that each pair of complex numbers are multiplicative inverse of each other.
+nia: 27d gg, O+4i 9, sr4i
+a, 243i, BT | b. 5-4i, aL c. 6+8i, =
+3. Find the multiplicative inverse of each complex number.
+a. 1+i b. 7—3i ce. 10-12;
+4. Find the product of each complex number and its conjugate.
+a. 4 b. 1l-i c. Ti
+d. 6—2i e. 10+9% f. 4-11
+5. Ifz,=1—2i and 2, =2+i: )
+a. Show that: |
+
+--- Page 21 ---
+
+ili, = [z, | = |—z,| = | = |-%| iV. Z».Z = [z,|?
+_ b. Find: |
+6. Represent the numbers in the complex plane.
+a. —1—3i b. 2+4i " e. -—34+2i d. 2-3/7
+e. 2i f. -3i g 2°
+. 7, Separate into real and imaginary parts of each complex number.
+a. (√2-43i)? b. (√2 +i)? c. Sat i a | 1,43.
+€. —t Jf a g. sc a
+©. G © al-2) © (1-2)?
+8. Taking any complex number and show that:
+a. z.zZ is areal number. b. z² + (Z)? is a real number.
+c. (z—Z)? is areal number. d. |z| and [2| are real numbers.
+e. z* — (Z)? is an imaginary number.
+9. Represent sum and difference-of complex numbers graphically.
+(i) z1=5+ 3i and z2 =2 -—3/ (ii) z)=-—3 + 2i and z2 =4 + 3i ,
+- 10, Represent product of complex numbers graphically. ,
+(i) z=4+2iandz2=-2+3i (ii) 2) =-2+4i and z2=3-i
+11. Represent z; + z2 graphically when:
+) (i) 27=6-4i and z2=3 (ii) zi=—~-4-6i and z2=1+i7
+Applications of Complex Numbers
+Complex numbers are used in many fields in real life. Major Fields where complex numbers are used
+Electronics — Electromagnetism Computer science engineering
+Civil engineering Mechanical engineering Control systems. -
+In modelling and problem solving, we find many equations whose roots are complex numbers.
+Dealing such kind of problems, we must have conceptual understanding of complex numbers.
+Practically, negative numbers do not have square roots in the number system. However, a large
+number system that contains the real number system is designed so that negative numbers do have
+square roots.
+
+--- Page 22 ---
+
+Example: Solve x7 +5=0
+"Solution: x7 +5=0
+x =-5 .
+x°+5=0
+= +y5i /
+eg. Solution is + Vi.
+he ane + √5i and —5i are Verify the solution.
+both pure imiginary numbers.
+Sometimes we need factorization of the equation, but in real number system in some
+expressions making factors are not possible, By using the complex numbers properties, we
+can make factorization possible.
+Example: Factorize:
+a, 2 +9 b. 327 +5
+Solution: .
+a. Zz 49 : b. 32745
+The factors of z* +9 are (z-—3/)(z +31) The factors are (√3z—iN5)(√3z +i 5)
+Example: Mr. Wagas is an electrical engineer designing the electrical circuits for a new office
+building. There are three basic things to be considered in an electrical circuit: The flow of the
+electric current I, the resistance to that flow Z, called impedance, and electromotiye force E,
+called voltage. Their quantities are related in the formula £=/Z . The current of the circuit
+Waaas is designing is to be (35-—40./) amp. Electrical engineers use the letter J to represent the
+imaginary ugit. Find the impedance of the circuit if the voltage is to be (430-330) volts.
+Solutions We know that E = /Z ......(i) x
+We know it is given that 1=35-40J | E=430—330J
+Substituting the values in (i) £=JZ
+and Z= 7
+35-40/
+_ 430-330/ 35+ 40/
+35-40J 35+40/
+_ 15050 +12200J -11550J -1 3200J° a __y
+eters
+
+--- Page 23 ---
+
+_ 2825 +5650/ =142J
+The impedance will be 1+ 2. ohms.
+Example: If 2; = 5.5 + 5i,z2 = 7.7 + 7i, then calculate:
+os Za ,
+Solution: oe
+a. 2,+2,=5.54514+7.74 71 =13.2+12i .
+| =7.35477i * :
+4 Ae 5.5+5i  5.5+5i × 7.7-Ti _(6.5+5i)(7.7-Ti) :
+“gp 7747 7.7471 7.7-Ti (7.19 -(1i9
+: —— -§3,.9=49i" 102.9 ,
+_ Solution of System of Equations with Complex Coefficients
+In this section, we shall find solution of different equations in complex variables either with
+real or complex coefficients. Consider the following equation:
+pz+qw=r.cai)
+Where p, q and r are complex numbers (every real number is a complex number). The equation
+(i) is called a linear equation in two complex variables z and w.
+Pz+qwer
+P,2+g,W=h, , .
+These two equations together form a system of linear equations in two variables z and w. The
+linear equations in two variables are also called simultaneous linear equations.
+Example: Solve:
+z+w=3i ; .
+. 2z+3w=2
+| Solution: Given equations are: .
+. Z+w=3i.......(i) reo
+(224+3w=2......(ii)
+
+--- Page 24 ---
+
+Multiply equation (i) by 2 to equate the coefficient of z with equation (ii) and subtracting
+2z+2w=6i
+t2zt3w=t2
+w= 2-6) (Substitute in (i) to find z)
+z+2-61 =3i
+z=9i-2
+Solution is: z=9i-2, w=2—-6/
+——
+Solve: } DO
+1 x*°+7=0 2. x°+9=0 3. x²+100=0 a
+Determine whether the given complex number is a solution of the equation.
+4, 142i, x7-2x+5=0 5. 1-2i, x°-2x+5=0 .
+6 1l-i,x²+2x+2=0 7. i,x’°+1=0
+Factorize the expressions: Oo
+8. x² +16 9.-a² +b* 10. x7 +25)" |
+Solve the following system of linear equations.
+ll, 2-4w=3i 12, 3z+(2+i)w=11-i 7
+22+3w=11-5i (2-)z-w=-l+i
+13, Inan electrical circuit, the flow of the electric current I, the impedance Z and the voltage
+E, are related by the formula £ = JZ . ‘
+a. F ind I, given the values: )
+i. E=(70+220/) volts, Z =(16+8J) ohms
+ii, E=(85+110/) volts, Z=(3—4/)ohms
+b. Find Z given the value:
+i = E=(-50+100/) volts, J =(-6—2/)amp
+ii, E=(100+10/)volts, J =(-8+3/)amp
+- l-i
+c. Evaluate — when z= = a
+
+--- Page 25 ---
+
+LL Sjuocti. i
+« Recognizing complex numbers, and conjugate and modulus of a complex numbers.
+« Applying basic operations on complex numbers. .
+¢ Defining commutative laws, associative laws and distributive laws for complex
+numbers. ae
+e Recognizing additive and multiplicative identity and finding additive and multiplicative
+inverse of complex numbers. “
+e Finding real and imaginary parts of (+2) for n=+1, +2.,...
+e Finding solution of equations having complex values.
+« Applying the geometric interpretation of a complex numbers.
+e Solving daily life problems involving complex numbers.
+rms NISCELILANEOUS EXERCISE-1 J Cn
+_ 1. Tick the correct option. ,
+i. —I is equal to:
+a, 1 b. -l c 7 d. -i
+ii, If x<0, then √x is:
+a. Real b. ‘Complex c. Irrational d. Rational
+iii, Conjugate of ./x -ify is:
+a Vi+ify 9b xy xy d xtyy
+iv. If z=x+iy, then zz is:
+a. Imaginary b. Complex |
+c. Non-negative number . d. Negative number
+v. √-25+248 is equal to:
+a. 1+i b. 1+ J-1 « i-i d. -i
+a, iti » a+? c. 1-i od ti
+a. =x} b. x" c. -i' d. —x"
+| iO: Complex Numbers 2S Natoma Book Fain)
+
+--- Page 26 ---
+
+ix. If z=3+4i, then \2|" is:
+a. 5 b, √5 - c. 25 d. 16
+x. The solution of x*+4=0 is: .
+a. 2i b. -2i ! c. #2 d. +2i
+a. (-2+4i)—(8-5i) | b. (-34+4i)+(-7i+4)
+3. Find the product: 3 | :
+a. (x+iy)(2+3/) b. (—3+6i) (-6+31
+4. Write in the form of a+bi, then find its conjugate:
+a. 3√2—-√-7 b. ¥—2
+5, Find z.2:
+2
+-3-i : 1+3i
+es b. “F
+7. Factorize:
+a. 2x²+18 b. —x²-—25y'*
+8. Solve: .
+: a. 3x7+15=0 b. 6y°+36=0 § ~
+_ _ ut

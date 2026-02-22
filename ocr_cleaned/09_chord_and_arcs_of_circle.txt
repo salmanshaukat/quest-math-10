@@ -1,0 +1,659 @@
+============================================================
+CHAPTER: Chord and Arcs of a Circle
+Pages: 196 - 214
+============================================================
+
+--- Page 196 ---
+
+SES aa —_ — —
+. , O | -
+ow — d —~ © _ i . rn — 1.
+Chord and Arcs ofa Circle
+| After studying this unit students will be able to:
+= One and only one circle can pass through three non collinear points. |
+| @ Astraight line drawn from the centre of a circle to bisect the chord is perpendicular to the chord.
+® Perpendicular drawn from the centre of a circle on a chord, bisects it.
+| * Two congruent chords of a circle are equidistant from the centre. . |
+| « Two chords ofa circle equidistant from the centre are congruent.
+| ©  Iftwo ares of acircle (or of congruent circles) are congruent, then the corresponding chords are equal.
+| «  Iftwo chords of a circle (or of congruent circles) are equal, then their corresponding arcs (minor,
++ major or semicirele) are congruent. ,
+« Equal chords of a circle (or of congruent circles) subtend equal angles at the centre (at the
+corresponding centres). |
+| Ifthe angles subtended by two chords of a circle (or congruent circles) at the centre (corresponding
+circles) are equal, the chords are equal. |
+| © Apply concepts of chords and ares to real life word problems such as decorative features, rainbow, |
+“bridges and roller coaster track. ¥ fr
+Circle theorems are statements in geometry that state important results related to circles that are
+used to solve various questions in geometry. They have very useful applications within design and
+engineering.
+These theorems show relationships between angles within the geometry of a circle. We can use
+these theorems along with prior knowledge of other angle properties to calculate missing angles,
+without the use of a protractor. _ ~ ¢
+Can you find the value of angle inthe figure below. —_// , | > \
+Doo\ /
+AS
+. —— name Tae ii.
+2——————— a (D ——— ee é 3 " a ate ce ee a et ES SR
+
+--- Page 197 ---
+
+Chords of a Circle
+Yelinition :
+A line segment joining two points of a circle is called chord of that circle.
+Theorem 9.1
+Statement: One and only one circle can pass through three non collinear points. .
+(i) Take three non-collinear points A,B and C onthe paper eS
+and join them to obtain the triangle. vo ai \ oN
+(ii) Draw right bisectors of the sides, They will meet at only / i \ ye *
+one point P (say). i ewe A!
+(iii) With centre P, draw a circle of radius PA. ‘ roe Fj
+What do you notice? Does the circle pass through B Ay cE _ “Vg .
+and C also? . “Shee, ot -
+Corollarjes; (j) One and only one-circle can pass through two points lying on the
+same line.
+(ii) Two circles cannot intersect each other at more than two points.
+Taamyples
+Construct a square with sides 6 cm long. Show that one and only one circle can be drawn
+through vertices of the square. Measure the radius of the circle.
+(i) Construct‘a square ABCD having side equal to 6 cm long. i a Ar
+(ii) Draw diagonals AC and BD. if ‘
+(iii) The two diagonals bisect each other at point O. : \ A | 6cm ss!
+(iv) With centre O, construct a circle with radius OA. \ AO. '
+(v) You will see that the circle will also pass through ‘ ff if N\ | /
+vertices B, C and D, ‘| é —_ — SL’
+As diagonals AC and BD bisect each other. Therefore: “ Fm weet 8
+Furthermore, there is only one centre O of the circle, therefore we can say that ,
+only one circle can be drawn through vertices of the square.
+Now in right triangle ABC:
+(ACY = (ABY’ + (BC? Pec]
+(ACY = (6)? + (6)? = 36 + 36 = 72 Wtf rae aheca. eeiacada
+Taking square root on both sides, we have: ici ne cekene sees Had
+AC ~ v72 = 6v2 wn each other, eae
+Radius = OA = half of AC = 3√2 cm |
+
+--- Page 198 ---
+
+. Theorem 9.2
+A straight line drawn from the centre ofa circle to bisect the chord is
+perpendicular to the chord. |
+(i) Draw achord AB of a circle with centre O. f “ \
+(ii) Take a point C on the chord such that AC = BC. |
+(iii) Join O to C and measure ZOCA and ZOCB. ‘s /
+Are the angles equal? Yes! they are. . 5
+» ZOCA=Z0CB i, OC LAB
+(i) If a diameter or radial segment of a circle bisects the chord, it is perpendicular to the
+chord.
+(ii) The diameter or radial segment of a circle passes through the mid points of two parralle]
+chords of a circle;
+Theorem 9.3
+Statement: Perpendicular drawn from the centre of a circle on a chord, bisects it.
+Class Activity: - .
+(i) Draw achord AB of a circle with centre O. / \
+(ii) Take a point C on the chord such that ZOCA = 90°. | .
+(iii) Measure AC and BC, a /
+Are they equal? ANC _B
+Yes! they are. i.c., AC =BC
+(i) Ifa diameter of a circle is perpendicular to the chord, it bisects the chord.
+(ii) Perpendicular (right) bisector of a chord of a circle passes through the centre of a circle.
+Example: , :
+Diameter and chord of a circle are 20 cm and 16 cm long respectively and are perpendicular
+to each other. Calculate the distance of chord form the centre. 6
+Solution: so, ow oG
+Diameter = CD = 20cm f . \
+Radius =OA=10cm
+Chord = AB = 16 cm L “|
+As the diameter and chord are perpendicular to each other. \e CL /
+Therefore, diameter bisects the chord. AN EU ®
+Hence, AE=BE=8 cm . Cc
+Now in right triangle AEO: |
+(AE)? + (OEY =(OA)? = (8)? + (OE) = (10) Diameters of a circle bisect
+= (OE) = (10)? - (8) = 100 - 64 = 36 each other.
+=> OF=√736=6cm
+*. The distance of chord from the centre = 6 cm }
+Unies: Chontanbavesofu Cle IIS Noah Bovk Foundation
+
+--- Page 199 ---
+
+1, Construct an equilateral triangle with side 5 cm long. Show that one and only one
+circle can be drawn through the vertices of triangle. What is the radius of circle drawn² 2, Given that P is the centre of each of the circles. Find the values of unknown if line
+segment drawn from the centre of each circle is perpendicular to the chord.
+@ c (ii) 7
+scm Bee ee
+wea j3cm / \ 7 9 Ny
+3. Find the length of diameter CD of the circle when AB = 10 cm, PE = 12 cm. Also find
+_ CE, _ D
+
+4, In the following diagram, OB = 15 cm, OF = 9:cm. Find the length of chord CD given
+that OF 1 CD. ney
+: a >
+(AN
+’ \ i² ;
+5. Calculate the length of chord AB in the following diagram if OC .L AB.
+{ oe) | oa
+\] f -
+Ui Cond onldnscaCine Nida ona
+
+--- Page 200 ---
+
+6. Construct a rectangle EFGH such that EF = 6 cm and FG = 4 cm, Draw a circle
+passing through its vertices and prove that it is the only circle thatcan be drawn __ :
+through vertices.
+7, Take four non collinear points A, B, C and D such that AB ~ BC = DB = 4cm. Draw
+all possible circles that can pass through A, C and D.
+8. In the diagram, PU = 16 cm and RS = 10 cm. ao “SR
+(i) Express OU in terms of radius r. / f|\
+(il) Form an equation in r and solve it to find | f 1h
+. radius r. Pro uo 7°
+Hint: 16-OU=r \ WA
+Ns
+9, In the following diagram, AB = 16 cm, DE 4=cm., Find the radius of the circle. .
+
+aN [FEA B :
+10, Given that diameter and chord of a circle are 10 cm and 8 cm long respectively. The
+diameter bisects the chord and the distance between chord and centre of the circle is
+3m. Show that the diameter bisects the chordperpendicularly. 3
+11. In the figure O is centre of the circle. AB is a e 5
+the chord and CD | AB passes through centre. Lf IY
+Show that AC = BC. | | F icc Pid aos
+Theorem 9.4
+‘Statement: Two congruent chords of a circle are equidistant from the centre.
+(i) Draw two equal chords AB and CD ofa circle as shown in , AN
+the adjoining figure. fms \
+(ii) Draw perpendiculars OE and OF on the chords AB and CD 9
+respectively. \er /
+Py Cond anbaresof Cirle Napa Book Foundation |
+
+--- Page 201 ---
+
+(ili) Measure OE and OF.
+Are they equal? Yes! they are equal.
+Theorem 9.5
+Statement:
+Two chords of a circle equidistant from the centre, are congruent.
+Class Activity:
+(i) Draw two chords AB and CD ofa circle such that D
+they are equidistant from the centre as shown in ch£— ~\
+the adjoining figure.
+(ii): Measure chords AB and CD. | ae ie |
+You will see that they are equal in length. 7 A
+Corollary:
+_ (i) Iftwo chords of a circle are unequal, then longer chord is nearer to the centre and vice
+versa,
+(ii) Iftwo chords of two congruent circles are congruent, then they are equidistant from their
+respective centres and vice versa. ee
+Example: W7 re
+In the adjoining figure, AB || CD such that AB = 24 cm and f “
+CD = 10 cm. Find the radius of the circle if distance between Pe
+chords is 17 cm. : \ f /
+Solution: YS vA
+Let the radius of circle be r cm with centre P. cS
+Draw PE 1 AB and PF 1
+=> BE=5AB and CF=>CD
+As the chords AB and CD are parallel, therefore points E, P and Fare collinear and
+EF = 17 cm :
+Let PE = x, then PF = 17-x
+JoinP to BandC,thenPB=PC=r .
+Now, PBE and PCF are right angled triangled. Therefore: :
+(PB)? = (PE)? + (EB)? and (PC) = (PF)? + (FC)
+Poax'+12?? ......@0 and rr =(17-xP +5? ......(ii)
+= +12? = (17-xP +5? ..... [comparing (i) and (ii)]
+=> x24+144 = 2894+37-34x425 .
+=> 34x = 170 "If AB is chord and diameter CD is right
+_ = × = 5 bisector of AB, then:
+Now from (i), we have: AC=BC and AD=BD
+| ni: Chontand Ares aCe 20 Naonl Book Foundation |
+
+--- Page 202 ---
+
+P =S4+12? =25 + 144 = 169
+Taking square roots on both sides, we get r= 13. ‘
+“. Radius of circle = r= 13 cm
+Example: -
+Two parallel chords AB and CD of lengths 16 cmand 12cm = a _E_ 8
+respectively are drawn on the opposite sides of centre O of fos, + \
+the circle. Find the distance between the chords if the radius SS lO |
+of the circle is 10 cm. / 7 |
+Solution: \ Fi | /
+Radius of circle = OA = OC = 10 cm Panama
+AB = l6cm, CD = 12 cm
+Draw OE 1 AB and OF 1 CD ,
+= AE=+AB=8cm and CF=>CD=6em
+As AB || CD, therefore points E, O and F are collinear.
+Now, OAE and OCF are right angled triangles. Therefore:
+(OEY + (AEP =(OAY and (OF + (CFY = (OC)
+= (OE) +(8%=(10) and (OF) + (6)? = (10Y
+= (OE) +64=100 aid (OF)? + 36 = 100
+Taking square roots, we get:
+OE=6cm and OF =8 cm
+-, Distance between chords = OE + OF = 6 +8 = l4cm
+“ ce Oe AZo 8
+1, In the figure, O is centre of the circle and 2COF = 150°. / \ \ .
+rind the values of . oO 5
+<OCF and 2CFD. \
+2. Two circles of radius 3 cm each are drawn with centres P and Q. AB and CD are their
+chords such that AB = CD =4 em, Find shortest distances of the chords from the
+respective centres. Are they equal? a a—
+
+--- Page 203 ---
+
+3. Find the distance between two chords PQ and RS P, eh Be Q
+of circle shown in the adjoining figure if: {fn \
+PQ =6 cm, RS = 8 cm and radius = 5 cm \] P
+4. Given that O is the centre of each of the circles. Find the values of unknown. All
+dimensions are in cm.
+of \ /—*v \
+| ‘0 +o |
+ac |
+ee CES
+5. Two parallel chords of lengths 24 cm and 12 cm are drawn on the opposite sides of a
+circle of radius 13 cm. Find the distance between the chords.
+6. AB is chord of a bigger circle of radius 10 cm
+centered at O. Find the radius of the smaller circle A/—>— wats
+‘passing through midpoint of AB. | |
+Also find the difference of radii of both circles. KN if /
+7. Two parallel chords of lengths 18 cm and 80cm are drawn on the same side of a circle
+of radius 41 cm. Find the distance between the chords.
+8. Two parallel chords AB and CD are 4 cm apart and lie on the opposite sides of the
+centre of a circle. If AB = 2 cm and CD = 6 cm, find the radius of the circle.
+9. PQ and RS are two parallel chords lying on the same side of the centre of a circle and
+are 2 cm apart. If PQ= 8 cm and RS= 10 cm, find the radius of the circle.
+Ares of Circles
+Arc of a Circle
+An arc is a part of a circle. In the figure, AB is an arc of the.circle P.
+_ Are AB is denoted by AB. a
+i ; i. Bb There is a_ difference
+joe \ \ between a circle and a
+f - \ \ circular region. A circular
+1 p ra : A region is union of circle and
+% / ) its interior,
+
+--- Page 204 ---
+
+A diameter divides a circle into two equal parts. Each part is called fo™
+semicircle or half circle. We use three letters to name a semicircle. /
+The first and third letter are end points of diameter. × P -
+In the figure, XAY is semicircle. Can you name the other semicircle?
+Minor and Major arcs .
+Minor arc is the arc included in a semicircle while _ E :
+the are which includes a semicircle is called major f-
+arc. . \
+In the Fig. EF is minor arc while ECF is major arc. cy p yF
+(i) Major arc of a.circle and semicircle arc denoted by three letters.
+(ii) | Minor arc is less than and major arc is greater than the semicircle.
+Central Angle
+Angle subtended by an arc at the centre of a circle is called
+central angle of the arc. An angle whose vertex is the a ™
+centre of circle and whose arms pass through end points / \
+of arc is known as central angle of arc. or
+-If an arc is included in a semi-circle, then its central Nf
+angle is less than 180°. Central angle of semi-circle A |
+is straight angle (180°). Central angle of major arc
+of the circle is greater than 180°.
+In the figure ZAOB is central angle.
+Congruent Arcs |
+Two arcs of a circle (or of two congruent circles) are congruent if their central angles are
+congruent. :
+: Theorem 9.6
+If two ares of a circle (or of congruent circles) are congruent, then the corresponding chords
+are equal.
+| Uni09: Chondand.aresofa Cite 204 Nona Book Foundation |
+
+--- Page 205 ---
+
+Class Activity: .
+(i) Take two congruent arcs AB and CD ofa circle C—_
+with centre O. f
+(ii) Join C to D and A to B. | ™\p
+(iii) Measure chords AB and CD, O* |
+You will see that AB = CD | \ B
+If two arcs of two congruent circles are congruent, then the
+corresponding chords of both circles are equal.
+Theorem 9,7
+Statements
+If two chords of a circle (or of congruent circles) are equal, then their corresponding arcs
+(minor, major or semicircle) are congruent.
+Chass Activity; |
+(i) Draw two equal chords AB/and CD of a circle >
+_ with centre O. / ™\p
+(ii) Measure corresponding arcs AB and CD. O- |
+They will be congruent. \ &
+Corollary: .
+(i) If two chords of a circle (or of congruent circles) are equal, then their corresponding
+minor or major arcs are congruent.
+(ii) If two chords of a circle (or of congruent circles) are equal, then their corresponding
+semicircles are congruent.
+Theorem 9.8 }
+Statement:
+Equal chords of a circle (or of congruent circles) subtend equal angles at the centre (at the
+corresponding centres). Cc
+| Class Activity: f RP :
+(i) Draw two equal chords AB and CD of a circle f \ oop
+_ withcentreQ. ) a
+(ii) Join O to A, B, C and D. \ 7B
+(ili) Measure corresponding angles. AOB and COD. NY
+You will observe that the corresponding angles are equal in measure. A
+
+--- Page 206 ---
+
+- Theorem 9.9
+Statement:
+If the angles subtended by two chords of a circle (or congruent circles) at the centre
+(corresponding circles) are equal, the chords are equal. c :
+Class Activity: f" AN
+(i) Draw two chords AB and CD of a circle such that LoS \p
+ZAOB = ZCOD | mm |
+(ii) Measure corresponding chords AB and CD. \ / 8
+What do you notice? No TS A
+You will observe that the corresponding chords are equal in measure. A
+In the figure, AB = 4 BC and ZAOB = 120°, find: . ae \
+(a) ZBOC (b) ZOBC (c) ZOBA
+(d) ZOAB + ZABC + ZBCO + ZCOA ~~ Ic
+(a) Let ZBOC =x, then ZAOB=4x_.. (AB =4 BC) B
+But ZAOB = 120° .... (Given) -
+. 4x = 120° => x=30°
+Hence, ZBOC = 30°
+(b) AOBC is an isosceles triangle. (OB = OC = radii)
+= ZOBC=ZOCB (opposite angles of congruent sides of triangle)
+:. ZOBC == (180° - 30°) = 75°
+(c) AOAB is an isosceles triangle. (OA = OB = radii)
+=-ZOAB=ZOBA (opposite angles of congruent sides of triangle)
+:. ZOBA =5 (180° — 120°) = 30°
+(d) ZOAB + ZABC + ZBCO + ZCOA = 30° + (30° + 75°) + 75°.+ (30° + 120°)
+= 30° + 105° + 75° + 150°= 360°
+Diagram shows a pentagon inscribed in a circle with centre P. Am ~
+if AB = BC =CD and ZABC = 140°, then find:
+(a)ZAEB (b) ZAED  (c) ZBPD af- peere, Sen E
+(a) Given that, AB = BC = ED, then: a Vy CY
+Corresr ~ding chords are equal in length. a
+ie. AB=BC=CD
+ABCE is a cyclic quadrilateral.
+
+--- Page 207 ---
+
+=> ZAEC = 180° - ZABC = 180° — 140° = 40°
+=> /ZAEB+ ZBEC = 40° (angle sum postulate) If two arcs of a circle are
+= 2 ZAEB=40° (ZAEB = ZBEC) unequal, then chord and
+= ZAEB =20° angle corresponding to
+(b) As, AB=BC=CD (given) SAEAET BC BIC SCENT
+ZAEB = ZBEC = ZCED = 20° :
+(Equal chords subtend equal angle at a point on the circumference.)
+Now, ZAED = ZAEB+ ZBEC + ZCED = 20°+20°+ 20° =60°
+(c) ZBPD=2 ZBED (Angle at the centre is double the angle at a point on circumference.)
+Example: o- )
+In the figure, chords EF || GH. Prove that: 7 \F
+EG _ FR i * ras \
+Solution: Be
+Draw EF and FG passing through centre of circle P.
+ZEPG=2 ZEFG (Angle at the centre is double the angle G oe H
+at a point on the circumference.) epee inns
+“ ZEFG == ZEPG (i)
+Similarly, ZFGH=>ZFPH (i) 6) bid cteceiin 35 =
+But, ZEFG = ZFGH (alternate angles) trapezium are equal.
+Hence, EG = FH (Arcs subtending equal angles at the céntre of circle are equal.)
+I. In the figure, chord AB = chord BC. D
+(i) Is AB = BC? os
+(ii) Is ZAPB = ZBPC ? 4 p
+. (iii) If AB < AD, then what is relation between ; ] ‘
+corresponding chords? BN oe:
+: S
+2. In the figure, MOEN 5
+Prove that; AB || CD
+| cS f
+
+--- Page 208 ---
+
+3. Inthe given figure, chords AB and CD intersect at P. ee
+If AB = CD, then prove that: Me \
+AB = CD ) . x0
+4. Consider two circles of radii 2 cm and 4 cm centered at P and Q respectively. AB and
+CD are their arcs such that ZAPB = ZCQD.
+i. | Are AB and CD congruent?
+ii, | What is relation between the lengths of AB and €D?
+iii. Show that AAPB ~ ACQD
+5. Ovis centre of two concentric circles of radii 3 cm and 6 cm. _—.
+OA and OB are radii of larger circle and they meet smaller KS >s
+circle at C and D respectively. (ofS? 5 .
+i. Are AB and CD parallel? LX OJ,
+ii. If AB = 8 cm, then find CD. ‘, ° A
+iii, | Find distance between AB and CD.
+6. The length of an arc of a circle is 4 cm and its central angle is of measure 60°. Find
+central angle of the arc whose length is 8 cm.
+7. Given that M is a point on a circle centered at P. If M is equidistant from the two radii -
+PE and PF, show that ME = MF. OS .
+8. Consider two circles centered at A and B respectively. CD and EF are their chords such
+that CD = 12 cm, EF = 8 cm and “CAD = ZEBF, Find radius of circle A if radius of
+circle B is 4 cm. aa ornings
+=~ a ) 7 .B
+9, Inthe figure, ABDC is cyclic quadrilateral such that: , <]
+Prove that: | —_
+10, In the given figure, ABC is an isosceles triangle {ffin \
+inscribed in acircle centered at O. (/ ot \
+Prove that 403 bisects ZBDC. QL c
+D
+
+--- Page 209 ---
+
+11. ABCDE is a pentagon inscribed in a circle. 5 poe
+If AB = BC =CD, ZBCD = 130° and ZBAE = 1 2° OK \
+Find: \ :
+(a) ZABC (b) ZCDE At ae
+(c) ZAED (4) ZEAD \ ; Y; |
+Cc ,
+12. Given that O is the centre of a circle. Diameters D~~~\B
+AB and CD are perpendicular to each other, Noss
+Prove that the line segments joining in order fi Nov ;
+the end points of diameters form a square, at ge NE, :
+13. In the figure, O is centre of the circle. a —*
+AB = CD and ZOAB = 40°. | if ; i’
+Find ZAOB and 2COD. | oF a² Are the angles equal? If yes, then why² \ as |
+; —
+14. In the figure, diameters AB and CD of circle are perpendicular. “3 a <
+(i) Prove that all the four chords make equal’central angles. / if he ase
+(ii) Find ZPCB and ZACB. [4 X a
+(iii) Find other-angles that are equal to 2ACB. . AK py lh ‘
+(iv) What is the name of inscribed polygon² \ ff
+(v) How many circles can be drawn through the vertices PEN
+"of polygon formed? D 3
+15, In the adjoining figure, RS = 3PQ and Z2PTQ + ZRTS = 180°. eS |
+(i) Find 2PTQ and 2RTS. lcd ia
+(ii) What is the ratio between measures of 2PTQ peepee Misra eames
+and ZRTS? Te—S)s.
+
+--- Page 210 ---
+
+Applications of Chords and Arcs
+
+Arc Length | y S
+The length of an arc of a circle of radius 'r’ that subtends an, { f N\A ATE Oo
+angle @ at the center is calculated by the following formula: [ lg :
+Arc length = /= — × circumference of circle \ _ j=
+Where 360° is the interior angle subtended by a circle.
+
+Chord Length fom
+
+Length of a chord of a circle of radius ‘r’ / \
+
+lying at a distance ‘d’ from the centre is: : A
+
+In the adjoining figure, length of chord AB is: LW Y {a /
+
+AB = 2vr2 — d2 AN c_7B
+
+Note that AC is half of AB.
+
+Perimeter of a of Semicircle
+
+The perimeter of a semicircle is given by the following formula.
+
+P=2~ radius+arclength = 2r+nr
+
+Perimeter of a Segment of a Circle arc length
+
+Perimeter of segment of a circle is defined as: aN
+
+P =arc length + chord length
+
+= oe ener + 2vr2 — d? “ngth
+
+Area of Sector of Circle
+
+Area of the sector of a circle having radius r and central angle @ is:
+
+4 = ON py² 
+A= Joos * BT
+
+Where the angle @ is measured in degrees. _ “
+Example: a
+
+Find the length of arc and area of sector a circle with central angle of §0° and radius 14cm.
+Solution: Given tirat:
+
+6=60° and r=l4cm
+_Arclenghh = =. × 2nT
+360° ?
+: -—_, ree os bot a2 . Ay = 103.47 em
+Area = × mr ee (14) 102.67 cm
+Pie Chand arn fu OE TO Sl Hk Fonda
+
+--- Page 211 ---
+
+Example: | >>
+A circular decoration piece consists of two equal parts as »\
+shown in the figure. Find the length of one part of the piece. AY 56cm \
+What is the cost of decoration piece @ Rs.8 per centimetre? f° __ 90°} | .
+Solution: a 7 |
+Given that r = 56cm, a= 90°, then: KO. Py
+I= 0.x tar = 2 x2 x2 × 56 | ett =
+/=88 cm : )
+Length of one part of the decoration piece is = 2 × 88 = 176 cm .
+Cost of decoration piece @ Rs.8 percm=Rs.2* 176*8=Rs.2,816
+—
+1. In the figure, radius of circle is 7cm. Find:
+(i) the length of minor are PQ and major are PAQ. a
+(ii) the circumference of circle. By ice \
+Is the sum of lengths of minor arc and major arc equal / rete j
+to circumference of circle? Sorbet Ae: ete L P|
+Q\ 0 JA
+2. Given the radius of circle is 8cm. Find: : f ' , | .
+; (i) the area of minor sector and major sector. f y ' es
+(iii) the area of circle., , | sae
+Is the sum of areas of minor and major sectors equal \ ‘oY
+_ to area of circle? : ane ys
+3. Find the distance covered by the tip of hour hand of a clock in 5 hours if the length
+of hour hand is 10cm. . :
+4. Given is the sector of circle, Find: pees
+(i) the length of outer minor-are, fe
+(ii) the length of inner minor arc. ; sf | fe Me ie
+- (iti) the difference of lengths of both ares. f/f ™ ‘tb
+(iv) the area of minor sector of bigger circle. Leos} ¢
+__ (V) the area of minor sector of smaller circle. Conn ee a
+| (vi) the area of shaded part of sector. erat Lista
+
+--- Page 212 ---
+
+5. Radius of the given circle is 14cm. Find: . M
+(i) length of LM. Pam | eae
+(ii) length of CM.
+__ (iii) perimeter of segment along chord LM. | { bh Nr
+(iv) area of triangle OLM. . \ °
+(v) area of sector OLM.
+(vi) area of segment along chord LM. ———
+6. Inacircle whose diameter is 12 cm, there is a central angle whose measure is 120°. A
+chord joins the endpoints of the arc cut off by the angle. Find the length of arc along the chord.
+7. The diameter of a circle is 10 cm long and a chord parallel to it is 6cm long. Find the
+distance between the chord and the diameter of the circle
+8. Find the area and perimeter of semicircular window _
+if its radius is 2.8feet. ~~
+9, The building shown resembles a flying saucer that has qu
+landed on its four legs. Find the length of supporting [>see \v = |
+beam AB if it makes an angle of 98° with center and ae ‘ eet ne > : tf
+the radius of the beam is 21 m. an SE .
+10. Figure shows a bridge of semi-circular shape a oa
+with arc length of 44m. | ar al aa
+Find the length of road constructed below.
+‘4. Find the perimeter of lower portion (below the line PQ) =
+of circular window if: - ™~ |
+radius of window = 2.1 feet, Td pe
+ZPOQ = 105°, | rw
+and shortest distance between centre O and PQ=1.4 fect. Te 4 e - , |
+Also find the area of upper portion (above line PQ) aha . .
+of window. _ | « ar² |
+Fitts Chord aid Ares of Cie EIQ UD 2 a eae a Re RO or
+
+--- Page 213 ---
+
+12. A circular roller coaster jis shown in the figure. ; i, “un
+‘Find the distance covered. by driver of train , oo: .....
+| between two points making an angle of 80°
+with the centre of roller coaster if its radius is 21 ft. fi \yeaineiaaall |
+’ 13. Building shown in the figure is located in Guangzhou ssiniiabaitiioa ERIS ay
+province, China. The building's height is 138 m with 33 pe Sahih 7 Jj
+stories. It has an empty circular core almost 59 m in | 4 Wyevusennt |
+diameter. | ENR hs |
+(i) ‘What is the covered area of the building? OVA. Ary |
+(ii) Find the circular length of the part of building that pas. WEY |
+touches ground if it makes an angle of 54° with the | |
+centre. | a _|
+es have Learnt es
+1. Solving the problems by using the properties of a circle that: |
+¢: One and only one circle can pass through three non collinear points.
+* A straight line drawn from the centre of a circle to bisect the chord is perpendicular to:
+the chord arid vice versa.
+¢ Two congruent chords of a circle are equidistant from the centre and vice versa.
+* Iftwo arcs of a circle (or of congruent circles) are congruent, then the corresponding _
+chords are equal and vice versa. |
+. . Equal chords of a circle (or of congruent circles) subtend equal angles at the centre (at
+the corresponding centres) and vice versa.
+¢ Applying concepts of chords and arcs to real life word problems such as decorative
+features, rainbow, bridges and roller coaster track. .
+MISCELLANEOUS EXERCISE)
+1. Encircle the correct option in the following.
+i. One and only one circle can pass through ...... non collinear points.
+— a) 2 .  (b) 3 : (c)4 (d)5
+li, ......++.+... number of circles can pass through a point. :
+(a) 1 (b) 2 (c)3 (d) infinite
+' til, Diameter of circle which bisects the chord is ............ to the chord.
+(a) collinear —_(b) parallel (c) perpendicular —_(d) equal
+iv. In the figure, OC = 3 cm, AB = 8 cm. oa
+The radius of circle ‘is:
+(a)4cm (b) 4.5 cm _(c)5cem (d) 10 cm
+Onin CHANG fC 2S Naitinit Book Fivntiion Dl
+
+--- Page 214 ---
+
+y. Diameter of circle perpendicular to the chord ............. the chord.
+(a) intersects (b) bisects (c) trisects (d)touches ~
+vi. Two chords which are equidistant from the .,........ are congruent.
+(a) centre (b) diameter (c) circle (d) chord.
+vii. Two ......... Which are equidistant from the centre are congruent.
+(a) circles (b) diameters (c) segments (d) chords :
+viii, Length of chord of a circle of radius 5 cm is 8 cm. The distance of chord from centre —
+is:
+(a) 3cm (b) 4cm (c) S5cm (d) 6cm——
+ix. What is the radius of circle in the figure? tag
+(a) 26cm (b) 10cm Ya
+(c) 5cm . (d) 13cm |
+x. Inthe figure, AB = 4cm, OC = 3cm. Chord DE f o™N.
+passes through mid of Oc and is parallel to AB. :
+What is the length of DE? o\— 7 E |
+(a) 4.5m (b) 5.6m ~—
+(c) 6.6cm (d) 3.3cm
+xi. An angle whose vertex is centre of circle and whose arms pass through end
+points of an arc is known as__ a angle.
+(a) inscribed (b) central (c) interior (d) exterior
+xii, Corresponding arcs of two congruent chords of a circle are —.
+(a) unequal (b) major (c) congruent (d) minor
+xiii. Length of two chords of a circle are in the ratio 1 : 3, and central angle of one
+arc is 60°, the second arc is _ __ )
+(a) minor (b) major (c) semicircle (d) circle ae
+xiv. The central angle of quadrant ofacircleis SS .
+(a) 30° (b) 45° (c) 60° (d) 90°
+xv.Ifa circle is divided into ten equal arcs, then central angle of each arc is .
+(a) 10° - (b) 36° (ec) 60° (d) 90°
+xvi, How many central angles of an arc can be drawn² (a) one , (b) two (c) finite (d) infinite ; :
+xvii. Two congruent chords of two congruent circles have ......... central angles.
+(a) different (b) same (c) proportional (d) acute
+xviii. Central angle of an arc which includes a semicircle in it is a
+(a) < 90° (b) > 90° (c) < 180° _ (d)> 180°
+a OP GARD ae ee REPO 214) National Babe Fuindinon |

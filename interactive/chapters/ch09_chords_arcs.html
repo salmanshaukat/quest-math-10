@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en" data-chapter="9">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quest 09: Chords &amp; Arcs of a Circle | Quest Math 10</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <style>
+    .chapter-hero {
+      text-align: center;
+      padding: 60px 0 30px;
+    }
+    .chapter-hero .ch-number {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--neon-cyan);
+    }
+    .chapter-hero h1 {
+      font-size: 2.8rem;
+      font-weight: 900;
+      margin: 8px 0 12px;
+    }
+    .chapter-hero .ch-desc {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      padding: 8px 0;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--neon-cyan); }
+    .boss-problem {
+      background: rgba(0,0,0,0.3);
+      border: 1px solid rgba(255,51,102,0.2);
+      border-radius: var(--radius-md);
+      padding: var(--space-lg);
+      margin: var(--space-md) 0;
+    }
+    .boss-problem h4 { color: var(--neon-red); margin-bottom: var(--space-sm); }
+    .example-box {
+      background: rgba(0,212,255,0.04);
+      border: 1px solid rgba(0,212,255,0.12);
+      border-radius: var(--radius-md);
+      padding: var(--space-lg);
+      margin: var(--space-md) 0;
+    }
+    .example-box h4 { color: var(--neon-cyan); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+    .theorem-box {
+      background: rgba(168,85,247,0.06);
+      border: 1px solid rgba(168,85,247,0.2);
+      border-left: 4px solid var(--neon-purple);
+      border-radius: var(--radius-md);
+      padding: var(--space-lg);
+      margin: var(--space-md) 0;
+    }
+    .theorem-box .theorem-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--neon-purple);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: var(--space-sm);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <nav class="top-bar">
+    <div class="logo">
+      <span style="font-size:1.4rem;">&#9889;</span>
+      <span class="neon-text">Quest Math 10</span>
+    </div>
+    <div class="stats" id="top-bar-stats">
+      <div class="stat-badge stat-xp">
+        <span>&#11088;</span>
+        <span id="xp-count">0</span> XP
+      </div>
+      <div class="stat-badge stat-streak">
+        <span>&#128293;</span>
+        <span id="streak-count">0</span> Streak
+      </div>
+      <div class="stat-badge stat-level">
+        <span>&#9878;</span>
+        Lvl <span id="level-count">1</span>
+      </div>
+    </div>
+  </nav>
+  <div style="padding:0 24px;">
+    <div class="progress-container" style="height:4px;">
+      <div class="progress-bar progress-bar-xp" id="xp-progress" style="width:0%"></div>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <a href="../index.html" class="back-link">&#8592; Back to Quest Map</a>
+
+    <!-- Hero -->
+    <div class="chapter-hero animate-fadeInUp">
+      <div class="ch-number">Quest 09</div>
+      <h1><span class="neon-text">Chords &amp; Arcs of a Circle</span></h1>
+      <p class="ch-desc">The perfect shape holds infinite secrets. Discover the powerful relationships between chords, arcs, central angles, and distances from the centre.</p>
+    </div>
+
+    <!-- ===================== PHASE 1: HOOK ===================== -->
+    <div class="phase phase-hook animate-fadeInUp">
+      <div class="phase-tag">&#127917; The Hook</div>
+      <h2>The Satellite Orbit Problem</h2>
+      <p style="font-size:1.15rem; margin-bottom:var(--space-md);">
+        A satellite orbits Earth in a circular path. How do engineers calculate the arc length it covers between two points on its orbit?
+      </p>
+      <p>
+        Satellites, bridges, roller coasters, decorative arches, and even rainbows &mdash; they all involve circles. Understanding the relationship between chords, arcs, and the centre of a circle lets engineers design structures, calculate distances, and solve navigation problems.
+      </p>
+      <div class="tip-box" style="margin-top:var(--space-md);">
+        <strong>Why circles matter:</strong> A GPS satellite at altitude 20,200 km orbits in a circle of radius ~26,570 km. To calculate how much of the orbit it covers in one hour, you need arc length. To find the straight-line distance between two ground stations, you need chord length. This chapter gives you those tools.
+      </div>
+    </div>
+
+    <!-- ===================== PHASE 2: CHALLENGE ===================== -->
+    <div class="phase phase-challenge animate-fadeInUp">
+      <div class="phase-tag">&#127919; The Challenge</div>
+      <h2>Can You Solve This?</h2>
+      <p>Before diving into theorems, try this:</p>
+      <div class="card" style="margin-top:var(--space-md);">
+        <p><strong>Challenge:</strong> A circle has a radius of 14 cm. A chord is drawn such that the perpendicular distance from the centre to the chord is 6 cm.</p>
+        <ul style="margin:var(--space-md) 0; padding-left:var(--space-lg);">
+          <li>What is the length of the chord?</li>
+          <li>If a second chord is also 6 cm from the centre, what can you say about it?</li>
+        </ul>
+        <p style="color:var(--text-secondary); font-size:0.9rem;">Think Pythagoras. By the end of this chapter, the theorems will make this instant.</p>
+      </div>
+    </div>
+
+    <!-- ===================== PHASE 3: DISCOVERY ===================== -->
+    <div class="phase phase-discovery">
+      <div class="phase-tag">&#128161; Discovery Zone</div>
+      <h2>Concepts Unlocked</h2>
+
+      <div class="reveal-group">
+
+        <!-- Step 1: Chord Basics & Theorem 9.1 -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">1</span> Chords &amp; The Unique Circle Theorem</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <div class="key-concept">
+              <strong>Chord:</strong> A line segment joining two points on a circle.
+            </div>
+            <div class="theorem-box" style="margin-top:var(--space-md);">
+              <div class="theorem-label">Theorem 9.1</div>
+              <p><strong>One and only one circle can pass through three non-collinear points.</strong></p>
+            </div>
+            <p style="margin-top:var(--space-md);">
+              To find this unique circle, draw the perpendicular bisectors of the segments connecting the three points. They all meet at a single point &mdash; the centre. The distance from this centre to any of the three points is the radius.
+            </p>
+            <div class="tip-box">
+              <strong>Corollaries:</strong>
+              <ul style="padding-left:var(--space-lg); margin-top:var(--space-sm);">
+                <li>Infinitely many circles pass through one point or two points.</li>
+                <li>Two circles cannot intersect at more than two points.</li>
+              </ul>
+            </div>
+            <div class="example-box">
+              <h4>Example</h4>
+              <p>Construct a square $ABCD$ with side 6 cm. Show that one and only one circle passes through all four vertices.</p>
+              <p>The diagonals of the square bisect each other at point $O$. Using $O$ as centre and $OA = \frac{6\sqrt{2}}{2} = 3\sqrt{2}$ cm as radius, the circle passes through all vertices.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2: Perpendicular from Centre Bisects Chord -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">2</span> Perpendicular from Centre Bisects the Chord</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <div class="theorem-box">
+              <div class="theorem-label">Theorem 9.2</div>
+              <p><strong>A straight line drawn from the centre of a circle to bisect a chord is perpendicular to the chord.</strong></p>
+            </div>
+            <div class="theorem-box" style="margin-top:var(--space-sm);">
+              <div class="theorem-label">Theorem 9.3 (Converse)</div>
+              <p><strong>A perpendicular drawn from the centre of a circle to a chord bisects the chord.</strong></p>
+            </div>
+            <p style="margin-top:var(--space-md);">These two theorems together mean: <em>the line from the centre to the midpoint of a chord is always perpendicular to that chord, and vice versa.</em></p>
+            <div class="key-concept" style="margin-top:var(--space-md);">
+              <strong>Key formula:</strong> If a circle has radius $r$ and a chord of length $\ell$ is at distance $d$ from the centre, then:
+              $$r^2 = d^2 + \left(\frac{\ell}{2}\right)^2$$
+            </div>
+            <div class="example-box">
+              <h4>Example</h4>
+              <p>A circle has diameter 20 cm and a chord of 16 cm perpendicular to the diameter. Find the distance from the chord to the centre.</p>
+              <p>$r = 10$ cm. Half-chord $= 8$ cm.</p>
+              <p>$d = \sqrt{r^2 - 8^2} = \sqrt{100 - 64} = \sqrt{36} = 6$ cm</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3: Equal Chords & Equal Distance -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">3</span> Equal Chords are Equidistant from the Centre</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <div class="theorem-box">
+              <div class="theorem-label">Theorem 9.4</div>
+              <p><strong>Two congruent chords of a circle are equidistant from the centre.</strong></p>
+            </div>
+            <div class="theorem-box" style="margin-top:var(--space-sm);">
+              <div class="theorem-label">Theorem 9.5 (Converse)</div>
+              <p><strong>Two chords equidistant from the centre are congruent.</strong></p>
+            </div>
+            <div class="tip-box" style="margin-top:var(--space-md);">
+              <strong>Corollary:</strong> If two chords are unequal, the longer chord is closer to the centre.
+            </div>
+            <div class="example-box">
+              <h4>Example</h4>
+              <p>Two parallel chords $AB = 24$ cm and $CD = 10$ cm are on the same side of centre. Distance between them is 17 cm. Find the radius.</p>
+              <p>Let $PE \perp AB$ and $PF \perp CD$. Then $BE = 12$ cm, $CF = 5$ cm.</p>
+              <p>Let $PE = x$, then $PF = 17 - x$ (same side) or $PF = x + 17$ (opposite sides).</p>
+              <p>$r^2 = x^2 + 144$ and $r^2 = (17-x)^2 + 25$</p>
+              <p>$x^2 + 144 = 289 - 34x + x^2 + 25$</p>
+              <p>$34x = 170 \Rightarrow x = 5$</p>
+              <p>$r = \sqrt{25 + 144} = \sqrt{169} = 13$ cm</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 4: Congruent Arcs & Equal Chords -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">4</span> Arcs, Chords &amp; Central Angles</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <div class="key-concept">
+              <strong>Arc:</strong> A part of a circle. A diameter divides a circle into two <strong>semicircles</strong>. A minor arc is smaller than a semicircle; a major arc is larger.
+            </div>
+            <div class="key-concept" style="margin-top:var(--space-sm);">
+              <strong>Central Angle:</strong> The angle at the centre whose arms pass through the endpoints of an arc. Two arcs are <strong>congruent</strong> if their central angles are equal.
+            </div>
+            <div class="theorem-box" style="margin-top:var(--space-md);">
+              <div class="theorem-label">Theorem 9.6</div>
+              <p>If two arcs of a circle (or of congruent circles) are congruent, then their corresponding <strong>chords are equal</strong>.</p>
+            </div>
+            <div class="theorem-box" style="margin-top:var(--space-sm);">
+              <div class="theorem-label">Theorem 9.7 (Converse)</div>
+              <p>If two chords of a circle are equal, their corresponding <strong>arcs are congruent</strong>.</p>
+            </div>
+            <div class="theorem-box" style="margin-top:var(--space-sm);">
+              <div class="theorem-label">Theorem 9.8</div>
+              <p>Equal chords subtend <strong>equal central angles</strong>.</p>
+            </div>
+            <div class="theorem-box" style="margin-top:var(--space-sm);">
+              <div class="theorem-label">Theorem 9.9 (Converse)</div>
+              <p>If central angles are equal, their corresponding <strong>chords are equal</strong>.</p>
+            </div>
+            <div class="example-box">
+              <h4>Example</h4>
+              <p>In a circle, $AB = 4 \cdot BC$ and $\angle AOB = 120°$. Find $\angle BOC$.</p>
+              <p>Let $\angle BOC = x°$. Since $AB = 4BC$, we get $\angle AOB = 4 \cdot \angle BOC$.</p>
+              <p>$4x = 120° \Rightarrow x = 30°$. So $\angle BOC = 30°$.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 5: Arc Length -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">5</span> Arc Length &amp; Chord Length Formulas</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <p><strong>Arc length</strong> of a circle with radius $r$ and central angle $\theta$ (in degrees):</p>
+            <div class="formula-box">
+              $$\ell = \frac{\theta}{360°} \times 2\pi r$$
+            </div>
+            <p style="margin-top:var(--space-md);"><strong>Chord length</strong> when the perpendicular distance from centre to chord is $d$:</p>
+            <div class="formula-box">
+              $$\text{Chord} = 2\sqrt{r^2 - d^2}$$
+            </div>
+            <p style="margin-top:var(--space-md);"><strong>Perimeter of a semicircle:</strong></p>
+            <div class="formula-box">
+              $$P = 2r + \pi r = r(2 + \pi)$$
+            </div>
+            <p style="margin-top:var(--space-md);"><strong>Perimeter of a segment:</strong></p>
+            <div class="formula-box">
+              $$P = \frac{\theta}{360°} \times 2\pi r + 2\sqrt{r^2 - d^2}$$
+            </div>
+            <div class="example-box">
+              <h4>Example</h4>
+              <p>Find the arc length for a circle with radius 14 cm and central angle 60 degrees.</p>
+              <p>$\ell = \frac{60}{360} \times 2\pi(14) = \frac{1}{6} \times 28\pi = \frac{28\pi}{6} \approx 14.67$ cm</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 6: Sector Area -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">6</span> Area of a Sector &amp; Segment</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <p><strong>Area of a sector</strong> with radius $r$ and central angle $\theta$ (in degrees):</p>
+            <div class="formula-box">
+              $$A_{\text{sector}} = \frac{\theta}{360°} \times \pi r^2$$
+            </div>
+            <p style="margin-top:var(--space-md);"><strong>Area of a segment</strong> = Area of sector $-$ Area of triangle formed by the two radii and chord.</p>
+            <div class="formula-box">
+              $$A_{\text{segment}} = \frac{\theta}{360°} \times \pi r^2 - \frac{1}{2}r^2\sin\theta$$
+            </div>
+            <div class="example-box">
+              <h4>Example</h4>
+              <p>Find the area of a sector with central angle 60 degrees and radius 14 cm.</p>
+              <p>$A = \frac{60}{360} \times \pi(14)^2 = \frac{1}{6} \times 196\pi \approx 102.67$ cm$^2$</p>
+            </div>
+            <div class="example-box">
+              <h4>Example &mdash; Decoration Piece</h4>
+              <p>A circular piece has radius 56 cm and central angle 90 degrees. Find the arc length of one part.</p>
+              <p>$\ell = \frac{90}{360} \times 2\pi(56) = \frac{1}{4} \times 112\pi = 28\pi \approx 88$ cm</p>
+              <p>Length of one full part (including both sides of the cut): $2 \times 88 = 176$ cm.</p>
+              <p>Cost at Rs. 8/cm: $2 \times 176 \times 8 = \text{Rs.}\,2816$</p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /reveal-group -->
+    </div>
+
+    <!-- ===================== PHASE 4: PRACTICE ===================== -->
+    <div class="phase phase-practice">
+      <div class="phase-tag">&#128142; Practice Arena</div>
+      <h2>Test Your Knowledge</h2>
+      <p style="color:var(--text-secondary); margin-bottom:var(--space-lg);">Answer all 8 questions. Earn XP for each correct answer and build your streak!</p>
+
+      <div class="quiz-container">
+
+        <!-- Q1 -->
+        <div class="quiz-question" data-correct="b">
+          <div class="q-number">Question 1 of 8</div>
+          <div class="q-text">One and only one circle can pass through how many non-collinear points?</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> 2</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> 3</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> 4</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> 5</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! Three non-collinear points determine a unique circle (Theorem 9.1).</div>
+          <div class="quiz-feedback incorrect-fb">By Theorem 9.1, exactly one circle passes through any three non-collinear points.</div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="quiz-question" data-correct="c">
+          <div class="q-number">Question 2 of 8</div>
+          <div class="q-text">A diameter of a circle that bisects a chord is __________ to the chord.</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> Collinear</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> Parallel</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> Perpendicular</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> Equal</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! A line from the centre that bisects a chord is always perpendicular to it (Theorem 9.2).</div>
+          <div class="quiz-feedback incorrect-fb">By Theorem 9.2, a line from the centre bisecting a chord must be perpendicular to it.</div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="quiz-question" data-correct="c">
+          <div class="q-number">Question 3 of 8</div>
+          <div class="q-text">In the figure, $OC = 3$ cm and chord $AB = 8$ cm with $OC \perp AB$. The radius of the circle is:</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> 4 cm</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> 4.5 cm</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> 5 cm</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> 10 cm</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! Half-chord $= 4$ cm. $r = \sqrt{3^2 + 4^2} = \sqrt{9+16} = \sqrt{25} = 5$ cm.</div>
+          <div class="quiz-feedback incorrect-fb">$r = \sqrt{OC^2 + (AB/2)^2} = \sqrt{9+16} = 5$ cm.</div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="quiz-question" data-correct="b">
+          <div class="q-number">Question 4 of 8</div>
+          <div class="q-text">A chord of length 8 cm is at distance $d$ from the centre of a circle of radius 5 cm. What is $d$?</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> 4 cm</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> 3 cm</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> 5 cm</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> 6 cm</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! $d = \sqrt{5^2 - 4^2} = \sqrt{25-16} = \sqrt{9} = 3$ cm.</div>
+          <div class="quiz-feedback incorrect-fb">Half-chord $= 4$. Then $d = \sqrt{r^2 - 4^2} = \sqrt{25-16} = 3$ cm.</div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="quiz-question" data-correct="d">
+          <div class="q-number">Question 5 of 8</div>
+          <div class="q-text">Two chords equidistant from the centre of a circle are:</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> Unequal</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> Perpendicular</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> Parallel</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> Congruent (equal in length)</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! By Theorem 9.5, chords equidistant from the centre are congruent.</div>
+          <div class="quiz-feedback incorrect-fb">Theorem 9.5 states: chords equidistant from the centre are congruent.</div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="quiz-question" data-correct="b">
+          <div class="q-number">Question 6 of 8</div>
+          <div class="q-text">The central angle subtended by a quadrant of a circle is:</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> $30°$</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> $90°$</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> $60°$</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> $45°$</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! A quadrant is one-quarter of a circle: $\frac{360°}{4} = 90°$.</div>
+          <div class="quiz-feedback incorrect-fb">A quadrant is $\frac{1}{4}$ of the full circle, so the central angle is $90°$.</div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="quiz-question" data-correct="c">
+          <div class="q-number">Question 7 of 8</div>
+          <div class="q-text">Corresponding arcs of two congruent chords in a circle are:</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> Unequal</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> Major arcs</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> Congruent</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> Minor arcs</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! By Theorem 9.7, equal chords produce congruent corresponding arcs.</div>
+          <div class="quiz-feedback incorrect-fb">Theorem 9.7: if chords are equal, their corresponding arcs (minor and major) are congruent.</div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="quiz-question" data-correct="b">
+          <div class="q-number">Question 8 of 8</div>
+          <div class="q-text">If a circle is divided into 10 equal arcs, the central angle of each arc is:</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> $10°$</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> $36°$</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> $60°$</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> $90°$</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! $\frac{360°}{10} = 36°$.</div>
+          <div class="quiz-feedback incorrect-fb">$360° \div 10 = 36°$ per arc.</div>
+        </div>
+
+      </div><!-- /quiz-container -->
+    </div>
+
+    <!-- ===================== PHASE 5: BOSS LEVEL ===================== -->
+    <div class="phase phase-boss">
+      <div class="phase-tag">&#128123; Boss Level</div>
+      <h2>Final Challenge: Circle Mastery</h2>
+      <p>Apply all the theorems and formulas to conquer these multi-step problems.</p>
+
+      <div class="boss-problem">
+        <h4>Boss Problem 1: The Bridge Arc</h4>
+        <p>A semi-circular bridge has an arc length of 44 m. Find the length of the road constructed below (the diameter). Then find the area of the semicircular region.</p>
+        <p style="margin-top:var(--space-sm); color:var(--text-secondary); font-size:0.9rem;">
+          <strong>Hint:</strong> For a semicircle, arc length $= \pi r$. Solve for $r$, then diameter $= 2r$.
+        </p>
+      </div>
+
+      <div class="boss-problem">
+        <h4>Boss Problem 2: Parallel Chords</h4>
+        <p>Two parallel chords of lengths 24 cm and 12 cm are drawn on opposite sides of the centre of a circle of radius 13 cm. Find the distance between the chords.</p>
+        <p style="margin-top:var(--space-sm); color:var(--text-secondary); font-size:0.9rem;">
+          <strong>Hint:</strong> Find each chord's distance from the centre using $d = \sqrt{r^2 - (l/2)^2}$. Since they're on opposite sides, add the distances.
+        </p>
+      </div>
+
+      <div class="boss-problem">
+        <h4>Boss Problem 3: The Roller Coaster</h4>
+        <p>A circular roller coaster has radius 21 ft. Find the distance covered by a rider between two points that make an angle of 80 degrees at the centre. Also find the area of the sector traced.</p>
+        <p style="margin-top:var(--space-sm); color:var(--text-secondary); font-size:0.9rem;">
+          <strong>Hint:</strong> Arc length $= \frac{80}{360} \times 2\pi(21)$ and sector area $= \frac{80}{360} \times \pi(21)^2$.
+        </p>
+      </div>
+
+      <div style="text-align:center; margin-top:var(--space-xl);">
+        <button class="btn btn-success" onclick="QuestMath.completeChapter('9')">
+          &#127942; Complete Chapter 9
+        </button>
+      </div>
+    </div>
+
+    <!-- Back to Map -->
+    <div style="text-align:center; padding:var(--space-2xl) 0;">
+      <a href="../index.html" class="btn btn-ghost">&#8592; Return to Quest Map</a>
+    </div>
+
+  </div><!-- /container -->
+
+  <script src="../js/engine.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      QuestMath.state.currentChapter = 9;
+      QuestMath.renderKaTeX();
+    });
+  </script>
+</body>
+</html>

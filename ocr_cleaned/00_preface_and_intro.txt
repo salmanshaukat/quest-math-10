@@ -1,0 +1,150 @@
+============================================================
+CHAPTER: Preface & Introduction
+Pages: 1 - 5
+============================================================
+
+--- Page 1 ---
+
+ite - Based on National Curriculum 2022-23
+Se Textbook of ,
+WOAG — rot & i Gp)
+National Book Foundation
+. Ministry of Federal Education and Professional Training
+Gavernment of Pakistan
+
+--- Page 2 ---
+
+Approved by the National Curriculum Council (NCC), Ministry of Federal Education and Professional Training, Islamabad
+vide letter No. F.1(1-10}/2024/NCP-NOC/NBF/Maths, dated 19th September, 2024
+© 2025 National Book Foundation (NBF) as Federal Textbook Board :
+__ All rights to this publication are strictly reserved. No part of this publication may be reproduced, stored in a retrieval system, or
+transmitted in any form or by any means—electronic, mechanical, photocopying, recording, or otherwité—without the prior express
+written consent of the publisher. Unauthorized use, duplication, or distribution is strictly prohibited and may result in legal action.
+Based on National Curriculum of Pakistan (NCP) 2022-23
+. Dr, Saleem Ullah (Managing Author)
+Or. Khalid Mahmood, Ms. Nabeela Azad, Ms. Hafsa Jabeen (Co-Authors)
+Muhammad Ahmad Nawaz (Designer)
+Supervision of Curriculum ahd Review Process
+Dr. Shafquat All Janjua
+Joint Educational Advisor, National Curriculum Council (NCC)
+Ministry of Federal Education and Professional Training, Government of Pakistan, Islamabad
+Mr. Abdul Rauf, EST, FG Public School, Mehfoor Road, Rawalpindi, FGEI's *
+
+Major General Retired Malik Muhammad Abbas, Ms. Uzmna Malik, Psychologist
+
+Zehra Khushal, (Assistant Educational Advisor), National Curriculum Council (NCC)
+
+NBF Textbooks Development Supervision
+Murad Ali Mohmand
+. Mansoor Ahmad, Assistant Director
+First Edition: First hmpression: February, 2025 | Pages: 300 | Quantity: 100000 i
+Price: 400/-, Code: STE-724, ISBN: 978-969-37-1726-6 &. :
+Printer: Al-Qagzi Printers, Peshawar
+For details on additional publications from the National Book Foundation, please wisit our website at www.nbf.org.pk
+You can also reach us by phone at 051 9261125 or via email at books @nbf.org.pk
+For feedback or corrections, kindly send your comments ta ‘nbftextbooks@gmail.com' and ‘textbooks@snc.gowpk
+Note ;
+All iustrations, artwork, and images in this book are intended solely for educational
+: and promotional purposes, benefitting the public interest.
+, a L |
+
+--- Page 3 ---
+
+‘PREFACE
+Textbook of Mathematics for Grade 10 has been developed by NBF according to the
+National Curriculum of Pakistan 2022- 2023. The aim of this experimentation skills is to
+enhance learning abilities through inculcation of logical thinking in learners, and to
+develop higher order thinking processes by systematically building upon the foundation of
+learning from the previous grades. Akey emphasis of the present experimentation skills is
+_ on creating reai life linkages of the concepts and methods introduced. This approach was
+devised with the intent of enabling students to solve daily life problems as they go up the
+learning curve and for them to fully grasp the conceptual basis that will be built upon in
+subsequent grades.
+After amalgamation of the efforts-of experts and experienced author, this book was
+reviewed and finalized after extensive reviews by professional educationists. Efforts
+were made to make the contents student.friendly and to develop the concepts in
+interesting ways.
+The National Book Foundation is always striving for improvement in the quality of its
+books. The present book features an improved design, better illustration and interesting
+activities relating to real life to make it attractive for young learners. However, there is
+always room for improvement and the suggestions and feedback of students, teachers and
+the community are most welcome for further enriching the subsequent editions of this
+| May Allah guide and help us (Ameen). .
+; Murad Ali Mohmand
+Managing Director
+
+--- Page 4 ---
+
+‘Applications of Mathematics :
+Complex Numbers: Complex numbers play a critical role in fields such as engineering,
+electronics, and quantum physics. They are especially valuable for modeling oscillations in
+alternating current (AC) circuits, which are foundational to modern electrical systems, and for
+analyzing waveforms and resonances that occur naturally in many types of physical systems.
+Quadratic Equations: Quadratic equations model a range of phenomena. In physics, they
+describe projectile motion; in finance, they are used for profit and cost optimization; and in
+architecture, they inform structural designs by calculating load distributions and parabolic
+shapes for stability.
+Matrices and Determinants; Matrices are essential in solving complex systems of equations and
+executing transformations in areas like computer graphics and machine learning. Determinants,
+closely related to matrix invertibility, provide insights into properties of shapes and can be used
+to calculate area, volume, and to determine if linear systems have unique solutions.
+Linear and Quadratic Inequalities: Linear and quadratic inequalities express ranges of values
+that satisfy given conditions, such as acceptable income levels, speed limits, or temperature
+thresholds. In real life, they are essential in budgeting, optimizing resources in industries,
+setting safety regulations, and environmental monitoring, where certain parameters must stay
+within safe or efficient boundaries.
+Algebraic Fractions: Algebraic fractions simplify relationships found in finance (like calculating
+compound interest), physics (such as wave motion and light refraction), and data science (for
+probability ratios and odds in statistical models). They allow complex relationships to
+expressed in simpler, comparable terms.
+Functions and Graphs: Functions are mathematical tools that map inputs to outputs, visualized
+through graphs to represent relationships between variables, such as speed over time, cost
+versus quantity, or population growth over years. These graphical representations are
+fundamental in economics, biology, and physics, where understanding variable relationships is
+key to predicting and modeling real-world changes.
+Vectors: Vectors combine magnitude and direction, making them indispensable in applications
+like navigation, physics (force and velocity calculations), and engineering (stress analysis in
+materials). In computer graphics, they help in rendering movements and 3D transformations,
+contributing to realistic visualizations.
+Trigonometry: Trigonometry is crucial for solving right and non-right triangles. Its applications
+span navigation, construction, and astronomy, where precise distance and angle measurements
+are essential, from mapping locations to constructing stable structures.
+Chords and Arcs of a Circle: Understanding chords and arcs forms the basis of circular geometry,
+used extensively in design, architecture, and mechanical engineering, where curves and circular
+components (like gears or wheels) must be accurately measured and constructed.
+Tangents and Its Construction: A tangent touches a circle at one point, forming a right angle
+with the radius at that point. This principle has practical applications in road and race track
+design gear construction, and analyzing rotational motion, where precision at points of contact
+is crucial. Constructing tangents, arcs, and circular sections is fundamental in structural design,
+architecture, bridge engineering, and urban planning.
+Statistics: Statistics, through measures like mean, median, mode, range, and standard
+deviation, help summarize and interpret data trends. Statistics play an essential role in business
+forecasting, healthcare analytics, social sciences, and environmental studies, where decisions
+must be made based on reliable data insights.
+
+--- Page 5 ---
+
+Pee ae a ii ta ee oS i salad ,
+| , ; ine poe we an Seeger per © See 2 ~ fe aR Bee [sae Fil :
+eee eee ,
+Gj ee je ee ee eee eee eT ee Sag ge! Pe . Pha : te wn. ite ia mk poi aye = re = oe "
+Table of Contents)
+een een age.
+a OS) i 6 RIS eee oa ho |
+ee Meese oe ee es wa JL Dae ae
+a Sr-No. |] Description . P.No.
+a oe ee! — Reo See a SP eS ee ee a ce eet
+eit —- _ Complex Numbers h 6
+= a = = : Fs ' ea sp ee ee eS = — = na oy A oe = Sea
+ee 2) Quadratic Equations : , 27
+ay = ssa at g jas ee ae ee iar g ; Piper meets
+ff 73 J Matrices And Determinants ~ J 55
+p 4) _. Linear and Quadratic Inequalities , y 78
+; =, cE & S aoe te ee LR es ee a eee ae | :
+I 6 } Functions And Graphs. A 115
+Application of Trigonometry | 3 160
+Chord and Ares of a Circle , 196
+| _ Tangents and Angles of a Circle } 215
+Practical Geometry of Circles , 232
+12) Basic Statistics | 245
+—j 13°} Answers {279

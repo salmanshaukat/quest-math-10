@@ -1,0 +1,421 @@
+============================================================
+CHAPTER: Practical Geometry of Circles
+Pages: 232 - 244
+============================================================
+
+--- Page 232 ---
+
+mio es ee be ~~
+(ie! | |
+S Lil beg
+Th... .4*..-3 if _ —— dee (ris. —_
+Practical Geometry of Circles
+- After studying this unit students will be able to: .
+« Locate the centre of a given circle. : |
+* Draw a circle passing through three given non-collinear points. :
+4 « Complete the circle (i) by finding its centre, (ii) without finding its centre,
+when a part of its circumference is given by
+_«  Drawa tangent to a given arc, without using the centre, through a given point P when:
+Ps (i) P is middle point of the arc (ii) P is at the end of arc (iii) P is outside the arc. .
+| « Draw a tangent toa given circle from a point P when: |
+(i) P is on the circumference (ii)P is outside the circle.
+* Draw two tangents to a circle meeting each other at a given angle. ;
+* Draw (i) direct common tangents or external tangents (ii) transverse common tangents or intemal
+tangents, to two equal/unequal circles. _ |
+«  Drawa tangent to two unequal (i) touching circles (ii) intersecting circles.
+e Apply concepts of practical geometry of circles to real life word problems such as athletic tracks,
+~, recreational parks, Ferris wheels and mechanical machines. ff
+A circle is symmetric about its centre and any of its diameters. Architects often use the
+circle's symmetrical properties when designing athletic tracks, recreational parks, buildings,
+roundabouts, Ferris-wheels, etc. Artists and painters find the circle almost indispensable in
+their work. Circular cylinders are used to print newspapers. Engineers exploit the circle's |
+symmetrical properties as seen by the use of the circle in making watches, clocks, bicycles,
+cars, trains, ships, aero-planes, radios, telephones, trolleys, wheel-barrows, air-conditioners,
+rockets etc. Civilizations have progressed dramatically because of the invention of the
+circular wheel. : .
+ee 4 aie SS
+SY
+—
+
+--- Page 233 ---
+
+Construction of Circles
+To Locate the Centre of a Circle > B ”
+; Given: A circle without centre. \ oo
+. Required: To locate-the center of circle. A iN : PNY
+Steps of Construction: | ¥O |
+' (i) Take three points A, B and C on a circle, \ : /
+(ii) Join these points to obtain a triangle ABC. Nod Sf
+: (iii) Draw right bisectors of sides AB, BC and AC which ——"
+meet each other at point O.
+O is required center of circle.
+‘To Draw a Circle Passing Through Three Non-Collinear Points
+Given: Three non-collinear points A, B and C,
+Required: To draw a circle passing through these points. >
+_ Steps of Construction: / Y “\
+(i) . Take three non-collinear poirits A; B and C on a paper. | y 4 Se i a
+(ii) Join these points to obtain a triangle ABC. wv to! \y
+(iii) . Draw right bisectors of sides BC and'AG which meet A4<——— — rc
+. each other at point O. × y WA
+(iv) . With center O, construct a circle of radius OA or OB. bh ~~ “a
+, To Complete the Circle when a Part of its Circumference is Given:
+(a) By finding the Centre (b) Without finding the Centre
+(a) To Complete a Circle by Finding its Centre when Part of Circumference is Given
+Given: A part of circle i.e. an arc. .
+Required: To complete the circle by finding its center, he “we
+Steps of Construction: Es ; A a ra
+(i) Take three points A, B and C on the given arc.
+(ii) Join these points to obtain a triangle ABC. Ae Sr iN Cc
+(iii) Draw right bisectors of sides AB, BC and AC ¥O i
+. which meet each other at point O, ‘ i !
+(iv) With center O, construct a circle of radius OA *. a a
+or OB of which the given arc is a part. ot ad
+
+--- Page 234 ---
+
+(b) To Complete a Circle without Finding its Centre when Part of Circumference is Given
+Given: Apartofcircleie.anarc.
+Required: To complete the circle without finding its center.
+First Method B
+Steps of Construction: eee 7s oN
+(i) Take three points A, B and C on the given * LEN ©
+arc such that AB = BC. t/ Wz \t \%
+(We can also AB * BC.) i j y hy, 3 \"s
+(ii) | Join these points to obtain a triangle ABC. Hl Nop
+(iii) © Draw BD = AC and CD = BC to obtain a : ° N % 4:
+triangle BCD. WK Af:
+(iv) Again draw CE = BD and DE =CD to obtain a A IN JE
+triangle CDE. a — . XZ \— 3
+(v) Continue in this way and construct triangles ee oe =
+(vi) Join points C to D, D to E, Eto F, F to G, Gto H and H to A in circular path to obtain
+required circle.
+Second Method .
+Steps of Construction: 5
+(i) Draw a chord AB of suitable length on an arc PQ. atts,
+(iiy | Construct an internal angle of measure wo an 7 “os, ;
+120° at point B and draw BC equal to AB. E *) a eS =
+(iii) Again, construct an internal angle of % LA2 120°—)
+measure 120° at point C and draw CD a
+equal to BC. ‘ ~G _ fe
+(iv) Continue this procedure to obtain points . ‘L ) 120° CV.
+Bana B FSS 120° pF ®
+E and F. “se — , ' , . Z
+(v) Draw arcs BC, CD, DE, EF and FA ’ . <> ea
+carefully such that length ofthese arcs A
+is equal to the arc AB.
+
+--- Page 235 ---
+
+1. Given a circle, locate its centre.
+2. Three points X, Y and Z are located on an arc. Find the centre of that arc.
+3. Three non-collinear points A, B and C are such that AB = BC = 3cm and ZB =120°.
+Construct a circle passing through A, B and C.
+4, PQvand QR are perpendicular segments in a plane such that PQ = 4cm and QR = 3cm.
+Construct a circle passing through P, Q and R. What is the radius of that circle?
+5. Draw a circle with the help of any round object, then find its centre.
+6. Find the centre of an arc DEF, such that chord DE’= 3.5m, chord EF = 4.2cm and angle
+between both segments is 60°.
+7, Draw an arc of any length. Complete the circle without finding its centre of which the
+given arc is the part. _ _
+8. An engineer is constructing a circular path in a recreational LE q Ae Peach
+park as shown below. He wants to plant a pinetreeinthe [J ; Fs
+centre of the circular path. | | | 50m
+(i) How will he locate the centre of the path? | Fans
+(ii) What is the radius of the circular path? L A |
+9. A factory produces arc shaped tiles of different colors each a
+of inner radius 7 inches. Arc length of each tile is 2 inches. a \ " )
+Hamza wants to purchase these tiles for making a circular -_™ LN a
+design on the wall. How many tiles are required?
+10, In the figure a boat swing is shown. Trace the ciréular CO)
+path of swing during a complete round. \
+| Tangent to the Circle
+To draw a Tangent to a Given Arc without using the Centre, through-a-Given Point P ,
+when P is: ; a
+(a) The middle point of the arc. Xx < F
+(b) At the end of the arc. ~ ae aes
+‘(c) Outside the arc, . PZ . NO
+(a) Given: An arc PA without centre. ¥ NA
+Required: To draw tangent at mid-point of arc. A
+
+--- Page 236 ---
+
+Steps of Construction: .
+(i) Draw an are PA.
+(ii) Joint P to A. ;
+(iii) Draw right bisector EF of PA where E is mid-point of PA and F is a point on given
+arc.
+(iv) Draw a line XY passing through F parallel to PA using set square or by any
+other method. | i
+XY is required tangent. 7
+(b) Given: = Anarc PQ without centre. GS
+Required: To draw a tangent at end point P of the arc. Pan
+Steps of Construction: ZN |
+(i) Draw an arc PQ.
+(ii) Join P toQ. Pa i \
+(iii) Draw right bisector EF of PQ where E is mid- . y \Q
+point of PQ and F is.a point on given arc. 4 ,
+(iv) Join point P to F.
+(v) With centre P, draw an arc.of radius PE intersecting PF at point H.
+(vi) Take point G on this arc such that EH=HG. Now joinPtoG. |
+PG is required tangent. f
+(c) Given: Anarc AB without knowing its centre. |
+Required: To draw a tangent from a point P where P is outside the arc.
+Steps of Construction:
+(i) Draw an arc AB. 5 __ :
+(ii) Draw PB intersecting the arc AB at > a
+(iii) Bisect PB at point M. P= “ L ™ \, B
+(iv) With centre M, draw a semi-circle of H fi ‘ :
+radius MP or MB. ©" alt f Fj
+(v) Draw CD perpendicular to PB ‘ ri × i
+intersecting semicircle at point D. %. i ra Ps
+(vi) With centre P, draw another arc of ee ee a
+radius PD intersecting given arc AB at Ds ee :
+point E. .
+(vii), Joint P to E. PE is required tangent. ;
+To draw a Tangent to a Given Circle from a Point P when:
+(a) P lies on the Circumference.
+(b) P lies outside the Circle.
+
+--- Page 237 ---
+
+(a) Given: A circle of radius 3 cm. ;
+Required: To draw a tangent from a point P lying on the circle. __ 2
+Steps of Construction: fl o™NiI
+(i) Construct a circle of radius 3 cm by taking O ° a
+(ii) Take a point P on the circle and join point O to oe JI
+
+point P. NN
+(iii) Construct an angle of 90° at point P and draw a line PQ. t
+The line PQ is required tangent.
+(b) Given: —_A circle of radius 3 cm and a point P 8 cm away from the centre of circle.
+Required: To draw a tangent from a point P at a distance of 8 cm from the center ofthe ~
+circle. =
+Steps of Construction: . ent
+(i) Construct acircle of radius 3 cm by ~~ we | Ny
+taking O as centre. ie f/. | a . \
+(ii) Take a point P at a distance of 8 cm me il fa “ \— 1 ’
+from the centre. f H \ | ———_ \
+(iii) Bisect OP at point Q. . oj a ] P
+(iv) Draw a dotted circle of radius OQ or PQ. \ . Jae
+(v) The two circles intersect-each other at ~s ——<_ it | /
+points AandB.* h ggeeeeretmss BN ‘ P ,
+(vi) Draw PA and PB which are required tangents. “me
+To Draw two Tangents to a Circle Meeting each other at a Given Angle
+Given: — A circle of radius 3 cm and angle between tangents is 30°. _ 4
+Required: To draw two tangents to the circle, fC
+Steps of Construction: | ,
+(i) Construct a circle of radius 3 cm at point P. a
+(ii) Draw a diameter AB.
+(iii) Draw a tangent BX to the circle at point B.
+
+--- Page 238 ---
+
+(iv) Construct ZAPC = 30° and draw another tangent CDat point C intersecting the first
+tangent atpoint D,
+(v) Measure BDC. It will be 30°.
+To draw Direct Common Tangents (External Tangents) to two Equal Circles
+Given: Two equal circles each of radius 2.5 cm and distance between centers of circles is
+6 cm.
+Required: To draw direct common tangents or external tangents.
+<= _ Sar a
+Steps of Construction:
+(i) . Draw AB =6cm.
+(ii) | Construct two circles each of radius 2.5cm at points A and B.
+(iii) | Draw diameters CD at point Band EF at point A, perpendicular to AB.
+(iv) Join Eto DandF toC.
+Lines ED and FC are required direct common tangents.
+To draw Transverse Common Tangents (Internal Tangents) to two Equal Circles
+Given: Two equal circles each of radius 3 cm and distance between centers of circles is
+Jom.
+Required: To draw transverse common tangents or internal tangents.
+) ~~, Fo oesrt tts. ee et ay Hae a
+| > i T “so et” ‘a ee =, a
+Steps of Construction: , .
+(i) Draw AB =7em. ,
+(ii) | Construct two circles each of radius 3 cm at points A and B.
+(iii) | Bisect AB at point C.
+
+--- Page 239 ---
+
+(iv) Further bisect AC at point D and BC at point E. -
+(v) With centre D, construct a dotted circle of radius AD, intersecting the circle with
+centre A at points F and I. . ;
+(vi) With centre E, construct another dotted circle of radius BE, intersecting the circle with
+centre B at points H and G. ,
+(vii) Join H tol and F to G.
+FG and Hi are the required transverse common tangents.
+To draw Direct Common Tangents to two Unequal Circles
+Given: Two circles of radii 2 cm and 1.2 cm respectively and distance between centers of
+circles:is 5 cm.
+Required: To draw direct common tangents or external tangents.
+Steps of Construction:
+(ii) | Construct two circles of radii 2 cm and 1.2 cm respectively at ends A and B.
+(iii) With center as A, construct a circle of radius 0.8 cm (difference of radii of given
+circles).
+(iv) Bisect AB at M and construct a circle of radius AM which intersects circle of radius
+0.8cm at points C and D.
+(v) Produce AC to point E and AD to point F.
+(vi) Draw BG || AE and BH | AF.
+(vii) JoinEtoGandFtoH. ©
+EG and FA are required direct common tangents. .
+To draw Transverse Common Tangents to two Unequal Circles
+Given: Two circles of radii 2 cm and 1.3 cm respectively and distance between centers of
+_ circles is 5 cm.
+
+--- Page 240 ---
+
+Required: To draw transverse common tangents 7 so -
+Steps of Construction: ———
+(ii) | Construct two circles of radii 2 cm and 1.3 cm respectively at ends A and B.
+(iii) | With center as A, construct a circle of radius 3.3 cm (sum of radii of given circles).
+(iv) Bisect AB at M and construct avcircle of radius AM which intersects circle of radius
+3.3cm at points C and D.
+(v) Draw AC intersecting circle of radius 2cm at E.
+(vi) Draw AD intersecting circle of radius 2cm.at F.
+(vii) Draw BG || AE and BH | AF. . )
+(viii) Join E to G and F to H.
+EG and FH are required transverse common tangents.
+To draw a Tangent to two Unequal Touching Circles
+Given: Two touching circles of radius 2.5 cm and 2 cm.
+Required: To draw a tangent to the circles.
+Steps of Construction: >
+(i) Construct a circle of radius 2.5 cm at point A and f KXT Fo
+a circle of radius 2 cm at point B in such a way ! / fy ae
+that both circles touch each other externally at | : TL |
+point C. \ _ A
+(ii) Join A to B. ~ Ps
+(iii) Bisect AB at point M. }
+(iv) With centre M, draw a dotted semi-circle of radius AM or BM.
+(v) Drawa perpendicular CD on AB. where D is a point on the semi-circle.
+(vi) With centre D, draw an arc of radius CD intersecting the given circles at points E and F
+respectively.
+(vii) Join E to F.
+
+--- Page 241 ---
+
+Line EF is the required tangent. .
+Class Activity: |
+: | Draw a common tangent to two circles that are: |
+| (i) touching internally,
+| (ii) touching externally, tn |
+| such that tangent drawn is perpendicular to the radial segments of both circles. |
+To draw a Tangent to two Unequal Intersecting Circles .
+. Given: Two intersecting circles of radius 2.5 cm and 3 cm.
+Required: To draw a tangent to the circles. ,
+Steps of Construction: — ‘Hq ,
+(i) Construct a circle of radius 2.5 cm at point A. f a >— :
+Constnict another circle of radius 3 cm at / i. \e \/ ~~
+point B in such a way that both circles f we —-
+intersect each other at points C and D. As i Ay] —+F |
+(ii) Join A toB. \ . yW /
+(iii) | BisectAB at point M. With centre M, draw \ f™~_“
+a dotted semi-circle of radius AM or MB. “ co
+(iv) Join point D to C and produce it to point E lying on semi-circle. DE intersects AB at
+pointF,
+(v) With centre E, draw an arc of radius EF intersecting the given circles at points G and
+H respectively. )
+_ (vi) Join G to H. Line GH is the required tangent.
+1. Draw an arc and divide it into two equal parts. . |
+2. ‘Draw an arc of any length. Draw a tangent without using centre, through point A, when —
+point A is: (i) in the middle of arc. (ii) at the right end of the are. fet.
+_ 3. Draw an arc ABC, Take a point X outside the arc and draw a tangent from X to the arc
+without using centre of the arc.
+_ 4, Construct a circle of radius 4cm: Mark a point P on the circumference and draw a |
+tangent passing through P.
+5. .Construct a circle of radius 3cm, Draw two tangents from a point A, 5.8cm away from |
+the centre of circle. .
+6. Construct a circle of radius 2.5cm. Draw two tangents making an angle of: !
+__@)_ 45° (ii): 90° with each other. 4
+iT Pri Goh CN i at Hal
+
+--- Page 242 ---
+
+7. Construct two equal circles each of radius 3cm. Centres of the circles are 6cm apart.
+Draw their: e
+
+_ (i) — direct common tangents. (ii) _ transverse common tangents.
+
+8. Construct two circles of radii 2cm and 3.5cm. Draw:
+(ii) direct common tangents (ii) __transvers. common tangents _
+to the circles, if the distances between centres of circles is 6.4cm.
+
+9. Construct two touching circles of radii 2.6cem and 3.6 cm. Draw:
+(i) a common tangent that passes through the point of contact of both circles.
+(ii) a common tangent that does not pass through the point of contactof both
+
+circles. .
+
+(iii) twocommon tangents.
+
+10. Construct two intersecting circles of radii 2.5cm and 3cm whose centres are 4.8cm
+
+apart, Draw two common tangents to the circles. . - _
+
+11. In the figure, two pullies of radii 7 inches and 14 inches respectively are shown,
+
+Centres of pullies are 28 inches apart. Find the approximate length of rope moving on
+, pullies. Loe | —
+12, A satellite A is moving around Earth at an altitude of 7600 km from the surface. The
+radius of Earth is 6400 km. How far is the satellite from the city P?
+. eS
+13. Two cylindrical rods are bound with a strap. Each rod has diameter 12 cm. How long
+is the strap? ‘
+
+--- Page 243 ---
+
+14. A circular mirror with radius 20 cm hangs by a wire from a hook. The wire is 30 cm long
+and is a tangent to, the mirror in two places. How far above the top of the mirror is the
+hook? :
+
+i ; i) om/“TS |5 cm |
+* Locating the centre of a given circle. |
+' ¢. Drawing a circle passing through three given non-collinear points.
+* Completing the circle (i) by finding its centre, (ii) without finding its centre, |
+when a part of its circumference is given by
+¢ Drawing a tangent to a given arc, without using the centre, through a given point P when:
+(i) P is middle point of the arc (ii) P is at the end of are (iii) P is outside the are.
+' © Drawing a tangent to a given circle from a point P when:
+: (i) P is on the circumference (ii) P is outside the arc.
+¢ Drawing two tangents to a circle meeting each other at a given angle. .
+¢ Drawing (i) direct common tangénts or external tangents (ii) transverse common. tangents
+or internal tangents, to two equal/unequal circles.
+* Drawing a tangent to two unequal (i) touching circles (ii) intersecting circles.
+* Applying concepts of practical geometry of circles to real life word problems such as
+athletic tracks, recreational parks, Ferris wheels and mechanical machines.
+
+--- Page 244 ---
+
+ummm \11SCELUANEOUS EXERCISE. ||
+1. Encircle the correct option in the following.
+i. Angle between tangent and radial segment of a circle is:
+(a) 30° (b) 45° (c) 60° (d) 90°
+ii. Direct common tangents of equal circles are:
+(a) parallel (b) intersecting  (c) converging (d) not parallel
+- iii. “How many tangents can be drawn to two intersecting circles?
+(al (b) 2 (c)3 (d) infinite
+iv. Two circles having radii 3em and 3.2cm respectively, touch externally. The distance
+between centres of the circles is:
+(a) 6cm (b)0.2cm (c) 6.2cm (d) 5.3cm
+vy. Centres and point of contact of two touching circles are: ie,
+(a) collinear (b)non-collinear (c) converging (d) coincident
+vi, In which type of triangle, incentre and circumcenter are coincident?
+(a) scalene (b) isosceles (c) equilateral (d) right triangle
+vii. Two circles with radii 4cm and 4.8cm respectively, touch internally. The distance
+between centres of the circles is:
+(a) 4cm (b) 8 cm . (c)8.8em_- (d) 0.8cm .
+viii, Two tangents are drawn at the ends of diameter of a circle of radius 3.5cm.
+The distance between tangents is:
+(a) 3.5cm (b) 7cm © (c) Sem (d).10.5cm
+ix. Transverse common tangents intersect each other at:
+(a) 1 point (b) 2 points (c) 3 points (d) 4 points
+’ yA circle is inscribed in a square having length of side 6em, What is the radius
+(a) 24 (b) 12 (c) 6 (d)3
+xi. A square is inscribed in a circle of radius Sem. What is the length of diagonal .
+of the square?
+(a) 2.5em (b) Scm (c) 10cm (d) 20cm :
+xii, Perpendicular bisectors of .........-.-+ always pass through centre of circle.
+| (a) tangents  (b) secants (c) radial segments (d) chords
+xiii, How many circles can be drawn through three non-collinear points? :
+(a) infinite  (b)1 (c) 2 a (d)3
+xiv. A circle have ...... pair(s) of parallel tangents.
+(al (b) 2 (c) 3 (d) infinite

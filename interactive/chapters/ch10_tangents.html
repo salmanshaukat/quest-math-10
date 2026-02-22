@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en" data-chapter="10">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quest 10: Tangents & Angles of a Circle | Quest Math 10</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <style>
+    .chapter-hero {
+      text-align: center;
+      padding: 60px 0 30px;
+      position: relative;
+      z-index: 1;
+    }
+    .chapter-hero .chapter-number {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--neon-cyan);
+      margin-bottom: 8px;
+    }
+    .chapter-hero h1 { font-size: 2.8rem; margin-bottom: 12px; }
+    .chapter-hero .chapter-subtitle {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      padding: 8px 0;
+      transition: color var(--transition-fast);
+    }
+    .back-link:hover { color: var(--neon-cyan); }
+    .phase h2 { margin-bottom: 16px; }
+    .phase p, .phase li { margin-bottom: 10px; line-height: 1.8; }
+    .phase ul { padding-left: 20px; margin: 12px 0; }
+    .theorem-title { color: var(--neon-cyan); font-weight: 700; }
+    .example-box {
+      background: rgba(168, 85, 247, 0.06);
+      border: 1px solid rgba(168, 85, 247, 0.15);
+      border-radius: var(--radius-md);
+      padding: var(--space-lg);
+      margin: var(--space-md) 0;
+    }
+    .interactive-svg { max-width: 100%; margin: 20px auto; display: block; }
+    .boss-challenge {
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 51, 102, 0.2);
+      border-radius: var(--radius-md);
+      padding: var(--space-lg);
+      margin: var(--space-md) 0;
+    }
+    .boss-challenge h4 { color: var(--neon-red); }
+    .boss-input-group { display: flex; gap: 12px; align-items: center; margin: 12px 0; flex-wrap: wrap; }
+    .boss-input-group input { max-width: 150px; }
+    .boss-feedback { margin-top: 8px; font-size: 0.9rem; display: none; }
+  </style>
+</head>
+<body data-chapter="10">
+
+  <!-- Top Bar -->
+  <nav class="top-bar">
+    <div class="logo">
+      <a href="../index.html" class="back-link">&#8592; Back</a>
+      <span class="neon-text" style="margin-left: 12px;">Quest Math 10</span>
+    </div>
+    <div class="stats" id="top-bar-stats">
+      <div class="stat-badge stat-xp">
+        <span>&#11088;</span>
+        <span id="xp-count">0</span> XP
+      </div>
+      <div class="stat-badge stat-streak">
+        <span>&#128293;</span>
+        <span id="streak-count">0</span> Streak
+      </div>
+      <div class="stat-badge stat-level">
+        <span>&#9878;</span>
+        Lvl <span id="level-count">1</span>
+      </div>
+    </div>
+  </nav>
+
+  <div style="padding: 0 24px;">
+    <div class="progress-container" style="height: 4px;">
+      <div class="progress-bar progress-bar-xp" id="xp-progress" style="width: 0%"></div>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <!-- Hero -->
+    <div class="chapter-hero animate-fadeInUp">
+      <div class="chapter-number">Quest 10</div>
+      <h1><span class="neon-text">Tangents &amp; Angles of a Circle</span></h1>
+      <p class="chapter-subtitle">Lines that kiss circles at a single point, angles inscribed in arcs, and the elegant cyclic quadrilateral.</p>
+    </div>
+
+    <!-- ==================== PHASE: HOOK ==================== -->
+    <div class="phase phase-hook animate-fadeInUp delay-1">
+      <div class="phase-tag">&#127918; Hook</div>
+      <h2>The Roundabout Problem</h2>
+      <p>You are designing a roundabout for a busy intersection. Cars approach the circular island along straight roads and leave along tangent lines. As a car exits the roundabout, it transitions from a curved path to a straight one in a single, smooth instant.</p>
+      <div class="diagram-container">
+        <svg viewBox="0 0 400 300" class="interactive-svg" style="max-width:400px;">
+          <circle cx="200" cy="150" r="70" fill="none" stroke="#00d4ff" stroke-width="2" opacity="0.6"/>
+          <circle cx="200" cy="150" r="3" fill="#00d4ff"/>
+          <text x="200" y="140" fill="#64748b" text-anchor="middle" font-size="12">O</text>
+          <!-- Tangent point T -->
+          <circle cx="270" cy="150" r="5" fill="#ff006e"/>
+          <text x="280" y="145" fill="#ff006e" font-size="12">T</text>
+          <!-- Radius OT -->
+          <line x1="200" y1="150" x2="270" y2="150" stroke="#a855f7" stroke-width="1.5" stroke-dasharray="5,5"/>
+          <!-- Tangent line -->
+          <line x1="270" y1="80" x2="270" y2="220" stroke="#00ff88" stroke-width="2"/>
+          <text x="275" y="85" fill="#00ff88" font-size="11">Tangent</text>
+          <!-- Right angle symbol -->
+          <rect x="260" y="150" width="10" height="10" fill="none" stroke="#ffd700" stroke-width="1.5"/>
+          <!-- Car path arrow -->
+          <path d="M 330 230 Q 290 180 270 150" fill="none" stroke="#ff8c00" stroke-width="2" stroke-dasharray="6,3"/>
+          <polygon points="332,232 326,224 336,226" fill="#ff8c00"/>
+          <text x="335" y="245" fill="#ff8c00" font-size="11">Car path</text>
+        </svg>
+      </div>
+      <p><strong>Think about it:</strong> The tangent line at the exit point is always perpendicular to the radius at that point. What angle does the car "turn" through? Why does this geometry make the roundabout safe?</p>
+      <div class="key-concept">
+        <strong>Core Insight:</strong> A tangent to a circle meets the radius at exactly $90°$. This single fact unlocks everything in this chapter -- from tangent lengths to inscribed angle theorems.
+      </div>
+    </div>
+
+    <!-- ==================== PHASE: CHALLENGE ==================== -->
+    <div class="phase phase-challenge animate-fadeInUp delay-2">
+      <div class="phase-tag">&#9876; Challenge</div>
+      <h2>Can You Crack This?</h2>
+      <p>Before we learn the theorems, try this puzzle with your intuition:</p>
+      <div class="card card-neon-border">
+        <p><strong>Puzzle:</strong> Two tangent lines are drawn from an external point $P$ to a circle with centre $O$ and radius $6\text{ cm}$. The distance $OP = 10\text{ cm}$.</p>
+        <p>What is the length of each tangent from $P$ to the circle?</p>
+        <p><em>Hint: The tangent and radius are perpendicular at the point of contact. You have a right triangle!</em></p>
+        <div class="formula-box">
+          Using Pythagoras: $\text{tangent}^2 + r^2 = OP^2$<br>
+          $\text{tangent}^2 = 10^2 - 6^2 = 100 - 36 = 64$<br>
+          $\text{tangent} = 8\text{ cm}$
+        </div>
+        <p style="color: var(--neon-gold); font-size: 0.9rem;">Keep this technique in mind -- you will use it throughout the chapter!</p>
+      </div>
+    </div>
+
+    <!-- ==================== PHASE: DISCOVERY ==================== -->
+    <div class="phase phase-discovery">
+      <div class="phase-tag">&#128161; Discovery</div>
+      <h2>Tangent Properties &amp; Circle Angle Theorems</h2>
+      <p>Unlock each concept step by step. Click a topic to reveal the theorem and its explanation.</p>
+
+      <div class="reveal-group">
+
+        <!-- Step 1: Tangent Perpendicularity -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">1</span> Tangent is Perpendicular to Radius (Theorems 10.1 &amp; 10.2)</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <div class="formula-box">
+              If a line is drawn perpendicular to a radial segment at its outer end point, it is tangent to the circle.
+            </div>
+            <p><span class="theorem-title">Theorem 10.1:</span> A line perpendicular to a radius at the point on the circle is a tangent.</p>
+            <p><span class="theorem-title">Theorem 10.2:</span> Conversely, a tangent to a circle and the radial segment to the point of contact are perpendicular: $\angle OTP = 90°$</p>
+            <div class="tip-box">
+              <strong>Corollaries:</strong>
+              <ul>
+                <li>The perpendicular to a tangent at the point of contact passes through the centre.</li>
+                <li>Lines perpendicular to a diameter at its endpoints are tangents (and are parallel to each other).</li>
+              </ul>
+            </div>
+            <p><strong>Example:</strong> $AB$ is tangent to a circle with centre $P$. If $PB = r$ and $PA = 9 + r$ and $AB = 15\text{ cm}$, using Pythagoras:</p>
+            <p>$(9 + r)^2 = 15^2 + r^2 \implies 81 + 18r + r^2 = 225 + r^2 \implies 18r = 144 \implies r = 8\text{ cm}$</p>
+          </div>
+        </div>
+
+        <!-- Step 2: Equal Tangents -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">2</span> Two Tangents from an External Point are Equal (Theorem 10.3)</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <div class="formula-box">
+              The two tangents drawn to a circle from a point outside the circle are equal in length.
+            </div>
+            <p>If $PA$ and $PB$ are tangents from external point $P$ to a circle centred at $O$, then $PA = PB$.</p>
+            <p>Moreover, $OP$ bisects angle $\angle APB$ -- the two tangents make equal angles with the line joining the centre to the external point.</p>
+            <div class="example-box">
+              <strong>Example:</strong> If $\angle POQ = 40°$ between two tangents $OP$ and $OQ$ to a circle centred at $S$:<br>
+              $\angle POS = 20°$ (bisected), $\angle PSO = 70°$, so $\angle PSQ = 140°$ and $\angle SPQ = \angle SQP = 20°$.
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3: Touching Circles -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">3</span> Touching Circles (Theorems 10.4 &amp; 10.5)</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <div class="formula-box">
+              Externally touching: $d = r_1 + r_2$<br>
+              Internally touching: $d = |r_1 - r_2|$
+            </div>
+            <p><span class="theorem-title">Theorem 10.4:</span> If two circles touch <strong>externally</strong>, the distance between centres equals the sum of their radii.</p>
+            <p><span class="theorem-title">Theorem 10.5:</span> If two circles touch <strong>internally</strong>, the distance between centres equals the difference of their radii.</p>
+            <div class="tip-box">
+              <strong>Corollary:</strong> If two congruent circles touch externally, the distance between centres equals the diameter of each circle. If they touch internally, the distance is zero (concentric).
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 4: Alternate Segment Theorem -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">4</span> Alternate Segment Theorem (Theorem 10.6)</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <div class="formula-box">
+              The angle between a tangent and a chord at the point of contact equals the inscribed angle in the alternate segment.
+            </div>
+            <p>If $PT$ is a tangent at $T$ and $TA$ is a chord, then $\angle PTA = \angle TBA$ where $B$ is any point on the arc on the other side of chord $TA$.</p>
+            <div class="example-box">
+              <strong>Example:</strong> In a circle, if $\angle BDC = 56°$ and $\angle BCA = 60°$, then by Theorem 10.6, $y = 60°$ and using triangle angle sum: $z = 180° - 56° - 60° = 64°$, and $x = 56°$.
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 5: Central Angle & Inscribed Angle -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">5</span> Central Angle is Double the Inscribed Angle (Theorems 10.7 &amp; 10.8)</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <div class="formula-box">
+              $\angle_{\text{central}} = 2 \times \angle_{\text{inscribed}}$
+            </div>
+            <p><span class="theorem-title">Theorem 10.7:</span> The central angle of a minor arc is double the angle subtended by the corresponding major arc at any point on the remaining circle.</p>
+            <p><span class="theorem-title">Theorem 10.8:</span> Any two angles in the <strong>same segment</strong> of a circle are equal.</p>
+            <div class="tip-box">
+              <strong>Key Consequences:</strong>
+              <ul>
+                <li><strong>Theorem 10.9:</strong> Angle in a semi-circle = $90°$</li>
+                <li><strong>Theorem 10.10:</strong> Angle in a segment greater than a semi-circle &lt; $90°$ (acute)</li>
+                <li><strong>Theorem 10.11:</strong> Angle in a segment less than a semi-circle &gt; $90°$ (obtuse)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 6: Cyclic Quadrilateral -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">6</span> Cyclic Quadrilateral &amp; Supplementary Opposite Angles (Theorem 10.12)</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <div class="formula-box">
+              In a cyclic quadrilateral $ABCD$:<br>
+              $\angle A + \angle C = 180°$ and $\angle B + \angle D = 180°$
+            </div>
+            <p>A quadrilateral inscribed in a circle is called a <strong>cyclic quadrilateral</strong>. The opposite angles are supplementary (they add up to $180°$).</p>
+            <div class="example-box">
+              <strong>Example:</strong> In cyclic quadrilateral $PQRS$, if $\angle SRQ = 120°$, then:<br>
+              $\angle SPQ = 180° - 120° = 60°$
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 7: Ptolemy's Theorem -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">7</span> Ptolemy's Theorem</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <div class="formula-box">
+              For a cyclic quadrilateral $ABCD$ with sides $a, b, c, d$ and diagonals $p, q$:<br>
+              $$p \cdot q = a \cdot c + b \cdot d$$
+            </div>
+            <p>Ptolemy's theorem relates the sides and diagonals of a cyclic quadrilateral. This powerful result lets you find unknown diagonals when sides are known.</p>
+            <div class="example-box">
+              <strong>Example:</strong> Given $a = 4$, $b = 5$, $c = 6$, $d = 3$, and $p = 8$:<br>
+              $8 \cdot q = (4)(6) + (5)(3) = 24 + 15 = 39$<br>
+              $q = \frac{39}{8} = 4.875\text{ cm}$
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /reveal-group -->
+    </div>
+
+    <!-- ==================== PHASE: PRACTICE ==================== -->
+    <div class="phase phase-practice">
+      <div class="phase-tag">&#127919; Practice</div>
+      <h2>Test Your Knowledge</h2>
+      <p>Answer all 8 questions. Build your streak for bonus XP!</p>
+
+      <div class="scoreboard">
+        <div class="score-item">
+          <div class="score-value glow-text-cyan quiz-score">0/0</div>
+          <div class="score-label">Score</div>
+        </div>
+        <div class="score-item">
+          <div class="score-value glow-text-gold" id="quiz-streak">0</div>
+          <div class="score-label">Streak</div>
+        </div>
+      </div>
+
+      <div class="quiz-container">
+
+        <!-- Q1 -->
+        <div class="quiz-question" data-correct="a">
+          <div class="q-number">Question 1 of 8</div>
+          <div class="q-text">A tangent line touches a circle at how many point(s)?</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> 1</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> 2</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> 3</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> Infinitely many</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! A tangent touches the circle at exactly one point.</div>
+          <div class="quiz-feedback incorrect-fb">Not quite. A tangent line touches the circle at exactly 1 point.</div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="quiz-question" data-correct="c">
+          <div class="q-number">Question 2 of 8</div>
+          <div class="q-text">The angle between a tangent and the radial segment at the point of contact is:</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> $45°$</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> $60°$</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> $90°$</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> $180°$</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! The tangent is always perpendicular to the radius at the point of contact.</div>
+          <div class="quiz-feedback incorrect-fb">The tangent and radial segment are perpendicular, making a $90°$ angle.</div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="quiz-question" data-correct="b">
+          <div class="q-number">Question 3 of 8</div>
+          <div class="q-text">How many tangents can be drawn to a circle from a point outside the circle?</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> 1</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> 2</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> 3</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> Infinite</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! Exactly 2 tangents can be drawn from an external point.</div>
+          <div class="quiz-feedback incorrect-fb">From a point outside, exactly 2 tangent lines can be drawn to the circle.</div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="quiz-question" data-correct="d">
+          <div class="q-number">Question 4 of 8</div>
+          <div class="q-text">Two tangents drawn from an external point to a circle are:</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> Perpendicular</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> Parallel</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> Not congruent</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> Equal in length</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! Two tangents from an external point are always equal in length (Theorem 10.3).</div>
+          <div class="quiz-feedback incorrect-fb">By Theorem 10.3, the two tangents from an external point are equal in length.</div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="quiz-question" data-correct="c">
+          <div class="q-number">Question 5 of 8</div>
+          <div class="q-text">If two circles of radii $1.4\text{ cm}$ and $2.5\text{ cm}$ touch internally, the distance between their centres is:</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> $1.4\text{ cm}$</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> $2.5\text{ cm}$</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> $1.1\text{ cm}$</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> $3.9\text{ cm}$</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! For internally touching circles: $d = |r_1 - r_2| = 2.5 - 1.4 = 1.1\text{ cm}$.</div>
+          <div class="quiz-feedback incorrect-fb">For internally touching circles, $d = |r_1 - r_2| = 2.5 - 1.4 = 1.1\text{ cm}$.</div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="quiz-question" data-correct="c">
+          <div class="q-number">Question 6 of 8</div>
+          <div class="q-text">An angle inscribed in a semi-circle is:</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> $0°$</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> $45°$</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> $90°$</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> $180°$</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! The angle in a semi-circle is always a right angle ($90°$), by Theorem 10.9.</div>
+          <div class="quiz-feedback incorrect-fb">By Theorem 10.9, the angle in a semi-circle is always $90°$.</div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="quiz-question" data-correct="d">
+          <div class="q-number">Question 7 of 8</div>
+          <div class="q-text">If $ABCD$ is a cyclic quadrilateral and $\angle A = 60°$, then $\angle C$ equals:</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> $60°$</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> $90°$</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> $150°$</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> $120°$</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! In a cyclic quadrilateral, opposite angles are supplementary: $\angle C = 180° - 60° = 120°$.</div>
+          <div class="quiz-feedback incorrect-fb">Opposite angles in a cyclic quadrilateral sum to $180°$: $\angle C = 180° - 60° = 120°$.</div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="quiz-question" data-correct="d">
+          <div class="q-number">Question 8 of 8</div>
+          <div class="q-text">If the central angle of a minor arc is $100°$, then the inscribed angle in the corresponding major arc is:</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> $200°$</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> $100°$</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> $75°$</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> $50°$</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! The inscribed angle is half the central angle: $\frac{100°}{2} = 50°$.</div>
+          <div class="quiz-feedback incorrect-fb">The inscribed angle is always half the central angle: $\frac{100°}{2} = 50°$.</div>
+        </div>
+
+      </div><!-- /quiz-container -->
+    </div>
+
+    <!-- ==================== PHASE: BOSS ==================== -->
+    <div class="phase phase-boss">
+      <div class="phase-tag">&#128123; Boss Level</div>
+      <h2>Final Boss: The Master Circle Problem</h2>
+      <p>Apply everything you have learned to defeat this multi-step challenge!</p>
+
+      <div class="boss-challenge">
+        <h4>Boss Challenge 1: Tangent Length</h4>
+        <p>The centre $O$ of a circle of radius $6\text{ cm}$ is at a distance of $10\text{ cm}$ from point $P$. Find the length of each tangent from $P$ to the circle.</p>
+        <div class="boss-input-group">
+          <input type="text" id="boss1-input" class="math-input" placeholder="Length in cm" style="max-width: 160px;">
+          <button class="btn btn-primary" onclick="QuestMath.checkFillIn('boss1-input', '8', 'boss1-fb')">Submit</button>
+        </div>
+        <div class="boss-feedback" id="boss1-fb"></div>
+        <div class="quiz-hint">
+          <strong>Hint:</strong> Use $\text{tangent}^2 + r^2 = d^2$ where $r = 6$ and $d = 10$.
+        </div>
+        <button class="btn btn-hint" onclick="this.previousElementSibling.classList.toggle('show')" style="margin-top: 8px;">Show Hint</button>
+      </div>
+
+      <div class="boss-challenge">
+        <h4>Boss Challenge 2: Cyclic Quadrilateral</h4>
+        <p>In cyclic quadrilateral $ABCD$, $\angle A = 75°$ and $\angle B = 110°$. Find $\angle C$ and $\angle D$.</p>
+        <div class="boss-input-group">
+          <span style="color: var(--text-secondary);">$\angle C =$</span>
+          <input type="text" id="boss2a-input" class="math-input" placeholder="degrees" style="max-width: 120px;">
+          <button class="btn btn-primary" onclick="QuestMath.checkFillIn('boss2a-input', '105', 'boss2a-fb')">Check</button>
+        </div>
+        <div class="boss-feedback" id="boss2a-fb"></div>
+        <div class="boss-input-group">
+          <span style="color: var(--text-secondary);">$\angle D =$</span>
+          <input type="text" id="boss2b-input" class="math-input" placeholder="degrees" style="max-width: 120px;">
+          <button class="btn btn-primary" onclick="QuestMath.checkFillIn('boss2b-input', '70', 'boss2b-fb')">Check</button>
+        </div>
+        <div class="boss-feedback" id="boss2b-fb"></div>
+      </div>
+
+      <div class="boss-challenge">
+        <h4>Boss Challenge 3: Ptolemy's Theorem</h4>
+        <p>Cyclic quadrilateral $ABCD$ has sides $a = 4$, $b = 5$, $c = 6$, $d = 3$ and diagonal $p = 8\text{ cm}$. Find diagonal $q$.</p>
+        <div class="boss-input-group">
+          <input type="text" id="boss3-input" class="math-input" placeholder="Value of q" style="max-width: 160px;">
+          <button class="btn btn-primary" onclick="QuestMath.checkFillIn('boss3-input', '4.875', 'boss3-fb')">Submit</button>
+        </div>
+        <div class="boss-feedback" id="boss3-fb"></div>
+        <div class="quiz-hint">
+          <strong>Hint:</strong> $p \cdot q = a \cdot c + b \cdot d$, so $8q = 24 + 15 = 39$.
+        </div>
+        <button class="btn btn-hint" onclick="this.previousElementSibling.classList.toggle('show')" style="margin-top: 8px;">Show Hint</button>
+      </div>
+
+      <div style="text-align: center; margin-top: 32px;">
+        <button class="btn btn-success" onclick="QuestMath.completeChapter('10')" style="font-size: 1.1rem; padding: 16px 40px;">
+          &#127942; Complete Quest 10
+        </button>
+      </div>
+    </div>
+
+    <!-- Back to Dashboard -->
+    <div style="text-align: center; padding: 40px 0;">
+      <a href="../index.html" class="btn btn-ghost">&#8592; Return to Quest Dashboard</a>
+    </div>
+
+  </div><!-- /container -->
+
+  <script src="../js/engine.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      QuestMath.init();
+    });
+  </script>
+</body>
+</html>

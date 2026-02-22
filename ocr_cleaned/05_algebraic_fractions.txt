@@ -1,0 +1,574 @@
+============================================================
+CHAPTER: Algebraic Fractions
+Pages: 97 - 114
+============================================================
+
+--- Page 97 ---
+
+: : er p
+Algebraic Fractions
+-~ After studying this unit students will be able to: ~
+| ©. Describe rational expression. |
+| © Factorize and simplify rational expression. |
+| * Demonstrate manipulation of algebraic fractions. . 4
+| © Performs operations on rational expressions.
+| © Solve rational equations. |
+..® Apply the concept of rational equations to real world problems. , I
+Use of letters to represent an unknown quantity was introduced . |
+by “Rene Descartes”, a French Mathematician, in 1637. Today ‘x*
+is used by most nations as the standard letter for a single |
+unknown. Infect x-rays were so named because the:scientists who db |
+discovered them did not know what they were and thus labeled 7. LA o
+them the “unknown rays’ or x-rays. Algebra is basically an J
+extension of Arithmetic. Se
+X-ray ,
+A factory worker wants to work overtime to fulfill his
+basic necessities of life. The factory owner has decided to -
+give him Rs, 60 per hour for working extra, But sometimes “ |
+he does not have enough time to work overtime daily. So we
+he-cannot find his accurate monthly income for working | ar 2
+extra. If we represent overtime of the worker in hours fora Pan a. |
+month by an unknown quantity say ‘t’, then we can say ; a |
+that his salary for working overtime will be ‘60t’. : Oe
+———— a
+
+--- Page 98 ---
+
+, Algebraic Expressions - .
+A statement in which variables or constants or both are connected by arithmetic operations
+(i.e. +,-,x,+) is called an algebraic expression.
+For example, : " _ a _ _
+6244 |
+a , 3(a+b)-—4, 0 ,-5 Muhammad Bin Musa Al—-Khawarizimi was the
+_ first Muslim mathematician who introduced
+_ f&, | × rcs Algebra and wrote a book entitled Hisab—Al-Jabr
+z—√2 t, Ps. wad b" —4ac etc. Wal Mugabala in 820 A.D. He was known as
+ned ‘Father of Algebra’.
+| An algebraic expression may contain:
+_ © Numbers
+e Signs of operations (+ ,—, x, +) :
+* Variables (a, b,¢,..., x,y,z)
+* Grouping symbols —, (),{}5[] : | : :
+Kinds of Algebraic Expressions
+Algebraic expressions are of three kinds. .- ) '
+. Polynomial Expressions —_
+° Rational Expressions .
+° Irrational Expressions ;
+Polynomials are algebraic expressions consisting of one or more terms in which exponents of
+the variables involved are non-negative (either zero or positive) integers.
+For example: |
+0, -2, 2x +3 yz, -fey. √2x* —nx?— 10 ete.
+The expressions x~°, yr, a/y* , 2y² are not polynomials because their exponents are
+not non negative integers (whole numbers). _
+Polynomial with respect to [_ SS
+
+--- Page 99 ---
+
+} (a) Types of Polynomials w.r.t. Terms , ns
+e A polynomial having one term is called a monomial. e.g., 3, x, 0 etc. ;
+« A polynomial having two terms is called a binomial. :
+. eg. at+b,2x+y, 7ab— ; » xi+ 2 etc,
+¢ A polynomial having three terms is called a trinomial.
+e.g. x7+2xy+yp?, ; x+ ax 9 etc.
+_ All other polynomials having more than three non- zero terms are called polynomials of four
+‘terms, five terms, six terms and so on.
+When a polynomial is written in descending order, then the first coefficient is called
+the leading coefficient. e.g., in p(x) = 3x‘ — 2x² + 1, the leading coefficient is 3.
+Here p(x) means that the variable in the polynomial is ‘x’.
+(b) Types of Polynomials w.r.t. Degree
+> Zero polynomial or no degree polynomial:
+“0” is called a polynomial of no degree. Also, 0x² + Ox.is a no degree polynomial,
+because coefficients are always zero in zero polynomial. .
+> Constant polynomial: '
+A polynomial having degree zero is called a constant polynomial. eg. 2,—5, > √5
+are all constant polynomials. |
+>» Linear polynomial: 4
+A polynomial having degree one is called a linear polynomial. e.g., x, 2x-y, — Txy* etc.
+| _» Quadratic polynomial: A polynomial having degree two is called a quadratic ;
+polynomial. e.g., 2x²+7, ax + 2xy + 3-2 ay" etc, ,
+> Cubic polynomial: oo . .
+_ A polynomial having degree three is called a cubic polynomial. e.g. 9 -— Tx + 5,
+Oxzy, 3x*y — - z ete.
+All other polynomials have no specific name w.r.t. degree but simply, we call them
+polynomials of degree four, degree five and so on. '
+(c) Types of Polynomials w.r.t. Coefficients .
+~ Polynomials can also be classified according to the coefficients of the variables involved in
+each term of them. e.g., —3x² + 4x — 1 is a polynomial with integers co-efficients because
+—3,4,-leZ. .
+
+--- Page 100 ---
+
+— a 1 5 9 22, oe 22
+_ Similarly, ri yr-ax y+ isa polynomial with real numbers because > —H, = eR.
+Just like this we can also check the coefficients in any polynomial and classify it accordingly.
+(d) Types of Polynomials w.r.t. Variables
+Classification of polynomials is also possible with respect to the variables involved in them.
+e.g., xy — 7 is a polynomial in two variables × , y. We can express it as
+Similarly, 6x°yz + 12 xy*z° + 9z* is a polynomial in three variables × , y, z. We may write it
+as Q (x, y , Z) = Gx² yz + 12 xy°z° + 924,
+Recall a
+The highest exponent of the variable involved in a: polynomial is called its degree. If more
+- than one variable are being multiplied in terms of a polynomial. Then the degree of that
+polynomial is the sum of exponent ofall the variables present in a term. .
+(b) Rational Expression —_.
+An algebraic expression of the form th »where P(x)and Q(x) are polynomials and Q(x) # 0
+O(x)
+(i.e. it is not a zero polynomial) is called a rational expression.
+, jl 3) o2x-lxt4 xt tx
+Forexample: 1— , 2, a so Sez Sete. —
+Reduction / Simplification of Rational Expressions Rational expression are
+~ In algebraic rational expressions, we can multiply or divide the — the expression rain
+numerator and denominator by a same non-zero expression. oeers. ot vanlabse are
+xrtx (x24x)ex _ x4]_ |
+C8 “3, Iparvker wal: .-
+x+x [xi txfex × +l
+: × 4+x +
+Hence, att is the lowest or reduced form of ———.
+x +1 a +e gs
+- Reduction of a rational expression is done on the same rules as in reduction of a rational
+number. To reduce a rational expression to its lowest form, we have to
+e Factorize the numerator and denominator completely.
+e Divide the numerator and denominator by their common factors.
+¢ Rewrite the remaining terms as a fraction, computing all products. This will be the
+reduced form.
+
+--- Page 101 ---
+
+Example: Reduce each rational expression to its lowest form. |
+- xy² 4: b-a
+Solution: (i) By using laws of exponents, we have |
+=sZ el What will be the degree of
+of a re re polynomial
+(ii) Since, (a² — b*) = (a— 5b). (a² + ab + b’) xy?—√3y'zx
+cs, 274 _(6-a) | Seg RES
+rae eae om | simplification² , * Leb a=B i a’ +ab+b² 1 /
+. a’ +ab+b² | ,
+(c) Irrational Expression
+An algebraic expression which cannot be expressed in the form ae , Where P(x). and Q(x)
+Q(x) ;
+are polynomials but Q is not a zero polynomial, is called an irrational expression.
+For example: aie ~x?y-7, ve-— , $x² +y² , 24x² y?4+— Tete.
+vy ly y
+| Evaluation of Algebraic Expressions ©
+The process of replacing the variables by numbers in an algebraic expression is called
+‘substitution’. The process of getting a numerical answer by substituting numbers for each
+variable is called ‘evaluation’. .
+Example: Find the value of 343 ail at yu Se, =,2 ;
+Solution: =x² -=x+4+1 ee hae ae
+4 4 ; Irrational expressions are
+those expression in which
+By substituting the value of x, we have exponent of variable are ~
+a 2 os non-integers.
+442) 342) | |
+
+--- Page 102 ---
+
+163
+_ 9+16+48 - 3B _ {25
+Example: If p =—5 and q =2, find the value of p*q + pq’ + 2p. pq
+Solution: p*q+ pq’ + 2p. pq
+= Ra + pq² + 2p’q «<— simplify the given expression
+= 3p7q + pq? <— combine like terms to reduce number of terms
+= 3 (—5)? (2) + (-5) (2)? <— substitute the given values
+= 3 (25) (2)+(-5)(4) << simplify exponents |
+Example: Find the value of the expression
+3.124 -0.2¢y + 0.32 + Lila’ -y at x=1, y=-l.
+Solution: 3.1x4 - 0.2¢y² + 0.3ey+1.bay'-y
+= 3.1 (1) - 0.2 (1) 1)? + 0.3 (2 C*+ 1.1 (1) C1 - C1)
+= 3,1 — 0.2 (1) (+1) + 0.3 (1) 41) + LQ) Cl) - G1)
+=3.1-0.2+03-11-1 | |
+=34-23=11 | :
+I, Reduced the following expressions to their lowest form. a |
+a 15ax° y² an 38K? p'm* aman pg «
+(i) 25a°xy® (ii) 57k? pm? ; (iii) mn² p* ,
+pwn 3abe : 46° m‘ni x-3
+3 GY) T5a*B*e OP mn MW)” 32%
+: etre ied |, aay (rt 3\Xr +4)
+3 WH) E49 wn) 16
+2, Evaluate the following expressions for the given value of each variable. ee
+@ 3(?-s),ifr=2,s=-1 Gi) =m atm=18.75andv=5.6
+‘ (iii) f2gs when g = 32.2 and s = 144.9 mero ° . a
+a TY
+
+--- Page 103 ---
+
+(iv) 3x-—y+ z if x= ai yrs, z=— ar
+a " o£ 2 3
+(v) 0.1d² +0.01d+1 if d=—0.2 (vi) =o - 350 +b-3 ifb=>
+3, If nth triangular number is represented by T (n) = wet) , then find 100" triangular
+number. . |
+4. > If PQ) =x2 + 2x- 15, D(x) =x—3 and Q(x) = × + 5, show that me =D(2).
+3. If g@)= — +—+2, find g| -—|. 2
+BH)= Fata o( 3] i ,
+6. The volume of a basketball (sphere) is approximately 38808 cm*. The radius ‘r’ of the
+ball is given by Dy
+r=, ij , Where v is its volume.
+An aes
+Determine the radius of that ball. (take n= re.
+Basic Operations on Algebraic Fractions
+Operations with rational numbers and rational algebraic expressions are very similar, A
+_ ‘ational number can be expressed as the quotient \of two integers. A rational algebraic
+expression can be expressed as the quotient of two polynomials. In either case, the
+denominator can never be 0. .
+Rational Numbers: =. im a or. - ,
+Rational Algebraic Expressions: 2, ae Y= 36 × Ox $5
+x 10 x-5) y+6° 5x,
+x+1
+If P and Q are any two algebraic expressions then 5 is called an algebraic fraction, 8
+| | a-b : : , :
+where Q + 0 e.g.,—-_-___
+2 oo² + 2ab +B |
+To write a fraction in simplest form, we divide both the numerator and denominator by their
+greatest common factor (GCD). .
+
+--- Page 104 ---
+
+Addition of Algebraic Expressions , ,
+Algebraic expressions can be added as explained in the following examples.
+Example:_ Add the following expressions. . )
+Sat ARR etD gy ge , SEED
+2 3 - x—2
+Solution: a oe
+? 77. 3. For all rational expressions
+_ 3(x² -1)+8(2x² —x +1) 5 and £,b#0,d #0:
+_ 3x =34+16x° —8x+8 hd et Bae hd
+_ 19x* -8x4+5
+(ii) 4x +74 (e+ 3x = 1)
+x-2
+_ (4x + T= 2) + (e+ 3D | |
+x-2
+_ 4x’ + 1x—8x-144+x7 +3x-x-3
+, x-2 i
+x-2
+Subtraction of Algebraic Expressions .
+In subtraction of algebraic expressions, we have to change the signs of the expression which
+is being subtracted and all other steps are the same as in addition of algebraic expressions.
+3x² -Ixt4, 3x-1
+Sxl 3x² -7x+4 |
+Solution: ~9 tq
+= Sex) 3 ATH | ay using the formula 6? b= (a*\(a-b)
+x+2 (x+2\x-2) on Se ee ~—
+_ Bx-1(x-2)- Gx² -7x+4)
+. (x + 2)\(x -−2) . |
+| _ 3x² —7x +2— 3x² +7x—4 _. -−2 _ 2_
+(x + 2)(x — 2) (x+2\x—-2) x²-4 os
+
+--- Page 105 ---
+
+Multiplication of Algebraic Expressions )
+Multiplication of algebraic expression can be explained with the help of following examples.
+~2 _O :
+Example: Find the product of _——— and ——., 7
+) x” +2x x+3 .
+Solution: fi x
+xe4+2x x43
+_(*+3)4—-3) y~ =X -3
+x(x+2) -x4+3 x42
+Example: Multiply x² —x-—20 by a, Pes et
+_ x” +4x° SR Ry Oger es en
+; ; 3 For all rational expressions
+* (+4) bd bd’ bd be be
+cy 3 3x-15
+=(x—5)(x + 4)x—=——_._ = =
+eo > x² (x+ 4) x’.
+Division of Algebraic Expressions - |
+The process of dividing any two algebraic expressions is explained with the help of following
+examples. 7
+Example: Divide 2x² - 1x21 thee by Pred
+Solution; 2% —1x=21 .. 2x+3
+- x² 49 x+7
+_ 2x’ -14x-3x-21 . x+7 rs !
+| (x)? -(77 2x+3 :
+—2x(x-T) 434-7) x47 . ‘
+(x+7)x-7) . 2x43 y :
+) (x+7)(x-7) 2x43 )
+Complex Algebraic Expressions 3
+- For simplifying the complex algebraic expression involving addition, subtraction,
+multiplication and division, we apply the BODMAS rule similar to arithmetic expression.
+
+--- Page 106 ---
+
+Example: Simplify. | ;
+3x42 x-2 | _2x²-4 , , ae
+x+2 2x+10 x²+2x-15 |
+Solution: 22 +2 5 ~—* a yi Pee = vi :
+x+2 2x+10  2x°-8 . ,
+a3x+2, x-2 x² +5x-3x-15
+| x+2  2(x+5) 2(x² —4) : - 3
+_3x+2, × =2_ x(x+5)-3(¢+5) 3
+x42 x45) 2(¢4+2)(x-2)
+_ 3x +2 é: x-2 et +5)x-3)
+x+2  2x+5) 2(x+2x-2) ©
+_3*+2 x-3 | :
+x+2 4(x+2)
+_4Gx+2)4+(x-3) _ 12x4+84+x- 3 _ 13x+5
+4(x + 2) 4(x + 2) 4x+8 |
+Example: Simplify the following.
+a (a+by' -3ab(a+b)| _ (a+b) —4ab
+(a + by =2ab a -b (a+b) —3ab
+Solution: ) |
+a (at by’ —3ab(a+5)| , (a +b)’ —4ab ,
+(a+b) -2ab = a*-b* | (+ by)? —3ab .
+) 4op4 * i
+|e ye =» Get by = 4g
+77 (a+b) —2ab (a+b)’-3ab(a+b)| (a +b) —3ab
+| a g (a² -b* Xa² +b’) |, @+by a 4ab
+a² +b² +2ab-2ab a² +b’ +3ab(a+b)—3ab(a+b) | (a+b)’ -3ab
+_| a × (a² —b’ (a +b*) | at b)? -4ab :
+a’ +b² a+b² | (a+b)? -3ab
+_|_@ .@ +b(a—ba* +b’) _ at by² —4ab
+|a² +b (a+bXa’—ab +b*) | (a+b)* —3ab
+_[ a(a-b) , (a+b) -4ab
+La² -ab+b* (a+b) -3ab | , ;
+
+--- Page 107 ---
+
+_|. a(a-b) (a +b) ~3ab ae ;
+_ La*-ab+b’ (a+b) —4ab_ .
+_|_a(a@-6)_. a² +2ab+b’—3ab .
+a’—ab+b*? a² +2ab+b’ —4ab +
+| 3 | a(a-b).. a² +b² —ab
+| a*-ab+b² a² +b² -2ab|
+_|_4(@-5) | 3
+La² -2ab +b² | , |
+_ | afab) |
+a ;
+~ a-b
+Another method for simplifying a complex rational expression involves first adding or
+subtracting, as necessary, to get one rational expression in the numerator and one rational
+expression in the denominator. The problem is thereby simplified to one involving the
+division of two expressions. .
+3 2 ye :
+Example: Simplify. x2 : ) .
+, x-2° x² ,
+3.2 3x2 a
+/ x=2 x² x*(x−2) ; |
+= 3852, © GD 4 ivide, multiply,by thereciprocalof thedvishe. *
+x² 3x7 4+x-2 GIVIde, MIU " y, by the reciprocal of the divisor.
+3x-2 x*(x−2) Gx-2) x*(x-2) _,
+x² 3x7 4+3x-2x-2 x" ‘ (3x-−2)(x+1) ne
+x=-2 . : 3
+=a) moving a common factor from numerator and denominator.
+
+--- Page 108 ---
+
+} sree ae ce Ps Exercise 5.2] Exercise 5.2 _ g Teter ee ee
+1. Add the following expressions. :
+- × Xx oss x-2 x+10 guai 4+x x-1 5x
+Or er ee a SLR
+ee. | ae 24x 3(1+x) :
+CO Ses aes © R-ig* “e-3 |
+2. Subtract. a
+@) 2-2 gom7 (ii) 62-8) fom S2=7)
+-3. “Divide the first expression by the second, _ : 3
+(i) 4-10249,2-2x-3 = (ii) - 3x y+ 3xy²-y?_, x-y
+“Gi 4x² -16 2x+4 (iv) x?'+5x x² —25
+me 5x IS | x-3 ° x-3 |
+4. Simplify the following.
+| × x × xX ae | ee ee { | *)
+i). Stes ii) —|4-—|--—+-)11-—- "
+® -34374"s cs { 4 6 3, .
+ae | × xt2 “O.. x²-25 x, 3x
+(iit) Poe + AN cl (iv) 5 4°20
+w) 45a*hict 243 xy'z* vi). m  36p'q° 1Smpx² ai 27x‘y’z 180a°be’ ~“ < 8n . 8lmn 270 nx’y
+ee 3x°-27 1 any SH*S. , 6-2x |
+ix) 24 3 _- 4Ga+2) &) s°Ey 2
+eal 2a-3 6a+9 3(4a² -9) "Sx —18x² 24+5x+ 2x² 3 (xi) m+3_ m+i . 3m-1_ 12m-4
+“24m 24m 6m² +18m sm +3 3
+qn: S22 yo day a (xiii) | 1-—*2— |+(1+2°)
+"deg ptp? \ Imp, 14—. | .
+Pi 5 ete FOR Nl Bk Foti
+
+--- Page 109 ---
+
+- Solving Rational Equations
+An equation that contains one or more rational expressions is called a rational equation. Here
+"are some examples:
+2, × 1 x-4 6. #x7F a5
+S-=s-, 2-04 229
+5.4 x: x+lo x-2 x+l x
+Equations of this type occur frequently in applications. It is easiest to solve a rational equation ,
+if the fractions are eliminated. This can be done by multiplying each side of the equation by
+the least common denominator (LCD). Remember that when you multiply each side by the
+LCD, each term on each side must be multiplied by the LCD.
+Reape Solve al = aonre Verify thesolution. |
+| x-7 x*—9x+14 |
+(x−2)(x—7). + (4 22)(x-I) A =(x−2)(x-7).—_—_2—__ Multiply by LCD(x−2)(x—7).
+x=-7 (x-2)(x-7) :
+3(x−2) +(x’ —9x+14),=8 Simplify.
+- x*—6x+8 = 8 Combinetheliketerms. _.3
+x’?-6x = 0 Simplify.
+x(x-6)=0
+_ x=0, or x=6. Thesolutionsare 0 and 6. . *
+Check : if × =0, 3 +l= —— we have: : = .. True. .
+0-7 0? -9.0+14". 7 7 |
+if; = 6, —+!/ =—————__ —, We ha ye: —-2=—% * True.
+if × 4-9 o6a14 we ay 2, True
+Note: Remember that a rational expression is undefined when the value for variables results
+in a denominator of zero. When solving rational equations, we check that for solution
+denominator should be non-zero. If denominator is zero in any value of x, these values be
+excluded from list of solutions.
+Example: Solve x4 =. ,
+‘ x-2 5 x-2
+Solution: —~_41__2_, ,
+x-2 5 x-2
+i o- 2 1 fo lige AE sft
+5(x-2).—— + 5(x-2).= =5(x−2).——— MultiplybyLCD 5(x-2)
+( ) Ta (x-2) r (x−2) 3 MultiplybyLCD 5(x−2).
+Sx+x—-2=10 Simplify.
+? 6x-—2=10 Combinetheliketerms. _ . :
+x=2
+
+--- Page 110 ---
+
+The solution appears to be 2, but the expression ras “3 = > are undefined wheri x= 2.
+X—-2£ 39 X-2
+We see that 2 is extraneous solution.
+There is no solution.
+Example: Ifa certain number is added 5 times the reciprocal of 2 more than'‘that number, the
+result is 4. . .
+Solution: Suppose a number is x. According to condition, added to 5 times the reciprocal of
+2 more than that number, the result is 4:
+x+ ss) 4 As per statement, written in mathematical form .
+X+e
+(x+2)xP(e+ 2).5(—5) =(x+2).4 Multiply by LCD on both sides.
+x?42x+5=4x+8 Simplify.
+x’?—2x-3=0 Collecting all like terms on one side
+(x—3)(x+1) =0 Factoring
+x=3 or x=-1, the solution can be checked.
+The solution can be verified:
+x+5(—s) =4 (As per statement, written in mathematical form)
+x+2
+(x+2)x+(x+ 2).5(—s) = (x+2).4 (Multiply by LCD on both sides.)
+x+2
+x²+2x4+5=4x+8 (Simplify)
+' ytioy-320 * (Collecting all like terms on one side)
+(x-3)(x+1)=0 (Factoring)
+x=3 or x=—1, the solution can be checked.
+
+Result: The required number is −1 or 3. .
+
+Example: A car travels-300 km in the same time that a freight train travels 200 km. The
+
+speed of the car is 20 km/h more than the'speed of the train. Find the speed of the car and the
+
+speed of the train. . ae 4
+
+Solution: We know that distances both vehicles traveled. We also observe that both vehicles
+
+traveled the same amount of time and that the speed of the car is 20 km/h faster than that of
+
+the train. : ; oe. weer
+
+Suppose the distance is S and speed is V, we know that S=VT, where T is time. If V be the
+
+speed of the train, then car moves 20 km/h faster than the speed of the train. So, the speed of
+
+--- Page 111 ---
+
+the car is V+20. We can equate the formula for the two vehicles in terms of T. We have:
+__§
+| V
+. car's time = train's time
+.  . = a (Solve for V )
+et 300 nar camp, 200 oe ae ee :
+V + 20) V.m— = WV + 20).— (Multiply each side by LCD)
+(V + 20) √420 WV + 20). ply ys
+— 300V = 200(V + 20) (Simplify) |
+, 100V = 4000 7 ,
+V =40 ° | |
+The speed of the train is 40. km/h and the speed of the car is 60 knv/h.
+3 Solve and check your solutions (1-7). 7
+1. =e -+1= a = “2. a =f 3. pleas -l= ac
+. «ll x-11 yt+3_y-T x+4 2x+8
+4 39 I yee 5 @, P y+2 8
+yt+l yp=-l pels. . ° × y+6y—-7 yp? 43y-—4 L
+yt] y’+4y4+3 p43 :
+| 8, Kaleem can mow a lawn in 4 hours. Moiz can mow the same lawn in 5 hours.
+. How long would it take both of them, working together, to mow. the lawn.
+9. You have an 8-pint mixture of paint that is made up of equal amounts of yellow
+paint and blue paint. To create a certain shade of green, you need a paint mixture .
+|. that is 80 % yellow. How many pints of yellow paint do you need to add to the mixture?
+10. Wagar takes 9 hours longer to build a wall than it takes Wasi. If they work
+together, they can build the wall in 20 hours. How long would it take each,
+working alone, to build the wall? .
+
+--- Page 112 ---
+
+SSuaoccwe°
+e Describing rational expression.
+e Factorizing and simplifying rational expression.
+e Demonstrating manipulation of algebraic fractions.
+* Performing operations on rational expressions. _
+e Solving rational equations. cos .
+« Applying the concept of rational equations to real world problems.
+1. Tick the correct option. ) ,
+1. An expression which is the ratio of two polynomials but the polynomial in
+denominator is non-zero is called
+(a) polynomial (b) _ rational Expression
+(c) | compound Expression (d) _—_ irrational Expression
+ii. | The degree of x’y’ — xyz! 2955 is ; |
+(a) 5 (b) 6 (c) 7 (d) none
+iii, Constant polynomial is also called
+) (a) linear polynomial (b) © no degree polynomial
+(c) expression _ (d) zero’ degree polynomial
+iv.  Aliis 2 years younger than his sister Ayesha. If Ayesha’s present age is x
+years, then the age of Ali after 5 years will be oF
+(a)  (x+7)years- (b) (x-2) years ©
+(c) (x+3)years - (d) (&-7) years × .
+v. The value of abe = (2 ~3=2x² } at x=2 is “
+(a) «2 . (ob) 14 (c) -2 (d)- 6
+. we vyiopyeex yz. ,
+yj. Reduced form of the.expression eer =a is .
+(a). xy² (b)_ notpossible (c) ———— (4) xy"
+oS | yrxtz Saas
+
+--- Page 113 ---
+
+vii, If y=2—-L, then the value of y² + is
+) (a) 4 (b) zero (c) not possible (d) 2
+-(a+by -(a-by .
+viii, Simplified from of (44°) —\@=°) a" Y is
+.\ 2(a’ +b* ) a 6 fey 28° tidy oe
+os (b) 2 (c) rr ao 35
+ix. Difference of the sum of a and b from the product of a and b is
+(a) ab—a-b (b) atb-ab (c) 2ab-b (d) none
+- xyz . .
+(a) xty+2? (b) xo+y%+28
+(c) ep 2 (d) ey es
+. wes. F AOX xX.
+xi. Leading coefficient in a te 3 is
+@ 5 On, O + - @® -7
+‘i ee ee ee 2 Des | ee ee ee
+xii. | Coefficients in the polynomial √16x y “3 y+ Pa are the elements of
+the set of: |
+(a) Integers (b) Irrational numbers
+(c) Odd numbers (d) Rational numbers
+xiii. The degree of the quotient in (x—y)’+(x—y)? willbe
+@ 3 (b) 2 () 1 ~@ = no
+2. Find the value of the circumference of a circle whose radius is 12.5cm,
+(Take × = 22) . 2
+3. The surface S of a sphere of radius ‘r’ is given by the formula S =4 × 2 r’, find
+(i) | The surface of a sphere whose radius is 1.4 inches;
+(ii) The radius of a sphere whose surface is 38 2 square feet.
+
+--- Page 114 ---
+
+4. Ina right-angled triangle, if a and b denote the lengths of the sides containing the right
+angle and c denotes the length of the hypotenuse, it is known that
+c’ =a’ + b”, By substitution find which of the following sets of numbers represent the
+sides of right-angle triangle. . 2 ‘ _
+(ili) 12,35,36 (iv) 3,4,5
+5, If a=3,b=4and c=]; find the value of : J2ab + 4ac +J/9b + os
+6. Subtract the sum of: °
+2x² —3x+4 and —3x°+2x-7 from 42° — 3x7 +x-6- {2 -—(x-6)}
+7. Divide the product ofx—2,x+3 and 2x—7 by the sum of 3 (x² — 2x — 2) and
+5x — x*-15.
+8. Simplify the following.
+@ S38) @ 4.2,
+x+2 x-2 2 x"=—y x+y x-y
+9, Solve.
+w) x’-16 x-4 2 © 2y=6 x*-6x4+9 3y-9
+10. When checking a possible solution of a rational equation, is it necessary to
+check that the solution does not make any denominator equal 07 Why or why
+not? . |

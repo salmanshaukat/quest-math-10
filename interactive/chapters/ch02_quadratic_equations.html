@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en" data-chapter="2">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 2: Quadratic Equations | Quest Math 10</title>
+
+  <!-- KaTeX CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
+  <!-- Quest Math System -->
+  <link rel="stylesheet" href="../css/style.css">
+  <script defer src="../js/engine.js"></script>
+
+  <style>
+    /* Chapter-specific styles */
+    .pool-diagram {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: var(--space-lg) 0;
+    }
+    .pool-diagram svg { max-width: 380px; width: 100%; height: auto; }
+    .discriminant-table { width: 100%; margin: var(--space-lg) 0; }
+    .discriminant-table th { font-size: 0.8rem; }
+    .discriminant-table td { font-size: 0.92rem; vertical-align: middle; }
+    .disc-positive { color: var(--neon-green); }
+    .disc-zero { color: var(--neon-cyan); }
+    .disc-negative { color: var(--neon-red); }
+    .disc-irrational { color: var(--neon-gold); }
+    .method-badge {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: var(--radius-full);
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: var(--space-sm);
+    }
+    .method-badge.factorization { background: rgba(0,255,136,0.15); color: var(--neon-green); border: 1px solid rgba(0,255,136,0.3); }
+    .method-badge.completing { background: rgba(0,212,255,0.15); color: var(--neon-cyan); border: 1px solid rgba(0,212,255,0.3); }
+    .method-badge.formula { background: rgba(168,85,247,0.15); color: var(--neon-purple); border: 1px solid rgba(168,85,247,0.3); }
+    .method-badge.discriminant { background: rgba(255,215,0,0.15); color: var(--neon-gold); border: 1px solid rgba(255,215,0,0.3); }
+    .method-badge.roots-rel { background: rgba(255,140,0,0.15); color: var(--neon-orange); border: 1px solid rgba(255,140,0,0.3); }
+    .derivation-chain {
+      padding: var(--space-md) 0;
+      border-left: 2px solid rgba(168,85,247,0.3);
+      padding-left: var(--space-lg);
+      margin: var(--space-md) 0;
+    }
+    .derivation-chain .step {
+      margin-bottom: var(--space-md);
+      opacity: 0.85;
+    }
+    .derivation-chain .step-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+    .boss-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(255,51,102,0.2);
+      color: var(--neon-red);
+      font-weight: 900;
+      font-size: 1rem;
+      margin-right: var(--space-md);
+    }
+    .challenge-input-group {
+      display: flex;
+      gap: var(--space-md);
+      align-items: center;
+      flex-wrap: wrap;
+      margin: var(--space-md) 0;
+    }
+    .challenge-input-group .math-input { max-width: 200px; }
+  </style>
+</head>
+<body>
+  <!-- ==================== TOP BAR ==================== -->
+  <nav class="top-bar">
+    <div class="logo">
+      <a href="../index.html" class="btn btn-ghost" style="padding: 6px 14px; font-size: 0.85rem;">
+        &#8592; Back to Quests
+      </a>
+      <span class="neon-text" style="margin-left: 8px;">Chapter 2</span>
+    </div>
+    <div class="stats" id="top-bar-stats">
+      <div class="stat-badge stat-xp">&#9733; <span id="xp-count">0</span> XP</div>
+      <div class="stat-badge stat-streak">&#128293; <span id="streak-count">0</span> Streak</div>
+      <div class="stat-badge stat-level">&#9878; Lv <span id="level-count">1</span></div>
+    </div>
+  </nav>
+
+  <!-- XP Progress Bar -->
+  <div class="progress-container" style="border-radius: 0; height: 4px;">
+    <div class="progress-bar progress-bar-xp" id="xp-progress" style="width: 0%;"></div>
+  </div>
+
+  <div class="container" data-chapter="2">
+
+    <!-- ==================== CHAPTER HEADER ==================== -->
+    <header style="text-align: center; padding: var(--space-3xl) 0 var(--space-xl);" class="animate-fadeInUp">
+      <div style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 3px; color: var(--neon-cyan); margin-bottom: var(--space-md);">
+        Quest 02
+      </div>
+      <h1 class="neon-text" style="font-size: 2.8rem; margin-bottom: var(--space-sm);">
+        Quadratic Equations
+      </h1>
+      <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto; font-size: 1.05rem;">
+        Master the art of solving equations of degree 2 &mdash; by factorization, completing the square, and the powerful quadratic formula.
+      </p>
+    </header>
+
+
+    <!-- ============================================================
+         PHASE 1: THE HOOK
+         ============================================================ -->
+    <section class="phase phase-hook animate-fadeInUp">
+      <div class="phase-tag">&#127919; The Hook</div>
+
+      <h2>The Swimming Pool Problem</h2>
+      <p>
+        Saleem wants to build a <strong>swimming pool</strong> surrounded by a sidewalk of uniform width.
+        The total outer dimensions (pool + sidewalk) are <strong>16 m by 20 m</strong>.
+        The pool itself has an area of <strong>192 m&sup2;</strong>.
+      </p>
+      <p style="color: var(--neon-pink); font-weight: 600; margin-top: var(--space-md);">
+        How wide should the sidewalk be?
+      </p>
+
+      <!-- Pool Diagram (SVG) -->
+      <div class="pool-diagram">
+        <svg viewBox="0 0 400 320" xmlns="http://www.w3.org/2000/svg">
+          <!-- Outer rectangle (sidewalk + pool) -->
+          <rect x="20" y="20" width="360" height="280" rx="8" fill="rgba(168,85,247,0.12)" stroke="var(--neon-purple)" stroke-width="2"/>
+          <!-- Pool -->
+          <rect x="70" y="60" width="260" height="200" rx="6" fill="rgba(0,212,255,0.1)" stroke="var(--neon-cyan)" stroke-width="2" stroke-dasharray="6,3"/>
+          <!-- Dimension labels -->
+          <text x="200" y="14" text-anchor="middle" fill="#94a3b8" font-size="13" font-family="Inter, sans-serif">20 m</text>
+          <text x="7" y="165" text-anchor="middle" fill="#94a3b8" font-size="13" font-family="Inter, sans-serif" transform="rotate(-90, 7, 165)">16 m</text>
+          <!-- x labels -->
+          <text x="45" y="50" text-anchor="middle" fill="#ff006e" font-size="12" font-weight="700" font-family="Inter, sans-serif">x</text>
+          <text x="355" y="50" text-anchor="middle" fill="#ff006e" font-size="12" font-weight="700" font-family="Inter, sans-serif">x</text>
+          <text x="45" y="290" text-anchor="middle" fill="#ff006e" font-size="12" font-weight="700" font-family="Inter, sans-serif">x</text>
+          <text x="355" y="290" text-anchor="middle" fill="#ff006e" font-size="12" font-weight="700" font-family="Inter, sans-serif">x</text>
+          <!-- Arrows for x -->
+          <line x1="20" y1="40" x2="70" y2="40" stroke="#ff006e" stroke-width="1.5" marker-end="url(#arrowPink)"/>
+          <line x1="330" y1="40" x2="380" y2="40" stroke="#ff006e" stroke-width="1.5" marker-end="url(#arrowPink)"/>
+          <!-- Pool label -->
+          <text x="200" y="155" text-anchor="middle" fill="#00d4ff" font-size="14" font-weight="600" font-family="Inter, sans-serif">Pool</text>
+          <text x="200" y="175" text-anchor="middle" fill="#94a3b8" font-size="11" font-family="Inter, sans-serif">Area = 192 m&sup2;</text>
+          <!-- Inner dims -->
+          <text x="200" y="72" text-anchor="middle" fill="#94a3b8" font-size="11" font-family="Inter, sans-serif">(20 - 2x)</text>
+          <text x="340" y="165" text-anchor="middle" fill="#94a3b8" font-size="11" font-family="Inter, sans-serif" transform="rotate(90, 340, 165)">(16 - 2x)</text>
+          <defs>
+            <marker id="arrowPink" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+              <polygon points="0 0, 8 3, 0 6" fill="#ff006e"/>
+            </marker>
+          </defs>
+        </svg>
+      </div>
+
+      <div class="key-concept">
+        <p>Setting up the equation:</p>
+        <p>Pool length $= 20 - 2x$, Pool width $= 16 - 2x$</p>
+        <p>$$\text{Area} = (20 - 2x)(16 - 2x) = 192$$</p>
+        <p>$$4x^2 - 72x + 320 = 192$$</p>
+        <p>$$4x^2 - 72x + 128 = 0$$</p>
+        <p style="color: var(--text-secondary); margin-top: var(--space-sm);">
+          This is a <strong>quadratic equation</strong> &mdash; an equation with $x^2$ as the highest power. To find the sidewalk width, we need to solve it!
+        </p>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         PHASE 2: THE CHALLENGE
+         ============================================================ -->
+    <section class="phase phase-challenge animate-fadeInUp">
+      <div class="phase-tag">&#9888;&#65039; The Challenge</div>
+
+      <h2>Can You Solve It?</h2>
+      <p>Try solving this equation with what you already know:</p>
+
+      <div class="formula-box">
+        $$4x^2 - 72x + 128 = 0$$
+      </div>
+
+      <p style="margin-bottom: var(--space-md);">
+        Divide by 4 first: $x^2 - 18x + 32 = 0$. Can you find the values of $x$?
+      </p>
+
+      <div class="challenge-input-group">
+        <label style="color: var(--text-secondary);">Your answer for $x$:</label>
+        <input type="text" class="math-input" id="challenge-input" placeholder="e.g. 2, 16" style="max-width: 180px;">
+        <button class="btn btn-primary" onclick="checkChallenge()">Check</button>
+      </div>
+      <div id="challenge-feedback" style="margin-top: var(--space-md); display: none;"></div>
+
+      <div class="tip-box" style="margin-top: var(--space-lg);">
+        <strong>Stuck?</strong> That is perfectly okay! You need new tools to crack these equations efficiently. Scroll down to discover three powerful methods for solving quadratic equations.
+      </div>
+    </section>
+
+    <script>
+      function checkChallenge() {
+        const input = document.getElementById('challenge-input').value.trim().replace(/\s/g, '');
+        const fb = document.getElementById('challenge-feedback');
+        fb.style.display = 'block';
+        // Accept various formats
+        const valid = ['2,16','16,2','{2,16}','{16,2}','x=2,x=16','x=16,x=2','2and16','16and2'];
+        if (valid.includes(input.toLowerCase().replace(/[{}]/g,''))) {
+          fb.innerHTML = '<span style="color: var(--neon-green); font-weight:600;">Correct! x = 2 or x = 16. Since the sidewalk must be less than 8 m (half of 16), x = 2 m is the practical answer. Excellent intuition!</span>';
+          QuestMath.addXP(25, 'challenge_correct');
+        } else {
+          fb.innerHTML = '<span style="color: var(--neon-gold);">The answer is x = 2 or x = 16. (Since x must be less than 8, the sidewalk is 2 m wide.) Keep reading to learn systematic methods!</span>';
+        }
+      }
+    </script>
+
+
+    <!-- ============================================================
+         PHASE 3: THE DISCOVERY
+         ============================================================ -->
+    <section class="phase phase-discovery">
+      <div class="phase-tag">&#128161; The Discovery</div>
+
+      <h2>Mastering Quadratic Equations</h2>
+      <p style="margin-bottom: var(--space-lg);">
+        Click on each topic below to reveal the concepts, step by step.
+      </p>
+
+      <div class="reveal-group">
+
+        <!-- ===== STEP 1: Standard Form ===== -->
+        <div class="reveal-step open">
+          <div class="reveal-header">
+            <span><span class="step-num">1</span> Standard Form of a Quadratic Equation</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <p>A <strong>quadratic equation</strong> is an equation that can be written in the form:</p>
+
+            <div class="formula-box">
+              $$ax^2 + bx + c = 0, \quad a \neq 0$$
+            </div>
+
+            <p>where $a$, $b$, and $c$ are real numbers and $a \neq 0$. This is called the <strong>standard form</strong>.</p>
+
+            <ul style="margin: var(--space-md) 0; padding-left: var(--space-lg); color: var(--text-secondary);">
+              <li>The <strong>degree</strong> of the equation is 2 (highest power of the variable).</li>
+              <li>$a$ is the coefficient of $x^2$, $b$ is the coefficient of $x$, and $c$ is the constant term.</li>
+              <li>A quadratic equation in one variable has <strong>at most two roots</strong>.</li>
+            </ul>
+
+            <div class="key-concept" style="margin-top: var(--space-md);">
+              <h4>Examples: Converting to Standard Form</h4>
+              <p><strong>(i)</strong> $(x+2)(x-3) = 5$</p>
+              <p>$x^2 - x - 6 = 5 \implies x^2 - x - 11 = 0$</p>
+              <p style="margin-top: var(--space-sm);"><strong>(ii)</strong> $(3x-1)^2 = 4$</p>
+              <p>$9x^2 - 6x + 1 - 4 = 0 \implies 9x^2 - 6x - 3 = 0 \implies 3x^2 - 2x - 1 = 0$</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== STEP 2: Factorization ===== -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">2</span> Method 1: Factorization</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <span class="method-badge factorization">Factorization</span>
+
+            <p>This method uses the <strong>Zero Product Property</strong>:</p>
+
+            <div class="formula-box">
+              If $ab = 0$, then $a = 0$ or $b = 0$.
+            </div>
+
+            <h4 style="margin-top: var(--space-lg);">Procedure:</h4>
+            <ol style="padding-left: var(--space-lg); color: var(--text-secondary); line-height: 2;">
+              <li>Write the equation in standard form.</li>
+              <li>Factorize the left-hand side into two linear factors.</li>
+              <li>Apply zero product property to get two linear equations.</li>
+              <li>Solve each linear equation to find the roots.</li>
+            </ol>
+
+            <div class="key-concept" style="margin-top: var(--space-lg);">
+              <h4>Example: Solve $x^2 - 18x + 32 = 0$</h4>
+              <div class="derivation-chain">
+                <div class="step">
+                  <div class="step-label">Split the middle term</div>
+                  $x^2 - 16x - 2x + 32 = 0$
+                </div>
+                <div class="step">
+                  <div class="step-label">Group and factor</div>
+                  $x(x - 16) - 2(x - 16) = 0$
+                </div>
+                <div class="step">
+                  <div class="step-label">Common factor</div>
+                  $(x - 2)(x - 16) = 0$
+                </div>
+                <div class="step">
+                  <div class="step-label">Zero product property</div>
+                  $x - 2 = 0$ or $x - 16 = 0$
+                </div>
+                <div class="step">
+                  <div class="step-label">Solution</div>
+                  $x = 2$ or $x = 16 \quad \Rightarrow \quad S.S. = \{2, 16\}$
+                </div>
+              </div>
+            </div>
+
+            <div class="key-concept" style="margin-top: var(--space-md);">
+              <h4>Example: Solve $x^2 - 2x - 15 = 0$</h4>
+              <div class="derivation-chain">
+                <div class="step">
+                  $x^2 - 5x + 3x - 15 = 0$
+                </div>
+                <div class="step">
+                  $(x - 5)(x + 3) = 0$
+                </div>
+                <div class="step">
+                  $x = 5$ or $x = -3 \quad \Rightarrow \quad S.S. = \{-3, 5\}$
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== STEP 3: Completing the Square ===== -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">3</span> Method 2: Completing the Square</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <span class="method-badge completing">Completing the Square</span>
+
+            <p>When factorization is not straightforward, we can <em>complete the square</em> to create a perfect square trinomial on one side.</p>
+
+            <h4 style="margin-top: var(--space-lg);">Procedure:</h4>
+            <ol style="padding-left: var(--space-lg); color: var(--text-secondary); line-height: 2;">
+              <li>Write the equation in standard form.</li>
+              <li>Move the constant term to the right side.</li>
+              <li>If the coefficient of $x^2$ is not 1, divide the entire equation by it.</li>
+              <li>Add the square of half the coefficient of $x$ to both sides.</li>
+              <li>Factor the left side as a perfect square.</li>
+              <li>Take the square root of both sides and solve.</li>
+            </ol>
+
+            <div class="formula-box" style="margin-top: var(--space-lg);">
+              For $x^2 + bx$: add $\left(\dfrac{b}{2}\right)^2$ to get a perfect square $\left(x + \dfrac{b}{2}\right)^2$
+            </div>
+
+            <div class="key-concept" style="margin-top: var(--space-lg);">
+              <h4>Example: Solve $3x^2 - 11x - 4 = 0$</h4>
+              <div class="derivation-chain">
+                <div class="step">
+                  <div class="step-label">Move constant to the right</div>
+                  $3x^2 - 11x = 4$
+                </div>
+                <div class="step">
+                  <div class="step-label">Divide by 3</div>
+                  $x^2 - \dfrac{11}{3}x = \dfrac{4}{3}$
+                </div>
+                <div class="step">
+                  <div class="step-label">Half of $-\frac{11}{3}$ is $-\frac{11}{6}$. Square it: $\frac{121}{36}$. Add to both sides.</div>
+                  $x^2 - \dfrac{11}{3}x + \dfrac{121}{36} = \dfrac{4}{3} + \dfrac{121}{36}$
+                </div>
+                <div class="step">
+                  <div class="step-label">Factor left side, simplify right side</div>
+                  $\left(x - \dfrac{11}{6}\right)^2 = \dfrac{48 + 121}{36} = \dfrac{169}{36}$
+                </div>
+                <div class="step">
+                  <div class="step-label">Take square root</div>
+                  $x - \dfrac{11}{6} = \pm\dfrac{13}{6}$
+                </div>
+                <div class="step">
+                  <div class="step-label">Solve</div>
+                  $x = \dfrac{11 + 13}{6} = 4 \quad$ or $\quad x = \dfrac{11 - 13}{6} = -\dfrac{1}{3}$
+                </div>
+                <div class="step">
+                  $S.S. = \left\{-\dfrac{1}{3},\; 4\right\}$
+                </div>
+              </div>
+            </div>
+
+            <div class="key-concept" style="margin-top: var(--space-md);">
+              <h4>Example: Solve $3x^2 + 6x - 9 = 0$</h4>
+              <div class="derivation-chain">
+                <div class="step">
+                  $x^2 + 2x = 3 \quad$ (dividing by 3)
+                </div>
+                <div class="step">
+                  $x^2 + 2x + 1 = 3 + 1 \quad$ (adding $1$ to both sides)
+                </div>
+                <div class="step">
+                  $(x + 1)^2 = 4$
+                </div>
+                <div class="step">
+                  $x + 1 = \pm 2$
+                </div>
+                <div class="step">
+                  $x = 1$ or $x = -3 \quad \Rightarrow \quad S.S. = \{-3, 1\}$
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== STEP 4: Quadratic Formula ===== -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">4</span> Method 3: The Quadratic Formula</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <span class="method-badge formula">Quadratic Formula</span>
+
+            <p>The most powerful method &mdash; works for <strong>any</strong> quadratic equation. It is derived by applying the completing-the-square method to the general form $ax^2 + bx + c = 0$.</p>
+
+            <h4 style="margin-top: var(--space-lg);">Derivation:</h4>
+            <div class="derivation-chain">
+              <div class="step">
+                <div class="step-label">Start with standard form</div>
+                $ax^2 + bx + c = 0$
+              </div>
+              <div class="step">
+                <div class="step-label">Move $c$ to the right, divide by $a$</div>
+                $x^2 + \dfrac{b}{a}x = -\dfrac{c}{a}$
+              </div>
+              <div class="step">
+                <div class="step-label">Add $\left(\frac{b}{2a}\right)^2$ to both sides</div>
+                $x^2 + \dfrac{b}{a}x + \dfrac{b^2}{4a^2} = \dfrac{b^2}{4a^2} - \dfrac{c}{a}$
+              </div>
+              <div class="step">
+                <div class="step-label">Factor left side, simplify right side</div>
+                $\left(x + \dfrac{b}{2a}\right)^2 = \dfrac{b^2 - 4ac}{4a^2}$
+              </div>
+              <div class="step">
+                <div class="step-label">Take square root of both sides</div>
+                $x + \dfrac{b}{2a} = \pm\dfrac{\sqrt{b^2 - 4ac}}{2a}$
+              </div>
+              <div class="step">
+                <div class="step-label">Solve for $x$</div>
+                $x = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a}$
+              </div>
+            </div>
+
+            <div class="formula-box" style="margin-top: var(--space-lg); border-left-color: var(--neon-purple); border-color: rgba(168,85,247,0.3); background: rgba(168,85,247,0.05);">
+              <strong style="color: var(--neon-purple); display: block; margin-bottom: var(--space-sm); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">The Quadratic Formula</strong>
+              $$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$$
+            </div>
+
+            <div class="key-concept" style="margin-top: var(--space-lg);">
+              <h4>Example: Solve $2x^2 + 7x - 4 = 0$</h4>
+              <p>Here $a = 2$, $b = 7$, $c = -4$.</p>
+              <div class="derivation-chain">
+                <div class="step">
+                  $x = \dfrac{-7 \pm \sqrt{49 - 4(2)(-4)}}{2(2)} = \dfrac{-7 \pm \sqrt{49 + 32}}{4}$
+                </div>
+                <div class="step">
+                  $x = \dfrac{-7 \pm \sqrt{81}}{4} = \dfrac{-7 \pm 9}{4}$
+                </div>
+                <div class="step">
+                  $x = \dfrac{-7 + 9}{4} = \dfrac{1}{2} \quad$ or $\quad x = \dfrac{-7 - 9}{4} = -4$
+                </div>
+                <div class="step">
+                  $S.S. = \left\{-4,\; \dfrac{1}{2}\right\}$
+                </div>
+              </div>
+            </div>
+
+            <div class="tip-box">
+              <strong>Procedure Summary:</strong>
+              <ol style="padding-left: var(--space-lg); margin-top: var(--space-sm); color: var(--text-secondary); line-height: 2;">
+                <li>Write the equation in standard form $ax^2 + bx + c = 0$.</li>
+                <li>Identify $a$, $b$, and $c$.</li>
+                <li>Substitute into $x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$.</li>
+                <li>Simplify and write the solution set.</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== STEP 5: Discriminant ===== -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">5</span> Discriminant &amp; Nature of Roots</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <span class="method-badge discriminant">Discriminant</span>
+
+            <p>In the quadratic formula, the expression under the square root is called the <strong>discriminant</strong>:</p>
+
+            <div class="formula-box">
+              $$D = b^2 - 4ac$$
+            </div>
+
+            <p>The discriminant tells us the <strong>nature of the roots</strong> without actually solving the equation.</p>
+
+            <!-- Discriminant Table -->
+            <table class="discriminant-table" style="margin-top: var(--space-lg);">
+              <thead>
+                <tr>
+                  <th>Value of $D = b^2 - 4ac$</th>
+                  <th>Nature of Roots</th>
+                  <th>Example</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="disc-positive" style="font-weight: 700;">$D > 0$ (perfect square)</td>
+                  <td>Real, Rational, Unequal</td>
+                  <td>$x^2 - 3x - 28 = 0 \;\Rightarrow\; D = 121$</td>
+                </tr>
+                <tr>
+                  <td class="disc-irrational" style="font-weight: 700;">$D > 0$ (not perfect square)</td>
+                  <td>Real, Irrational, Unequal</td>
+                  <td>$3t^2 - 6t + 2 = 0 \;\Rightarrow\; D = 12$</td>
+                </tr>
+                <tr>
+                  <td class="disc-zero" style="font-weight: 700;">$D = 0$</td>
+                  <td>Real, Rational, Equal</td>
+                  <td>$x^2 - 8x + 16 = 0 \;\Rightarrow\; D = 0$</td>
+                </tr>
+                <tr>
+                  <td class="disc-negative" style="font-weight: 700;">$D < 0$</td>
+                  <td>Imaginary / Complex</td>
+                  <td>$3y^2 - 5y + 9 = 0 \;\Rightarrow\; D = -83$</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="key-concept" style="margin-top: var(--space-lg);">
+              <h4>Example: Find $m$ if $x^2 - 3x + m = 0$ has equal roots.</h4>
+              <p>For equal roots, $D = 0$:</p>
+              <p>$b^2 - 4ac = 0 \implies (-3)^2 - 4(1)(m) = 0 \implies 9 - 4m = 0 \implies m = \dfrac{9}{4}$</p>
+            </div>
+
+            <div class="warning-box">
+              <strong>Remember:</strong> If $D < 0$, the roots contain $\sqrt{\text{negative number}}$, which gives imaginary numbers. These are not real roots!
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== STEP 6: Sum & Product of Roots ===== -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">6</span> Sum &amp; Product of Roots</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <span class="method-badge roots-rel">Roots Relationship</span>
+
+            <p>If $S_1$ and $S_2$ are the roots of $ax^2 + bx + c = 0$, then:</p>
+
+            <div class="formula-box" style="border-left-color: var(--neon-orange); border-color: rgba(255,140,0,0.3); background: rgba(255,140,0,0.05);">
+              <p style="margin-bottom: var(--space-md);">
+                <strong style="color: var(--neon-orange);">Sum of Roots:</strong>
+                $\quad S_1 + S_2 = -\dfrac{b}{a} = -\dfrac{\text{coefficient of } x}{\text{coefficient of } x^2}$
+              </p>
+              <p>
+                <strong style="color: var(--neon-orange);">Product of Roots:</strong>
+                $\quad S_1 \cdot S_2 = \dfrac{c}{a} = \dfrac{\text{constant term}}{\text{coefficient of } x^2}$
+              </p>
+            </div>
+
+            <div class="key-concept" style="margin-top: var(--space-lg);">
+              <h4>Example: For $3x^2 - 11x - 4 = 0$, find the sum and product of roots.</h4>
+              <p>Here $a = 3$, $b = -11$, $c = -4$.</p>
+              <p>Sum $= -\dfrac{b}{a} = -\dfrac{-11}{3} = \dfrac{11}{3}$</p>
+              <p>Product $= \dfrac{c}{a} = \dfrac{-4}{3}$</p>
+            </div>
+
+            <div class="key-concept" style="margin-top: var(--space-md);">
+              <h4>Example: If $S_1, S_2$ are roots of $x^2 - 8x + 20 = 0$, find $S_1^2 + S_2^2$.</h4>
+              <p>$S_1 + S_2 = 8, \quad S_1 \cdot S_2 = 20$</p>
+              <p>$S_1^2 + S_2^2 = (S_1 + S_2)^2 - 2S_1 S_2 = 64 - 40 = 24$</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== STEP 7: Forming Equations from Roots ===== -->
+        <div class="reveal-step">
+          <div class="reveal-header">
+            <span><span class="step-num">7</span> Forming Equations from Given Roots</span>
+            <span class="reveal-arrow">&#9660;</span>
+          </div>
+          <div class="reveal-content">
+            <p>If $S_1$ and $S_2$ are the given roots, let:</p>
+            <p>$S = S_1 + S_2$ (sum of roots) and $P = S_1 \cdot S_2$ (product of roots)</p>
+
+            <div class="formula-box" style="border-left-color: var(--neon-green); border-color: rgba(0,255,136,0.3); background: rgba(0,255,136,0.05);">
+              <strong style="color: var(--neon-green); display: block; margin-bottom: var(--space-sm); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">Formation Formula</strong>
+              $$x^2 - Sx + P = 0$$
+            </div>
+
+            <div class="key-concept" style="margin-top: var(--space-lg);">
+              <h4>Example 1: Form a quadratic equation whose roots are 5 and 6.</h4>
+              <p>$S = 5 + 6 = 11, \quad P = 5 \times 6 = 30$</p>
+              <p>Equation: $x^2 - 11x + 30 = 0$</p>
+            </div>
+
+            <div class="key-concept" style="margin-top: var(--space-md);">
+              <h4>Example 2: Form a quadratic equation whose roots are $3 + 2i$ and $3 - 2i$.</h4>
+              <p>$S = (3+2i) + (3-2i) = 6$</p>
+              <p>$P = (3+2i)(3-2i) = 9 - 4i^2 = 9 + 4 = 13$</p>
+              <p>Equation: $x^2 - 6x + 13 = 0$</p>
+            </div>
+
+            <div class="key-concept" style="margin-top: var(--space-md);">
+              <h4>Example 3: If $S_1, S_2$ are roots of $ax^2 + bx + c = 0$, form the equation whose roots are $2S_1$ and $2S_2$.</h4>
+              <p>New Sum $= 2S_1 + 2S_2 = 2(S_1+S_2) = 2\left(-\dfrac{b}{a}\right) = -\dfrac{2b}{a}$</p>
+              <p>New Product $= (2S_1)(2S_2) = 4S_1S_2 = \dfrac{4c}{a}$</p>
+              <p>Equation: $x^2 + \dfrac{2b}{a}x + \dfrac{4c}{a} = 0 \implies ax^2 + 2bx + 4c = 0$</p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end reveal-group -->
+    </section>
+
+
+    <!-- ============================================================
+         PHASE 4: THE PRACTICE
+         ============================================================ -->
+    <section class="phase phase-practice">
+      <div class="phase-tag">&#127947; The Practice</div>
+
+      <h2>Test Your Skills</h2>
+      <p style="margin-bottom: var(--space-md);">Answer all questions to earn XP. Streaks multiply your rewards!</p>
+
+      <div class="scoreboard" style="margin-bottom: var(--space-xl);">
+        <div class="score-item">
+          <div class="score-value glow-text-purple"><span class="quiz-score">0/0</span></div>
+          <div class="score-label">Score</div>
+        </div>
+        <div class="score-item">
+          <div class="score-value glow-text-gold" id="streak-count-practice">0</div>
+          <div class="score-label">Streak</div>
+        </div>
+      </div>
+
+      <div class="quiz-container">
+
+        <!-- Q1 -->
+        <div class="quiz-question" data-correct="b">
+          <div class="q-number">Question 1 of 10</div>
+          <div class="q-text">Which of the following is the standard form of a quadratic equation?</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> $ax + b = 0, \; a \neq 0$</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> $ax^2 + bx + c = 0, \; a \neq 0$</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> $ax^3 + bx^2 + cx + d = 0$</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> $ax^2 + bx + c = 0, \; a = 0$</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! The standard form requires $a \neq 0$ so the $x^2$ term is present.</div>
+          <div class="quiz-feedback incorrect-fb">Not quite. The standard form is $ax^2 + bx + c = 0$ where $a \neq 0$.</div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="quiz-question" data-correct="c">
+          <div class="q-number">Question 2 of 10</div>
+          <div class="q-text">Solve by factorization: $x^2 - 2x - 15 = 0$. What are the roots?</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> $x = 3, \; x = -5$</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> $x = -3, \; x = -5$</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> $x = 5, \; x = -3$</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> $x = 15, \; x = -1$</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Excellent! $(x-5)(x+3) = 0$ gives $x = 5$ or $x = -3$.</div>
+          <div class="quiz-feedback incorrect-fb">The factorization is $(x-5)(x+3) = 0$, so $x = 5$ or $x = -3$.</div>
+          <button class="btn btn-hint">Hint</button>
+          <div class="quiz-hint">Find two numbers whose product is $-15$ and sum is $-2$.</div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="quiz-question" data-correct="a">
+          <div class="q-number">Question 3 of 10</div>
+          <div class="q-text">To complete the square for $x^2 + 6x$, what should be added?</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> $9$</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> $36$</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> $3$</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> $12$</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! Half of 6 is 3, and $3^2 = 9$. So $x^2 + 6x + 9 = (x+3)^2$.</div>
+          <div class="quiz-feedback incorrect-fb">Add $\left(\frac{6}{2}\right)^2 = 9$. Then $x^2 + 6x + 9 = (x+3)^2$.</div>
+          <button class="btn btn-hint">Hint</button>
+          <div class="quiz-hint">Add $\left(\frac{\text{coefficient of } x}{2}\right)^2$.</div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="quiz-question" data-correct="b">
+          <div class="q-number">Question 4 of 10</div>
+          <div class="q-text">Using the quadratic formula, solve $2x^2 + 5x + 1 = 0$. The roots are:</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> $x = \dfrac{-5 \pm \sqrt{33}}{2}$</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> $x = \dfrac{-5 \pm \sqrt{17}}{4}$</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> $x = \dfrac{-5 \pm \sqrt{17}}{2}$</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> $x = \dfrac{5 \pm \sqrt{17}}{4}$</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! $a=2, b=5, c=1$. $D = 25 - 8 = 17$. $x = \frac{-5 \pm \sqrt{17}}{4}$.</div>
+          <div class="quiz-feedback incorrect-fb">Here $a=2, b=5, c=1$. $D = 25 - 8 = 17$. Answer: $x = \frac{-5 \pm \sqrt{17}}{4}$.</div>
+          <button class="btn btn-hint">Hint</button>
+          <div class="quiz-hint">Use $x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}$ with $a=2, b=5, c=1$.</div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="quiz-question" data-correct="d">
+          <div class="q-number">Question 5 of 10</div>
+          <div class="q-text">What is the discriminant of $3y^2 - 5y + 9 = 0$?</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> $133$</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> $83$</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> $-133$</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> $-83$</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! $D = (-5)^2 - 4(3)(9) = 25 - 108 = -83$. The roots are imaginary.</div>
+          <div class="quiz-feedback incorrect-fb">$D = b^2 - 4ac = 25 - 108 = -83$. Negative discriminant means imaginary roots.</div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="quiz-question" data-correct="c">
+          <div class="q-number">Question 6 of 10</div>
+          <div class="q-text">If the discriminant $D = 0$, the roots of the quadratic equation are:</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> Real, rational, and unequal</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> Imaginary / complex</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> Real, rational, and equal</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> Real, irrational, and unequal</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! When $D = 0$, both roots are equal (repeated root): $x = -\frac{b}{2a}$.</div>
+          <div class="quiz-feedback incorrect-fb">When $D = 0$, the square root vanishes and both roots become $-\frac{b}{2a}$ (equal roots).</div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="quiz-question" data-correct="a">
+          <div class="q-number">Question 7 of 10</div>
+          <div class="q-text">For the equation $5x^2 - 2x + 2 = 0$, the sum and product of roots are:</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> Sum $= \dfrac{2}{5}$, Product $= \dfrac{2}{5}$</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> Sum $= -\dfrac{2}{5}$, Product $= \dfrac{2}{5}$</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> Sum $= \dfrac{2}{5}$, Product $= -\dfrac{2}{5}$</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> Sum $= \dfrac{5}{2}$, Product $= \dfrac{5}{2}$</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! Sum $= -\frac{b}{a} = -\frac{-2}{5} = \frac{2}{5}$. Product $= \frac{c}{a} = \frac{2}{5}$.</div>
+          <div class="quiz-feedback incorrect-fb">Sum $= -\frac{b}{a} = \frac{2}{5}$. Product $= \frac{c}{a} = \frac{2}{5}$.</div>
+          <button class="btn btn-hint">Hint</button>
+          <div class="quiz-hint">Sum $= -b/a$ and Product $= c/a$. Watch the signs carefully!</div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="quiz-question" data-correct="b">
+          <div class="q-number">Question 8 of 10</div>
+          <div class="q-text">Form a quadratic equation whose roots are $3$ and $-7$.</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> $x^2 - 4x - 21 = 0$</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> $x^2 + 4x - 21 = 0$</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> $x^2 + 4x + 21 = 0$</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> $x^2 - 4x + 21 = 0$</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! $S = 3+(-7) = -4$, $P = 3 \times (-7) = -21$. Equation: $x^2 - (-4)x + (-21) = x^2 + 4x - 21 = 0$.</div>
+          <div class="quiz-feedback incorrect-fb">$S = -4$, $P = -21$. Using $x^2 - Sx + P = 0$: $x^2 + 4x - 21 = 0$.</div>
+          <button class="btn btn-hint">Hint</button>
+          <div class="quiz-hint">Use $x^2 - Sx + P = 0$ where $S$ = sum and $P$ = product of roots.</div>
+        </div>
+
+        <!-- Q9 -->
+        <div class="quiz-question" data-correct="c">
+          <div class="q-number">Question 9 of 10</div>
+          <div class="q-text">Solve $x^2 + 4x - 32 = 0$ by completing the square.</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> $x = 8, \; x = -4$</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> $x = 2, \; x = -16$</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> $x = 4, \; x = -8$</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> $x = -4, \; x = -8$</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! $x^2+4x = 32 \Rightarrow (x+2)^2 = 36 \Rightarrow x+2 = \pm 6$. So $x = 4$ or $x = -8$.</div>
+          <div class="quiz-feedback incorrect-fb">$(x+2)^2 = 36$, so $x+2 = \pm 6$, giving $x = 4$ or $x = -8$.</div>
+          <button class="btn btn-hint">Hint</button>
+          <div class="quiz-hint">Move $-32$ to the right. Add $(4/2)^2 = 4$ to both sides.</div>
+        </div>
+
+        <!-- Q10 -->
+        <div class="quiz-question" data-correct="d">
+          <div class="q-number">Question 10 of 10</div>
+          <div class="q-text">For what value of $k$ is $9x^2 - kx + 16 = 0$ a perfect square (equal roots)?</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> $k = 12$</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> $k = 36$</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> $k = 18$</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> $k = 24$</div>
+          </div>
+          <div class="quiz-feedback correct-fb">Correct! For equal roots, $D = 0$: $k^2 - 4(9)(16) = 0 \Rightarrow k^2 = 576 \Rightarrow k = 24$.</div>
+          <div class="quiz-feedback incorrect-fb">Set $D = 0$: $(-k)^2 - 4(9)(16) = 0 \Rightarrow k^2 = 576 \Rightarrow k = 24$.</div>
+          <button class="btn btn-hint">Hint</button>
+          <div class="quiz-hint">For a perfect square, the discriminant must equal zero: $b^2 - 4ac = 0$.</div>
+        </div>
+
+      </div><!-- end quiz-container -->
+    </section>
+
+
+    <!-- ============================================================
+         PHASE 5: THE BOSS LEVEL
+         ============================================================ -->
+    <section class="phase phase-boss">
+      <div class="phase-tag">&#128123; Boss Level</div>
+
+      <h2>Word Problem Showdown</h2>
+      <p style="margin-bottom: var(--space-xl); color: var(--text-secondary);">
+        These problems require you to form and solve quadratic equations from real-life scenarios. Each one is worth big XP!
+      </p>
+
+      <div class="quiz-container">
+
+        <!-- BOSS 1 -->
+        <div class="quiz-question" data-correct="b" style="border-color: rgba(255,51,102,0.2);">
+          <div class="q-number"><span class="boss-number">1</span> Boss Problem</div>
+          <div class="q-text">
+            The length of a room is <strong>3 meters</strong> greater than its breadth.
+            If the area of the room is <strong>180 m&sup2;</strong>, find the breadth of the room.
+          </div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> $10$ m</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> $12$ m</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> $15$ m</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> $9$ m</div>
+          </div>
+          <div class="quiz-feedback correct-fb">
+            Excellent! Let breadth $= x$. Then $x(x+3) = 180 \Rightarrow x^2 + 3x - 180 = 0 \Rightarrow (x+15)(x-12) = 0$.
+            Since breadth cannot be negative, $x = 12$ m. Length $= 15$ m.
+          </div>
+          <div class="quiz-feedback incorrect-fb">
+            Let breadth $= x$. Then $x(x+3) = 180 \Rightarrow x^2 + 3x - 180 = 0 \Rightarrow (x+15)(x-12) = 0$.
+            The breadth is $12$ m (rejecting $-15$).
+          </div>
+          <button class="btn btn-hint">Hint</button>
+          <div class="quiz-hint">Let breadth $= x$, then length $= x + 3$. Area $= x(x+3) = 180$. Solve the quadratic.</div>
+        </div>
+
+        <!-- BOSS 2 -->
+        <div class="quiz-question" data-correct="c" style="border-color: rgba(255,51,102,0.2);">
+          <div class="q-number"><span class="boss-number">2</span> Boss Problem</div>
+          <div class="q-text">
+            A ball is thrown upwards. Its height $h(t)$ (in meters) after $t$ seconds is modeled by:
+            $$h(t) = -5t^2 + 20t + 2$$
+            Find the time when the ball hits the ground. (Round to 2 decimal places.)
+          </div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> $t \approx 3.90$ seconds</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> $t \approx 4.20$ seconds</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> $t \approx 4.10$ seconds</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> $t \approx 4.50$ seconds</div>
+          </div>
+          <div class="quiz-feedback correct-fb">
+            Correct! Set $h(t) = 0$: $-5t^2 + 20t + 2 = 0$, i.e., $5t^2 - 20t - 2 = 0$.
+            Using the quadratic formula: $t = \frac{20 \pm \sqrt{400 + 40}}{10} = \frac{20 \pm \sqrt{440}}{10}$.
+            $\sqrt{440} \approx 20.976$. Taking the positive root: $t \approx \frac{40.976}{10} \approx 4.10$ s.
+          </div>
+          <div class="quiz-feedback incorrect-fb">
+            Set $h(t)=0$: $5t^2 - 20t - 2 = 0$. By quadratic formula, $t = \frac{20 + \sqrt{440}}{10} \approx 4.10$ seconds.
+          </div>
+          <button class="btn btn-hint">Hint</button>
+          <div class="quiz-hint">The ball hits the ground when $h(t) = 0$. Solve $-5t^2 + 20t + 2 = 0$ using the quadratic formula.</div>
+        </div>
+
+        <!-- BOSS 3 -->
+        <div class="quiz-question" data-correct="a" style="border-color: rgba(255,51,102,0.2);">
+          <div class="q-number"><span class="boss-number">3</span> Boss Problem</div>
+          <div class="q-text">
+            The stopping distance $d(x)$ (in meters) of a car traveling at $x$ km/h is modeled by:
+            $$d(x) = 0.05x^2 + 0.4x$$
+            If the stopping distance is <strong>30 meters</strong>, find the speed of the car.
+          </div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> $20$ km/h</div>
+            <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> $25$ km/h</div>
+            <div class="quiz-option" data-value="c"><span class="opt-letter">C</span> $30$ km/h</div>
+            <div class="quiz-option" data-value="d"><span class="opt-letter">D</span> $15$ km/h</div>
+          </div>
+          <div class="quiz-feedback correct-fb">
+            Correct! $0.05x^2 + 0.4x = 30 \Rightarrow 0.05x^2 + 0.4x - 30 = 0$.
+            Multiply by 20: $x^2 + 8x - 600 = 0 \Rightarrow (x+30)(x-20) = 0$.
+            Since speed is positive, $x = 20$ km/h.
+          </div>
+          <div class="quiz-feedback incorrect-fb">
+            $0.05x^2 + 0.4x - 30 = 0 \Rightarrow x^2 + 8x - 600 = 0 \Rightarrow (x+30)(x-20)=0$.
+            Speed $= 20$ km/h.
+          </div>
+          <button class="btn btn-hint">Hint</button>
+          <div class="quiz-hint">Set $d(x) = 30$ and solve for $x$. Multiply through to clear decimals.</div>
+        </div>
+
+      </div><!-- end quiz-container (boss) -->
+
+      <!-- Completion Button -->
+      <div style="text-align: center; margin-top: var(--space-xl);">
+        <button class="btn btn-success" onclick="QuestMath.completeChapter('2')" style="font-size: 1.1rem; padding: var(--space-md) var(--space-2xl);">
+          &#127942; Complete Chapter 2
+        </button>
+      </div>
+    </section>
+
+
+    <!-- ==================== CHAPTER SUMMARY ==================== -->
+    <section class="card card-neon-border" style="margin: var(--space-2xl) 0;">
+      <h3 class="neon-text" style="margin-bottom: var(--space-lg);">Chapter 2 &mdash; Key Takeaways</h3>
+      <ul style="padding-left: var(--space-lg); line-height: 2.2; color: var(--text-secondary);">
+        <li>$ax^2 + bx + c = 0, \; a \neq 0$ is the <strong>standard form</strong> of a quadratic equation.</li>
+        <li>Three solving methods: <strong>Factorization</strong>, <strong>Completing the Square</strong>, and the <strong>Quadratic Formula</strong>.</li>
+        <li>The <strong>Quadratic Formula</strong>: $\;x = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a}$</li>
+        <li>The <strong>Discriminant</strong> $D = b^2 - 4ac$ determines the nature of roots.</li>
+        <li><strong>Sum of roots</strong> $= -\dfrac{b}{a}$, &nbsp; <strong>Product of roots</strong> $= \dfrac{c}{a}$</li>
+        <li>To <strong>form an equation</strong> from roots: $x^2 - Sx + P = 0$ where $S$ = sum, $P$ = product.</li>
+      </ul>
+    </section>
+
+    <!-- Back to Home -->
+    <div style="text-align: center; padding: var(--space-xl) 0 var(--space-3xl);">
+      <a href="../index.html" class="btn btn-ghost" style="font-size: 1rem;">
+        &#8592; Back to All Quests
+      </a>
+    </div>
+
+  </div><!-- end container -->
+</body>
+</html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quest Math 10 - Interactive Mathematics</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <style>
+    .hero {
+      text-align: center;
+      padding: 80px 0 40px;
+      position: relative;
+      z-index: 1;
+    }
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 900;
+      margin-bottom: 8px;
+      letter-spacing: -1px;
+    }
+    .hero .subtitle {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      margin-bottom: 40px;
+    }
+    .hero .subtitle span {
+      color: var(--neon-cyan);
+    }
+    .overall-progress {
+      max-width: 500px;
+      margin: 0 auto var(--space-xl);
+    }
+    .overall-progress .label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      margin-bottom: var(--space-sm);
+    }
+    .chapter-icon {
+      font-size: 2rem;
+      margin-bottom: var(--space-md);
+    }
+    .quest-card .xp-reward {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.75rem;
+      color: var(--neon-gold);
+      background: rgba(255, 215, 0, 0.1);
+      padding: 2px 10px;
+      border-radius: var(--radius-full);
+    }
+    .section-title {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--text-muted);
+      margin: var(--space-2xl) 0 var(--space-lg);
+      text-align: center;
+    }
+    .footer {
+      text-align: center;
+      padding: var(--space-3xl) 0;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+    .footer a { color: var(--neon-cyan); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <nav class="top-bar">
+    <div class="logo">
+      <span style="font-size: 1.4rem;">&#9889;</span>
+      <span class="neon-text">Quest Math 10</span>
+    </div>
+    <div class="stats" id="top-bar-stats">
+      <div class="stat-badge stat-xp">
+        <span>&#11088;</span>
+        <span id="xp-count">0</span> XP
+      </div>
+      <div class="stat-badge stat-streak">
+        <span>&#128293;</span>
+        <span id="streak-count">0</span> Streak
+      </div>
+      <div class="stat-badge stat-level">
+        <span>&#9878;</span>
+        Lvl <span id="level-count">1</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- XP Progress -->
+  <div style="padding: 0 24px;">
+    <div class="progress-container" style="height: 4px;">
+      <div class="progress-bar progress-bar-xp" id="xp-progress" style="width: 0%"></div>
+    </div>
+  </div>
+
+  <div class="container-wide">
+
+    <!-- Hero -->
+    <div class="hero animate-fadeInUp">
+      <h1><span class="neon-text">Quest Math 10</span></h1>
+      <p class="subtitle">
+        Grade 10 Mathematics &mdash; <span>Federal Board Pakistan</span><br>
+        Interactive Learning Experience
+      </p>
+
+      <!-- Overall Progress -->
+      <div class="overall-progress">
+        <div class="label">
+          <span>Your Journey</span>
+          <span id="progress-text">0 / 12 Quests Complete</span>
+        </div>
+        <div class="progress-container">
+          <div class="progress-bar" id="total-progress" style="width: 0%"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Algebra & Numbers -->
+    <div class="section-title animate-fadeIn delay-1">&#9889; Algebra &amp; Numbers</div>
+    <div class="quest-grid">
+
+      <a href="chapters/ch01_complex_numbers.html" class="quest-card animate-fadeInUp delay-1" data-chapter="1">
+        <div class="chapter-icon">&#127344;</div>
+        <div class="quest-number">Quest 01</div>
+        <div class="quest-title">Complex Numbers</div>
+        <div class="quest-desc">Discover numbers beyond the real line. What happens when you square root negative numbers?</div>
+        <div class="quest-status">
+          <span class="quest-status-text" style="color: var(--neon-cyan);">Start Quest</span>
+          <span class="xp-reward">&#11088; 500 XP</span>
+        </div>
+      </a>
+
+      <a href="chapters/ch02_quadratic_equations.html" class="quest-card animate-fadeInUp delay-2" data-chapter="2">
+        <div class="chapter-icon">&#128200;</div>
+        <div class="quest-number">Quest 02</div>
+        <div class="quest-title">Quadratic Equations</div>
+        <div class="quest-desc">Master the art of solving equations with squares. Three powerful methods await.</div>
+        <div class="quest-status">
+          <span class="quest-status-text" style="color: var(--neon-cyan);">Start Quest</span>
+          <span class="xp-reward">&#11088; 500 XP</span>
+        </div>
+      </a>
+
+      <a href="chapters/ch03_matrices.html" class="quest-card animate-fadeInUp delay-3" data-chapter="3">
+        <div class="chapter-icon">&#129518;</div>
+        <div class="quest-number">Quest 03</div>
+        <div class="quest-title">Matrices & Determinants</div>
+        <div class="quest-desc">Organize data like a supercomputer. Arrays of numbers that can solve systems.</div>
+        <div class="quest-status">
+          <span class="quest-status-text" style="color: var(--neon-cyan);">Start Quest</span>
+          <span class="xp-reward">&#11088; 500 XP</span>
+        </div>
+      </a>
+
+      <a href="chapters/ch04_inequalities.html" class="quest-card animate-fadeInUp delay-4" data-chapter="4">
+        <div class="chapter-icon">&#9878;</div>
+        <div class="quest-number">Quest 04</div>
+        <div class="quest-title">Linear & Quadratic Inequalities</div>
+        <div class="quest-desc">When equal isn't enough. Explore the world of greater-than and less-than.</div>
+        <div class="quest-status">
+          <span class="quest-status-text" style="color: var(--neon-cyan);">Start Quest</span>
+          <span class="xp-reward">&#11088; 500 XP</span>
+        </div>
+      </a>
+
+      <a href="chapters/ch05_algebraic_fractions.html" class="quest-card animate-fadeInUp delay-5" data-chapter="5">
+        <div class="chapter-icon">&#128256;</div>
+        <div class="quest-number">Quest 05</div>
+        <div class="quest-title">Algebraic Fractions</div>
+        <div class="quest-desc">Simplify the complex. Master operations on algebraic expressions.</div>
+        <div class="quest-status">
+          <span class="quest-status-text" style="color: var(--neon-cyan);">Start Quest</span>
+          <span class="xp-reward">&#11088; 500 XP</span>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- Functions & Vectors -->
+    <div class="section-title animate-fadeIn">&#127919; Functions, Graphs &amp; Vectors</div>
+    <div class="quest-grid">
+
+      <a href="chapters/ch06_functions_graphs.html" class="quest-card" data-chapter="6">
+        <div class="chapter-icon">&#128200;</div>
+        <div class="quest-number">Quest 06</div>
+        <div class="quest-title">Functions & Graphs</div>
+        <div class="quest-desc">Visualize relationships. See how equations come alive on a coordinate plane.</div>
+        <div class="quest-status">
+          <span class="quest-status-text" style="color: var(--neon-cyan);">Start Quest</span>
+          <span class="xp-reward">&#11088; 500 XP</span>
+        </div>
+      </a>
+
+      <a href="chapters/ch07_vectors.html" class="quest-card" data-chapter="7">
+        <div class="chapter-icon">&#10145;</div>
+        <div class="quest-number">Quest 07</div>
+        <div class="quest-title">Vectors in Plane</div>
+        <div class="quest-desc">Direction + magnitude. Learn the math behind GPS, gaming physics, and navigation.</div>
+        <div class="quest-status">
+          <span class="quest-status-text" style="color: var(--neon-cyan);">Start Quest</span>
+          <span class="xp-reward">&#11088; 500 XP</span>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- Trigonometry -->
+    <div class="section-title animate-fadeIn">&#128737; Trigonometry</div>
+    <div class="quest-grid">
+
+      <a href="chapters/ch08_trigonometry.html" class="quest-card" data-chapter="8">
+        <div class="chapter-icon">&#128208;</div>
+        <div class="quest-number">Quest 08</div>
+        <div class="quest-title">Application of Trigonometry</div>
+        <div class="quest-desc">Measure the unmeasurable. Heights of buildings, distances across rivers.</div>
+        <div class="quest-status">
+          <span class="quest-status-text" style="color: var(--neon-cyan);">Start Quest</span>
+          <span class="xp-reward">&#11088; 500 XP</span>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- Circle Geometry -->
+    <div class="section-title animate-fadeIn">&#9898; Circle Geometry</div>
+    <div class="quest-grid">
+
+      <a href="chapters/ch09_chords_arcs.html" class="quest-card" data-chapter="9">
+        <div class="chapter-icon">&#9898;</div>
+        <div class="quest-number">Quest 09</div>
+        <div class="quest-title">Chords & Arcs of a Circle</div>
+        <div class="quest-desc">The perfect shape holds infinite secrets. Discover chord and arc relationships.</div>
+        <div class="quest-status">
+          <span class="quest-status-text" style="color: var(--neon-cyan);">Start Quest</span>
+          <span class="xp-reward">&#11088; 500 XP</span>
+        </div>
+      </a>
+
+      <a href="chapters/ch10_tangents.html" class="quest-card" data-chapter="10">
+        <div class="chapter-icon">&#128316;</div>
+        <div class="quest-number">Quest 10</div>
+        <div class="quest-title">Tangents & Angles of a Circle</div>
+        <div class="quest-desc">Lines that kiss circles at a single point. Explore tangent properties and angle theorems.</div>
+        <div class="quest-status">
+          <span class="quest-status-text" style="color: var(--neon-cyan);">Start Quest</span>
+          <span class="xp-reward">&#11088; 500 XP</span>
+        </div>
+      </a>
+
+      <a href="chapters/ch11_practical_geometry.html" class="quest-card" data-chapter="11">
+        <div class="chapter-icon">&#128207;</div>
+        <div class="quest-number">Quest 11</div>
+        <div class="quest-title">Practical Geometry of Circles</div>
+        <div class="quest-desc">Compass and straightedge. Construct tangents, circles, and geometric masterpieces.</div>
+        <div class="quest-status">
+          <span class="quest-status-text" style="color: var(--neon-cyan);">Start Quest</span>
+          <span class="xp-reward">&#11088; 500 XP</span>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- Statistics -->
+    <div class="section-title animate-fadeIn">&#128202; Statistics & Probability</div>
+    <div class="quest-grid">
+
+      <a href="chapters/ch12_statistics.html" class="quest-card" data-chapter="12">
+        <div class="chapter-icon">&#128202;</div>
+        <div class="quest-number">Quest 12</div>
+        <div class="quest-title">Basic Statistics</div>
+        <div class="quest-desc">Make sense of data. Averages, spread, correlation, and the power of probability.</div>
+        <div class="quest-status">
+          <span class="quest-status-text" style="color: var(--neon-cyan);">Start Quest</span>
+          <span class="xp-reward">&#11088; 500 XP</span>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p>Quest Math 10 &mdash; Grade 10 Mathematics, Federal Board Pakistan</p>
+      <p>National Curriculum 2022-23 | National Book Foundation</p>
+      <p style="margin-top: 8px; font-size: 0.75rem;">
+        Built for interactive learning | <a href="#" onclick="QuestMath.resetAll(); return false;">Reset Progress</a>
+      </p>
+    </div>
+
+  </div>
+
+  <script src="js/engine.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      QuestMath.updateDashboard();
+      // Update progress text
+      const count = QuestMath.state.chaptersCompleted.length;
+      const text = document.getElementById('progress-text');
+      if (text) text.textContent = `${count} / 12 Quests Complete`;
+    });
+  </script>
+</body>
+</html>

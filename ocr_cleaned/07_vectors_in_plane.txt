@@ -1,0 +1,748 @@
+============================================================
+CHAPTER: Vectors in Plane
+Pages: 140 - 159
+============================================================
+
+--- Page 140 ---
+
+Vectors in Plane |
+| After studying this unit students will be able to: |
+«Introduce rectangular coordinate system in a plane.
+|» Represent vector as a directed line segment. |
+| « Express a vector in terms of two non-zero and non-parallel coplanar vector. —,
+| « Express a vector in terms of position vector. . |
+
+e Express translation by a vector.
+| « Find the magnitude of a vector. |
+| « Add and subtract vectors.
+e Multiply a vector. by a scalar. |
+| Solve geometrical problems involving the use of a vector. |
+| « Apply concepts of vectors in geometrical problems such as parallel and perpendicular lines |
+: in geometrical shapes, vector projectile motion, crosswinds aviation, military usage,
+designing roller coasters.
+Vectors are fundamental mathematical concept that have a wide range of applications in the various
+fields from the physics and engineering to the computer graphics and navigation systems. Vectors
+are utilized to assist in the localization of people, places and things, and to describe things that are
+acting in response to an external force being applied to them. 7
+Do you know? ,
+* Navigating by air and by boat is generally done using vectors. .
+* Planes are given a vector to travel, and they use their speed to determine how far they need to go
+before turning or landing. Flight plans are made using a series of vectors,
+* Sports instructions are based on using vectors. .
+* Vectors are used in electrical engineering for analyzing and designing circuits, signals, and
+electromagnetic systems.
+Ee eee i es
+
+--- Page 141 ---
+
+Introduction of Vectors
+There are two main types of physical quantities used in Physics, Mathematics and
+Engineering. They are known as, ‘scalers’ and ‘vectors’
+Scalar |
+A physical quantity that possesses magnitude only, is called a scalar quantity. It can be
+completely specified by a number along with unit. For example, mass, time, speed, density,
+work, distance, length, perimeter, area, volume, etc.
+Vector :
+A physical quantity that possesses both magnitude and direction, is called a vector quantity.
+For example, weight, displacement, momentum, force, velocity, acceleration, electric field
+etc.
+Scalar and Vector
+Wie es ll ‘He cl
+| _kmph | io / <a
+} . 3 saan
+VetooS is weetor which means
+direction is also included .
+
+Class Activity: -
+Look at the table below and categorize the quantities as scalar or vector.
+
+a ee
+
+[3 | 144 square metre |
+
+[7 [skmeat | —S—~*s
+Geometrical Representation of a Vector . solos
+Geometrically a vector is represented by a line segment with an arrow _ Pal 5 (head)
+head at its one end (the ray). The length of the line segment describes ww.
+the magnitude and the arrow head indicates the direction of the vector. A (tail)
+ROT Boe Sole EINE ET [4] 17 RDN TNocone Bock Foundation
+
+--- Page 142 ---
+
+In the figure, the end A of the ray AB is called the tail or - ‘|
+the initial point of the vector and the end B is called the —
+terminal point with the arrow head denoted by AB.
+fonuioa SSC Toheadota
+Usually, the vectors are denoted by bold face letters ee
+a,b,c or G,b,é or a,b,c ete. } Magnitude
+Position Vector .
+The vector used to specify the position of a point P with respect to ans Pp
+origin O is called position vector of P. The tail of this vector is at Lf |
+origin and head at the point P. Thus OP is the position vector of | Of
+point P with respect to O. | /
+Result: 0(0,0) axis
+If d and B are position vectors of points A and B respectively, then AB = b -G.
+Proof:
+If @ and B are position vectors of points A and B respectively, then: S .
+OA=4 and OB=b BY oO™
+Using triangle law of addition, we have: as
+OA + AB =0B fe) a .
+=> AB=b-d
+Rectangular or Cartesian Coordinate System
+A rectangular or Cartesian coordinate system consists of -_
+two number lines which are mutually perpendicular. B}--------¢ PG y)
+Their point of intersection is called the origin, usually =A
+denoted by the letter ‘O’. Horizontal line is called x-axis × = | 7
+and vertical line is called y-axis. Ordered pairs of numbers o A ants
+can be represented on a Cartesian plane, which is sometimes |
+called the Coordinate plane or xy-plane. Each point in the
+plane corresponds to an ordered pair (x, y) of real numbers + yraxis
+x and y, called the coordinates of the point.
+Cartesian plane has got this name after the French mathematici an Rene Descartes
+(1596 — 1650). He developed the idea of the coordinate plane and the correspondence
+ -of ordered pairs of numbers to’ points in the coordinate plane. Each point in the plane
+can corresponds to only one ordered pair and vice versa.
+Pi? Be ZN Bah Foti
+
+--- Page 143 ---
+
+Vector in a Plane
+Let R be the set of real numbers, then the Cartesian plane is defined as:
+R? = {(x, y): x, y ER} y-axis
+Any point P(x, y) is uniquely determined by its coordinates +
+x and y. For a given vector U in the plane, there exists a unique P(x, y)
+point P(x, y) in the plane such that: | ui”
+i= OP / i /
+For the point P(x, y), a unique ordered pair [x, y] is used for [Fal ee
+the vector i called position vector of P(x, y). Thus: (0,0) x-axis
+Negative of a Vector .
+A vector having the same magnitude but opposite in direction of a —
+given vector b is called the negative of b and is denoted by —b. es |
+If u = [x, y], then negative vector of i is defined as: —
+Example:
+P(3, — 4) is a point in the plane, Find the position vector OP and then its negative vector.
+Solution:
+Given is P(3, — 4) in the plane.
+Position vector of P = OP = [3, —4] :
+Negative vector of OP = —OP =- (3, -4] =[-3,4] "°
+Zero or Null Vector
+If the initial and terminal points of a vector coincide then the vector has zero length.
+This vector is called zero vector and is denoted by 0. The zero vector has no direction. So, it
+. can be assigned as convenient direction according to the situation. The zero vector is denoted
+0 =[0, 0]
+Magnitude (Norm) of a Vector a
+. Given the vector i = AB. The magnitude or the length PG, y)
+or the norm of the vector ii is denoted by |i] = |AB|. J |
+If ti = [x, y], then: J / ,
+= li] = yx² + y² o | ~ eaxts
+(i) ‘If iis any vector, then [ui] >0. (ii) |@|=Oifandonlyifu=0.
+(iii) |cté] = |c||ti] where c is a scalar. (iv) |=w| = ||
+7 Neca ane na ok Farndon
+
+--- Page 144 ---
+
+Unit Vector .
+A vector which is in the direction ofa non-zero vector % and has magnitude | is called a unit
+vector of # and is denoted by fi. If % is non-zero vector of arbitrary length |i| then:
+fag > i=|te
+This mean any vector i can be constructed by multiplying the magnitude of the vector to its
+unit vector. The process of finding the unit vector of a vector ii is called normalizing the
+vector i.
+If ti = [x, y], then its unit vector is written as:
+9 = ey K | × y |:
+© hxt+y² ixt+y² ' fxt+y² Example:
+Find magnitude of the vector u = [-5, 12]. Also find unit vector of w.
+Solution:  wu=(-5, 12]
+Here, × = -5, y= 12 ;
+Magnitude of u = |i] = fx² + y2=./(—5)* + (12)? = √25 + 144 = V√169 = 13 units
+Unit vector of u = fi = a as = =|
+Scalar Multiplication ;
+If A is a non-zero scalar and @ is a non-zero vector then the , /
+scalar multiple Ad is a vector whose magnitude is A times a f / f
+the magnitude d. f 24 /
+> dand Ad have the same direction if A >0. ‘ f. gay
+> Gand Ad have the opposite direction if A<0. j 0.: af
+> IfAd = 0 then either A = 0 or a = 0. !
+> IfA=0, then Ad is a zero vector. | a ;
+Note: If 7 = [x,y] then product of A with Hi is Au = A[x, y] = [Ax, Ay].
+For example, if i = [—6, 4] and A = 3, then:
+3u = 3[—6, 4] = [—18, 12]
+Using graph paper draw the vectors: (i) -i (ii) 3 (iii) 1.5, when wis given.
+Solution: oo Eee oot)
+| EEE EE ceo ae
+Poe epee Cert
+Zan sett |
+m tert tte im Peer tee Tt
+BEERS |
+
+--- Page 145 ---
+
+Example:
+In fis Baguio, direction of p is 3 square units to the right and 4 square units up. Find the
+relation of other vectors Wi Py oe) Soe eee
+He AEE :
+GFT —Sp HALE ee PEE
+(iii) | $=—-O.5p PAT TA eH
+og PrYEr Ty wy tt tt et
+(iv) f=0.5p TA TTT TT Tyrer re ee et
+i) Best EOCCCEr Eee |
+Translation by Vector
+Translation by a vector is‘a process that moves a point or figure in space by a given vector.
+It is a type of transformation that slides a figure without rotating it, so the shape, size, and
+orientation of the figure do not change. .
+Geometrically :
+Place the tail of the arrow at the point, and the translated point is at the head of the arrow.
+Algebraically
+Represent the points and the vector by their coordinates. The translation vector's coordinates
+indicate how far to move the points along each coordinate axis. .
+For example, the vector [a, b] moves points a units horizontally and b units vertically.
+For example, a translation vector that moves a figure aT 4
+4 units right and 2 units down can be represented | | i !
+mathematically as [4, —2] , or graphically as shown in a] |
+the adjoining figure. It doesn’t matter where the vector +——— = ———;
+is positioned in the plane. In this figure, the vector starts | |
+at (—2, 2) and ends at (2, 0). But the initial point and | | i > | [
+terminal point of the vector is irrelevant. What matters 7 + K-94 2 4
+is the length of the vector and the direction in which it | | | |
+points, so all you have to look at is how many units the — <2} —__;—___.
+vector moves in the y-direction and how many units the | ; | |
+vector moves in the x-direction,
+Example: : — — ,
+Use the translation vector [2, —1] to find the new coordinates of triangle ABC when:
+A=(-3, 2), B=(-1, 0) and C=(-2, -1)
+Solution:
+> als OF te x-values and subtract | from all of the y-values to find the vertices of the image.
+
+--- Page 146 ---
+
+First let’s write down the coordinates ;
+of the pre-image, triangle ABC. |
+A =(-3, 2), B=(-1, 0), C= (2, -1) a
+Now we can make the calculations to \ \ alr |
+translate each vertex. IV NR od
+B’=(-1 + 2,0-1)=(1,-1) on Cos a Se
+C'=(-2 + 2, -1 -1) =(0, -2) ae :
+The image after the translation is “t ~~
+shown in the adjoining figure. | ™,
+Parallel Vectors f
+Two non-zero vectors ii and @ are said to be parallel if i = Av, il :
+where A is a scalar. If A > 0 then both vectors have the same Fe
+direction and if A < 0 then both are in the opposite direction. —_____»
+The vectors which are in the opposite direction are known as anti-parallel vectors.
+In component form, when i = [x1,-yi].and @ = [x2, y2] are parallel vectors, then:
+=> [x, yi] = [Ax Ay2] => x1 =Ax2 and yi =Ay2
+Example:
+Prove that @ = [—12, —15] and b= (4, 5] are parallel vectors.
+Solution: Given that @ = [-12, -15] and b = [4, 5] ,
+a = [-12, -15] =-3[4, 5] =—3b
+As d is scaler multiple of b, therefore di | B.
+Equal Vectors |
+Two vectors i and ¥ are said to be equal if both have the a .
+same magnitude and direction. 3
+If vectors if and @ are equal then we write Z = v. yo
+If i = [x1, yi] and @ = [x2, y2], then i = @ implies that:
+Ia yj=pa2y] = xx arid -yi = y2
+e It is not necessary for the equal vectors to have the same position.
+e Geometrically two vectors are equal if they are translation of one another.
+© If in the relation d = Ab and A =1 then a = b.
+© Equal vectors are also parallel.
+
+--- Page 147 ---
+
+Example: as soi dd
+If p= [-c +4, -2] and q = [4, 2d] are equal vectors, find the values of ¢ anda. :
+Solution: P WA Check Points |
+Given that, B=qG => [-ct+4,-2]=[4, 2d] Are the vectors equal? If not why² = —-c+4=4,-2=2d ree ain Pees
+=s —-—¢ =4-4,-2+2=d a /
+. = ec=0, d=1
+: Addition of Vectors
+Head to Tail Rule . _
+To add non-zero vectors # and q join the tail of the second vector q with the head of the first
+vector J. Now the-vector obtained by joining the tail of the first vector to the head of the
+- second vector is the vector j + q called the resultant vector of p and q.
+This method for the addition of two vectors is called head to tail rule of addition. Since p,q
+and p + q are along the sides of a triangle XYZ, so this method of addition of vectors is also
+known as triangle law of addition. a:
+Parallelogram Law of Addition :
+Consider any parallelogram PQRS. Let PQ = p and QR = q. 5 p R
+. Since the vector QR has the same magnitude and direction as dy ‘a oe - oo |
+that of PS. Similarly, SR has the same magnitude and y, fs ar a “g
+direction as that PQ. Therefore: Pp B 4
+PO = SR and QR =PS | }
+Using triangle law of addition, we have:
+PQ+QR=PR .
+=> p+qG=PR
+Showing that the diagonal vector PR of the parallelogram is the sum of the vectors of p and q.
+This is known as parallelogram law of addition. Furthermore:
+From APQR, PR=$+q (i) 2
+From APSR, | PR =Gt+p (ii) For any vector d:
+i B + q = G+ [from (i) and (ii)] = @+0=0+d=a
+S that vector addition is commutative. " a@+(-d)=(—d)+d=0
+tid? Retort Pane 147 | Ne Sok Poumon
+
+--- Page 148 ---
+
+Polygon Law of Vector Addition
+The process for the addition of vectors can be extended to any number of vectors. For
+instance, let we have four vectors d, b,@,d_ and we need to find their sum.
+From the figure,
+OA=4d, AB= b, BC =¢, CD=d PD
+Now d+ b+2+ d=O0A+AB+BC+CD / d
+= (0A + AB)+BC+CD J we:
+=0C+CD (+ 0B +BC =0C) | Zl
+=OD *) a A
+Here, OD is the sum of all these four vectors. The same method is adopted to find the sum of
+any number of vectors, This method is called polygon law of addition of vectors.
+Explanation: If ti = [x1, yi] and 0 = [x2, y2], W = [>3, ys], then:
+i++ W = [xy yi] + [x2, y2] + bes, y3] = [er + x2 +23, yi + y2t ys]
+Example:
+if a =[4, 6] and b =[-3, 1], ¢= [2 ,-2) then find d + 2b + 2. Also find |@ + 2b + ¢l.
+Solution:
+Given that, @ = [4,6], b = [-3,1] and ¢ = [2,-2]
+Now, d+ 2b +@=[4,6] + 2[-3,1] + [2,-2]=14,6] + [-6,2] + [2,-2]
+|a + 2b + |= √0? + 6? = √36 = 6units
+Subtraction of Two Vectors
+To subtract a vector, form the other we find the negative vector of the vector to be subtracted
+and then add it to the other vector.
+Consider two non-zero vectors i and v then: | a ‘ je /
+
+. ui—-t=iu+(—v). : Jf -(_-—v
+From the figure, AB = i and BC = —@; then | /
+AB+BC=AC (head to tail rule of addition) 3
+
+i+ (8) =a-8 = AC \4 ——r"
+Thus, AC is the vector which represents ti — B. i F \ oe | *
+In component form, if = [x1, yi] and @ = [x2, y2}, then: rane
+i — i =([m, yi] — [2, y2] C
+= [x1 — x2, yi — y2]
+
+--- Page 149 ---
+
+Example:
+If = [7, 10] and b = [-3, 10], then find @ — B and a unit vector along a — B.
+Solution: co
+Given that, @=[7, 10] and b =[-3, 10] By) eo
+Now, @—b =[7, 10] -[-3, 10] = [7+ 3, 10-10] =[10, 0] If d= [3, 4] and B =[-3, 4},
+|@ — b| = √107 + 02 = √100 = 10 units then find:
+Unit vector along d — b = mi = Tn = [= 2] =[1, 0] Sé+b and 34-26
+Draw vectors @ = 4 units east and b = 3 units north on graph paper. Then, draw the following
+vectors on the graph paper. |
+() G+b (ii) 24 Gi) 24+1.56 (iv) (@ +5) + (24-5)
+Solution:
+eee Cee
+ttt et a ke) Cae Bee pa er
+2 es ee Oe ee ee
+Ge scegeenaane? cous caseeeeaaeceneeesaetas:
+HERRERO Cee oe
+RREEEEEER RECEP EEE REECE
+Representation of a Vector in Cartesian Plane
+We denote the unit vector along x-axis by 7 and along y-axis
+y-axis by f. ‘
+Let us consider a point P(x, y) in the Cartesian plane- | AP(x,y)
+We want to find the position vector OP in terms of unit a ie |
+vectors f and f. 4 yj
+Draw perpendicular from P on x-axis meeting the x-axis fp
+at point A. As we knew that for any vector i: O40, » xi y" oe
+i= mi OF u = [ua ,
+i.e., Every vector is equal to the product of magnitude with its unit vector, So,
+OA = |OAlt = xt
+AP = |AP|j = yj ,
+Now, OP = OA + .
+=> OP=xi+ yj
+=> Fr=xityy. -
+This is the position vector of the point P(x, y) lying in the Cartesian plane.
+
+--- Page 150 ---
+
+Components of Vector When its Tail is not at Origin
+Consider a vector PQ withend points P(x,,y,) and Q(x2, √2).
+Draw perpendiculars from P and Q on x-axis meeting at S and T respectively.
+Now from figure:
+|PR| s7| | or | | a 7 ) A(x2, yz)
+[Ral = [ra - [ra | ya
+= |TQ|- |SP| =y2-n 4
+PR=\|PR|t= (2 —-%,)t a ”
+a ret | P(x1,√1) ¢ 7 mR |
+and RG = [RO = O2 - Vs) ly.
+Therefore: 00,0) o— 2 — Xy — |
+PQ = (2 —m)E+ 2-H) i tie |
+Fo ——$—— xX, —————>
+e Inthe relation, f = xi + y/:
+x is called x-component of 7 and y is called y-component of 7.
+° xf and yf are known as parts of vector² in the direction of f and j respectively.
+© When the tail of a vector is not at drigin then it is not a position vector. a
+; Rectangular Components of a Vector
+Consider a vector OP = F making angle 6 with x-axis
+as shown in the adjoining figure. We want to find its Seaxis
+components that are perpendicular to each other. FZ
+If we draw perpendicular AP on x-axis, then from figure: AP(xXy)
+P=R+B=RitBf nn =O po | _.
+Here, im and Fr, are rectangular components of F while / : F,
+F, and F, are magnitudes of F, and K respectively. Van d :
+Now if the magnitude of F is given, then we can find 0 F, A X-axis
+F, and F, using trigonometric ratios.
+From right triangle OAP: oie 7
+i> cos@ and an sin @ — )
+Py] : aie F, and F, are called horizontal and
+=> F,= |Flcos@ © ....{ii) : “i
+: rr : a | Hl i 4 cor I | i its q iT d i a necti’ F al i
+, = \F|sin@. .....ii) | vertical components of F respectively
+[Uni Vectors in Plane fos 0a a 15) SSS Noa ak Fount
+
+--- Page 151 ---
+
+Equations (ii) and (iii) are used to find the rectangular components of a given vector making
+angle @ with x-axis.
+Conversely, if the rectangular components of F, and KE of a vector are given then we can find
+the magnitude and angle of resultant vector by using following relations.
+[P| =. ny +(F,) wu... (iv) and) @ =tan7 (2)...
+Example:
+A ball is thrown with an initial velocity of 25 m/s at an angle of 45° with the horizontal. Find
+the horizontal and vertical components of the velocity.
+Solution: de Sey
+Let V represents the velocity. K £ ‘
+Horizontal component of velocity is given as: | A ‘ ‘
+Vy, = Veos45° = 25 × 0.707 = 17.68 m/s tes N
+Vertical component of velocity is given as: a _ _\.
+V, = Vsin45° = 25 × 0.707. = 17.68 m/s
+: y-axis 2
+Example: + Ps,
+Two forces F; and F; with magnitudes 30 N and 40N, ae ws
+respectively, act on an object at a point A.as shown in Pa F Sy.
+the figure. Find the resultant force F actinga®A and NN ZA
+its magnitude. 2 N\Q 150°~ Fi
+Solution: _| _ <n.
+First, we write F; and Fz in component form: o] A x-axis
+F, = Fi cos45° + Fi sin45°}
+= 30 × 0.707 § + 30 × 0.707 f = 21.21 £+ 21.21 fF
+F2 = F2 cos150° + F2 sin150°J |
+= 40 × (— 0.866) f+ 40 × 0.5 f =-34.64 7 + 20 f ;
+So, the resultant force F is: , }
+_ F=Fi + F2= (21.21 + 21.21 f) + (34,641 + 20 f) = (21.21 — 34.64) 2+ (21.21 + 20) j
+=—-13.43f+ 41.217
+Magnitude of resultant force = |F| = ,/ (—13.43)? + (41.21)? =-/180.36 + 1,690.26
+= 1,878.62 = 43.34 units
+Concept Related to Vectors Using Analytical Representation
+_ Magnitude of a Vector
+In Cartesian plane a vector Ui is expressed as:
+u=xt+ yf
+The magnitude of vector ii is defined as: -
+h ;
+
+--- Page 152 ---
+
+jd] = J(x- component)? + (y- component)*
+Equal Vectors
+Two vectors are said to be equal if and only if they have same × and y components. —
+If = x,f + yyf and @ = xi + yof then = @ ifx, = x, and y, = y2. :
+Negative of a Vector
+If p = xt + yj then negative of p is:
+—p = (-1 8 =(-HGit+ yy) = (ait Cy
+Unit Vector |
+If wW = xt + yf then W is called a unit vector if:
+jw) =1 => Vx² +y² =1 or x*7+y²=1
+Parallel Vectors
+The vectors = x,f + y,f and @ = x2f + yof are said to be parallel if for some scalar A we
+have:
+
+i = Ab a .
+= (x,i+ yf) =AGai + y2)) * ee
+=> xyb+ yf = Axi t Ayo BI 20 Sera ae eee
+Comparing the components, we have: * wage neve Mae eae
+
+x, = Ax, andy, =Ay, an py-component zero is called a
+
+X4 Wy null vector denoted by 0.
+= —=Aand—=A A= ei
+
+x2 y2 O=0i+0F, |
+
+x, ¥
+or —= a) =A
+
+%2 2
+Which is the condition for the two vectors to be parallel. If A is positive then @ and @ have the
+same direction and if A is negative then # and @ are in the opposite direction.
+
+Addition and Subtraction of Vectors
+Ifti = x, + y,f and 0 = xf + y2f are any two vectors then:
+(@) B+ P= Galt ys) + Galt yeh) = Oa + 22+ Or + ¥DdI
+(Gi) 2-8 = (8+ yf) — Goi + y2f) = Gr — *2)E+ 1 — 2d)
+Unit Vector in the Direction of another Vector
+Let we have a non-zero vector u = xi + yj
+‘ |i] = fx² + y² Now the unit ee aa direction of w is If A is a scalar and = xt+yj
+a= ig = Veto? then product of A with a *
+tf y Ve tf y Ne Ad = A(xi + yf) = Axt + Ayj
+Example:
+If @ = 2i — jf then find unit vector along the vector d.
+| Lied: Vetors th Pind SUN SONG SPENT TL National Book Foundation |
+
+--- Page 153 ---
+
+Solution: |
+|@| = f2? + (-1)? = V√4+1=√5
+The unit vector in the direction of @ is:
+. @ 2f-f 2. 1.
+lai vs v5 vs’
+Example: [fii = 5i+f and ¢ = 27 — 9), then find (i) 22+ 37 (ii) 4% —2
+: (i) 2%+3% = 2(5t +f) + 3(2t— 9f) = 108+ 27+ 6f—277 =161-— 257
+(ii) 4% — 26 = 4(5i +f) — 2(28 — 9f) = 207 + 47 -— 484+ 187 = 168+ 22) .
+Example: Check whether the vectors 7 = 3f + 2j and # = 6f — 4, are parallel or not.
+Solution: ee |
+Given that U = 32 + 27 and v = 6f — 4f iosiien ee we deat.
+B= 6f — 4) = 281+ 2) # 2. fa =xt+ 2f and b = 6t—(x+-y)) are
+Therefore i and # are ‘not parallel. equal vectors, find the values of × and y.
+1. Draw the followingvectors. parr
+(i) 10.N force along x-axis (ii) . 50 m/s velocity at 150° with x-axis
+(iii) 220 m displacement towards north (iv) 24 m/s? acceleration at 45° with x-axis
+2. Draw the vectors on the graph paper when p is 4cm long making an angle of 45°
+with x-axis. ,
+(i) 28 i) -# = iii) OSB = iv) =1.58 ~—(v) - 0.57
+3. Draw vectors @ = 3 units west and b = 3 units north on graph paper. Draw the
+following vectors on the graph paper.
+2G 4+b i) @-2B (iii) 3 + 1.56 iv) (24+B) + (@-25)
+' (v)0.5(@+5) (vi) 34-26 (vii) 24- 2.55 (iii) (24 +B) -(@ — 2B)
+4. In the figure, direction of a is 4 square units to the right and 3 square units up. Find the
+relation of other vectors with a. .
+Ce a |
+| ae +A et :
+pa>- 4 eee eee ft |
+plat Pai Pee ee |
+Chee aE EHH Ee )
+Coheee eH ap288 ‘
+ee ane Ho oH
+| EEE EERE EEE
+5. A point with coordinates (5, —7) have been translated by the vector [0, —3]. Find new
+position of the point.
+
+--- Page 154 ---
+
+6. A vector [—5, 4] have been translated by another vector [4, —3]. Find new location of the
+given vector. :
+7. Triangle ABC is a pre-image with its vertices at A = (—4, 6), B = (—1, 4) and C = (-46, 1).
+Find the coordinates of the image if:
+(i) the triangle is translated by [5,0] (ii) the triangle is translated by [—3, —4]
+8. What translation by vector would be needed to bring the point E(—6, 5) to the origin² 9. ABCD isa rectangle as shown in the adjoining figure. O No SS i
+Represent the following vectors in terms of @ and b. B
+(i) DE (ii) DA (iii) AC (iv) BD | aw
+(v) AG (wi) BO (ii) AB+AC nt
+10. Given that OP =$ +4, O00 =p — @ and Mis mid-point of PQ. Find in terms of f and q.
+(i) PO (ii) PM. (iii) QM (iv) OM
+ll. Express AB in the form of [x, y] and xt + yj, when:
+12. Find the unit vectors of the following vectors.
+(i) PG when P(1, 4), Q(4,8) Gi) @=5i-127 (iii) b= -6t-B7
+13. Ifa@=3t —2f and b =f + 4J, then findx and y such that xa + yb = 4f — 12).
+14, Given that D = (3,−2), E = (—3,—5), F = (0,5) and G = (3, 6). Find the following
+vectors.
+Gi) DE (i) DE+FG (iii) 3EF-—2EG
+(iv) =DF +556 (v) DF -EF+2FG
+15, Ifa = 3f+ 5f and b = 2i — 4, then find:
+(i) @+2b Gi) 24-36 ~— (iii): S(QU+-B)’ ~\ Giv):0.5(4 - 5)
+(v) |@+b| (vi) |a-3| (vii) |a@|+2|5| (wii) Jaa] — ||
+16. Find the value of p for which the vector 7 = 37 + 6f is parallel.to v = + pj.
+17. Ifa = 21-4, b=t- 2j and ¢ = [1,3], then find a unit vector in the direction of:
+(i) +b (ii) 24-E (ii) 24-5 (iv) 3(@+2)
+(v) @+5+4 22 (vi) 44-2b+é
+18, If@ =t—3f and b = 21 + 4f then find:
+(i) A vector of magnitude 4 in the direction 2a—b. |
+(ii) | A vector of magnitude 6 in the opposite direction of ad + 2b.
+
+19. An airplane leaves the airport on the bearing of 45° traveling at 380 mph. The wind is
+blowing at a bearing of 135° at a speed of 50 mph. What is the actual velocity of the
+airplane?
+
+20. A truck leaves dry port on a bearing of 30° and travels 15 km. It then turns due west and
+travels 8 km. How far is the truck from the dry port and what is its bearing² --- Page 155 ---
+
+Ratio Formula for Finding Position Vector of a Point on a Vector
+Let AB be any line segment and P be the point which B
+divides this line segment in the given ratio m : n internally. _ J\,
+The position vectors of the given points A and B are d@ and 4 yf "
+b respectively. Let 7 be the position vector of point P. ; by _ 4
+Given that: | JY 3 \ m
+|AP| : |PB| =min - y _ \
+AP] _ om | po ee o* +,
+a ea =— = n|AP| = m|PB| a
+Because AP and PB have the same direction. so PEO Rea:
+ey mans ; (i) When the point P divides the
+From figure, OA+ AP = oP line segment AB in the ratio
+=> G@+AP=f => AP=7-d m : n externally then:
+Similarly, OP +PB=0B nm
+> £4+PB=bh => PB=b-? n—m
+Substituting the values in equation (i), we get:
+n(f —d)= m(b — 7) => nf—nd=mb—mr
+> nié+mr-notnd S (nt+m)?=mb+né => #= _— = ue
+Particular Case:
+Ifm =n, then P will be the midpoint of AB and position vector of P in this case is:
+2 _ nbtnd = n(b +a) = w+
+. nin 2n. z
+Example:
+The position vectors of points A and B are 27 — f and 3f + 27 respectively. Find the position
+vector of point P dividing the line segment joining A and B in the ratio 3 : 4 internally.
+Solution:
+Let @ = 2i—j,b = 32+2f andm:n=3:4
+If # be the position vector of P, then by using ratio formula, we have:
+a _mb+nd _ 3(3i+2))+4(2t-j) _ 91+ 6) + 81-47 _171+2) _ 17, , 2, o
+nen 344 7 7 Zits
+Application to Geometry
+There are many theorems and geometrical problems that can be solved by using vector
+methods. oe
+We solve some example here..
+Example: 4
+What type of a quadrilateral ABCD is if 2AB = DC? |
+
+--- Page 156 ---
+
+Solution: D c
+2AB = DC implies that: \ /
+2|AB| = |[DC| and AB {| DC \ /
+These two conditions show that ABCD is a trapezium. B
+Example:
+A(x, y), B(-2, 3), C(—3, — 4) and D(4, —5) are vertices of a D c
+parallelogram taken in order. Use vector method to find vertex A. / /
+Position vectors of vertices of parallelogram are: / /
+OA=xt+yj, OB=-21+3) .
+OC=-3t-4j, OD=4t-Sj
+= 0B — OA = (—2t + 3f) — (xt + yf) = (-2 -x)t+ 3 -y)j
+DC = OC — OD = (-31 - 4) = (40 — 5f) = (-3 — 4) + (4 + 5)f=—78+j
+As, ABCD is a parallelogram, therefore:
+AB=DC => (-2-x)i+-—y)j=-7its
+=> —2i-xi+3f-—yf=-7i+f => —2i+7i2+3j7—j =xi+yj ,
+=> Si+2f =xi+yj => x=5,y=2
+.. Fourth vertex of parallelogram is A(5, 2).
+Example:
+Use vectors to prove that the diagonals of a rhombus bisect each other.
+Solution: s R
+Consider any rhombus PQRS. Let p, q,7 and S be the lig’ er |
+position vectors of the vertices P, Q, R and S respectively. / \ “4
+Let M and N be the mid points of diagonal vectors PR | A \ ' f
+and QS respectively. L\
+pv.ofM=2*F (i) p.v.ofN=2*5 (ii) P Q
+Since PORS is a rhombus, therefore:
+PG =SR Prove that the diagonals
+=> q@-p=r-s of parallelogram, square
+> G+s=ptr (iii) and rectangle bisect each
+Using equation (iii) in (i) and (ii), we get: other.
+p.v.of M = p.v.of N
+Since the position vectors of the mid-points of both the diagonals are same.
+Therefore, the diagonals of a rhombus bisect each other.
+Le, ET
+
+--- Page 157 ---
+
+1. What type of a quadrilateral EFGH is if EF = HG and EH = FG?
+
+2. Use vectors to find the length of diagonals of a parallelogram having adjacent sides
+
+3. (i) Show that A(0, 2), B(√3, −1), C(O, −2) are the vertices of a right-angled triangle,
+(ii) Show that A(3, 1), B(—2, —3), C(2, 2) are the vertices of an isosceles triangle,
+
+4. The position vectors of points C and D are 3i + 27 andi — 4j respectively. Find the
+position vector of point O dividing the line segment joining C and D in the ratio 2 : 3
+internally.
+
+5S. IfM(2,4) is mid-point of XY such that X(—1, 3) and Y (x,y). Find the point Y.
+
+6. IfOA=—t + 3j, OB = 6i + 24, find the point trisecting the join of AB.
+
+7. Find x, such that the points P(—1, x), Q(3, 2) and R(7, 3) are collinear,
+
+8. Find the coordinates of vertex D of a parallelogram ABCD if A(—3, 0), B(1, −2) and
+C(5, 0) are its three vertices.
+
+9. IfAB=CD and A(0,2),C(—2, 4), D(—1,5), then find vertex B.
+
+10. Vertices of a quadrilateral are U(9, 4), V(—7, 7), W(—4, —7) and X(5, —5). Find mid
+points of its sides and prove that the figure obtained by joining mid points consecutively
+is a parallelogram. |
+
+11, Prove that the line segments joining the midpoints of two sides of a triangle are half in
+length of third side.
+
+12, Prove that the joining the midpoints.of the two non-parallel sides of a trapezium is
+parallel to its parallel sides.
+
+13. Prove that the line segment joining mid points of adjacent sides of a square or rectangle
+or parallelogram divides the corresponding diagonal in the ratio 1 : 3.
+
+es have Learnt,
+
+e Introduction of rectangular coordinate system in a plane.
+
+e Representing vector as a directed line segment. .
+
+e Expressing a vector in terms of two non-zero and non-parallel coplanar vector.
+
+« Expressing a vector in terms of position vector.
+
+¢ Expressing translation by a vector and finding the magnitude of a vector.
+
+e Adding and subtracting vectors, and multiplying a vector by a scalar.
+
+¢ Solving geometrical problems involving the use of a vector.
+
+¢ Applying concepts of vectors in geometrical problems such as parallel and
+perpendicular lines in geometrical shapes, vector projectile motion, crosswinds
+aviation, military usage, designing roller coasters.
+
+--- Page 158 ---
+
+1. Chose the correct option.
+i. ‘Which of the following is a scalar quantity² a. velocity b. speed c. torque d. force
+ii. Which of the following is a vector quantity² a. velocity b. speed c. distance d. work
+iii. If d and b are position vectors of points A and B respectively, then AB is:
+a. b+a b. a-b c. b-a d. -b-a@
+iv. Which of the following is not a symbol of vector a² a. a b. a | c. a d. |a|
+v. IfOP =[-6, 7], then —OP is equal to:
+a. [-6, 7] b. [6, 7] c. [6,-7] d. [-6, -7]
+vi. Ift@=—5i+ 12) , then |ii| is equal to: =
+a. 17 b. 7 c. 169 d. 13
+vii. Given that i is any vector. Which of the following is true?
+a, |—ut| = |u| b. —|ul! = |u| ce. |u|+|—u]/=0 d. ju)/=0
+viii. The unit vector of the vector U = 6f + 107 — 2} is:
+st 4 , at, 4 14) , 38, 4
+ix. Ifa@=Ab, @ = 12? — 187 and b = —2i +3), then A is equal to:
+a. 3 b. -3 c. 6 d. —6
+x. Ift=[—5x, 8] and @ =[10, 4y] are equal vectors, then:
+a. x=2,y=2 b. x=-2, y=-2 c. x=—2,y=2 d. x=2,y=-2
+xi. Iff#=[5, 6] and @ = [2, 6], then p —2qis:
+a. [1,-18] b. [9, 18] ec. [l, 18] d. [-9, -18]
+xii. If ti = 52+ 10f and # = 4f, then |i — @ | is:
+a. Vi23 b. √61 c. Vii d. —√61
+xiii. Which of the following vectors represents a position vector² a. OP b. —OP c. PO d. PO
+xiv. What type of a quadrilateral ABCD is, if AB == DC ?
+a. kite b. rectangle c. trapezium d. rhombus
+2. Given that # = 3i — 4f and G = —31— 4f. Prove that |p| = |g. Isp = 4?
+3. Ifa = 2t—4f and b = —2f + xj, then find the value of × if |4 + 2b| = 6.
+
+--- Page 159 ---
+
+4. In AOAB, OA = 4, OB = 5 and M is mid-point of OA. B
+
+Write the following vectors in terms of d and b.
+() OM (ii) AM (iii) (iv) OB +BA Phe \
+0 M A
+
+5. Two tractors are pulling a truck stuck in the mud. First tractor is pulling with a force of
+250 N at an angle of 50° with the horizontal while the second tractor is pulling with a
+force of 300 N at an angle of 40° with the horizontal. What is the magnitude and direction
+of the resultant force?
+
+6. Ammar and Javed are playing with a ball. Ammarthrows two balls for Javed to catch.
+The path of the two balls is described by the vectors Vi= 1202 + 127 and √2 = 907 —.30f
+
+where the distances are expressed in meters.
+(i) How much farther did the first ball travel as compared with the second ball?
+(ii) What is the distance between the two balls thrown² 
+7. Ahmadcan swim instill water with a speed of 6 m/s. He goes swimming in a river Chenab
+which has a current flowing towards west with a speed of 1.5 m/s. Assuming his speed is
+the same, what is his resultant velocity if:
+
+(i) Hetries to swim due west.along the current?
+(ii) Hetries to swim due east against the current?
+(iii) He tries to swim north across the river² 
+8. A plane is travelling north with a speed of 150 km/h. A steady wind is blowing due east
+
+with a speed of 50 km/h.
+(i) What is the resultant speed of the plane?
+(ii) How far is the plane from its starting point after10 hours?

@@ -1,0 +1,1296 @@
+============================================================
+CHAPTER: Application of Trigonometry
+Pages: 160 - 195
+============================================================
+
+
+--- Page 160 ---
+
+ f | om a
+Application of Trigonometry
+After studying this unit students will be able to:
+« Extend sine and cosine functions to angles between 90° and 180°.
+| * Solve problems using laws of sines, cosines and the area formula for any triangle.
+|» Solve simple trigonometric problems in three dimensions. |
+| * Apply concepts of trigonometry to real life world problems such as video games, flight engineering, :
+navigation and sound waves.
+Burj Khalifa at Dubai is the tallest building in the world with tallest free-standing structure and
+highest number of stories. It is 828 metres (2,716.5 feet) high and consists of more than 160
+stories. How do scientists know its true height? A common way to measure the height involves
+determining the angle of elevation, which is formed by the top of building and the ground at a
+point some distance away from the base of the building. This method is much more practical
+than climbing the building and dropping a very long tape measure or rope.
+! |
+a |
+= —— =e h —
+
+
+--- Page 161 ---
+
+Trigonometric Ratios .
+_ Quadrantal Angles
+In a coordinate plane the two axes divide the plane in four equivalent parts called quadrants.
+If terminal ray of an angle in standard position coincides with any axis, then it is called
+quadrantal angle. The measure of a quadrantal angle is multiple of 90°.
+For example; 0°, 90°, 180°, 270°, 360°, 450°, ... are quadrantal angles.
+In radian measure quadrantal angle is a multiple of =. PWG kes ract: |
+For example; 0, =, Tt, =, 2m, =, 3m, ... are quadrantal angles. Two angles having same
+Trigonometric Ratios walsinuien ray in atancard
+The ratio between any two sides of a right-angled triangle is nate are called
+called trigonometric ratio. coterminal angles,
+In triangle ABC, 2C = 90° and 2A =8.
+With respect to acute angle 0, BC = a is length of perpendicular, K
+AC = bis length of base and AB = c is length of hypotenuse. ™
+. Various trigonometric ratios are defined as: a NE ;
+* The ratio of perpendicular and hypotenuse is sine of @ denoted \
+by sin 8. co SiN
+.. Perpendicular a b A
+”. sin § = ——_——— = -
+Hypotenuse c
+e The ratio of base and hypotenuse is cosine of 6 denoted by cos @. —
+‘ cos 0 = Base — _ b ‘ .
+ere Hypotenuse c
+* The ratio of perpendicular and base is tangent of 0 denoted by tan 0. :
+tan = Perpendicular ss £ , ,
+Base H ten € 1 Hypotenuse c i
+e Furthermore, cosec@ =—2P SS" -£- 1 o..9—Hypotenuse oc _ 1
+° Furthermore, cosec 6 Perpendicular a sing" sec 6 Base bso cos6
+ome AEE Perpendicular a tan@
+Trigonometric Ratios with the help of Unit Circle
+A circle whose radius is 1 unit is called a unit circle, BO.3) ;
+Consider a unit circle with centre O. f &> Pox, y)
+Take a point P(x, y) on the circle. Join P with O. { LLN
+Draw PC perpendicular to x-axis. L —A9 fl _} ari, 0)
+Let OC = x, PC = y and OP = | (unit circle). Oo |
+If ZCOP = 6 where 0 < @ < 180°, then: \, : jf
+cos 0 = - and sin @ = 2 verses (i) ~ i
+Other trigonometric ratios can be defined as:
+tan@=~, cot@= =| sec g=- and cosec 0 ==
+Now from (i), we have:
+
+
+--- Page 162 ---
+
+x= cos 0 and y= sin 8
+So, P(x, y) = P(cos 8, sin 9).
+.. If P is a point on a unit circle with centre O and 2COP = @, then coordinates of P are:
+(cos 6,sin 6). ~
+Signs of Trigonometric Ratios in Different Quadrants
+As cos @=x andsin@=y " + sine a an sine
+in the unit circle. Therefore, - - cosine + cosine
+depending upon the signs of x - tangent | + tangent
+and y in different quadrants, the ae Hi TI
+signs of trigonometric ratios -cotangent Il] | + cotangentyg
+change. The adjot ing gare “sine WY IV-sine al
+shows signs of trigonometric - cosine + cosine
+ratios in different quadrants. + tangent - tangent
+- cosecant | -cosecant
+- secant + secant
++cotangent | + cotangent
+Trigonometric Ratios between 90° and 180° | |
+We have discussed finding the sine and cosine for angles in the first quadrant, but what if our
+angle is in second quadrant (90° < 6 < 180°)? ‘
+In the diagram, R(1, 0) and P(a, 5) are points on the unit : y |
+circle. Under a reflection in the y-axis, the image of P(a, b) P'(- a,b) _-+ ee
+is P'(~a, b) and the image of R(1, 0) is R’(-1, 0). K lo (a, b)
+Since angle measure is preserved under a line reflection, ; (\<pxis0\- O ox
+» 2ROP = 2R'OP' RCLo\ |o / RG,O)
+Also ZROP' and ZR’OP' are supplementary angles.
+fi ZROP' + ZR'OP'= 180° (i)
+But, ZR'OP'= 2ROP
+Therefore, (i) becomes: '
+ZROP' + ZROP = 180°
+ZROP =180°-ZROP’ = 180°-6 .
+Case 1: If ZROP' = 9, then: .
+cos@= —a and sin® =6 .... (il) (usirig the properties of unit circle)
+Case 2: If ZROP = 180° —8, then:
+cos(180°- @)= a and sin(180°— 8) = b .... (ili)
+Comparing (ii) and (iii), we get:
+cos(180°-@)= —cos@ and sin(180°-6)= sin@
+As, eT = tan(180°-6) and = =~—tan®
+:, tan(180°— 6) =—tan6
+
+
+--- Page 163 ---
+
+To find sine and cosine of angle lying between 90° and 180°, proceed as follows: . ,
+a. Measure the angle between the terminal side of the given angle and the horizontal
+axis. This is the reference angle.
+b. Determine the values of the cosine and sine of the reference angle.
+c. Give the cosine the same sign as the x-values in the quadrant of the original angle.
+d. Give the sine the same sign as the y-values in the quadrant of the original angle.
+Example: —
+Find the exact values of sin 150°, cos 150°, and tan 150°. '
+Using above relations, we have: y4 1 »
+fe Lite. Le |
+sin 150° = sin(180° — 150°) = sin 30° = = ; (| Se se |\
+cos 150° = —cos(180° — 150°) = — cos 30° = - 8
+tan 150° = — tan(180° — 150°) =—tan 30°= - 17 |
+e Angles have cosines and sines with the same absolute value as their reference angles.
+« The sign (positive or negative) can be determined from the quadrant of the angle.
+‘
+; 1. Find the reference angles of the following angles.
+2. If @=36°. Find equivalent angle @ in the second quadrant for which sin @ = sin @.
+3. If @ =87°. Find equivalent angle # in the second quadrant for which cos 8 =— cos 6.
+4, Using a reference angle, find the exact values of sin 120°) cos 120° and tan 120°
+5. Using the reference angle, find cos = sin = and tan =.
+6. Ifcos@ = 0.559, find the values of:
+(i) cos(180°— 6) (ii) sin(180°— 6) (iii) tan(180°— 6)
+(iv) cot(180° — 6) (v) sec(180°—@) (vi) cosec(180° — 8)
+Solution of Right Angled Triangles
+We have studied about the solution of right triangles in the previous A
+grade. We know that any triangle (in particular a right triangle) has K
+six quantities, three sides and three angles. In the adjoining figure, a aN .
+right triangle ABC contains three sides a, b, c and three angles b \e
+a, 8, y. We can solve a right-angled triangle when its: -" i
+(i) Two sides are given, b y BN "
+(ii) | One acute angle and one side are given. . a B
+
+
+--- Page 164 ---
+
+Let’s solve some examples to discuss the two cases.
+Case 1: When Measures of two Sides are Given
+Example: Solve the right triangle ABC in which y =90°,a=S5cem,c= 13cm.
+Solution: Given: A right triangle ABC in which y =90°,a=5cm,c= 13cm.
+To Find: 5,@ and f.
+Using Pythagoras theorem, we have: AY
+a+b? =c’ Jan
+Substituting values of a and c, we get: i \ ¢ =13em
+57457 =13? > 5? +5 =13 \
+=> b? =13? -5? =169—25=144 by BN
+= b=12cem c "“a=Sem 8
+Now cos => = 0.385 |
+=> B =cos(0.385)=67.4°
+As a+8=90°
+=> a =90° — 8 = 90° — 67.4° = 22.6"
+Case 2: When Measures of one Side and one Angle are Given
+Example: Solve the right triangle ABC in which y=90°, # = 45°, a=10cm.
+Solution: Given: A right triangle ABC in which y=90°, 8 = 45°, a=10cm.
+To Find: b,canda@.
+As a+8=90°
+As a+8=90° as
+=> a =90° — 8 = 90° —45° = 45° \
+Now —=tan45° | N
+a bn” 45S,
+To find c, we use Pythagoras theorem as follows: ‘ -
+c=a’+b°
+Substituting values of a and b, we get:
+c? =107 +10? =100+100= 200
+=> c=10V2cem
+Example: From a small plane Z the angle of depression of a boat is 25°. The angle of depression
+of a boat on the other side of the plane is 50°. The plane is flying at an altitude of 1500 m, How
+far apart are the boats?
+Solution: In the figure,
+distance between the boats = XY = XU + UY
+
+
+--- Page 165 ---
+
+Using the properties of angles, sndnnqesnennane, Pan soene
+_ ZO 7 500m) \
+tan 25° = —— al %
+
+In right AYUZ,
+
+.. Distance between the boats = XY = XU + UY
+
+Example: .
+
+Find the measure of ZF inthe adjoining figure. p————— =.
+
+Solution:- ee
+
+To find ZF, we need measure of GE. feed L ~, |
+
+In right ADEG, | G Sem
+
+GD Ob. Senne
+GE = GDx sin 34° = 14.4 0,559 = 8,05cm Abbas is flying a kite to which the
+Now in right AEGF, angle of elevation is 70°. The string
+-¢o, GE 8.05 ... of the:kite is 65 meters long. How
+
+sin(<F)= GD 96 0.839 far is the kite above the ground?
+
+ZF =sin“'(0.839)=57°2’
+1. Solve the following right-angled triangles. }
+
+ra 4% 50m Ne 15cm | Ne
+A b Cc Cc a B Cc 12.5cm B
+
+
+--- Page 166 ---
+
+2. Solve right-angled triangles ABC in which y = 90° and
+(i) a=12em, 8 =35° (ii) b=30cem, a =25°35' (iii) a =50cm, b= 25cm
+(iv) a=30cm,c=40cem (v) a=24em, a=36°15' (vi) b=10em,a=70.5°
+3. A tower casts a shadow that is 20 m long when the angle of elevation of the sun is 65".
+How tall is the tower?
+4. Arif is standing on top of a cliff 105 m above a lake. The measurement of the angle of ~
+depression to a boat on the lake is 42°. How far is the boat from Arif?
+5. A ladder that is 20 ft. long is leaning against the side of a building. If the angle formed
+between the ladder and the ground is 75°, how far is the bottom of the ladder from the
+base of the building?
+6. Uzma is standing 50 meters from a hot air balloon that is preparing to take off. The angle ~
+of elevation to the top of the balloon is 28°. Find the height of the balloon.
+7. Aman is ina boat that is floating 175 feet from the base of a 200-foot cliff. What is the
+angle of depression between the cliff and the boat?
+8. A flagpole casts a shadow 40 feet long when the measurement of the angle of elevation to.
+the sun is 31°. How tall-is the flagpole? . _,
+9. Astraight waterslide is 175 feet above | ound and is 200 feet long. What is the angle of
+depression to the bottom of tlie Slide? a
+10. Zain wants to measure the height of a tree. He walks exactly 50 m from the base of the
+tree and looks up that the angle from the ground to the top of the tree is 33°. How tall is
+the tree? -
+11. From a 100m observation tower on the beach, a man sights a whale in difficulty. The
+angle of depression of the whale is 7°. How far is the whale from the shoreline? .
+12. Urooba is sittng on the ground midwa } between two trees, 100 m apart. The angles
+of elevation of the tops of the trees are 13° and 18°. How much taller is one tree than
+the other? ‘
+13. The angle of elevation of the top of a tree, T is 27°. From the same point on the ground, ;
+the angle of elevation of a hawk H, ye directly above the tree is 43°. The tree is 12.7m
+tall. How high is the hawk above the ground? ee
+14. This diagram shows a falcon F, on a tree, with a squirrel S, a
+. and a chipmunk C, on the ground. From the falcon, the angles POA
+as 4 ' ae _ ; . 14m “
+of depression of the animals are 36° and 47°. | ae
+How far apart are the animals on the ground?
+15. Two guy wires support a flagpole FH. The first Gc c §
+wire is 11.2 m long and has an angle of | y
+eltvation of 39°. The second wire has an : | pf AG
+angle of elevation of 47°, How tall is the a
+~ Unit-08: Application af Trigonometry SSA 66) Sean PT TENNEY =A itkinal Rook Fiala.
+
+
+--- Page 167 ---
+
+Oblique Triangles
+An oblique triangle is any triangle that is not a right triangle. It could be an acute triangle or it
+could be an obtuse triangle. ,
+) Acute Triangle Obtuse Triangle
+
+The Pythagoras Theorem along with trigonometric ratios allow us to easily handle any given
+right triangle problem, but what if the triangle is not a right triangle i.e. the triangle is
+oblique?
+To solve oblique triangles, we use certain laws known as “law of cosines”, “law of sines” and
+“Tawnof tangents’ Law of Cesines
+When we know the measures of two sides and the included angle of a triangle (SAS), the size
+and shape of the triangle are determined. Therefore, we should be able to find the measure of
+the third side of the triangle. Sometimes three sides of oblique triangles are given (SSS) and
+we have to find the three angles of triangle. Such cases are easily handled by using law of
+cosines.
+Statement: .
+If a, b, c are three sides and a, 8, are three angles of an oblique triangle with usual notation,
+then law of cosines is stated as follows:
+
+a’ =b’ +c? —2becosa ....... (1)
+
+b? =a’ +c? —2accosf ........(2)
+
+c* =a’ +b? —2abcosy..........(3)
+
+- Proof: Consider an acute angled triangle ABC with usual notations as shown in the figure.
+| Draw AD_L BC,
+_ In right AABD, |
+
+=> AD = ABcosf =ccosf vevni) A o ‘ |. \ a
+Koain ——=sin B ) c
+Again, [Tsp ee
+
+=> AD = ABsinf = csin f.....(ii)
+
+Now, CD=BC-BD=a-ccosf : )
+
+In right AACD, "4
+
+
+--- Page 168 ---
+
+(Acy = | ! 3) *+(CD)_.....(Pythagoras Theorem)
+b? =(csin £)?+(a—ccos By Law of cosines is applicable
+b° =? sin? f+a? +c cos? 8 -2accosf when:
+
+; Z ; | H to oe aaa * Two sides and included
+b* =a*+e (sin 8+cos" B)-2accosf | angle are given.
+b’ =a’ +c” —2accos “> Three sides are given.
+
+Similarly, we can prove that:
+
+a’ =b’+c’—2becosa and c? =a*+b?—2abcosy
+
+From laws of cosines, |
+
+cosa = b?+¢?-—@ | cospa tte -B? _ a +h? -—¢?
+he Ge? OS™
+These laws are useful when three sides of oblique triangles are given and we have to find their
+Se NS C226 KPFT ARR DLL SENG RET Be USS SA OLS SEST IE DSA UE NAS Chek: Poli nitithersmad ar cuismeriatL et ak a |
+Prove law of cosines by taking dn obtuse triangle.
+
+Example: Use the law of cosines to solve the triangle ABC when: A
+
+a= 12cm, b= Tem, y = 59°30 aw
+
+Solution: Using law of cosines, we have: Za ° ‘
+
+c* =a’ +b’ —2abcosy Bb "nN
+
+ce? =12? +7? —2x 12x 7x cos59°30’ B a Cc
+
+c? = 144+ 49—168x 0.506=108 af pa : _ |
+rs
+
+Now to find angle @ , we use following formula. aS 7 tire, J§ Ww, of cosines,
+
+cosa = 2 tS ae HO 12 cleo is OOM
+
+2be 2x 7x10.4 a iiattin ¢ Se
+in. a’ =b’ +c’ —2bec0s90°
+_ 13.16 _ 9 g904 ~ ;
+~ 145.6 — a =8' +c? -—2bcx0 > a’? =b’ +0’
+
+a = cos'(0.0904)=84°49 which becomes Pythagoras Theorem.
+
+Finally, a+8+y=180° Thus Pythagoras Theorem is a special
+
+B=180°-a—y =180° -84°49’—59°30’ case of “law of cosines”.
+
+Ro \ Wein
+Two-forces of magnitude 20N and 30N are inclined at angle of 105° with each other. Find the
+magnitude of resultant force: Can you find the angle between force of magnitude 20N and
+resultant force? .
+
+
+--- Page 169 ---
+
+Law of Sines
+Law of cosines is not applicable when two angles and one side (AAS or ASA) or one angle
+and two sides (angle not included (SSA)) of an oblique triangle are given. In order to handle
+such situation, we use another law known as “law of sines”.
+Statement:
+If a, 6, c are three sides and a, 8, y are three angles of an oblique triangle with usual notation,
+then law of sines is stated as follows:
+qa _ 5 _ ¢
+sna sn siny
+Proof: Consider an obtuse triangle ABC as shown in the figure below.
+Let / be the height of triangle ABC with respect to base AC. In right AABD, B
+BD =sind AU
+=> BD=ABsina =csna ec” f/, t.
+=>h=csmna......(i) : =
+In right ACBD, a yf f-¥'
+eile Zt TN
+CB =sin(z—y) A b c D
+=>BD=CBsn(z-y) . [as sin(x-y)=sny]
+=> h=asin y.....(ii) ae
+From (i) and (ii), we get: Rg) Were
+asin y=csn Prove law of sines by taking an
+a a Lb triangle.
+sna siny
+Similarly, by drawing perpendiculars on other two sides of AABC, we get: |
+sm sin 8 sny sn
+Combining above results, we obtain the following law known as “law of sines”.
+ab _¢ 4, sna _snf _siny
+sna sn siny a b cag
+To Determine the Number of Solutions in AABC -
+Task: Given measure of sides a, b and angle a. Use the law of sines to solve the AABC for
+sin f. , |
+Case-1; ; i
+(i) When sin f >1, there is no triangle, so no solution.
+
+
+--- Page 170 ---
+
+(ii) | When sin # =1,there is one right triangle (one solution) if @ is acute and no
+triangle (no solution) if @ is obtuse. ,
+Case-2: |
+When q@ is acute and sin f <1, there are two possible values of §,acute or obtuse.
+0<§<90° and f' =180°-f
+(i) If a+" <180°, there are two possible triangles AABC and AAB'C.
+(ii) If a+’ 2180", there is only one AABC.
+Case-3:
+When q is obtuse and sin 8 <1, then # must be acute.
+(i) If a+ <180°, there is only one AABC.
+(ii) If a+" 2180", there is no triangle, so no solution.
+Alternatively, if we let # = bsin a, the height of triangle, we can summarize the number of
+possible triangles given a, b and @_ in AABC.
+Angle is | Acute | Acute Acute Acute | Obtuse | Obtuse |
+| a lash jah _ fh<a<b |a>b_|ja<h a>b
+Possible | none | oneright | two one |none ‘| one
+| Triangles | triangle triangles . triangle | triangle |
+Example:
+Use the law of sines to solve the triangle ABC when:
+a=25cem, a =66°51', y= 44°12’ mf
+Given: a=25em, a=66°51', y= 44°12 Solve the triangle ABC by using
+To Find: b, cand # both law of sines and law of
+4 cosines when: ;
+66°5I'+ B+ 44°12'= 180°
+Using law of sines, we have:
+a c 25 c
+sna smny sn 66°51!’ sm44°l2’ |
+c= 25x sin AT = 18.96cm
+sin 66°51’ .
+Again, by law of sines,
+
+
+--- Page 171 ---
+
+snf§f sna  sin68°57’ sin 66°51
+=> b=— > _x sin 68°57" = 25.370m
+sin 66°51’
+.- Example: .
+Find the values of unknowns inthe adjoining figure. _
+Figure is not drawn according to scale. B-
+and ZABC = 180° ~32°-110° =38° ZH fa \ 1200m
+Using law of sines for triangle ABC, A / \
+_a__ 900 A322 AI \
+a i em 2a? Pie —_ — i —— a
+ae = a A 900m Cc D
+=>a= ae sin 32” = 774.66m
+sm 38°
+Again for the AABC,
+sn110° sm32°
+¢ = 4.06 >. sin 110° = 1375.69
+sin 32°
+Now in ABCD, |
+sn ZD sn70° ~ sinZD sin 70° \
+— 774.66x sin 70° - ,
+ZD=sin~'(0.607)=37°21' |
+Law of Tangents’
+Law of tangents is also used to solve oblique triangles. This law handles the same situations
+for which the law of cosines is used.
+' “Statement: .
+Ifa, 6, c are three sides and @, f,y are three angles of an oblique triangle with usual notation, -
+then law of tangents is stated as follows:
+a tan 48 ee 224 eee a )
+~ a+b) \ 2 }. bte p= _\:2 J cta_ oo \ 2}
+z a-bh fanl 2-8) b-e tail B-y ) ¢-a tan| 2—&
+L 2 J L 2, L 2,
+tics Appi Tony PE oe LEN) 2g aN Be Foun
+
+
+--- Page 172 ---
+
+For any oblique triangle ABC, the law of sines is given as follows: j A
+ab Jn.
+sna sn Lf \
+@_ sna Pa fij ¥\
+b sng ; B a fa
+Using componendo and dividendo property, we get:
+a+b sma+sn 8 sae se
+a-b sna—snB
+rn 2sin ——— cos ——— fuau
+atb_ 2 2 tan( #7
+QD Z6953%4F =H sin af . zs =—+—_+ 2 ~!
+. iy 2 a-c tan( © at
+atb_ - = |
+a-b , a-B
+Similarly, we can prove that:
+b-c tn( 4 =a c-a tn 7 =)
+2) 2 |
+Use the law of tangents to solve the triangle ABC when a= 500mm, b = 600mm, y = 50°20
+Solution:
+Given: a=500cm, b= 600cm, y =50°20'
+To Find: c,@ and It is better to use formula
+As in any triangle, tan( a +y>
+a+f+y=180° = £+a=180°-y atc \02>5)
+=> B+a=180° —50°20 =129°40 ......(i) a—c tn{ 2 =y }
+Now using law of tangents for b > a, 23
+Bra rather than the formula
+beg pon
+ba 2 tan ee
+b-a ,,,8-a cta_  \ 2 4 name
+Substituting the values of b, c and #8 +a , we get: , ( 2 |
+when a> c in the given situation.
+era |
+
+
+--- Page 173 ---
+
+600+500_" 2, 1100 _ tan 64°50"
+600-500 ,,, 2-2 100 tan F-@ _ Solve the triangle ABC by using
+2 2 both law of tangents and law of
+tan P= _ tan 64°50’ gc PIE an ies sines when:
+tan = = => tan =0.193 b= 50cm, c= 40,6 = 80°30"
+~ = tan“'(0,193)=10°57" ,
+B-a=21°54'.......(ii) ,
+Solving (i) and (ii), we get:
+B=TSAT , @ =53°53!
+_ To find c, we use law of sines (we can also use law of cosines).
+c b. _. __ bxsmy
+smny sng sin 8
+600x sin 50°27"
+cm xen Te Lalgesmm
+sin 75°47’
+When Law of Sines and Law of Cosines are Used
+The Law of Cosines and the Law of Sines can be used to find the remaining three measures of
+any triangle when we know the measure of a side and the measures of any two other
+components (two sides, two angles, one side one angle) of the triangle.
+1. Given: Two sides arid the included angle. :
+e Use the Law of Cosines to find the measure of the third side.
+¢ Use the Law of Sines or the Law of Cosiries to find the measure of another angle.
+e Use the sum of the angles of a triangle to find the measure of the third angle.
+2. Given: Three sides.
+¢ Use the Law of Cosines to find the measure of an angle.
+* Use the Law of Sines or the Law of Cosines to find the measure of another angle.
+* Use the sum of the angles of a triangle to find the measure of the third angle.
+tien oso N73 ik Pon
+
+
+--- Page 174 ---
+
+3. Given: Two angles and a side. |
+¢ Use the sum of the angles of a triangle to find the measure of the third angle.
+e Use the Law of Sines to find the remaining sides.
+4. Given: Two sides and an angle opposite to one of them
+e Use the Law of Sines to find the possible measure(s) of another angle.
+e Determine if there are two, one, or no possible triangles.
+e If there is a triangle, use the sum of the angles of a triangle to find the measure(s) of
+the third angle.
+e Use the Law of Sines or the Law of Cosines to find the measure(s) of the third side.
+Half Angle Formulae
+Sometimes it is convenient to use half angle formulae for the solution of oblique triangles
+when measures of three sides of a triangle are given. In this section, we will study half angles
+formulae for sines, cosines and tangents. Let us derive them one by-one.
+(a) Cosines of Half Angle -
+Statement: In any triangle ABC with usual notations, )
+2 V be 2 ac 2 V ab
+where S= oe .
+Proof: We know that:
+sient ic B+c?-a’
+. 2be
+; 42, 2,2 . re ae:
+2008 abe 2 be
+ ac08? & = b?+c°+2be-a’ _ (6+c)’ -(a)*
+—. 2be 2be
+—, a _ (b+c+a\(b+c-a)
+~~ 2be
+As a+b+c=28 = b+c-a=28-2a=2(S—a)
+
+
+--- Page 175 ---
+
+© 2cos? 2 = 29x26 -a) Po WA Check Points |
+- 2 2be Find the diameter of the circle
+2a S(S—a) shown in the figure below.
+cos’ — = ——_——
+cos— =. peo
+Similarly, it can be proved that: a
+2 ac 2 ab
+(b) Sines of Half Angle
+Statement: In any triangle ABC with usual notations,
+2 \ be 2 \ ac 2 ab
+where athe: |
+Proof: We know that
+BP te*=-a?
+cosa = ———_——_
+2bc ,
+wa bantl q4 $29 a8 ind
+=> 2sin? 2 = @"--e)" _(a~b+cKatb~c)
+As a+b+c=2S => a+c-b=2S-2b=2(S-b) and a+b-c=2S8-—2c=2(S-c)
++. dgin? & — 2S—b)x2AS—c) _ 2S-bYS-c) |
+, gin? Z — (S—S-0)
+2 be | _. Prove that
+2 be 2 V ab 2 | eae ab
+Similarly, it can be proved that:
+sin =, [S=ans—e) and sinZ =. [(S-ay(s- 2) —a)(S-6)
+2 \ ac 2 |\ ab
+' (c) Tangents of Half Angle —
+‘ Statement; In any triangle ABC with usual notations,
+
+
+--- Page 176 ---
+
+tan = [SNS 9 yg = (SAME Ota P = [SE
+2 S(S—a) 2 Y S(S-8) _ 2 YY S(S-c)
+cin [S=PNS=0) =
+siveahs tan 2 = a on 4 his Z (S—bXS—o) ay . Check Po - H |
+Proof; tan = * Tera 3S-a) ~ S(S—a) Solve the triangle ABC
+os. \ ie . when a = Sem, b = 6cm, |
+eerste c= 7cm using half angle
++ ee Is —bXS—c) formulae for sines and
+S(S—a) tangents. Which one
+Similarly, it can be proved that: method do you think easy?
+2 ¥ S(S-b) °° 2 Y S(S-c).
+
+Example:
+Use half angle formulae to solve the triangle ABC when a = 5cm, b = 6cm, c = 7cm.
+Solution: |
+Given: a= Sem, b= 6cm, c= Tem. Pie WR Ch ck Po bn erates a5]
+To Find: a, § and x The base of an isosceles triangle
+We use half angle formula for cosines here. measures 14.5 cm and the vertex angle
+Now S= at+b+e 54647 _ 9 measures 110°.
+I sTCOCUM a) Find the measure of one of the a
+
+, S—a) [99-5 a6 congruent sides of the triangle to the
+if cos =, owes = foe = Va = 0.926 nearest hundredth.
+™ ae - b. Find the perimeter of the triangle.
+2 = cos (0.926) = 22.18° = a =44.36°
+Now coal =, HSS—2) = poo=9
+
+2 V ae ¥ 5x7
+= ft = 0.878
+
+fe cos” (0.878) =28.58° => 8 =57.20°
+To find third angle, we have:
+a+fp+y=180 = y=180°-a-f
+iO Apion Trina ATG Nii Bi Fv
+
+
+--- Page 177 ---
+
+_ UP yoreica®! tied ES 5 ih i :
+1. Use the Law of Cosines to find the remaining side(s) and angle(s) in triangle ABC.
+
+(Gi) a=7,b=12,¥=585° (iit) 5b=20,c=15,@=36° (iii) a=150,c=150, 8 =15°
+(iv) 8=45° ,a=30,c=42 =(v) a=7,b=10,c=12 (vi) a=3,b=3,c=5 |
+(vii) a= 30, b= 45, c=50 (viii) a=6,b=6,c=6 (ix) a=5,b=12,c=13
+
+2, Use the half angles formulae to solve parts (v) to (ix) in Q.1 where possible.
+3. Use the Law of Sines to solve triangle ABC in the following (where possible).
+
+(i) a=10, a=40°, 8 =60° (ii) 5=20, a=50°, 8 =70°
+(iii) c=12, a=45°, 8 =75° (iv) b=18, 8 =40°35', y =120°
+(v) a=14.6, 2@=25°10, 8 =85.5° (vi) c=52, a=42.3°, y=85°14'
+
+4. Solve parts (i) to (iv) of Q.1 by using the Law of Tangents.
+
+5. Solve by using appropriate law.
+(i) a=10, b=8, 8 =80° (ii) b=20,c=14,8=70
+(ili) c=12, b=10, y= 64° — (iv) b5=18, a@=55°5', a=37
+
+ v) a=146, b=10.6, c=172 (vi) c=88, 8=23.2°, y=73°14'
+
+6. A pilot is flying from city A to city C, 500 jon apart. He starts his flight 20° off course and
+
+flies on this course for 150 km and is above city B. How far is he from city C?
+| 500km
+
+7. Two sides of a triangular plot have lengths 400m and 600m, The measurement of angle
+between the sides is 45°. Find the perimeter and area of the plot.
+
+8. The sides ofa triangle are 6.5cm, 8.2cm and 5.8cm. Find the measurement of smallest
+
+and largest angles.
+
+9. . The sides of a parallelogram are 50cm and 70cm. Find the length of each diagonal if the
+
+larger angle measures 110 °. ,
+
+!0. For parallelogram ABCD, find :
+() BC. | [@aneO™~—~™dS:t~S
+\ a > ee | | Ajereeremeenasnnreny B
+/ : wi =" y f / pee _- = /
+bi eked ast c DD 1sem SC | t
+
+
+--- Page 178 ---
+
+ll. For the figure below find:
+(i) BC | (ii) ZEDG real
+| | | D
+B c D E F G
+—1lm—
+12, Find the height of the building in the figure below. PAs
+2 a YY os e | S
+; me —150ft§—$
+13. Fire towers A and B are located 10 miles apart x
+at the same level of ground. Rangers at fire ‘ Pr a
+tower A spots a fire at 42°, and rangers at fire | Poi ae |
+tower B spot the same fire at 64°. How far i we D..... MOmites ee |
+from tower A is the fire to the nearest tenth of - Towar Towar B
+a mile? A—__
+14. Circle O has a radius of 15cm. The angle between f
+radii OA and OB is 120°. Find the length \ oOo 7»
+of chord AB. Pie | 4
+from one lighthouse and 20 miles from the other. Find, to the nearest degree, the measure
+of the angle between the lines of sight from the ship to each lighthouse.
+(a) Area of Triangular Region when Two Sides and Included Angle are Given
+When the measures of two sides and the included angle of a triangle are known, the size and
+shape of the triangle is determined. Therefore, it is possible to use these known values to find
+the area of the triangle. Let us find the area of an acute angled triangle ABC given below.
+
+
+--- Page 179 ---
+
+We know that: , Cc
+Area (A) of triangle ABC = > basex height => a ‘ Na
+Area (A) of triangle ABC = —x ABx CD==xcxh........()_ A D B
+2 2 _—_- +
+Now in right angled triangle ACD, AB =c
+and = sina => h=bsna
+1
+A= Le cx bsma= J hesin a
+Again, in right angled triangle BCD
+hen _. pM p 1, Rashid found the area of parallelogram ABCD
+7 nh => h=asn fp by using (AB)(BC)(sinZB). “..
+Therefore from (i), Shehzad found the area of parallelogram ABCD
+- @ 1 by using (4B)(BC)(sin 2A ). Explain why Rashid
+A= aN ex asin B= 5% sin 8 and Shehzad both got the correct answer.
+Similarly, we can prove that:
+A= —absin}
+5 absin
+Hence A= spean a= Cena p= 7 abs ¥ .
+Example:
+Find the area of triangle DEF if DE=10, EF=8 andZE=30°.
+en a
+Area of triangle DEF = =X DEx EF x sin(ZE) Take an obtuse angled
+1 } | triangle and prove that
+=—x 10x 8x sin 30° lL...
+2 A= ~absin y
+= 40x 0.5 = 20 sq. units 2
+(b) Area of Triangular Region when Two Angles and One Side are Given
+Ifa is measure of side of a triangle ABC and any two angles let’s say # and y |
+; | ssn fsiny
+Area of triangle ABC = A = ta * no Urwa said that the area of .
+Let us prove this formula, rapialelantad rh Pld mf),
+We have proved in the previous section that: Explain why or why not.
+
+
+--- Page 180 ---
+
+Area of triangle ABC = A= 5 absin y ......(i) )
+But in the current situation, 5 is not given. We can replace 5 by using law of sines as follows.
+b a , asin P =
+sin B sn @ sin a ats ¥ Check Point:
+Substituting the value of b in (i), we get: Prove that
+__ 1 fasnB). | ,sinfsiny Das dpmemz
+A= <a SPF ben y = - a? =O Q). A= go
+sa sin @ ye 2° sing 2 ‘snp
+In the same way, we can prove that: (ii) A = 1 2smasm
+a= ipsmasny aq a= 1 2shosns y
+2 sin f 2 si y
+Hence, A = Tem Psny , A= J zsmasmy ot A= 1 ain a anf
+2 sin @ 2 sin 2 2 sin y )
+Example:
+Calculate the cost of grass cutting @ Rs.10 per sq. unit of a triangular plot ABC if
+a=16.5, a=40.5°, 8 =65°.
+Solution: To find the cost of grass cutting, we need area of plot and to find area, we need the
+third angle y.
+y=180° -a—
+Now, area of triangle ABC = 1? sn er
+2 sin a
+2 sin 40.5°
+= 183.05 sq. units
+Therefore, the cost of grass cutting @ Rs.10 per sq. unit = Rs. 10 x 183.05 = Rs.1830.50
+¢c) Area of Triangular Region when Three Sides are Given
+If a, b, c are measure of sides of a triangle ABC then:
+rT a Cer ee « _atbte
+Area of triangle ABC = A= yS(S-a)(S—6)(S—c) where S= ——
+Let us prove this formula. eee
+We have proved in the previvus section that: Two sides of a triangle are
+Area oftriancle ABC =A= | hesin a 20cm long each. Find the
+——e—owe | angle between both sides if
+Using half angle formula, we have: area of triangle is 200 sq.
+A= 1 box 2sin 2 cos? =bex (S=bXS~e) x, S(S-a) a)
+2 2 2 be be
+| Uni Appliatih of Teigomainc RINE Natal Bok Foundation | nit-Ok-Appiicationd of Teigenomery TSO wel National Book Foundation — |
+
+
+--- Page 181 ---
+
+A= bex | S-XS-9, [SS-4) _ STS HYSTO
+be i be
+This formula is known as hero’s formula or Heron’s formula.
+Example: :
+Find area of a triangle with dimensions 16, 18, 20,
+Solution: Let a=16, b=18, c= 20,
+Area of triangle = /S(S—a)(S—b\S—c)
+Now, area of triangle = /27(27 -—16)(27—18)(27 — 20) = Vi8711
+= 136.79sq.unit
+1. Find the area of triangular region ABC in the following.
+(i) a=8,b=14, y=68,7° (ii) 6=30,c=25, @=46°
+(iii) a=20,c=15, 8 =25° (iv) £=46°50' ,a=43,c=52
+(vy) b=4.5, c=2.5, a =65.2° (vi) a=2,b=2,c=5
+‘(vli) a=12, a=44°, 8 =60° (viii) b=30, a=40°, 8 =80°
+(ix) c=10, a=75°, 8 =45° (x), 6=21 f=30°15', y=110°
+(xi) a=18.4,a=65°10,8=95.5° (xii) c= 25, a =52.7°, y= 79°24"
+(xiii) 18,21, 32 (xiv) 20, 26, 37 (xv) * 7 ,
+(xvi) 12.4, 13.7, 20.2 (xvii) 1.6, 2.6, 4.1 Og
+
+2. The adjacent sides of parallelogram ABCD measure 12 and’15. The measure of one angle
+of the parallelogram is 135°. Find the area of the parallelogram, .
+
+3. Three streets intersect in pairs enclosing a small triangular park. The measures of the
+distances between the intersections are 30 m, 34 m, and 27 m. Find the area of the park.
+
+4. A field is bordered by two pairs of parallel roads so that the shape of the field is a
+parallelogram. The lengths of two adjacent sides of the field are 2 km and 3 ‘on, and the
+length of the shorter diagonal of the ficld is 3 Aun.
+
+a. Find the cosine of the acute angle of the parallelogram.
+
+b, Find the exact value of the sine of the acute angle of the parallelogram.
+c. Find the exact value of the area of the field,
+
+d. Find the area of the field to the nearest integer,
+
+5. The roof of a shed consists of four congruent isosceles triangles. The length ofeach equal __
+side of one triangular secticii is 22.0 feet and the measure of the vertex angle of each
+triangle is 75°. Find the area of one triangular section of the roof.
+
+this 08: App Nh oT ceca a ERTS | REACTED sional Bock Favicon |
+
+
+--- Page 182 ---
+
+6. A garden is in the shape of an isosceles trapezoid. The lengths of the parallel sides of the
+garden are 30 feet and 20 feet, and the length of each of the other two sides is 10 feet. If a
+base angle of the trapezoid measures 60°, find the exact area of the garden.
+
+7. In triangle ABC, “B=30° and in triangle DEF, “E = 150°. Show that if AB = DE and
+BC = EF, the areas of the two triangles are equal.
+
+8. Area of a triangular garden is 150m”. If two comer angles of a side measure 40° and 65°,
+
+find the length of that side. Also find the third angle of garden.
+
+9. An equilateral triangle is inscribed in a circle of radius 6cm. =~ YN
+Find the area of triangle.
+
+4
+10. Laiba wants to draw triangle ABC with AB = 15 cm, BC= 8 cm, and an area of 40 cm’.
+a. What must be the sine of ZB? b. Find, the measure of ZB.
+11. Let ABCD be a parallelogram with ;
+AB=c, BC =a, and ZB=@. D —— ee *
+a. Write a formula for the area of parallelogram |
+in terms of c, a, and @. a
+b. For what value of @ does parallelogram | . fo]
+have the greatest area? ‘ - —
+Circles Connected with Triangles
+(a) Circumcircle
+A circle passing through the vertices of any triangle (polygon) iscalled circumcircle.
+The centre of this circle is called the circumcentre and its radius is called the circumradius.
+The radius of circumcircle is denoted by R.
+A circle drawn inside and touching the sides of a triangle (polygon) is called incircle or
+inscribed circle. It is the largest circle contained in the triangle. The centre of this circle is
+called the incentre usually denoted by I and its radius is called the inradius denoted by r.
+(c) Escribed Circle
+A circle touching one of the sides of a triangle externally and the extensions of its two other
+sides internally, is called an escribed circle (e-circle or ex-circle). The centre of this circle is
+called the e-centre and its radius is called the e-radius.
+If a circle touches extended arms of angle A (circle is drawn opposite to vertex A) of a
+triangle ABC, then its centre and radius are respectively denoted by I; and r1. Similarly,
+(i) Centre and radius of e-circle opposite to vertex B are denoted by I: and rz.
+ Yni.08: Applica of Pin ABO RF Nallonal aS Puan)
+
+
+--- Page 183 ---
+
+(ii) | Centre and radius of e-circle opposite to vertex C are denoted by I; and rs.
+Circumcircle Incircle Escribed circle
+(i) Circumcentre is the point of intersection of right bisectors of sides of a triangle.
+(ii) Incentre is the point of intersection of angle bisectors of a triangle.
+(iii) E-centre is the point of intersection of one internal bisector of angle and
+external bisectors of remaining angles of a triangle.
+Circum-Radius of Circle In-terms of Side and Opposite Angle of Triangle
+Let O be the circumcentre of triangle ABC. Draw a diameter BD. Also join C to D.
+A | |
+4 \D { Y —\ / _— a\
+>< | B : D B I . c
+. (i) (ii) (iii)
+Case-1: When a@ is Acute
+In figure (i), @ and “BDC are angles in the same segment associared with chord BC. .
+*, 4BDC=a@ :
+Now in right angled triangle BCD,
+— =sin(ZBDC)=sin@
+| BD ( C)=sine
+aq, 7 a ” ae
+—=sne => R=— where BD=2R and BC =a.
+2R 2s @
+Case-2: When @ is Obtuse
+In figure (ii), @ + ZBDC= 180° because ABDC is a cyclic quadrilateral.
+-. ZBDC=2-a )
+
+
+--- Page 184 ---
+
+Now in right angled triangle BCD,
+BC. ¢ ponc\_.: - . a. | a
+BD sin(ZBDC) si ¢—a@) where sm 7—a@)=sna. OR sna => Duin ae
+Case-3: When a is Right
+As, angle in a semicircle is right angle. Therfore, ABC is a right angled triangle and BC isa
+diameter. Hence a = BC = 2R
+_ 4a ae
+“ —=l=sn—=sne
+ee a
+ao 2sin a
+Similarly, we can prove that:
+R=—22 ni R=—S—
+2sn 8 2sin y
+Combining all results, we get:
+2mn@ 2smnf~ 2smy
+
+Circum-Radius of Circle In-terms of Sides of Triangle
+We have proved in the previous section, that:
+
+pa .  @ @4.
+
+28a 9x 2sin 2 cos 4 Ax v(S—bYS=c) yS(S~a)
+
+2 20 be be
+RF = ee ..
+© 4 [S=HS=0) [SS=a)  4YS(S- ays -bNS=e)
+— be be
+| TT ‘ 4. @  @
+Where A= /S(S -alS—b\(S—c) and sm @ =2sm heer
+
+In-Radius of a Circle in a Triangle
+Consider a triangle ABC. Draw the three angle bisectors of triangle c
+which intersect at point I which is in-centre of circle. J)
+By drawing angle bisectors, the given triangle ABC has been E. Ly e [\
+ivided into three triangles IAB, IBC and IAC. A | de
+Draw altitude ID of triangle IBC, altitude IE of triangle IAC SY , Sa \
+and altitude IF of triangle IAB. Note that f_- >, \
+ID = IE = IF = radius of in-circle =r Zo — NbN
+Now if AB = c, BC =a, AC = 5 and A is the area of a F ad
+
+
+--- Page 185 ---
+
+triangle ABC, then from the figure:
+area of triangle ABC = area of triangle IBC + area of triangle [AC + area of triangle LAB
+A= Le BCx ID++x ACx E+ + ABx IF
+A= 1. axr+ 1, bxr+ i xcexr= Le rx(a+b+c)
+Ame pe te =r |
+rao
+The two geometrical figures, circle and triangle are made up of distinct conception. The
+triangle is made with straight lines, whereas circle is made by curve lines (arcs). The
+beauty of circum- circle and in-circle of a triangle is a combination of a triangle and a
+circle. Engineers use this combination in making parts of machines. ’
+E-Radius of a Circle of a Triangle -_*
+Consider a triangle ABC. Draw internal bisector . BL Ds a |
+of “A and external bisectors of ZBand ZC of a) An ‘\
+triangle intersecting at I; which is the centre Ow h
+By drawing angle bisectors, the given triangle an yy,
+ABC has been divided into three triangles AB, hi C “fF -—
+Draw altitude 11D of triangle 1,AB, altitude I)E of triangle 1;BC
+and altitude I1F of triangle 1,AC. Note that
+I,D = 1\E = I\F = radius of e-circle = ry
+Now if AB = c, BC = a, AC = b and A is the area of triangle ABC, then from the figure:
+area of triangle ABC = area of triangle 1AB + area of triangle I; AC + area of triangle 1,BC
+A= 3" ABx I,D+ 3X ACx I, F- 3% BCx ILE
+A=+x cxh texbur = 1. axnr= dae x (c+b-—a)
+_ &<a
+Similarly, we can prove that:
+% —s and 4, =o
+; 5-6 ' §-e
+
+
+--- Page 186 ---
+
+Example: , Pa Rey Pacts
+Find r, R and r2 when a = 8, b =9,c= 11. We know that
+Solution: Given: a= 8, b=9,c= 11 R=? = be
+To find: r, R and r2 ~ Qsina 2sinf@ 2sny |
+First of all, we find § and A. Gi b “ .
+oO: no =>——_ = ——_= ——=2R
+ga StSel i sna smf siny
+and A= JS(S-a(S—b\S—c) ~ sina snf  siny
+= f14(14—8)(14—9)(14—11) = 1260 =35,5 Which is law of sines.
+-S 14 BQ). SEE
+R= abe _ = 5.58 Find ri, r2 and r3
+44 142 when a = 5.4, b= 7.6 and c= 10.2.
+Example:
+y. B Show that
+Prove that r, = 4Rcos— cos“ sin B Boy
+2 2G 4Rcos* cos—sin £ =r,
+Solution: 2 9 3
+R.H.S = 4Rcos~cos“sin id
+2 2 2
+4A be ab ac
+abc Is: (S—a)'(S—c)? _ abc, S(S—a(S=c)
+A | a’b*c’ A abc
+_ 1 S(S-ayS-byS-c)__&
+A S-b A(S — 5)
+-4A_-,=LHS
+S-b
+kL LtCt~t~—‘—sSN
+1. Find r, R, ri, 72and rs when , . ,
+(i) a=10,b=13,c=17 (ii) @=22,b=24,c= 30
+(ii) a=3,b=4,c=5 (iv) a=50,6=60,c= 70
+2, If ABC is an equilateral triangle, prove that:
+(i) r:Rin=h2:3 fii) ninminp=htisl
+
+
+--- Page 187 ---
+
+3. Show that:
+© ab be ca abe 2rR @) nh & ® A
+(ii) AR tA thn =S? (iv) Rthtnh-r=4R
+(VY) yrinnaa (vi) RnR =rs?
+4. Show that: (sma@+sin #+sin y)= R :
+5. Prove that: (7,+7;,) mi =(,- “FCO =c
+6. Show that:
+(i) 4rR ens" cos cos”. Ts cot= cot B cot Lr =A
+" _apw@.8.¥ «a, B. ¥
+(ii) or sin 2 sm 3 sin 2 7 aS eS
+(iii) r=asmn B as F sec= = bsin = sin ¥ secB =csn = sin B soo l
+7. Prove that:
+| ARin Fence coal’ ae te Bo?
+(i) 4Rsin 7008/5 C085 =F (ii) 4Rcos— sin F cost =r,
+8. Prove that:
+G@) A=S tan S Gi) w=8 tan (iii) ,=S8 tan 7
+9. Prove that:
+(i) r=(S-a)tanS =($-b)tan4 = (S~aytanZ
+10, Find the radius of in-circle and circum-circle of a triangle having sides: 7cm, 12cm and
+l5em.
+11. The measures of sides of a triangle are Scm, 9cm, 10cm. Find the circumference of
+ex-circle: |
+| ____(i)_—_—_s opposite to smaller side (ii) opposite to larger side
+12. Find the area and circumference of in-circle of a triangle having sides: 2.5cm, 7.3 cm
+and 6.2cm.
+3-D Trigonometry
+3-D trigonometry is an application of the trigonometric skills developed for 3-dimensional
+shapes in order to find unknown sides and angles. .
+Ce ee a LL
+
+
+--- Page 188 ---
+
+In this topic, we will learn about 3-D trigonometry. We will use combined knowledge of
+Pythagoras’ theorem, trigonometric ratios, the law of sines (sine rule) and the law of cosines
+(cosine rule) to find missing angles and sides of triangles in 3-dimensional shapes.
+The flowchart below can help to determine which path we need to use:
+| Does the triangle
+| contain aright angle? |
+| 5; Does the question involve any F | ] Do you ii aside and .
+other angles?contain a right angle? | © its opposite angle? Ls
+| Pi ine eee si [= Pythogoms | [aw py | ee
+| son i ee | is | | ines anes | | Rule _|
+In order to find a missing angle or side within a 3-dimensional shape:
+Step |: Find the missing side or angle of a triangle.
+Step 2: Sketch and label the second triangle using information from Step 1,
+Step 3: Calculate the missing side or angle of the final triangle.
+Let us solve some examples to understand the method. |
+Example: Find the length of EC in the given cuboid.
+| D+-}---==s9¢
+Las 4
+A a:
+Step 1: Finding the length of missing side AC of right triangle ABC.
+AC is hypotenuse of right triangle ABC. We can find its length by using simple
+trigonometric ratios. c
+In right triangle ABC: fo
+16 y
+— ! J 16cm
+adi sin@ sin 45° ace —
+= 16 = 27.63 — B
+= s707 > 2203 A B _ a
+str Applicat if TleainaiairR SS SAE SCR HSS aaa eS Ss Nibeat Book Fankblion
+
+
+--- Page 189 ---
+
+Step 2: Sketching and labeling the second right triangle EAC using information from step I.
+fi
+A 22.63cm °
+Step 3: EAC is a right-angled triangle, so we can use Pythagoras’ Theorem to find the length of
+EC.
+‘Let EC =x cm
+x? = (12)? + (22.63)
+x? = 144+ $12.12 = 656.12
+Taking square root on both sides, we get:
+x= 656.12 =25.61
+Therefore, EC = 25.6]cm
+Example: ABCDEF is an isosceles triangular prism. sa A
+BC is 8cm, 2DFE = 70° and angle FCD = 45°. Find CD. gon Of |
+Solution: rs ee it a
+To find CD, we are required DF. i an a
+Therefore, first consider ADEF to find DF. wer: | a 4
+; Cc
+In right ADGF:
+aaah ~ DF /i\
+Now in right ACFD: a
+sin 45° = 21.595 / |
+= Cp = 21695 x 11.695
+sin 45° wo
+= 16.54 cm ¢ ."
+| al. Th “ = - —— s eae es s ep a
+EET © rE TT TTT
+
+
+--- Page 190 ---
+
+Example: Find 2x in the following figure where P is mid-point of CD.
+bs
+. ov - V r ) -
+D P Cc
+Solution: To find the value of 2.x, we need EF = a which is Ea F
+length of a side of AAEF. | /
+In right AAEF: /
+ii = sin 30° / 40cm
+AF J
+40. 2 i
+. EF=20cm
+AsP is a midpoint of DC, therefore APEF is amisosceles triangle.
+Therefore, using law of cosines, we have:
+ee : 20cm :
+Cosx = “2(50)(50) | E__2oy _f
+Cosx = 2500+2500-400 \ /
+Cosx = 2600992 socm \ jan
+5000 \
+> x = Cos(0.92) = 23.1° iy
+:. ZEPF = 23.1°
+P
+1. Inthe figure, ABCDEFGH is a cuboid. Calculate e. F
+Hi! Ao... Vs J
+D . 24cm Cc
+
+
+--- Page 191 ---
+
+2. Find the angle ACF in the given cuboid in the following figure.
+E _ a3 met
+| 9cm pe: ff k
+D 12cm Cc
+3. Inthe figure, perimeter of square based pyramid
+is 36 cm. Find the length of diagonal of the base VAN
+and height of the pyramid. — VA ab
+Be dfn. | | fh es
+4. The diagram shows a cylinder. | D
+Find the value of y in triangle ABC, as zi
+Y\ 30cm
+5. In the figure, three workers are standing E ae __H
+at positions B, D and H of a container |’ 3
+of cuboid shape. > _ a rs, 6
+Bw wndnnnn gen neeennneneecseD |
+ya Be!
+(i) Find the distance between workers at B and D.
+(il) Find the distance between workers at B and H.
+(ili) Find 2DBH.
+
+
+--- Page 192 ---
+
+6. Inthe figure, O is the centre of the square based pyramid ABCDE. Calculate the angle
+between side AB and plane BCDE if OA = 6 cm. A
+' / . ee \
+~~ Oo y
+7. Floor of a room is 9 m long and 6 m wide. The angle of elevation from the bottom left
+comer to the top right corner of the room is 49°.
+(i) Find the distance from one comer of the floor to the opposite comer of the
+floor.
+(ii) Find the height of the room.
+(iii) Find the angle of elevation from the bottom corner of the 9 m long wall to the
+opposite top corner of the wall.
+(iv) _ Find the angle of depression from the top corner of the 6 m long wall to the
+opposite bottom corner of the wall.
+
+8. Three satellites A, B, and C, used for GPS navigation are orbiting the Earth in the
+same plane. The distance between satellites A and B is 15 km. If D is a house on
+Earth, such that ZBAD = 70° and ACBD is a rhombus then: -
+
+(i) Determine the distance between satellite A and satellite C.
+(ii) Determine the distance between satellites B and C.
+(iii) Find the distance from satellite C to the house D.
+1. Select the correct option in the following.
+i. Inright AABC, a= 2em, c= 4em, what is a? |
+(a) 30° (b) 45° (c) 60° (d) | 120°
+ii, If ina triangle, a=10,b=15,a@ =32° then f =...
+(a) 42.5° = (b)_ 46.5° (ec) $2.7° (d) 62.8"
+iii, Area of an equilateral triangle having side a is: i
+(a) aE (b) 8 4A (©) 7 a @O 6%
+iv. Ifa, aand b are length sides of an isosceles triangle, then S=...
+(a) st b = (b) at at’ (c) a- anh (dy ats
+
+
+--- Page 193 ---
+
+es ae ———— ee 8 en a Se — — a
+v. Area of a triangle ABC with a=20,b=30,y=90° is:
+(a) 0 (b) 30 (c) 300 (d) 600 3
+vi. For an equilateral triangle,r:ri: R=... ‘
+. (a) 1:2:3 (b)3:2:1 (¢) Til:2 (d) 1:3:2
+vii. . Radius of circum-circle for sides 6, 8, 10 is:
+viii, Ifa=5,5= 10, c=20 are sides of a triangle ABC, then angle a is:
+(a) not possible (b) acute (c) obtuse ° (d) 0°
+ix. Radius of circum-circle R= ...
+(a) 3 sec : (b) 3 seo (c) 5 ose (d) 5008s
+x. If ina trianglé ABC, a= b=c, then tan 5 = we yee *
+4, [Sa - [S-6 , [S-e ata abonabes
+, @) | ~~, J-—— (Cc) j-— (d) all (a), (b) & (c)
+xi. | Shadow of a man 5.6ft tall is making an angle of elevation of 45° with the Sun.
+What is the length of shadow?
+(a) 2.8f (b) 5.6f (c) 8.4ft (d) 11.26
+xii, A(sma+sin Pf +sin y)=...
+| I
+(a) (b) (c) 5 (d) re
+2. . Solve the following oblique triangles. .
+(i) a=8, a=15°, B=20° (li) ~a=34, b=41, @=115°
+(iii) 6=17.3, c=14.5, 8 =98.2° (iv) c=55.4, a=115°, B=45°
+(v) a=34, c=48, f =108" (vi) @a=44, b=33, c=55
+3. The diagonals of a parallelogram measure y S
+12 centimeters and 22 centimeters and
+intersect at an angle of 143 degrees. phe! Sy mR
+Find the length of the longer sides of the oS |
+. Q
+
+
+--- Page 194 ---
+
+4, Usman and Abubakar follow a triangular path when they take a walk. They walk from
+home for 1.54 along a straight road, turn at an angle of 100°, walk for another 0.95km
+and then return home.
+
+a. Find the length of the last portion of their walk.
+b. Find the total distance that they walk.
+
+5. Akite is in the shape of a quadrilateral with two pair of congruent adjacent sides. The
+lengths of two sides are 20.0 inches and the lengths of the other two sides are 35.0 inches.
+The two shorter sides meet at an angle of 115°.
+
+a, Find the length of the diagonal between the points at which the unequal sides meet.
+b. Using the answer to part a, find the measure of the angle at which the two longer sides
+meet. )
+
+6. Three streets intersect in pairs enclosing a small triangular park. The measures of the
+distances between the intersections are 55 m, 63 m, and 77 m. Find the area of the park.
+
+7. The base of an isosceles triangle measures 14.5 centimeters and the vertex angle measures
+110°,
+
+a. Find the measure of one of the congruent sides of the triangle.
+b. Find the perimeter of the triangle.
+
+8. Three streets intersect in pairs enclosing a small park. Two of the angles at which the .
+streets intersect measure 80° and 60°. The length of the longest side of the park is 90 m.
+Find the lengths of the other two sides of the park.
+
+9, Aamir wants to draw a parallelogram with the measure of one side 12 cm, the measure of
+one diagonal 10 cm and the measure of one angle 120°. Is this possible? Explain why or
+why not. (Hint: Use law of sines.)
+
+10. The angle of depression from an observer in an apartment complex to a pipe on the
+building next door is 55°. From a point five stories below the original observer, the angle
+of inclination to the pipe is 20°. Find the distance from each observer to the pipe and the
+distance from the pipe to the apartment complex. It is given that one story of a building is
+9 fect high.
+
+11. A geologist wants to measure the diameter ofa crater. From her camp, it is 4 miles to the
+northern-most point of the crater and 2 miles to the southern-most point. If the angle
+between the two lines of sight is 117°, what is the diameter of the crater?
+
+12. Side of an equilateral triangle is 6cm long. Find the circumference of circum-circle and
+ex-circle.
+
+13. Use the Law of Cosines to prove that if the angle between two congruent sides of a
+
+. triangle measures 60°, the triangle is equilateral.
+° i i, pe 2
+14, Prove that: ty a + a + _ = a+e to
+FF RR “
+
+
+--- Page 195 ---
+
+15. Prove that: (i) = acos5- cos” sect (ii) _™% =beos> cos sec’
+iii) a ica P ent ,
+(u = ccos—cos—sec—
+Gil)_r, xecos os see
+16. A mountain climber is on top of a mountain that is 680 m high. The angles of depression of
+two points on opposite sides, of the mountain are 48° and 32°. How long would a tunnel be
+that runs between the two points?
+17. Find the measure of ZC in the adjoining figure.
+|
+i ineem D
+18, Sides of a square prism are 12cm, Scm and 5cm long as shown below. Find the measure of
+angle a.
+Scem| _! a | ;
