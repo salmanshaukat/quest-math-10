@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-chapter="3">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +12,6 @@
 
   <!-- Project CSS & JS -->
   <link rel="stylesheet" href="../css/style.css">
-  <script defer src="../js/engine.js"></script>
 
   <style>
     /* Chapter-specific styles */
@@ -177,18 +176,27 @@
   </style>
 </head>
 
-<body>
+<body data-chapter="3">
 
   <!-- ========== TOP BAR ========== -->
   <nav class="top-bar">
     <div class="logo">
+      <a href="../index.html" class="back-link">&#8592; Back</a>
       <span class="neon-text">Quest Math 10</span>
-      <span style="color: var(--text-muted); font-size: 0.8rem;">/ Ch 3: Matrices</span>
     </div>
     <div class="stats" id="top-bar-stats">
-      <div class="stat-badge stat-xp">XP: <span id="xp-count">0</span></div>
-      <div class="stat-badge stat-streak">Streak: <span id="streak-count">0</span></div>
-      <div class="stat-badge stat-level">Lv <span id="level-count">1</span></div>
+      <div class="stat-badge stat-xp">
+        <span>&#11088;</span>
+        <span id="xp-count">0</span> XP
+      </div>
+      <div class="stat-badge stat-streak">
+        <span>&#128293;</span>
+        <span id="streak-count">0</span> Streak
+      </div>
+      <div class="stat-badge stat-level">
+        <span>&#9878;</span>
+        Lvl <span id="level-count">1</span>
+      </div>
     </div>
   </nav>
 
@@ -948,6 +956,10 @@
       Chapter 3: Matrices and Determinants
     </footer>
 
+    <div style="text-align: center; padding: 40px 0;">
+      <a href="../index.html" class="btn btn-ghost">&#8592; Return to Quest Dashboard</a>
+    </div>
+
   </div><!-- /container -->
 
 
@@ -973,6 +985,13 @@
         resultEl.textContent += '  [Non-singular]';
       }
     }
+  </script>
+
+  <script src="../js/engine.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      QuestMath.init();
+    });
   </script>
 
 </body>

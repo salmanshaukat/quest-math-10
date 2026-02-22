@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-chapter="2">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +12,6 @@
 
   <!-- Quest Math System -->
   <link rel="stylesheet" href="../css/style.css">
-  <script defer src="../js/engine.js"></script>
 
   <style>
     /* Chapter-specific styles */
@@ -82,19 +81,26 @@
     .challenge-input-group .math-input { max-width: 200px; }
   </style>
 </head>
-<body>
+<body data-chapter="2">
   <!-- ==================== TOP BAR ==================== -->
   <nav class="top-bar">
     <div class="logo">
-      <a href="../index.html" class="btn btn-ghost" style="padding: 6px 14px; font-size: 0.85rem;">
-        &#8592; Back to Quests
-      </a>
-      <span class="neon-text" style="margin-left: 8px;">Chapter 2</span>
+      <a href="../index.html" class="back-link">&#8592; Back</a>
+      <span class="neon-text">Quest Math 10</span>
     </div>
     <div class="stats" id="top-bar-stats">
-      <div class="stat-badge stat-xp">&#9733; <span id="xp-count">0</span> XP</div>
-      <div class="stat-badge stat-streak">&#128293; <span id="streak-count">0</span> Streak</div>
-      <div class="stat-badge stat-level">&#9878; Lv <span id="level-count">1</span></div>
+      <div class="stat-badge stat-xp">
+        <span>&#11088;</span>
+        <span id="xp-count">0</span> XP
+      </div>
+      <div class="stat-badge stat-streak">
+        <span>&#128293;</span>
+        <span id="streak-count">0</span> Streak
+      </div>
+      <div class="stat-badge stat-level">
+        <span>&#9878;</span>
+        Lvl <span id="level-count">1</span>
+      </div>
     </div>
   </nav>
 
@@ -103,7 +109,7 @@
     <div class="progress-bar progress-bar-xp" id="xp-progress" style="width: 0%;"></div>
   </div>
 
-  <div class="container" data-chapter="2">
+  <div class="container">
 
     <!-- ==================== CHAPTER HEADER ==================== -->
     <header style="text-align: center; padding: var(--space-3xl) 0 var(--space-xl);" class="animate-fadeInUp">
@@ -927,13 +933,17 @@
       </ul>
     </section>
 
-    <!-- Back to Home -->
-    <div style="text-align: center; padding: var(--space-xl) 0 var(--space-3xl);">
-      <a href="../index.html" class="btn btn-ghost" style="font-size: 1rem;">
-        &#8592; Back to All Quests
-      </a>
+    <div style="text-align: center; padding: 40px 0;">
+      <a href="../index.html" class="btn btn-ghost">&#8592; Return to Quest Dashboard</a>
     </div>
 
   </div><!-- end container -->
+
+  <script src="../js/engine.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      QuestMath.init();
+    });
+  </script>
 </body>
 </html>

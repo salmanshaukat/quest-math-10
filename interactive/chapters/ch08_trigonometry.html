@@ -57,12 +57,12 @@
     .example-box h4 { color: var(--neon-cyan); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
   </style>
 </head>
-<body>
+<body data-chapter="8">
 
   <!-- Top Bar -->
   <nav class="top-bar">
     <div class="logo">
-      <span style="font-size:1.4rem;">&#9889;</span>
+      <a href="../index.html" class="back-link">&#8592; Back</a>
       <span class="neon-text">Quest Math 10</span>
     </div>
     <div class="stats" id="top-bar-stats">
@@ -87,8 +87,6 @@
   </div>
 
   <div class="container">
-
-    <a href="../index.html" class="back-link">&#8592; Back to Quest Map</a>
 
     <!-- Hero -->
     <div class="chapter-hero animate-fadeInUp">
@@ -486,9 +484,9 @@
       </div>
     </div>
 
-    <!-- Back to Map -->
-    <div style="text-align:center; padding:var(--space-2xl) 0;">
-      <a href="../index.html" class="btn btn-ghost">&#8592; Return to Quest Map</a>
+    <!-- Back to Dashboard -->
+    <div style="text-align: center; padding: 40px 0;">
+      <a href="../index.html" class="btn btn-ghost">&#8592; Return to Quest Dashboard</a>
     </div>
 
   </div><!-- /container -->
@@ -498,8 +496,7 @@
   <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      QuestMath.state.currentChapter = 8;
-      QuestMath.renderKaTeX();
+      QuestMath.init();
     });
   </script>
 </body>

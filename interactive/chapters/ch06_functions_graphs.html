@@ -165,7 +165,7 @@
   <!-- Top Bar -->
   <nav class="top-bar">
     <div class="logo">
-      <span style="font-size: 1.4rem;">&#9889;</span>
+      <a href="../index.html" class="back-link">&#8592; Back</a>
       <span class="neon-text">Quest Math 10</span>
     </div>
     <div class="stats" id="top-bar-stats">
@@ -191,8 +191,6 @@
   </div>
 
   <div class="container">
-
-    <a href="../index.html" class="back-link">&#8592; Back to Quest Dashboard</a>
 
     <!-- Chapter Hero -->
     <div class="chapter-hero animate-fadeInUp">
@@ -819,6 +817,11 @@
       </div>
     </div>
 
+    <!-- Back to Dashboard -->
+    <div style="text-align: center; padding: 40px 0;">
+      <a href="../index.html" class="btn btn-ghost">&#8592; Return to Quest Dashboard</a>
+    </div>
+
     <!-- Footer -->
     <div style="text-align:center; padding:40px 0; color:var(--text-muted); font-size:0.85rem;">
       <p>Quest Math 10 &mdash; Chapter 6: Functions &amp; Graphs</p>
@@ -832,6 +835,10 @@
   <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
   <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      QuestMath.init();
+    });
+
     // Growth simulator
     let currentGrowth = 'linear';
 
