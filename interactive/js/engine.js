@@ -107,6 +107,10 @@ const QuestMath = {
   // --- Reveal Steps (Accordion) ---
   initRevealSteps() {
     document.querySelectorAll('.reveal-header').forEach(header => {
+      // Guard against duplicate init calls binding multiple handlers
+      if (header._revealBound) return;
+      header._revealBound = true;
+
       header.addEventListener('click', () => {
         const step = header.parentElement;
         const wasOpen = step.classList.contains('open');
@@ -122,6 +126,8 @@ const QuestMath = {
           // Render KaTeX in newly revealed content
           const content = step.querySelector('.reveal-content');
           if (content) this.renderKaTeXIn(content);
+          // Trigger resize so JSXGraph boards recalculate dimensions
+          setTimeout(() => { window.dispatchEvent(new Event('resize')); }, 150);
         }
       });
     });
@@ -130,6 +136,10 @@ const QuestMath = {
   // --- Quiz System ---
   initQuizzes() {
     document.querySelectorAll('.quiz-question').forEach(q => {
+      // Guard against duplicate init calls
+      if (q._quizBound) return;
+      q._quizBound = true;
+
       const options = q.querySelectorAll('.quiz-option');
       const correctAnswer = q.dataset.correct;
       const feedbackCorrect = q.querySelector('.quiz-feedback.correct-fb');

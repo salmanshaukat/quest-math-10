@@ -6,6 +6,9 @@
   <title>Quest 06: Functions & Graphs | Quest Math 10</title>
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <!-- JSXGraph -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css">
+  <script src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"></script>
   <style>
     .chapter-hero {
       text-align: center;
@@ -219,23 +222,23 @@
     <!-- ============================== -->
     <div class="phase phase-hook animate-fadeInUp">
       <div class="phase-tag">&#128165; Hook</div>
-      <h2>Instagram Followers Over Time &mdash; Linear, Quadratic, or Exponential?</h2>
-      <p>You start a new Instagram account. Your follower count grows over weeks. But <em>how</em> does it grow? Is it a straight line (linear), a curve (quadratic), or an explosive rocket (exponential)?</p>
+      <h2>Your Savings Account &mdash; Linear, Quadratic, or Exponential Growth?</h2>
+      <p>You open a savings account with Rs. 500 and deposit Rs. 50 every month: $f(x) = 500 + 50x$. Can you predict when you'll have enough for a new phone worth Rs. 5,000? But what if your money grows with <em>compound interest</em> instead? Let's explore how different functions model your savings.</p>
 
       <div class="interactive-demo">
-        <h4>&#128200; Follower Growth Simulator</h4>
-        <p style="font-size:0.9rem; color:var(--text-secondary);">Choose your growth model and watch how followers change over 10 weeks:</p>
+        <h4>&#128176; Savings Growth Simulator</h4>
+        <p style="font-size:0.9rem; color:var(--text-secondary);">Choose your savings model and watch how your balance grows over 10 months:</p>
 
         <div style="display:flex; gap:8px; margin:16px 0; flex-wrap:wrap;">
-          <button class="btn btn-ghost" id="btn-linear" onclick="setGrowth('linear')" style="border-color:var(--neon-cyan); color:var(--neon-cyan);">Linear: $f(x) = 50x$</button>
-          <button class="btn btn-ghost" id="btn-quadratic" onclick="setGrowth('quadratic')">Quadratic: $f(x) = 5x^2$</button>
-          <button class="btn btn-ghost" id="btn-exponential" onclick="setGrowth('exponential')">Exponential: $f(x) = 2^x$</button>
+          <button class="btn btn-ghost" id="btn-linear" onclick="setGrowth('linear')" style="border-color:var(--neon-cyan); color:var(--neon-cyan);">Linear: $f(x) = 500 + 50x$</button>
+          <button class="btn btn-ghost" id="btn-quadratic" onclick="setGrowth('quadratic')">Quadratic: $f(x) = 500 + 5x^2$</button>
+          <button class="btn btn-ghost" id="btn-exponential" onclick="setGrowth('exponential')">Compound: $f(x) = 500 \times 1.1^x$</button>
         </div>
 
         <div id="growth-bars" style="margin:16px 0;"></div>
 
         <div class="follower-counter">
-          Week 10: <span id="followerCount" class="glow-text-cyan">500</span> followers
+          Month 10: Rs. <span id="followerCount" class="glow-text-cyan">1,000</span>
         </div>
 
         <div class="graph-svg-container">
@@ -250,8 +253,8 @@
             <!-- Axes -->
             <line x1="50" y1="250" x2="480" y2="250" stroke="#64748b" stroke-width="1.5"/>
             <line x1="50" y1="250" x2="50" y2="20" stroke="#64748b" stroke-width="1.5"/>
-            <text x="260" y="275" fill="#94a3b8" font-size="11" text-anchor="middle">Weeks</text>
-            <text x="15" y="140" fill="#94a3b8" font-size="11" text-anchor="middle" transform="rotate(-90,15,140)">Followers</text>
+            <text x="260" y="275" fill="#94a3b8" font-size="11" text-anchor="middle">Months</text>
+            <text x="15" y="140" fill="#94a3b8" font-size="11" text-anchor="middle" transform="rotate(-90,15,140)">Savings (Rs.)</text>
             <!-- Tick labels -->
             <text x="50" y="265" fill="#64748b" font-size="9" text-anchor="middle">0</text>
             <text x="93" y="265" fill="#64748b" font-size="9" text-anchor="middle">1</text>
@@ -273,7 +276,7 @@
       </div>
 
       <div class="tip-box">
-        <strong>Key Insight:</strong> Every machine, every app, every process has an INPUT and OUTPUT. A <strong>function</strong> is a rule that assigns exactly <em>one output</em> to each input. Your follower count is a function of time!
+        <strong>Key Insight:</strong> Every machine, every financial plan, every process has an INPUT and OUTPUT. A <strong>function</strong> is a rule that assigns exactly <em>one output</em> to each input. Your savings balance is a function of time! With the linear model, you'd reach Rs. 5,000 in month $x = 90$, but compound interest gets you there faster.
       </div>
     </div>
 
@@ -316,6 +319,37 @@
         <p style="color:var(--text-secondary); font-size:0.9rem;">$V(5) = 9500 - 860(5) = 5200$ dollars. For $V(t) = 6920$: $t = 3$ years.</p>
       </div>
     </div>
+
+    <!-- ============================== -->
+    <!-- PHASE: ORIGINS                 -->
+    <!-- ============================== -->
+    <section class="phase phase-origins animate-fadeInUp">
+      <div class="phase-tag">&#128220; The Origins</div>
+      <h2>The Language of Change</h2>
+      <p style="color: var(--text-secondary); margin-bottom: var(--space-lg);">The concept of a "function" -- a rule connecting inputs to outputs -- took centuries to develop. Here are the brilliant minds who built the framework you use today.</p>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">~1070</div>
+          <div class="timeline-text"><span class="timeline-name">Omar Khayyam (Persia)</span> -- known in the West as a poet, but primarily a brilliant mathematician -- classifies and solves cubic equations using the intersection of conic sections, an early version of graphical methods!</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">1637</div>
+          <div class="timeline-text"><span class="timeline-name">Rene Descartes (France)</span> creates the coordinate plane (Cartesian plane), linking algebra to geometry. Every equation becomes a curve you can see!</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">1694</div>
+          <div class="timeline-text"><span class="timeline-name">Johann Bernoulli (Switzerland)</span> develops the concept of function further, connecting it to calculus and laying the groundwork for modern analysis.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">1748</div>
+          <div class="timeline-text"><span class="timeline-name">Leonhard Euler (Switzerland)</span> formalizes the function concept and introduces the notation $f(x)$. He writes "Introductio in Analysin Infinitorum," the most influential mathematics textbook ever written.</div>
+        </div>
+      </div>
+      <div class="heritage-box">
+        <h4>Your Mathematical Heritage</h4>
+        <p style="color: var(--text-secondary); line-height: 1.7;">Omar Khayyam (1048--1131 AD, Nishapur, Persia) is famous for his "Rubaiyat" poetry, but his mathematical works were groundbreaking. He classified all cubic equations and solved them geometrically by intersecting conics -- essentially using graphical methods 600 years before Descartes formalized coordinate geometry. When you plot functions on the Cartesian plane, you are continuing a tradition that began in the Islamic Golden Age.</p>
+      </div>
+    </section>
 
     <!-- ============================== -->
     <!-- PHASE 3: DISCOVERY             -->
@@ -580,6 +614,33 @@
                 <text x="320" y="195" fill="#64748b" font-size="9">asymptote y = 0</text>
               </svg>
             </div>
+
+            <!-- JSXGraph Viz 1: Function Plotter -->
+            <div class="viz-section" style="margin-top: var(--space-xl);">
+              <h4>Interactive: Function Plotter</h4>
+              <p>Select a function type, then drag the vertical line to trace points on the curve. The vertical line test shows that each $x$ maps to exactly one $y$.</p>
+              <div style="margin: 12px 0; display:flex; gap:8px; flex-wrap:wrap;">
+                <button class="btn btn-ghost" id="btn-fn-linear" onclick="setFuncType('linear')" style="border-color:var(--neon-cyan); color:var(--neon-cyan);">Linear: $y = 2x + 1$</button>
+                <button class="btn btn-ghost" id="btn-fn-quadratic" onclick="setFuncType('quadratic')">Quadratic: $y = x^2 - 2$</button>
+                <button class="btn btn-ghost" id="btn-fn-abs" onclick="setFuncType('abs')">Absolute: $y = |x - 1|$</button>
+                <button class="btn btn-ghost" id="btn-fn-reciprocal" onclick="setFuncType('reciprocal')">Reciprocal: $y = 1/x$</button>
+              </div>
+              <div id="jsx-func-plotter" class="jsx-container" style="height: 400px;"></div>
+              <div class="jsx-readout" id="func-plotter-readout" style="margin-top:12px; padding:12px; background:rgba(0,0,0,0.3); border-radius:var(--radius-md); font-size:0.95rem; text-align:center;">
+                Drag the <span style="color:#ffd700;">yellow point</span> along the x-axis to trace the function.
+              </div>
+            </div>
+
+            <!-- JSXGraph Viz 2: Function Transformations -->
+            <div class="viz-section" style="margin-top: var(--space-xl);">
+              <h4>Interactive: Function Transformations</h4>
+              <p>Explore how $g(x) = a \cdot f(x - h) + k$ transforms the base function $f(x) = x^2$. Adjust the sliders to see vertical shift ($k$), horizontal shift ($h$), and vertical stretch/reflection ($a$).</p>
+              <div id="jsx-func-transform" class="jsx-container" style="height: 400px;"></div>
+              <div class="jsx-readout" id="func-transform-readout" style="margin-top:12px; padding:12px; background:rgba(0,0,0,0.3); border-radius:var(--radius-md); font-size:0.95rem; text-align:center;">
+                <span style="color:#64748b;">Original:</span> $f(x) = x^2$ &nbsp; | &nbsp;
+                <span style="color:#00d4ff;">Transformed:</span> $g(x) = a(x - h)^2 + k$
+              </div>
+            </div>
           </div>
         </div>
 
@@ -830,6 +891,205 @@
 
   </div><!-- /container -->
 
+  <!-- JSXGraph Initialization -->
+  <script>
+  (function() {
+    // ============================================
+    // Viz 1: Function Plotter with Vertical Line
+    // ============================================
+    var funcBoard = null;
+    var currentFuncType = 'linear';
+
+    var funcDefs = {
+      linear:     { fn: function(x){ return 2*x + 1; }, label: 'y = 2x + 1', color: '#00d4ff' },
+      quadratic:  { fn: function(x){ return x*x - 2; }, label: 'y = x\u00B2 \u2212 2', color: '#a855f7' },
+      abs:        { fn: function(x){ return Math.abs(x - 1); }, label: 'y = |x \u2212 1|', color: '#ffd700' },
+      reciprocal: { fn: function(x){ return (Math.abs(x) < 0.05) ? NaN : 1/x; }, label: 'y = 1/x', color: '#00ff88' }
+    };
+
+    function buildFuncPlotter(type) {
+      var def = funcDefs[type];
+      if (funcBoard) { JXG.JSXGraph.freeBoard(funcBoard); }
+      funcBoard = JXG.JSXGraph.initBoard('jsx-func-plotter', {
+        boundingbox: [-6, 8, 6, -6], axis: false, grid: false,
+        showNavigation: false, showCopyright: false, keepAspectRatio: true
+      });
+      funcBoard.containerObj.style.background = 'rgba(0,0,0,0.4)';
+
+      // Axes
+      funcBoard.create('axis', [[0,0],[1,0]], {
+        strokeColor: '#64748b', strokeWidth: 1, highlight: false,
+        ticks: { strokeColor: '#475569', label: { fontSize: 10, cssStyle: 'color:#94a3b8' } }
+      });
+      funcBoard.create('axis', [[0,0],[0,1]], {
+        strokeColor: '#64748b', strokeWidth: 1, highlight: false,
+        ticks: { strokeColor: '#475569', label: { fontSize: 10, cssStyle: 'color:#94a3b8' } }
+      });
+
+      // Plot function
+      funcBoard.create('functiongraph', [def.fn, -6, 6], {
+        strokeColor: def.color, strokeWidth: 2.5, highlight: false
+      });
+
+      // Draggable point on x-axis
+      var tracer = funcBoard.create('glider', [1, 0, funcBoard.create('line', [[0,0],[1,0]], {visible:false})], {
+        size: 5, fillColor: '#ffd700', strokeColor: '#ffd700', name: '', withLabel: false
+      });
+
+      // Vertical line (vertical line test)
+      var vLine = funcBoard.create('line', [
+        function(){ return [tracer.X(), -10]; },
+        function(){ return [tracer.X(), 10]; }
+      ], {
+        strokeColor: 'rgba(255,215,0,0.4)', strokeWidth: 1, dash: 2, fixed: true,
+        straightFirst: true, straightLast: true, point1: {visible: false}, point2: {visible: false}
+      });
+
+      // Point on curve
+      var curvePoint = funcBoard.create('point', [
+        function(){ return tracer.X(); },
+        function(){ return def.fn(tracer.X()); }
+      ], {
+        size: 5, fillColor: def.color, strokeColor: '#fff', strokeWidth: 2,
+        name: '', withLabel: false, fixed: true
+      });
+
+      // Dashed lines to axes
+      funcBoard.create('segment', [
+        function(){ return [tracer.X(), def.fn(tracer.X())]; },
+        function(){ return [0, def.fn(tracer.X())]; }
+      ], { strokeColor: 'rgba(255,255,255,0.2)', strokeWidth: 1, dash: 3, fixed: true, highlight: false });
+
+      funcBoard.create('segment', [
+        function(){ return [tracer.X(), def.fn(tracer.X())]; },
+        function(){ return [tracer.X(), 0]; }
+      ], { strokeColor: 'rgba(255,255,255,0.2)', strokeWidth: 1, dash: 3, fixed: true, highlight: false });
+
+      // Readout
+      var readout = document.getElementById('func-plotter-readout');
+      tracer.on('drag', function() {
+        var xv = tracer.X().toFixed(2);
+        var yv = def.fn(tracer.X());
+        var ys = isNaN(yv) ? 'undefined' : yv.toFixed(2);
+        if (readout) {
+          readout.innerHTML = '<strong style="color:' + def.color + ';">' + def.label + '</strong> &nbsp;|&nbsp; ' +
+            'x = <span style="color:#ffd700;">' + xv + '</span>, ' +
+            'f(x) = <span style="color:' + def.color + ';">' + ys + '</span>' +
+            ' &nbsp;|&nbsp; <span style="color:var(--text-muted); font-size:0.85rem;">Vertical line test: one intersection = function!</span>';
+        }
+      });
+
+      // Highlight active button
+      ['linear','quadratic','abs','reciprocal'].forEach(function(t) {
+        var btn = document.getElementById('btn-fn-' + t);
+        if (btn) {
+          btn.style.borderColor = (t === type) ? 'var(--neon-cyan)' : '';
+          btn.style.color = (t === type) ? 'var(--neon-cyan)' : '';
+        }
+      });
+    }
+
+    window.setFuncType = function(type) {
+      currentFuncType = type;
+      buildFuncPlotter(type);
+    };
+
+    // ============================================
+    // Viz 2: Function Transformations
+    // ============================================
+    function buildTransformBoard() {
+      var tBoard = JXG.JSXGraph.initBoard('jsx-func-transform', {
+        boundingbox: [-6, 8, 6, -4], axis: false, grid: false,
+        showNavigation: false, showCopyright: false, keepAspectRatio: true
+      });
+      tBoard.containerObj.style.background = 'rgba(0,0,0,0.4)';
+
+      // Axes
+      tBoard.create('axis', [[0,0],[1,0]], {
+        strokeColor: '#64748b', strokeWidth: 1, highlight: false,
+        ticks: { strokeColor: '#475569', label: { fontSize: 10, cssStyle: 'color:#94a3b8' } }
+      });
+      tBoard.create('axis', [[0,0],[0,1]], {
+        strokeColor: '#64748b', strokeWidth: 1, highlight: false,
+        ticks: { strokeColor: '#475569', label: { fontSize: 10, cssStyle: 'color:#94a3b8' } }
+      });
+
+      // Original f(x) = x^2 in gray
+      tBoard.create('functiongraph', [function(x){ return x*x; }, -6, 6], {
+        strokeColor: '#64748b', strokeWidth: 1.5, dash: 2, highlight: false,
+        name: 'f(x) = x\u00B2', withLabel: true,
+        label: { position: 'rt', offset: [5, 5], cssStyle: 'color:#64748b; font-size:11px;' }
+      });
+
+      // Sliders
+      var sliderA = tBoard.create('slider', [[-5, 7], [-1, 7], [-3, 1, 3]], {
+        name: 'a', snapWidth: 0.1,
+        baseline: { strokeColor: '#475569' },
+        highline: { strokeColor: '#00d4ff' },
+        fillColor: '#00d4ff', label: { cssStyle: 'color:#00d4ff; font-size:11px;' }
+      });
+      var sliderH = tBoard.create('slider', [[-5, 6.2], [-1, 6.2], [-4, 0, 4]], {
+        name: 'h', snapWidth: 0.1,
+        baseline: { strokeColor: '#475569' },
+        highline: { strokeColor: '#00ff88' },
+        fillColor: '#00ff88', label: { cssStyle: 'color:#00ff88; font-size:11px;' }
+      });
+      var sliderK = tBoard.create('slider', [[-5, 5.4], [-1, 5.4], [-4, 0, 4]], {
+        name: 'k', snapWidth: 0.1,
+        baseline: { strokeColor: '#475569' },
+        highline: { strokeColor: '#a855f7' },
+        fillColor: '#a855f7', label: { cssStyle: 'color:#a855f7; font-size:11px;' }
+      });
+
+      // Transformed function g(x) = a*(x-h)^2 + k in cyan
+      tBoard.create('functiongraph', [function(x) {
+        var a = sliderA.Value();
+        var h = sliderH.Value();
+        var k = sliderK.Value();
+        return a * (x - h) * (x - h) + k;
+      }, -6, 6], {
+        strokeColor: '#00d4ff', strokeWidth: 2.5, highlight: false
+      });
+
+      // Vertex point
+      tBoard.create('point', [
+        function(){ return sliderH.Value(); },
+        function(){ return sliderK.Value(); }
+      ], {
+        size: 4, fillColor: '#ff006e', strokeColor: '#fff', strokeWidth: 2,
+        name: 'vertex', fixed: true,
+        label: { offset: [8, -8], cssStyle: 'color:#ff006e; font-size:10px;' }
+      });
+
+      // Readout update
+      var tReadout = document.getElementById('func-transform-readout');
+      tBoard.on('update', function() {
+        var a = sliderA.Value().toFixed(1);
+        var hVal = sliderH.Value();
+        var kVal = sliderK.Value();
+        var h = Math.abs(hVal).toFixed(1);
+        var k = Math.abs(kVal).toFixed(1);
+        var hPart = hVal >= 0 ? '(x \u2212 ' + h + ')' : '(x + ' + h + ')';
+        var kPart = kVal >= 0 ? ' + ' + k : ' \u2212 ' + k;
+        if (tReadout) {
+          tReadout.innerHTML =
+            '<span style="color:#64748b;">Original: f(x) = x\u00B2</span> &nbsp;|&nbsp; ' +
+            '<span style="color:#00d4ff;">g(x) = ' + a + hPart + '\u00B2' + kPart + '</span> &nbsp;|&nbsp; ' +
+            '<span style="color:#ff006e;">Vertex: (' + hVal.toFixed(1) + ', ' + kVal.toFixed(1) + ')</span>';
+        }
+      });
+    }
+
+    window.addEventListener('DOMContentLoaded', function() {
+      var c1 = document.getElementById('jsx-func-plotter');
+      if (c1) buildFuncPlotter('linear');
+
+      var c2 = document.getElementById('jsx-func-transform');
+      if (c2) buildTransformBoard();
+    });
+  })();
+  </script>
+
   <!-- Scripts -->
   <script src="../js/engine.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
@@ -839,7 +1099,7 @@
       QuestMath.init();
     });
 
-    // Growth simulator
+    // Savings Growth simulator
     let currentGrowth = 'linear';
 
     function setGrowth(type) {
@@ -866,14 +1126,14 @@
       let maxVal;
 
       if (type === 'linear') {
-        for (let i = 0; i <= 10; i++) values.push(50 * i);
-        maxVal = 500;
+        for (let i = 0; i <= 10; i++) values.push(500 + 50 * i);
+        maxVal = 1100;
       } else if (type === 'quadratic') {
-        for (let i = 0; i <= 10; i++) values.push(5 * i * i);
-        maxVal = 500;
+        for (let i = 0; i <= 10; i++) values.push(500 + 5 * i * i);
+        maxVal = 1100;
       } else {
-        for (let i = 0; i <= 10; i++) values.push(Math.pow(2, i));
-        maxVal = 1024;
+        for (let i = 0; i <= 10; i++) values.push(Math.round(500 * Math.pow(1.1, i)));
+        maxVal = 1400;
       }
 
       // Draw polyline
@@ -902,11 +1162,11 @@
         const pct = (values[i] / maxVal) * 100;
         const color = type === 'linear' ? 'var(--neon-cyan)' : type === 'quadratic' ? 'var(--neon-purple)' : 'var(--neon-green)';
         barsHTML += `<div class="growth-bar">
-          <div class="label">Wk ${i}</div>
+          <div class="label">Mo ${i}</div>
           <div style="flex:1; background:rgba(255,255,255,0.05); border-radius:6px; overflow:hidden;">
             <div class="bar" style="width:${pct}%; background:${color}; height:20px; border-radius:6px;"></div>
           </div>
-          <div class="label" style="text-align:right; min-width:50px;">${values[i]}</div>
+          <div class="label" style="text-align:right; min-width:60px;">Rs.${values[i]}</div>
         </div>`;
       }
       barsContainer.innerHTML = barsHTML;

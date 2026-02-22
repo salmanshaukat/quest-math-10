@@ -6,6 +6,9 @@
   <title>Quest 08: Application of Trigonometry | Quest Math 10</title>
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <!-- JSXGraph -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css">
+  <script src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"></script>
   <style>
     .chapter-hero {
       text-align: center;
@@ -124,6 +127,39 @@
         <p style="color:var(--text-secondary); font-size:0.9rem;">This is a classic ASA triangle problem. By the end of this chapter, you'll solve it easily with the Law of Sines.</p>
       </div>
     </div>
+
+    <!-- ===================== PHASE: ORIGINS ===================== -->
+    <section class="phase phase-origins animate-fadeInUp">
+      <div class="phase-tag">&#128220; The Origins</div>
+      <h2>Measuring the Heavens</h2>
+      <p style="color: var(--text-secondary); margin-bottom: var(--space-lg);">Trigonometry was born from humanity's desire to understand the sky. For over two thousand years, scholars across civilizations built the tools you use today.</p>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">~150 AD</div>
+          <div class="timeline-text"><span class="timeline-name">Claudius Ptolemy</span> creates the most comprehensive trigonometric tables of antiquity in his "Almagest," used for 1400 years in astronomy.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">~850 AD</div>
+          <div class="timeline-text"><span class="timeline-name">Al-Battani</span> (Albategnius) dramatically improves Ptolemy's tables and introduces the sine function as we know it. He computes the obliquity of the ecliptic to stunning accuracy.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">~950 AD</div>
+          <div class="timeline-text"><span class="timeline-name">Abu al-Wafa al-Buzjani</span> introduces the tangent function and creates the first table of tangent and cotangent values. He also discovers the sine addition formula: $\sin(a+b) = \sin a \cos b + \cos a \sin b$.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">~1400</div>
+          <div class="timeline-text"><span class="timeline-name">Al-Kashi</span> computes $\sin(1°)$ to 18 decimal places in Samarkand.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">Etymology</div>
+          <div class="timeline-text">The word <strong>"sine"</strong> itself comes from a mistranslation chain: Sanskrit <em>jya</em> &rarr; Arabic <em>jiba</em> &rarr; Latin <em>sinus</em>.</div>
+        </div>
+      </div>
+      <div class="heritage-box">
+        <h4>Your Mathematical Heritage</h4>
+        <p style="color: var(--text-secondary); line-height: 1.7;">Islamic astronomers didn't just preserve Greek trigonometry &mdash; they transformed it. Al-Battani, Abu al-Wafa, and Al-Kashi created the six trigonometric functions, discovered fundamental identities, and achieved computational precision that Europe wouldn't match for centuries. Every time students use sine, cosine, or tangent, they're using tools perfected in Baghdad, Damascus, and Samarkand. The Minar-e-Pakistan hook in this chapter connects to the same heights-and-distances problems these scholars solved when measuring minarets and astronomical angles.</p>
+      </div>
+    </section>
 
     <!-- ===================== PHASE 3: DISCOVERY ===================== -->
     <div class="phase phase-discovery">
@@ -328,6 +364,22 @@
         </div>
 
       </div><!-- /reveal-group -->
+
+      <!-- JSXGraph Visualizations -->
+      <div class="viz-section">
+        <h4>Interactive: Unit Circle &amp; Trig Functions</h4>
+        <p>Drag the point around the unit circle to see how sine, cosine, and tangent change with the angle.</p>
+        <div id="jsx-unitcircle" class="jsx-container" style="height: 400px;"></div>
+        <div class="jsx-readout" id="unitcircle-readout">Drag the point on the circle to explore.</div>
+      </div>
+
+      <div class="viz-section">
+        <h4>Interactive: Heights &amp; Distances Simulator</h4>
+        <p>Adjust the building height and observer distance to see how the angle of elevation changes. This is exactly how surveyors measure tall structures.</p>
+        <div id="jsx-heights" class="jsx-container" style="height: 400px;"></div>
+        <div class="jsx-readout" id="heights-readout">Drag the top of the building or the observer to explore.</div>
+      </div>
+
     </div>
 
     <!-- ===================== PHASE 4: PRACTICE ===================== -->
@@ -490,6 +542,159 @@
     </div>
 
   </div><!-- /container -->
+
+  <!-- JSXGraph Initializations -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+
+    /* ====== Viz 1: Unit Circle & Trig Functions ====== */
+    (function() {
+      var board = JXG.JSXGraph.initBoard('jsx-unitcircle', {
+        boundingbox: [-2.5, 2.5, 2.5, -2.5], axis: false, grid: false,
+        showNavigation: false, showCopyright: false, keepAspectRatio: true
+      });
+      board.containerObj.style.background = 'rgba(0,0,0,0.4)';
+
+      // Axes
+      board.create('line', [[0,0],[1,0]], {strokeColor:'#555', strokeWidth:1, straightFirst:true, straightLast:true, fixed:true, highlight:false, dash:0});
+      board.create('line', [[0,0],[0,1]], {strokeColor:'#555', strokeWidth:1, straightFirst:true, straightLast:true, fixed:true, highlight:false, dash:0});
+
+      // Unit circle
+      board.create('circle', [[0,0], 1], {strokeColor:'#00d4ff', strokeWidth:2, fixed:true, highlight:false});
+
+      // Draggable point on circle
+      var P = board.create('glider', [1, 0, board.create('circle',[[0,0],1],{visible:false})], {
+        name:'P', size:5, color:'#ff006e', withLabel:true,
+        label:{color:'#ff006e', offset:[8,8], fontSize:14}
+      });
+
+      // Sin line (vertical from x-axis to P)
+      var sinLine = board.create('segment', [function(){return [P.X(),0];}, P], {
+        strokeColor:'#00ff88', strokeWidth:3, dash:0
+      });
+      board.create('text', [function(){return P.X()+0.08;}, function(){return P.Y()/2;}, 'sin'], {color:'#00ff88', fontSize:12, fixed:true});
+
+      // Cos line (horizontal from origin to foot)
+      var cosLine = board.create('segment', [[0,0], function(){return [P.X(),0];}], {
+        strokeColor:'#ffd700', strokeWidth:3, dash:0
+      });
+      board.create('text', [function(){return P.X()/2;}, -0.15, 'cos'], {color:'#ffd700', fontSize:12, fixed:true});
+
+      // Tan line (from P extending to x = 1 line)
+      var tanLine = board.create('segment', [P, function(){
+        var c = P.X(), s = P.Y();
+        if(Math.abs(c) < 0.01) return [P.X(), P.Y()];
+        return [1, s/c];
+      }], {strokeColor:'#a855f7', strokeWidth:2, dash:2});
+
+      // Angle arc (parametric curve for correct display in all quadrants)
+      board.create('curve', [
+        function(t) { return 0.35 * Math.cos(t); },
+        function(t) { return 0.35 * Math.sin(t); },
+        0,
+        function() { var a = Math.atan2(P.Y(), P.X()); if(a < 0) a += 2*Math.PI; return a; }
+      ], {
+        strokeColor: '#00d4ff', strokeWidth: 2, fillColor: 'rgba(0,212,255,0.15)',
+        fill: true, highlight: false, fixed: true
+      });
+
+      // Readout
+      var readout = document.getElementById('unitcircle-readout');
+      P.on('drag', function() {
+        var angle = Math.atan2(P.Y(), P.X());
+        if(angle < 0) angle += 2*Math.PI;
+        var deg = (angle * 180 / Math.PI).toFixed(1);
+        var sinVal = P.Y().toFixed(4);
+        var cosVal = P.X().toFixed(4);
+        var tanVal = Math.abs(P.X()) < 0.01 ? 'undefined' : (P.Y()/P.X()).toFixed(4);
+        readout.innerHTML = '\u03B8 = ' + deg + '\u00B0 &nbsp;|&nbsp; sin\u03B8 = ' + sinVal + ' &nbsp;|&nbsp; cos\u03B8 = ' + cosVal + ' &nbsp;|&nbsp; tan\u03B8 = ' + tanVal;
+      });
+    })();
+
+    /* ====== Viz 2: Heights & Distances Simulator ====== */
+    (function() {
+      var board = JXG.JSXGraph.initBoard('jsx-heights', {
+        boundingbox: [-2, 12, 16, -2], axis: false, grid: false,
+        showNavigation: false, showCopyright: false, keepAspectRatio: true
+      });
+      board.containerObj.style.background = 'rgba(0,0,0,0.4)';
+
+      // Ground line
+      board.create('segment', [[-1,0],[15,0]], {strokeColor:'#555', strokeWidth:2, fixed:true, highlight:false});
+
+      // Building base (fixed)
+      var baseX = 12;
+      var base = board.create('point', [baseX, 0], {visible:false, fixed:true});
+
+      // Building top (draggable vertically)
+      var top = board.create('point', [baseX, 8], {
+        name:'Height', size:4, color:'#ff006e',
+        attractors:[],
+        label:{color:'#ff006e', offset:[10,0], fontSize:13}
+      });
+      // Constrain top to vertical line above base
+      top.on('drag', function() {
+        if(top.Y() < 1) top.moveTo([baseX, 1]);
+        if(top.Y() > 11) top.moveTo([baseX, 11]);
+        top.moveTo([baseX, top.Y()]);
+      });
+
+      // Building wall
+      var wall = board.create('segment', [base, top], {strokeColor:'#00d4ff', strokeWidth:3, fixed:true});
+
+      // Observer (draggable horizontally)
+      var observer = board.create('point', [3, 0], {
+        name:'Observer', size:5, color:'#00ff88',
+        label:{color:'#00ff88', offset:[-10,-20], fontSize:13}
+      });
+      observer.on('drag', function() {
+        if(observer.X() < 0.5) observer.moveTo([0.5, 0]);
+        if(observer.X() > baseX - 1) observer.moveTo([baseX - 1, 0]);
+        observer.moveTo([observer.X(), 0]);
+      });
+
+      // Line of sight
+      var los = board.create('segment', [observer, top], {strokeColor:'#ffd700', strokeWidth:2, dash:2});
+
+      // Horizontal from observer to base
+      var horiz = board.create('segment', [observer, base], {strokeColor:'#555', strokeWidth:1, dash:3});
+
+      // Angle of elevation arc
+      var angleArc = board.create('angle', [base, observer, top], {
+        radius:1.2, color:'rgba(255,215,0,0.2)', strokeColor:'#ffd700', name:'', withLabel:false
+      });
+
+      // Labels on diagram
+      board.create('text', [function(){return (observer.X()+baseX)/2;}, -0.8, function(){
+        return 'd = ' + (baseX - observer.X()).toFixed(1);
+      }], {color:'#aaa', fontSize:12, fixed:true});
+
+      board.create('text', [baseX + 0.5, function(){return top.Y()/2;}, function(){
+        return 'h = ' + top.Y().toFixed(1);
+      }], {color:'#00d4ff', fontSize:12, fixed:true});
+
+      // Angle label
+      board.create('text', [function(){return observer.X()+1.8;}, 0.7, function(){
+        var h = top.Y();
+        var d = baseX - observer.X();
+        var angle = Math.atan2(h, d) * 180 / Math.PI;
+        return '\u03B8 = ' + angle.toFixed(1) + '\u00B0';
+      }], {color:'#ffd700', fontSize:13, fixed:true});
+
+      // Readout
+      var readout = document.getElementById('heights-readout');
+      function updateReadout() {
+        var h = top.Y();
+        var d = baseX - observer.X();
+        var angle = Math.atan2(h, d) * 180 / Math.PI;
+        readout.innerHTML = 'tan(\u03B8) = height / distance = ' + h.toFixed(1) + ' / ' + d.toFixed(1) + ' = ' + (h/d).toFixed(4) + ' &nbsp;\u21D2&nbsp; \u03B8 = ' + angle.toFixed(1) + '\u00B0';
+      }
+      top.on('drag', updateReadout);
+      observer.on('drag', updateReadout);
+    })();
+
+  });
+  </script>
 
   <script src="../js/engine.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>

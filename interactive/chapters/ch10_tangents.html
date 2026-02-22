@@ -6,6 +6,9 @@
   <title>Quest 10: Tangents & Angles of a Circle | Quest Math 10</title>
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <!-- JSXGraph -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css">
+  <script src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"></script>
   <style>
     .chapter-hero {
       text-align: center;
@@ -151,6 +154,35 @@
         <p style="color: var(--neon-gold); font-size: 0.9rem;">Keep this technique in mind -- you will use it throughout the chapter!</p>
       </div>
     </div>
+
+    <!-- ==================== PHASE: ORIGINS ==================== -->
+    <section class="phase phase-origins animate-fadeInUp">
+      <div class="phase-tag">&#128220; The Origins</div>
+      <h2>Lines that Kiss Curves</h2>
+      <p style="color: var(--text-secondary); margin-bottom: var(--space-lg);">The tangent line -- a line that just barely touches a curve at a single point -- has fascinated mathematicians from ancient Greece to the birth of calculus.</p>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">~300 BC</div>
+          <div class="timeline-text"><span class="timeline-name">Apollonius of Perga</span> studies tangent lines to conic sections (ellipses, parabolas, hyperbolas) in "Conics" &mdash; one of the greatest mathematical works of antiquity.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">~150 AD</div>
+          <div class="timeline-text"><span class="timeline-name">Ptolemy</span> uses tangent-related constructions in astronomical calculations.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">~1000 AD</div>
+          <div class="timeline-text">Islamic mathematicians develop elegant tangent constructions. <span class="timeline-name">Ibn al-Haytham</span> (Alhazen) uses tangent properties extensively in his groundbreaking work on optics.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">1637</div>
+          <div class="timeline-text"><span class="timeline-name">Descartes</span> and <span class="timeline-name">Fermat</span> develop algebraic methods for finding tangent lines, laying groundwork for calculus.</div>
+        </div>
+      </div>
+      <div class="heritage-box">
+        <h4>Your Mathematical Heritage</h4>
+        <p style="color: var(--text-secondary); line-height: 1.7;">Ibn al-Haytham (965&ndash;1040 AD, Basra/Cairo), known as the "Father of Optics," used tangent line properties to understand how light reflects off curved mirrors. His "Book of Optics" (Kitab al-Manazir) was the most important work on optics for 600 years. Every tangent construction in this chapter connects to his work on light and curved surfaces.</p>
+      </div>
+    </section>
 
     <!-- ==================== PHASE: DISCOVERY ==================== -->
     <div class="phase phase-discovery">
@@ -302,6 +334,22 @@
         </div>
 
       </div><!-- /reveal-group -->
+
+      <!-- JSXGraph Visualizations -->
+      <div class="viz-section">
+        <h4>Interactive: Tangent from External Point</h4>
+        <p>Drag the external point to see both tangent lines drawn to the circle. Notice how both tangent lengths are always equal, verified by the formula: tangent length = &radic;(d&sup2; &minus; r&sup2;).</p>
+        <div id="jsx-exttangent" class="jsx-container" style="height: 400px;"></div>
+        <div class="jsx-readout" id="exttangent-readout">Drag the external point P to explore tangent lengths.</div>
+      </div>
+
+      <div class="viz-section">
+        <h4>Interactive: Tangent-Radius Relationship</h4>
+        <p>Drag the point of tangency around the circle. The radius to the point and the tangent line at that point always form a perfect 90-degree angle.</p>
+        <div id="jsx-tanrad" class="jsx-container" style="height: 400px;"></div>
+        <div class="jsx-readout" id="tanrad-readout">Drag point T around the circle to verify the 90&deg; relationship.</div>
+      </div>
+
     </div>
 
     <!-- ==================== PHASE: PRACTICE ==================== -->
@@ -502,6 +550,167 @@
     </div>
 
   </div><!-- /container -->
+
+  <!-- JSXGraph Initializations -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+
+    /* ====== Viz 1: Tangent from External Point ====== */
+    (function() {
+      var board = JXG.JSXGraph.initBoard('jsx-exttangent', {
+        boundingbox: [-8, 8, 12, -8], axis: false, grid: false,
+        showNavigation: false, showCopyright: false, keepAspectRatio: true
+      });
+      board.containerObj.style.background = 'rgba(0,0,0,0.4)';
+
+      var r = 3;
+      var O = board.create('point', [0, 0], {name:'O', size:3, color:'#00d4ff', fixed:true, label:{color:'#00d4ff', offset:[-15,10], fontSize:13}});
+      var circ = board.create('circle', [O, r], {strokeColor:'#00d4ff', strokeWidth:2, fixed:true, highlight:false});
+
+      // External point P (draggable)
+      var P = board.create('point', [8, 0], {
+        name:'P', size:5, color:'#ff006e',
+        label:{color:'#ff006e', offset:[8,8], fontSize:14}
+      });
+      // Keep P outside circle
+      P.on('drag', function() {
+        var dist = Math.sqrt(P.X()*P.X() + P.Y()*P.Y());
+        if(dist <= r + 0.5) {
+          var scale = (r+0.5)/dist;
+          P.moveTo([P.X()*scale, P.Y()*scale]);
+        }
+      });
+
+      // Tangent points as dependent functions
+      var T1x = function(){
+        var dx = P.X(), dy = P.Y();
+        var d = Math.sqrt(dx*dx + dy*dy);
+        if(d <= r) return r;
+        var a = r*r/d;
+        var h = r*Math.sqrt(d*d - r*r)/d;
+        return a*dx/d + h*(-dy/d);
+      };
+      var T1y = function(){
+        var dx = P.X(), dy = P.Y();
+        var d = Math.sqrt(dx*dx + dy*dy);
+        if(d <= r) return 0;
+        var a = r*r/d;
+        var h = r*Math.sqrt(d*d - r*r)/d;
+        return a*dy/d + h*(dx/d);
+      };
+      var T2x = function(){
+        var dx = P.X(), dy = P.Y();
+        var d = Math.sqrt(dx*dx + dy*dy);
+        if(d <= r) return r;
+        var a = r*r/d;
+        var h = r*Math.sqrt(d*d - r*r)/d;
+        return a*dx/d - h*(-dy/d);
+      };
+      var T2y = function(){
+        var dx = P.X(), dy = P.Y();
+        var d = Math.sqrt(dx*dx + dy*dy);
+        if(d <= r) return 0;
+        var a = r*r/d;
+        var h = r*Math.sqrt(d*d - r*r)/d;
+        return a*dy/d - h*(dx/d);
+      };
+
+      var tangPt1 = board.create('point', [T1x, T1y], {name:'T\u2081', size:4, color:'#00ff88', label:{color:'#00ff88', offset:[-15,8], fontSize:12}});
+      var tangPt2 = board.create('point', [T2x, T2y], {name:'T\u2082', size:4, color:'#ffd700', label:{color:'#ffd700', offset:[-15,-12], fontSize:12}});
+
+      // Tangent lines
+      board.create('segment', [P, tangPt1], {strokeColor:'#00ff88', strokeWidth:2});
+      board.create('segment', [P, tangPt2], {strokeColor:'#ffd700', strokeWidth:2});
+
+      // Radii to tangent points
+      board.create('segment', [O, tangPt1], {strokeColor:'#a855f7', strokeWidth:1.5, dash:2});
+      board.create('segment', [O, tangPt2], {strokeColor:'#a855f7', strokeWidth:1.5, dash:2});
+
+      // Line from O to P
+      board.create('segment', [O, P], {strokeColor:'#555', strokeWidth:1, dash:3});
+
+      // Readout
+      var readout = document.getElementById('exttangent-readout');
+      function updateReadout() {
+        var d = Math.sqrt(P.X()*P.X() + P.Y()*P.Y());
+        var tangLen = Math.sqrt(Math.max(0, d*d - r*r));
+        var t1Dist = Math.sqrt(Math.pow(P.X()-T1x(),2) + Math.pow(P.Y()-T1y(),2));
+        var t2Dist = Math.sqrt(Math.pow(P.X()-T2x(),2) + Math.pow(P.Y()-T2y(),2));
+        readout.innerHTML = 'd(O,P) = ' + d.toFixed(2) + ' &nbsp;|&nbsp; r = ' + r + ' &nbsp;|&nbsp; PT\u2081 = ' + t1Dist.toFixed(2) + ' &nbsp;|&nbsp; PT\u2082 = ' + t2Dist.toFixed(2) + ' &nbsp;|&nbsp; \u221A(d\u00B2\u2212r\u00B2) = ' + tangLen.toFixed(2);
+      }
+      P.on('drag', updateReadout);
+    })();
+
+    /* ====== Viz 2: Tangent-Radius Relationship ====== */
+    (function() {
+      var board = JXG.JSXGraph.initBoard('jsx-tanrad', {
+        boundingbox: [-6, 6, 6, -6], axis: false, grid: false,
+        showNavigation: false, showCopyright: false, keepAspectRatio: true
+      });
+      board.containerObj.style.background = 'rgba(0,0,0,0.4)';
+
+      var r = 3;
+      var O = board.create('point', [0, 0], {name:'O', size:3, color:'#00d4ff', fixed:true, label:{color:'#00d4ff', offset:[-15,10], fontSize:13}});
+      var circ = board.create('circle', [O, r], {strokeColor:'#00d4ff', strokeWidth:2, fixed:true, highlight:false});
+
+      // Draggable point T on circle
+      var T = board.create('glider', [r, 0, circ], {
+        name:'T', size:5, color:'#ff006e',
+        label:{color:'#ff006e', offset:[8,8], fontSize:14}
+      });
+
+      // Radius OT
+      var radius = board.create('segment', [O, T], {strokeColor:'#a855f7', strokeWidth:2.5});
+
+      // Tangent line at T (perpendicular to OT at T)
+      // Direction of tangent: perpendicular to OT
+      var tangLine = board.create('line', [T, function(){
+        var dx = T.X(), dy = T.Y();
+        // Perpendicular direction: (-dy, dx)
+        return [T.X() + (-dy), T.Y() + dx];
+      }], {
+        strokeColor:'#00ff88', strokeWidth:2.5,
+        straightFirst:true, straightLast:true, fixed:false
+      });
+
+      // Right angle indicator
+      var rightAngle = board.create('angle', [
+        function(){
+          var dx = T.X(), dy = T.Y();
+          return [T.X() + (-dy)*0.3, T.Y() + dx*0.3];
+        },
+        T,
+        O
+      ], {
+        radius:0.5, color:'rgba(255,215,0,0.3)', strokeColor:'#ffd700',
+        name:'90\u00B0', withLabel:true,
+        label:{color:'#ffd700', fontSize:12, offset:[0,0]}
+      });
+
+      // Label the radius
+      board.create('text', [function(){return T.X()/2-0.3;}, function(){return T.Y()/2+0.3;}, 'radius'], {color:'#a855f7', fontSize:11, fixed:true});
+
+      // Label the tangent
+      board.create('text', [function(){
+        var dx = T.X(), dy = T.Y();
+        return T.X() + (-dy)*0.6;
+      }, function(){
+        var dx = T.X(), dy = T.Y();
+        return T.Y() + dx*0.6;
+      }, 'tangent'], {color:'#00ff88', fontSize:11, fixed:true});
+
+      // Readout
+      var readout = document.getElementById('tanrad-readout');
+      function updateReadout() {
+        var angle = Math.atan2(T.Y(), T.X()) * 180 / Math.PI;
+        if(angle < 0) angle += 360;
+        readout.innerHTML = 'Point T at ' + angle.toFixed(1) + '\u00B0 on circle &nbsp;|&nbsp; Angle between radius and tangent = <strong>90\u00B0</strong> (always perpendicular)';
+      }
+      T.on('drag', updateReadout);
+    })();
+
+  });
+  </script>
 
   <script src="../js/engine.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>

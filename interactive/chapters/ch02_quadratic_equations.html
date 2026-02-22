@@ -10,6 +10,10 @@
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 
+  <!-- JSXGraph -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css">
+  <script src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"></script>
+
   <!-- Quest Math System -->
   <link rel="stylesheet" href="../css/style.css">
 
@@ -230,6 +234,46 @@
         }
       }
     </script>
+
+
+    <!-- ============================================================
+         PHASE: THE ORIGINS
+         ============================================================ -->
+    <section class="phase phase-origins animate-fadeInUp">
+      <div class="phase-tag">&#128220; The Origins</div>
+      <h2>The Art of al-Jabr</h2>
+      <p style="color: var(--text-secondary); margin-bottom: var(--space-lg);">
+        The quadratic equation you just encountered has a history spanning nearly two thousand years. Its solutions were forged across civilizations &mdash; from ancient Alexandria to the golden age of Baghdad.
+      </p>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">250 AD</div>
+          <div class="timeline-text"><span class="timeline-name">Diophantus</span> of Alexandria solves specific quadratic equations in his landmark work <em>Arithmetica</em>, but lacks general methods &mdash; each problem is treated as a unique puzzle.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">628 AD</div>
+          <div class="timeline-text"><span class="timeline-name">Brahmagupta</span> in India gives the first general formula for solving quadratic equations, including revolutionary rules for negative numbers. His work traveled along trade routes to Baghdad and directly influenced later scholars.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">820 AD</div>
+          <div class="timeline-text"><span class="timeline-name">Al-Khwarizmi</span> writes <em>Al-Jabr wal-Muqabala</em> in Baghdad &mdash; the founding text of algebra. He systematically solves quadratic equations using geometric methods, literally completing the square with actual squares drawn on paper! His name gives us the word &ldquo;algorithm,&rdquo; and his book title gives us &ldquo;algebra.&rdquo; Pakistani students are direct heirs to this extraordinary mathematical tradition.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">1545</div>
+          <div class="timeline-text"><span class="timeline-name">Gerolamo Cardano</span> in Italy extends the ideas to cubic equations in his masterwork <em>Ars Magna</em>, building on the algebraic foundations laid by Al-Khwarizmi.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">1637</div>
+          <div class="timeline-text"><span class="timeline-name">Ren&eacute; Descartes</span> in France introduces modern algebraic notation, giving the quadratic formula the elegant symbolic form $x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$ that we use today.</div>
+        </div>
+      </div>
+      <div class="heritage-box">
+        <h4>Your Mathematical Heritage</h4>
+        <p style="color: var(--text-secondary); line-height: 1.7;">
+          When you &ldquo;complete the square&rdquo; in this chapter, you are performing the exact same technique Al-Khwarizmi demonstrated over 1,200 years ago &mdash; except he drew actual geometric squares to show why it works! The House of Wisdom (<em>Bayt al-Hikma</em>) in Baghdad, where he worked, was the world&rsquo;s greatest center of learning, attracting scholars from Persia, India, and beyond. This is your mathematical heritage: algebra was born in the Islamic world, and every quadratic equation you solve connects you to that golden tradition.
+        </p>
+      </div>
+    </section>
 
 
     <!-- ============================================================
@@ -495,6 +539,19 @@
                 <li>Simplify and write the solution set.</li>
               </ol>
             </div>
+
+            <!-- JSXGraph: Parabola Explorer -->
+            <div class="viz-section" style="margin-top: var(--space-xl);">
+              <h4>Interactive: Parabola Explorer</h4>
+              <p>Drag the sliders to change $a$, $b$, and $c$ in $y = ax^2 + bx + c$. Watch the parabola move, and see the vertex, axis of symmetry, and roots update live. The curve turns <span style="color:#00ff88;">green</span> when $D > 0$ (two real roots), <span style="color:#00d4ff;">cyan</span> when $D = 0$ (one repeated root), and <span style="color:#ff3366;">red</span> when $D < 0$ (no real roots).</p>
+              <div id="jsx-parabola" class="jsx-container" style="height: 400px; border-radius: var(--radius-md); overflow: hidden; margin: var(--space-md) 0;"></div>
+              <div class="jsx-readout" id="parabola-readout" style="display: flex; flex-wrap: wrap; gap: var(--space-md); padding: var(--space-md); background: rgba(0,0,0,0.25); border-radius: var(--radius-md); margin-top: var(--space-sm);">
+                <span id="parabola-vertex" style="color: var(--neon-gold);">Vertex: (0.00, 0.00)</span>
+                <span id="parabola-disc" style="color: var(--neon-cyan);">Discriminant: 0</span>
+                <span id="parabola-roots" style="color: var(--neon-green);">Roots: --</span>
+              </div>
+            </div>
+
           </div>
         </div>
 
@@ -557,6 +614,18 @@
             <div class="warning-box">
               <strong>Remember:</strong> If $D < 0$, the roots contain $\sqrt{\text{negative number}}$, which gives imaginary numbers. These are not real roots!
             </div>
+
+            <!-- JSXGraph: Discriminant Visualizer -->
+            <div class="viz-section" style="margin-top: var(--space-xl);">
+              <h4>Interactive: Discriminant Visualizer</h4>
+              <p>Drag the slider to change the constant $c$ in $y = x^2 - 4x + c$. Watch the parabola shift vertically &mdash; crossing the x-axis (two roots), just touching it (one root), or floating above (no real roots).</p>
+              <div id="jsx-discriminant" class="jsx-container" style="height: 400px; border-radius: var(--radius-md); overflow: hidden; margin: var(--space-md) 0;"></div>
+              <div class="jsx-readout" id="discriminant-readout" style="display: flex; flex-wrap: wrap; gap: var(--space-md); padding: var(--space-md); background: rgba(0,0,0,0.25); border-radius: var(--radius-md); margin-top: var(--space-sm);">
+                <span id="disc-value" style="color: var(--neon-gold);">D = 16</span>
+                <span id="disc-type" style="color: var(--neon-green);">Two distinct real roots</span>
+              </div>
+            </div>
+
           </div>
         </div>
 
@@ -938,6 +1007,187 @@
     </div>
 
   </div><!-- end container -->
+
+  <!-- JSXGraph Initialization -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // ========== PARABOLA EXPLORER ==========
+    (function() {
+      var board = JXG.JSXGraph.initBoard('jsx-parabola', {
+        boundingbox: [-8, 12, 8, -6],
+        axis: false, grid: false,
+        showNavigation: false, showCopyright: false,
+        keepAspectRatio: false
+      });
+      board.containerObj.style.background = 'rgba(0,0,0,0.4)';
+
+      // Grid lines
+      for (var i = -7; i <= 7; i++) {
+        board.create('line', [[i, -6], [i, 12]], {strokeColor: 'rgba(255,255,255,0.05)', strokeWidth: 1, fixed: true, highlight: false});
+      }
+      for (var j = -5; j <= 11; j++) {
+        board.create('line', [[-8, j], [8, j]], {strokeColor: 'rgba(255,255,255,0.05)', strokeWidth: 1, fixed: true, highlight: false});
+      }
+
+      // Axes
+      board.create('axis', [[0, 0], [1, 0]], {strokeColor: '#94a3b8', strokeWidth: 1.5, ticks: {majorHeight: 8, minorHeight: 0, strokeColor: '#64748b', label: {color: '#94a3b8', fontSize: 10}}});
+      board.create('axis', [[0, 0], [0, 1]], {strokeColor: '#94a3b8', strokeWidth: 1.5, ticks: {majorHeight: 8, minorHeight: 0, strokeColor: '#64748b', label: {color: '#94a3b8', fontSize: 10}}});
+
+      // Sliders
+      var sliderA = board.create('slider', [[-7, 10.5], [-2, 10.5], [-3, 1, 3]], {name: 'a', snapWidth: 0.1, baseline: {strokeColor: '#64748b', strokeWidth: 2}, highline: {strokeColor: '#a855f7', strokeWidth: 3}, fillColor: '#a855f7', strokeColor: '#a855f7', size: 5, label: {color: '#a855f7', fontSize: 12}});
+      var sliderB = board.create('slider', [[-7, 9.5], [-2, 9.5], [-6, 0, 6]], {name: 'b', snapWidth: 0.1, baseline: {strokeColor: '#64748b', strokeWidth: 2}, highline: {strokeColor: '#00d4ff', strokeWidth: 3}, fillColor: '#00d4ff', strokeColor: '#00d4ff', size: 5, label: {color: '#00d4ff', fontSize: 12}});
+      var sliderC = board.create('slider', [[-7, 8.5], [-2, 8.5], [-8, 0, 8]], {name: 'c', snapWidth: 0.1, baseline: {strokeColor: '#64748b', strokeWidth: 2}, highline: {strokeColor: '#00ff88', strokeWidth: 3}, fillColor: '#00ff88', strokeColor: '#00ff88', size: 5, label: {color: '#00ff88', fontSize: 12}});
+
+      // Parabola curve
+      var parabola = board.create('functiongraph', [function(x) {
+        var a = sliderA.Value(), b = sliderB.Value(), c = sliderC.Value();
+        return a * x * x + b * x + c;
+      }], {
+        strokeWidth: 3,
+        strokeColor: function() {
+          var a = sliderA.Value(), b = sliderB.Value(), c = sliderC.Value();
+          var D = b * b - 4 * a * c;
+          if (D > 0.01) return '#00ff88';
+          if (D > -0.01) return '#00d4ff';
+          return '#ff3366';
+        }
+      });
+
+      // Vertex point
+      var vertex = board.create('point', [
+        function() { var a = sliderA.Value(), b = sliderB.Value(); return (a !== 0) ? -b / (2 * a) : 0; },
+        function() { var a = sliderA.Value(), b = sliderB.Value(), c = sliderC.Value(); var vx = (a !== 0) ? -b / (2 * a) : 0; return a * vx * vx + b * vx + c; }
+      ], {name: 'Vertex', color: '#ffd700', size: 4, label: {color: '#ffd700', fontSize: 11, offset: [10, 10]}});
+
+      // Axis of symmetry
+      board.create('line', [
+        function() { var a = sliderA.Value(), b = sliderB.Value(); return [1, 0, (a !== 0) ? b / (2 * a) : 0]; }
+      ], {strokeColor: 'rgba(255,215,0,0.4)', dash: 2, strokeWidth: 1.5, fixed: true, highlight: false});
+
+      // Root points
+      var root1 = board.create('point', [
+        function() {
+          var a = sliderA.Value(), b = sliderB.Value(), c = sliderC.Value();
+          var D = b * b - 4 * a * c;
+          if (a === 0 || D < 0) return -100;
+          return (-b - Math.sqrt(D)) / (2 * a);
+        },
+        0
+      ], {name: '', color: '#00ff88', size: 4, visible: function() { var a = sliderA.Value(), b = sliderB.Value(), c = sliderC.Value(); return a !== 0 && (b*b - 4*a*c) >= -0.01; }});
+
+      var root2 = board.create('point', [
+        function() {
+          var a = sliderA.Value(), b = sliderB.Value(), c = sliderC.Value();
+          var D = b * b - 4 * a * c;
+          if (a === 0 || D < 0) return -100;
+          return (-b + Math.sqrt(D)) / (2 * a);
+        },
+        0
+      ], {name: '', color: '#00ff88', size: 4, visible: function() { var a = sliderA.Value(), b = sliderB.Value(), c = sliderC.Value(); return a !== 0 && (b*b - 4*a*c) >= -0.01; }});
+
+      // Update readout
+      board.on('update', function() {
+        var a = sliderA.Value(), b = sliderB.Value(), c = sliderC.Value();
+        if (a === 0) {
+          document.getElementById('parabola-vertex').textContent = 'Vertex: (not a parabola when a=0)';
+          document.getElementById('parabola-disc').textContent = 'a must be non-zero';
+          document.getElementById('parabola-roots').textContent = '';
+          return;
+        }
+        var vx = -b / (2 * a), vy = a * vx * vx + b * vx + c;
+        var D = b * b - 4 * a * c;
+        document.getElementById('parabola-vertex').textContent = 'Vertex: (' + vx.toFixed(2) + ', ' + vy.toFixed(2) + ')';
+        document.getElementById('parabola-disc').textContent = 'D = ' + D.toFixed(2);
+        if (D > 0.01) {
+          var r1 = (-b - Math.sqrt(D)) / (2 * a), r2 = (-b + Math.sqrt(D)) / (2 * a);
+          document.getElementById('parabola-roots').textContent = 'Roots: ' + Math.min(r1,r2).toFixed(2) + ', ' + Math.max(r1,r2).toFixed(2);
+          document.getElementById('parabola-roots').style.color = '#00ff88';
+          document.getElementById('parabola-disc').style.color = '#00ff88';
+        } else if (D > -0.01) {
+          document.getElementById('parabola-roots').textContent = 'Root: ' + vx.toFixed(2) + ' (repeated)';
+          document.getElementById('parabola-roots').style.color = '#00d4ff';
+          document.getElementById('parabola-disc').style.color = '#00d4ff';
+        } else {
+          document.getElementById('parabola-roots').textContent = 'No real roots (complex)';
+          document.getElementById('parabola-roots').style.color = '#ff3366';
+          document.getElementById('parabola-disc').style.color = '#ff3366';
+        }
+      });
+    })();
+
+    // ========== DISCRIMINANT VISUALIZER ==========
+    (function() {
+      var board = JXG.JSXGraph.initBoard('jsx-discriminant', {
+        boundingbox: [-3, 10, 7, -4],
+        axis: false, grid: false,
+        showNavigation: false, showCopyright: false,
+        keepAspectRatio: false
+      });
+      board.containerObj.style.background = 'rgba(0,0,0,0.4)';
+
+      // Grid lines
+      for (var i = -2; i <= 6; i++) {
+        board.create('line', [[i, -4], [i, 10]], {strokeColor: 'rgba(255,255,255,0.05)', strokeWidth: 1, fixed: true, highlight: false});
+      }
+      for (var j = -3; j <= 9; j++) {
+        board.create('line', [[-3, j], [7, j]], {strokeColor: 'rgba(255,255,255,0.05)', strokeWidth: 1, fixed: true, highlight: false});
+      }
+
+      // Axes
+      board.create('axis', [[0, 0], [1, 0]], {strokeColor: '#94a3b8', strokeWidth: 1.5, ticks: {majorHeight: 8, minorHeight: 0, strokeColor: '#64748b', label: {color: '#94a3b8', fontSize: 10}}});
+      board.create('axis', [[0, 0], [0, 1]], {strokeColor: '#94a3b8', strokeWidth: 1.5, ticks: {majorHeight: 8, minorHeight: 0, strokeColor: '#64748b', label: {color: '#94a3b8', fontSize: 10}}});
+
+      // Slider for c (y = x^2 - 4x + c)
+      var sliderC = board.create('slider', [[-2, 8.5], [3, 8.5], [-2, 0, 8]], {name: 'c', snapWidth: 0.1, baseline: {strokeColor: '#64748b', strokeWidth: 2}, highline: {strokeColor: '#ffd700', strokeWidth: 3}, fillColor: '#ffd700', strokeColor: '#ffd700', size: 5, label: {color: '#ffd700', fontSize: 12}});
+
+      // Parabola: y = x^2 - 4x + c
+      var curve = board.create('functiongraph', [function(x) {
+        return x * x - 4 * x + sliderC.Value();
+      }], {
+        strokeWidth: 3,
+        strokeColor: function() {
+          var D = 16 - 4 * sliderC.Value();
+          if (D > 0.01) return '#00ff88';
+          if (D > -0.01) return '#00d4ff';
+          return '#ff3366';
+        }
+      });
+
+      // Root points
+      var r1 = board.create('point', [
+        function() { var D = 16 - 4 * sliderC.Value(); if (D < 0) return -100; return (4 - Math.sqrt(D)) / 2; }, 0
+      ], {name: '', color: '#00ff88', size: 4, visible: function() { return (16 - 4 * sliderC.Value()) >= -0.01; }});
+
+      var r2 = board.create('point', [
+        function() { var D = 16 - 4 * sliderC.Value(); if (D < 0) return -100; return (4 + Math.sqrt(D)) / 2; }, 0
+      ], {name: '', color: '#00ff88', size: 4, visible: function() { return (16 - 4 * sliderC.Value()) >= -0.01; }});
+
+      // Vertex
+      board.create('point', [2, function() { return 4 - 4 * 2 + sliderC.Value(); }], {name: 'V', color: '#ffd700', size: 3, label: {color: '#ffd700', fontSize: 10}});
+
+      // Update readout
+      board.on('update', function() {
+        var c = sliderC.Value();
+        var D = 16 - 4 * c;
+        document.getElementById('disc-value').textContent = 'D = b\u00B2 - 4ac = 16 - ' + (4 * c).toFixed(1) + ' = ' + D.toFixed(2);
+        if (D > 0.01) {
+          var x1 = (4 - Math.sqrt(D)) / 2, x2 = (4 + Math.sqrt(D)) / 2;
+          document.getElementById('disc-type').textContent = 'Two distinct real roots: x = ' + x1.toFixed(2) + ', ' + x2.toFixed(2);
+          document.getElementById('disc-type').style.color = '#00ff88';
+          document.getElementById('disc-value').style.color = '#00ff88';
+        } else if (D > -0.01) {
+          document.getElementById('disc-type').textContent = 'One repeated root: x = 2.00';
+          document.getElementById('disc-type').style.color = '#00d4ff';
+          document.getElementById('disc-value').style.color = '#00d4ff';
+        } else {
+          document.getElementById('disc-type').textContent = 'No real roots (D < 0) \u2014 parabola floats above x-axis';
+          document.getElementById('disc-type').style.color = '#ff3366';
+          document.getElementById('disc-value').style.color = '#ff3366';
+        }
+      });
+    })();
+  });
+  </script>
 
   <script src="../js/engine.js"></script>
   <script>

@@ -6,6 +6,9 @@
   <title>Quest 11: Practical Geometry of Circles | Quest Math 10</title>
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <!-- JSXGraph -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css">
+  <script src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"></script>
   <style>
     .chapter-hero {
       text-align: center;
@@ -153,6 +156,35 @@
         <p style="color: var(--neon-gold); font-size: 0.9rem;">This is why the perpendicular bisector method always works -- there is always exactly one centre equidistant from all three points.</p>
       </div>
     </div>
+
+    <!-- ==================== PHASE: ORIGINS ==================== -->
+    <section class="phase phase-origins animate-fadeInUp">
+      <div class="phase-tag">&#128220; The Origins</div>
+      <h2>The Art of Construction</h2>
+      <p style="color: var(--text-secondary); margin-bottom: var(--space-lg);">From pyramid builders to mosque architects, geometric construction has been humanity's way of imposing perfect order on the physical world -- using nothing but a compass and a straight line.</p>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">~2600 BC</div>
+          <div class="timeline-text"><span class="timeline-name">Egyptian rope-stretchers</span> (harpedonaptai) used ropes with 12 equally spaced knots to create perfect right angles (3-4-5 triangles) for building pyramids. This is practical geometry at its most ancient and fundamental.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">~300 BC</div>
+          <div class="timeline-text"><span class="timeline-name">Euclid</span> establishes the rules of construction: only a straightedge (unmarked ruler) and compass are allowed. His "Elements" includes elaborate constructions of regular polygons, angle bisections, and more.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">~100 AD</div>
+          <div class="timeline-text"><span class="timeline-name">Hero of Alexandria</span> develops practical geometric construction methods for engineering, including methods for finding areas and volumes.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">~1000 AD</div>
+          <div class="timeline-text"><span class="timeline-name">Abu al-Wafa al-Buzjani</span> writes a manual for artisans describing geometric constructions used in Islamic architecture -- the same constructions found in mosques and palaces from Spain to Pakistan.</div>
+        </div>
+      </div>
+      <div class="heritage-box">
+        <h4>Your Mathematical Heritage</h4>
+        <p style="color: var(--text-secondary); line-height: 1.7;">The geometric patterns adorning mosques across Pakistan -- from the Badshahi Mosque in Lahore to the Shah Faisal Mosque in Islamabad -- are living examples of practical geometry. Abu al-Wafa's construction manual (Kitab fima yahtaju ilayhi al-sani min al-amal al-handasiyya) taught artisans how to construct regular polygons, star patterns, and intricate tessellations using only a compass and straightedge. Every construction in this chapter connects to that 1000-year-old tradition of mathematical art.</p>
+      </div>
+    </section>
 
     <!-- ==================== PHASE: DISCOVERY ==================== -->
     <div class="phase phase-discovery">
@@ -371,6 +403,32 @@
         </div>
 
       </div><!-- /reveal-group -->
+
+      <!-- JSXGraph Viz 1: Compass and Straightedge Simulator -->
+      <div class="viz-section">
+        <h4>Interactive: Compass &amp; Straightedge -- Perpendicular Bisector</h4>
+        <p>Watch the classic compass-and-straightedge construction of a perpendicular bisector, step by step. Click <strong>Next Step</strong> to advance.</p>
+        <div id="jsx-perp-bisector" class="jsx-container" style="height: 400px;"></div>
+        <div class="jsx-readout" id="perp-bisector-readout">Click "Next Step" to begin the construction.</div>
+        <button class="btn btn-primary" id="perp-bisector-next" style="margin-top:12px;">Next Step</button>
+        <button class="btn btn-ghost" id="perp-bisector-reset" style="margin-top:12px; margin-left:8px;">Reset</button>
+      </div>
+
+      <!-- JSXGraph Viz 2: Angle Construction Explorer -->
+      <div class="viz-section">
+        <h4>Interactive: Angle Construction Explorer</h4>
+        <p>Select an angle to see its compass-and-straightedge construction animated step by step. The measurement confirms the constructed angle.</p>
+        <div style="margin-bottom: 12px;">
+          <button class="btn btn-primary jsx-angle-btn" data-angle="60" style="margin:4px;">60&deg;</button>
+          <button class="btn btn-primary jsx-angle-btn" data-angle="90" style="margin:4px;">90&deg;</button>
+          <button class="btn btn-primary jsx-angle-btn" data-angle="120" style="margin:4px;">120&deg;</button>
+          <button class="btn btn-primary jsx-angle-btn" data-angle="45" style="margin:4px;">45&deg;</button>
+          <button class="btn btn-primary jsx-angle-btn" data-angle="30" style="margin:4px;">30&deg;</button>
+        </div>
+        <div id="jsx-angle-construct" class="jsx-container" style="height: 400px;"></div>
+        <div class="jsx-readout" id="angle-construct-readout">Select an angle above to begin.</div>
+      </div>
+
     </div>
 
     <!-- ==================== PHASE: PRACTICE ==================== -->
@@ -564,6 +622,231 @@
     </div>
 
   </div><!-- /container -->
+
+  <!-- JSXGraph Visualizations -->
+  <script>
+  (function() {
+    // ===== VIZ 1: Perpendicular Bisector Construction =====
+    var boardPB = JXG.JSXGraph.initBoard('jsx-perp-bisector', {
+      boundingbox: [-2, 5, 10, -5], axis: false, grid: false,
+      showNavigation: false, showCopyright: false, keepAspectRatio: true
+    });
+    boardPB.containerObj.style.background = 'rgba(0,0,0,0.4)';
+
+    var pbStep = 0;
+    var pbElements = [];
+    var pbReadout = document.getElementById('perp-bisector-readout');
+
+    // Points A and B (always visible)
+    var pA = boardPB.create('point', [1, 0], {name: 'A', fixed: true, size: 4, color: '#ff006e', label: {color: '#ff006e', fontSize: 14, offset: [-15, -15]}});
+    var pB = boardPB.create('point', [7, 0], {name: 'B', fixed: true, size: 4, color: '#ff006e', label: {color: '#ff006e', fontSize: 14, offset: [5, -15]}});
+
+    var pbSteps = [
+      function() {
+        // Step 1: Draw segment AB
+        var seg = boardPB.create('segment', [pA, pB], {strokeColor: '#00d4ff', strokeWidth: 2});
+        pbElements.push(seg);
+        pbReadout.textContent = 'Step 1: Draw line segment AB.';
+      },
+      function() {
+        // Step 2: Circle centred at A with radius > AB/2
+        var c1 = boardPB.create('circle', [pA, 4.5], {strokeColor: '#a855f7', strokeWidth: 1.5, dash: 2, fillColor: 'none'});
+        pbElements.push(c1);
+        pbReadout.textContent = 'Step 2: Draw a circle centred at A with radius greater than half of AB.';
+      },
+      function() {
+        // Step 3: Circle centred at B with same radius
+        var c2 = boardPB.create('circle', [pB, 4.5], {strokeColor: '#ffd700', strokeWidth: 1.5, dash: 2, fillColor: 'none'});
+        pbElements.push(c2);
+        pbReadout.textContent = 'Step 3: Draw a circle centred at B with the same radius.';
+      },
+      function() {
+        // Step 4: Mark intersection points
+        // Intersection of two circles of radius 4.5 centred at (1,0) and (7,0)
+        // midpoint x=4, half-chord = sqrt(4.5^2 - 3^2) = sqrt(20.25-9) = sqrt(11.25)
+        var dy = Math.sqrt(4.5*4.5 - 3*3);
+        var pP = boardPB.create('point', [4, dy], {name: 'P', fixed: true, size: 4, color: '#00ff88', label: {color: '#00ff88', fontSize: 14, offset: [5, 10]}});
+        var pQ = boardPB.create('point', [4, -dy], {name: 'Q', fixed: true, size: 4, color: '#00ff88', label: {color: '#00ff88', fontSize: 14, offset: [5, -15]}});
+        pbElements.push(pP, pQ);
+        pbReadout.textContent = 'Step 4: Mark the two intersection points P and Q of the circles.';
+      },
+      function() {
+        // Step 5: Draw line PQ -- the perpendicular bisector
+        var dy = Math.sqrt(4.5*4.5 - 3*3);
+        var bisector = boardPB.create('line', [[4, dy], [4, -dy]], {strokeColor: '#00ff88', strokeWidth: 2.5, straightFirst: true, straightLast: true});
+        // Mark midpoint M
+        var pM = boardPB.create('point', [4, 0], {name: 'M', fixed: true, size: 3, color: '#ffffff', label: {color: '#ffffff', fontSize: 13, offset: [5, -15]}});
+        // Right angle marker
+        var sq = boardPB.create('polygon', [[3.6, 0], [3.6, 0.4], [4, 0.4], [4, 0]], {
+          borders: {strokeColor: '#ffffff', strokeWidth: 1},
+          fillColor: 'rgba(255,255,255,0.1)', hasInnerPoints: false, vertices: {visible: false}
+        });
+        pbElements.push(bisector, pM, sq);
+        pbReadout.textContent = 'Step 5: Connect P and Q. Line PQ is the perpendicular bisector of AB. It crosses AB at its midpoint M at 90\u00B0.';
+      }
+    ];
+
+    document.getElementById('perp-bisector-next').addEventListener('click', function() {
+      if (pbStep < pbSteps.length) {
+        pbSteps[pbStep]();
+        pbStep++;
+        if (pbStep >= pbSteps.length) {
+          this.textContent = 'Done!';
+          this.disabled = true;
+        }
+      }
+    });
+
+    document.getElementById('perp-bisector-reset').addEventListener('click', function() {
+      for (var i = pbElements.length - 1; i >= 0; i--) {
+        boardPB.removeObject(pbElements[i]);
+      }
+      pbElements = [];
+      pbStep = 0;
+      pbReadout.textContent = 'Click "Next Step" to begin the construction.';
+      var btn = document.getElementById('perp-bisector-next');
+      btn.textContent = 'Next Step';
+      btn.disabled = false;
+    });
+
+    // ===== VIZ 2: Angle Construction Explorer =====
+    var boardAC = JXG.JSXGraph.initBoard('jsx-angle-construct', {
+      boundingbox: [-2, 6, 10, -4], axis: false, grid: false,
+      showNavigation: false, showCopyright: false, keepAspectRatio: true
+    });
+    boardAC.containerObj.style.background = 'rgba(0,0,0,0.4)';
+
+    var acReadout = document.getElementById('angle-construct-readout');
+
+    function constructAngle(degrees) {
+      // Clear board
+      boardAC.suspendUpdate();
+      // Remove all objects except the board itself
+      var ids = [];
+      for (var id in boardAC.objects) {
+        if (boardAC.objects.hasOwnProperty(id)) ids.push(id);
+      }
+      for (var j = 0; j < ids.length; j++) {
+        try { boardAC.removeObject(boardAC.objects[ids[j]]); } catch(e) {}
+      }
+      boardAC.unsuspendUpdate();
+
+      var O = boardAC.create('point', [1, 0], {name: 'O', fixed: true, size: 4, color: '#ff006e', label: {color: '#ff006e', fontSize: 14, offset: [-15, -15]}});
+      var rayEnd = boardAC.create('point', [9, 0], {name: '', fixed: true, size: 0, visible: false});
+      var baseRay = boardAC.create('segment', [O, rayEnd], {strokeColor: '#00d4ff', strokeWidth: 2});
+
+      var rad = degrees * Math.PI / 180;
+      var R = 3.5; // construction radius
+
+      if (degrees === 60) {
+        // Arc from O
+        var arcPt = boardAC.create('point', [1 + R, 0], {name: '', fixed: true, visible: false});
+        var c1 = boardAC.create('circle', [O, R], {strokeColor: '#a855f7', strokeWidth: 1.5, dash: 2, fillColor: 'none'});
+        // Arc from point on base ray
+        var baseP = boardAC.create('point', [1 + R, 0], {name: 'A', fixed: true, size: 3, color: '#ffd700', label: {color: '#ffd700', fontSize: 13, offset: [5, -15]}});
+        var c2 = boardAC.create('circle', [baseP, R], {strokeColor: '#ffd700', strokeWidth: 1.5, dash: 2, fillColor: 'none'});
+        // Intersection at 60 degrees
+        var ix = 1 + R * Math.cos(rad);
+        var iy = R * Math.sin(rad);
+        var intPt = boardAC.create('point', [ix, iy], {name: 'B', fixed: true, size: 4, color: '#00ff88', label: {color: '#00ff88', fontSize: 14, offset: [5, 10]}});
+        var angleLine = boardAC.create('segment', [O, [ix + 3*Math.cos(rad), iy + 3*Math.sin(rad)]], {strokeColor: '#00ff88', strokeWidth: 2});
+        // Angle arc
+        boardAC.create('arc', [O, [1 + 1.2, 0], [1 + 1.2*Math.cos(rad), 1.2*Math.sin(rad)]], {strokeColor: '#ff006e', strokeWidth: 2, fixed: true});
+        acReadout.textContent = 'Constructed 60\u00B0 angle: Draw equal arcs from O and from A. Their intersection B gives \u2220AOB = 60\u00B0.';
+
+      } else if (degrees === 90) {
+        // Draw semi-circle from O
+        var c1 = boardAC.create('circle', [O, R], {strokeColor: '#a855f7', strokeWidth: 1.5, dash: 2, fillColor: 'none'});
+        var baseP = boardAC.create('point', [1 + R, 0], {name: 'A', fixed: true, size: 3, color: '#ffd700', label: {color: '#ffd700', fontSize: 13, offset: [5, -15]}});
+        // First arc: 60 degrees
+        var p60x = 1 + R * Math.cos(Math.PI/3);
+        var p60y = R * Math.sin(Math.PI/3);
+        var p60 = boardAC.create('point', [p60x, p60y], {name: 'C', fixed: true, size: 3, color: '#ffd700', label: {color: '#ffd700', fontSize: 12, offset: [5, 5]}});
+        var c2 = boardAC.create('circle', [baseP, R], {strokeColor: '#ffd700', strokeWidth: 1, dash: 2, fillColor: 'none'});
+        // Second arc from C with same radius intersects at 120 deg
+        var p120x = 1 + R * Math.cos(2*Math.PI/3);
+        var p120y = R * Math.sin(2*Math.PI/3);
+        var p120 = boardAC.create('point', [p120x, p120y], {name: 'D', fixed: true, size: 3, color: '#ffd700', label: {color: '#ffd700', fontSize: 12, offset: [-15, 5]}});
+        var c3 = boardAC.create('circle', [p60, R], {strokeColor: '#00ff88', strokeWidth: 1, dash: 2, fillColor: 'none'});
+        // Bisect arc CD to find 90 degrees
+        var p90x = 1 + R * Math.cos(Math.PI/2);
+        var p90y = R * Math.sin(Math.PI/2);
+        var p90 = boardAC.create('point', [p90x, p90y], {name: 'B', fixed: true, size: 4, color: '#00ff88', label: {color: '#00ff88', fontSize: 14, offset: [5, 10]}});
+        var angleLine = boardAC.create('segment', [O, [p90x + 2*Math.cos(Math.PI/2), p90y + 2*Math.sin(Math.PI/2)]], {strokeColor: '#00ff88', strokeWidth: 2});
+        boardAC.create('arc', [O, [1 + 1.2, 0], [1 + 1.2*Math.cos(Math.PI/2), 1.2*Math.sin(Math.PI/2)]], {strokeColor: '#ff006e', strokeWidth: 2, fixed: true});
+        acReadout.textContent = 'Constructed 90\u00B0 angle: Bisect the arc between 60\u00B0 and 120\u00B0 to find the 90\u00B0 point B. \u2220AOB = 90\u00B0.';
+
+      } else if (degrees === 120) {
+        var c1 = boardAC.create('circle', [O, R], {strokeColor: '#a855f7', strokeWidth: 1.5, dash: 2, fillColor: 'none'});
+        var baseP = boardAC.create('point', [1 + R, 0], {name: 'A', fixed: true, size: 3, color: '#ffd700', label: {color: '#ffd700', fontSize: 13, offset: [5, -15]}});
+        // 60 degree mark
+        var p60x = 1 + R * Math.cos(Math.PI/3);
+        var p60y = R * Math.sin(Math.PI/3);
+        var p60 = boardAC.create('point', [p60x, p60y], {name: 'C', fixed: true, size: 3, color: '#ffd700', label: {color: '#ffd700', fontSize: 12, offset: [5, 5]}});
+        var c2 = boardAC.create('circle', [baseP, R], {strokeColor: '#ffd700', strokeWidth: 1, dash: 2, fillColor: 'none'});
+        // Arc from C to get 120 deg mark
+        var c3 = boardAC.create('circle', [p60, R], {strokeColor: '#00ff88', strokeWidth: 1, dash: 2, fillColor: 'none'});
+        var p120x = 1 + R * Math.cos(2*Math.PI/3);
+        var p120y = R * Math.sin(2*Math.PI/3);
+        var p120 = boardAC.create('point', [p120x, p120y], {name: 'B', fixed: true, size: 4, color: '#00ff88', label: {color: '#00ff88', fontSize: 14, offset: [-15, 10]}});
+        var angleLine = boardAC.create('segment', [O, [p120x + 2*Math.cos(2*Math.PI/3), p120y + 2*Math.sin(2*Math.PI/3)]], {strokeColor: '#00ff88', strokeWidth: 2});
+        boardAC.create('arc', [O, [1 + 1.2, 0], [1 + 1.2*Math.cos(2*Math.PI/3), 1.2*Math.sin(2*Math.PI/3)]], {strokeColor: '#ff006e', strokeWidth: 2, fixed: true});
+        acReadout.textContent = 'Constructed 120\u00B0 angle: Two successive 60\u00B0 arcs. From A mark C (60\u00B0), from C mark B (120\u00B0). \u2220AOB = 120\u00B0.';
+
+      } else if (degrees === 45) {
+        // Construct 90 first, then bisect
+        var c1 = boardAC.create('circle', [O, R], {strokeColor: '#a855f7', strokeWidth: 1.5, dash: 2, fillColor: 'none'});
+        var baseP = boardAC.create('point', [1 + R, 0], {name: 'A', fixed: true, size: 3, color: '#ffd700', label: {color: '#ffd700', fontSize: 13, offset: [5, -15]}});
+        // 90 degree point
+        var p90x = 1 + R * Math.cos(Math.PI/2);
+        var p90y = R * Math.sin(Math.PI/2);
+        var p90 = boardAC.create('point', [p90x, p90y], {name: 'C', fixed: true, size: 3, color: '#ffd700', dash: 2, label: {color: '#ffd700', fontSize: 12, offset: [5, 5]}});
+        var line90 = boardAC.create('segment', [O, p90], {strokeColor: '#ffd700', strokeWidth: 1, dash: 2});
+        // Bisect to get 45
+        var p45x = 1 + R * Math.cos(Math.PI/4);
+        var p45y = R * Math.sin(Math.PI/4);
+        var p45 = boardAC.create('point', [p45x, p45y], {name: 'B', fixed: true, size: 4, color: '#00ff88', label: {color: '#00ff88', fontSize: 14, offset: [5, 10]}});
+        var angleLine = boardAC.create('segment', [O, [p45x + 3*Math.cos(Math.PI/4), p45y + 3*Math.sin(Math.PI/4)]], {strokeColor: '#00ff88', strokeWidth: 2});
+        // Bisector arcs
+        var c2 = boardAC.create('circle', [baseP, 3], {strokeColor: '#00ff88', strokeWidth: 1, dash: 2, fillColor: 'none'});
+        var c3 = boardAC.create('circle', [p90, 3], {strokeColor: '#00ff88', strokeWidth: 1, dash: 2, fillColor: 'none'});
+        boardAC.create('arc', [O, [1 + 1.2, 0], [1 + 1.2*Math.cos(Math.PI/4), 1.2*Math.sin(Math.PI/4)]], {strokeColor: '#ff006e', strokeWidth: 2, fixed: true});
+        acReadout.textContent = 'Constructed 45\u00B0 angle: First construct 90\u00B0 (at C), then bisect arc AC to get B. \u2220AOB = 45\u00B0.';
+
+      } else if (degrees === 30) {
+        // Construct 60 first, then bisect
+        var c1 = boardAC.create('circle', [O, R], {strokeColor: '#a855f7', strokeWidth: 1.5, dash: 2, fillColor: 'none'});
+        var baseP = boardAC.create('point', [1 + R, 0], {name: 'A', fixed: true, size: 3, color: '#ffd700', label: {color: '#ffd700', fontSize: 13, offset: [5, -15]}});
+        var c2 = boardAC.create('circle', [baseP, R], {strokeColor: '#ffd700', strokeWidth: 1, dash: 2, fillColor: 'none'});
+        // 60 degree point
+        var p60x = 1 + R * Math.cos(Math.PI/3);
+        var p60y = R * Math.sin(Math.PI/3);
+        var p60 = boardAC.create('point', [p60x, p60y], {name: 'C', fixed: true, size: 3, color: '#ffd700', label: {color: '#ffd700', fontSize: 12, offset: [5, 5]}});
+        var line60 = boardAC.create('segment', [O, p60], {strokeColor: '#ffd700', strokeWidth: 1, dash: 2});
+        // Bisect to get 30
+        var p30x = 1 + R * Math.cos(Math.PI/6);
+        var p30y = R * Math.sin(Math.PI/6);
+        var p30 = boardAC.create('point', [p30x, p30y], {name: 'B', fixed: true, size: 4, color: '#00ff88', label: {color: '#00ff88', fontSize: 14, offset: [5, 10]}});
+        var angleLine = boardAC.create('segment', [O, [p30x + 3*Math.cos(Math.PI/6), p30y + 3*Math.sin(Math.PI/6)]], {strokeColor: '#00ff88', strokeWidth: 2});
+        // Bisector arcs
+        var c3 = boardAC.create('circle', [baseP, 3], {strokeColor: '#00ff88', strokeWidth: 1, dash: 2, fillColor: 'none'});
+        var c4 = boardAC.create('circle', [p60, 3], {strokeColor: '#00ff88', strokeWidth: 1, dash: 2, fillColor: 'none'});
+        boardAC.create('arc', [O, [1 + 1.2, 0], [1 + 1.2*Math.cos(Math.PI/6), 1.2*Math.sin(Math.PI/6)]], {strokeColor: '#ff006e', strokeWidth: 2, fixed: true});
+        acReadout.textContent = 'Constructed 30\u00B0 angle: First construct 60\u00B0 (at C), then bisect arc AC to get B. \u2220AOB = 30\u00B0.';
+      }
+    }
+
+    // Button listeners
+    var angleBtns = document.querySelectorAll('.jsx-angle-btn');
+    angleBtns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        angleBtns.forEach(function(b) { b.style.opacity = '0.5'; });
+        this.style.opacity = '1';
+        constructAngle(parseInt(this.getAttribute('data-angle')));
+      });
+    });
+  })();
+  </script>
 
   <script src="../js/engine.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>

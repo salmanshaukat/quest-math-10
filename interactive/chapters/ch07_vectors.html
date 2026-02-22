@@ -6,6 +6,9 @@
   <title>Quest 07: Vectors in Plane | Quest Math 10</title>
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <!-- JSXGraph -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css">
+  <script src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"></script>
   <style>
     .chapter-hero {
       text-align: center;
@@ -134,6 +137,35 @@
       </div>
     </div>
 
+    <!-- ===================== PHASE: ORIGINS ===================== -->
+    <section class="phase phase-origins animate-fadeInUp">
+      <div class="phase-tag">&#128220; The Origins</div>
+      <h2>Magnitude and Direction</h2>
+      <p style="color: var(--text-secondary); margin-bottom: var(--space-lg);">The idea of combining magnitude with direction seems simple -- but it took brilliant mathematicians centuries to formalize it into the vector theory you use today.</p>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">836-901 AD</div>
+          <div class="timeline-text"><span class="timeline-name">Thabit ibn Qurra (Baghdad)</span> and later <span class="timeline-name">Nasir al-Din al-Tusi</span> (1201-1274, Persia) worked extensively with directed magnitudes in astronomy, computing the positions of celestial bodies using methods that were precursors to vector decomposition.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">1843</div>
+          <div class="timeline-text"><span class="timeline-name">Sir William Rowan Hamilton (Ireland)</span> invents quaternions while walking along the Royal Canal in Dublin. He's so excited he carves the formula $i^2 = j^2 = k^2 = ijk = -1$ into the stone of Brougham Bridge! This leads to vector theory.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">1844</div>
+          <div class="timeline-text"><span class="timeline-name">Hermann Grassmann (Germany)</span> independently develops a theory of "extensions" that generalizes vectors to any dimension -- far ahead of its time.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">1881-1884</div>
+          <div class="timeline-text"><span class="timeline-name">Josiah Willard Gibbs (USA)</span> and <span class="timeline-name">Oliver Heaviside (England)</span> independently simplify Hamilton's quaternions into the modern vector notation we use today -- the $\hat{i}$, $\hat{j}$, $\hat{k}$ system.</div>
+        </div>
+      </div>
+      <div class="heritage-box">
+        <h4>Your Mathematical Heritage</h4>
+        <p style="color: var(--text-secondary); line-height: 1.7;">Al-Tusi created the famous "Tusi couple" -- a mathematical device using two rotating circles to produce linear motion. This ingenious use of directed magnitudes (essentially vector components) influenced Copernicus's model of planetary motion. The connection between Islamic astronomical calculations and modern vector theory runs deep. When you decompose a vector into $x$ and $y$ components, you are continuing a tradition that began in the observatories of Baghdad and Maragheh.</p>
+      </div>
+    </section>
+
     <!-- ===================== PHASE 3: DISCOVERY ===================== -->
     <div class="phase phase-discovery">
       <div class="phase-tag">&#128161; Discovery Zone</div>
@@ -188,6 +220,16 @@
               <h4>Example</h4>
               <p>Find the magnitude of $\vec{u} = [-5, 12]$.</p>
               <p>$|\vec{u}| = \sqrt{(-5)^2 + 12^2} = \sqrt{25 + 144} = \sqrt{169} = 13$ units</p>
+            </div>
+
+            <!-- JSXGraph Viz 1: Vector Components Explorer -->
+            <div class="viz-section" style="margin-top: var(--space-xl);">
+              <h4>Interactive: Vector Components Explorer</h4>
+              <p>Drag the tip of the vector to explore how magnitude, angle, and components change in real time. The dashed lines show the $x$ and $y$ components forming a right triangle.</p>
+              <div id="jsx-vec-components" class="jsx-container" style="height: 400px;"></div>
+              <div class="jsx-readout" id="vec-components-readout" style="margin-top:12px; padding:12px; background:rgba(0,0,0,0.3); border-radius:var(--radius-md); font-size:0.95rem; text-align:center;">
+                Drag the vector tip to explore components.
+              </div>
             </div>
           </div>
         </div>
@@ -256,6 +298,16 @@
               <p>If $\vec{a} = [4, 6]$, $\vec{b} = [-3, 1]$, $\vec{c} = [2, -2]$, find $\vec{a} + 2\vec{b} + \vec{c}$.</p>
               <p>$= [4,6] + 2[-3,1] + [2,-2] = [4,6] + [-6,2] + [2,-2] = [0, 6]$</p>
               <p>$|\vec{a} + 2\vec{b} + \vec{c}| = \sqrt{0^2 + 6^2} = 6$ units</p>
+            </div>
+
+            <!-- JSXGraph Viz 2: Vector Addition -->
+            <div class="viz-section" style="margin-top: var(--space-xl);">
+              <h4>Interactive: Vector Addition</h4>
+              <p>Drag the tips of $\vec{v_1}$ (cyan) and $\vec{v_2}$ (green) to see tip-to-tail addition, the parallelogram law, and the resultant vector (pink) in real time.</p>
+              <div id="jsx-vec-addition" class="jsx-container" style="height: 400px;"></div>
+              <div class="jsx-readout" id="vec-addition-readout" style="margin-top:12px; padding:12px; background:rgba(0,0,0,0.3); border-radius:var(--radius-md); font-size:0.95rem; text-align:center;">
+                Drag the vector tips to explore addition.
+              </div>
             </div>
           </div>
         </div>
@@ -484,6 +536,246 @@
     </div>
 
   </div><!-- /container -->
+
+  <!-- JSXGraph Initialization -->
+  <script>
+  (function() {
+    // ============================================
+    // Viz 1: Vector Components Explorer
+    // ============================================
+    function buildVecComponents() {
+      var board = JXG.JSXGraph.initBoard('jsx-vec-components', {
+        boundingbox: [-6, 6, 6, -6], axis: false, grid: false,
+        showNavigation: false, showCopyright: false, keepAspectRatio: true
+      });
+      board.containerObj.style.background = 'rgba(0,0,0,0.4)';
+
+      // Axes
+      board.create('axis', [[0,0],[1,0]], {
+        strokeColor: '#64748b', strokeWidth: 1, highlight: false,
+        ticks: { strokeColor: '#475569', label: { fontSize: 10, cssStyle: 'color:#94a3b8' } }
+      });
+      board.create('axis', [[0,0],[0,1]], {
+        strokeColor: '#64748b', strokeWidth: 1, highlight: false,
+        ticks: { strokeColor: '#475569', label: { fontSize: 10, cssStyle: 'color:#94a3b8' } }
+      });
+
+      // Origin
+      var origin = board.create('point', [0, 0], {
+        fixed: true, size: 3, fillColor: '#fff', strokeColor: '#fff', name: 'O',
+        label: { offset: [-12, -12], cssStyle: 'color:#94a3b8; font-size:11px;' }
+      });
+
+      // Draggable tip
+      var tip = board.create('point', [3, 4], {
+        size: 5, fillColor: '#00d4ff', strokeColor: '#fff', strokeWidth: 2,
+        name: '', withLabel: false
+      });
+
+      // Main vector arrow
+      board.create('arrow', [origin, tip], {
+        strokeColor: '#00d4ff', strokeWidth: 3, highlight: false
+      });
+
+      // X-component arrow (along x-axis)
+      var xEnd = board.create('point', [function(){ return tip.X(); }, 0], {
+        visible: false, fixed: true
+      });
+      board.create('arrow', [origin, xEnd], {
+        strokeColor: '#00ff88', strokeWidth: 2.5, highlight: false
+      });
+      board.create('text', [function(){ return tip.X()/2; }, -0.5,
+        function(){ return 'x = ' + tip.X().toFixed(1); }
+      ], { cssStyle: 'color:#00ff88; font-size:11px;', anchorX: 'middle', highlight: false });
+
+      // Y-component arrow (along y-axis)
+      var yEnd = board.create('point', [0, function(){ return tip.Y(); }], {
+        visible: false, fixed: true
+      });
+      board.create('arrow', [origin, yEnd], {
+        strokeColor: '#a855f7', strokeWidth: 2.5, highlight: false
+      });
+      board.create('text', [-0.6, function(){ return tip.Y()/2; },
+        function(){ return 'y = ' + tip.Y().toFixed(1); }
+      ], { cssStyle: 'color:#a855f7; font-size:11px;', anchorX: 'right', highlight: false });
+
+      // Dashed lines forming right triangle
+      board.create('segment', [tip, xEnd], {
+        strokeColor: 'rgba(168,85,247,0.5)', strokeWidth: 1, dash: 3, fixed: true, highlight: false
+      });
+      board.create('segment', [tip, yEnd], {
+        strokeColor: 'rgba(0,255,136,0.5)', strokeWidth: 1, dash: 3, fixed: true, highlight: false
+      });
+
+      // Angle arc from positive x-axis to vector (using parametric curve for all-quadrant correctness)
+      var posXRef = board.create('point', [1, 0], {visible: false, fixed: true});
+      board.create('curve', [
+        function(t) { return 0.8 * Math.cos(t); },
+        function(t) { return 0.8 * Math.sin(t); },
+        function() {
+          var ang = Math.atan2(tip.Y(), tip.X());
+          return ang >= 0 ? 0 : ang;
+        },
+        function() {
+          var ang = Math.atan2(tip.Y(), tip.X());
+          return ang >= 0 ? ang : 0;
+        }
+      ], {
+        strokeColor: '#ffd700', strokeWidth: 2, highlight: false, fixed: true
+      });
+      // Angle label
+      board.create('text', [
+        function() {
+          var ang = Math.atan2(tip.Y(), tip.X());
+          if (ang < 0) ang += 2 * Math.PI;
+          return 1.1 * Math.cos(ang / 2);
+        },
+        function() {
+          var ang = Math.atan2(tip.Y(), tip.X());
+          if (ang < 0) ang += 2 * Math.PI;
+          return 1.1 * Math.sin(ang / 2);
+        },
+        function() {
+          var angle = Math.atan2(tip.Y(), tip.X()) * 180 / Math.PI;
+          if (angle < 0) angle += 360;
+          return angle.toFixed(1) + '\u00B0';
+        }
+      ], { cssStyle: 'color:#ffd700; font-size:11px;', anchorX: 'middle', highlight: false });
+
+      // Readout
+      var readout = document.getElementById('vec-components-readout');
+      board.on('update', function() {
+        var x = tip.X();
+        var y = tip.Y();
+        var mag = Math.sqrt(x*x + y*y);
+        var angle = Math.atan2(y, x) * 180 / Math.PI;
+        if (angle < 0) angle += 360;
+        if (readout) {
+          readout.innerHTML =
+            '<span style="color:#00d4ff;"><strong>\u20D7v</strong> = [' + x.toFixed(1) + ', ' + y.toFixed(1) + ']</span>' +
+            ' &nbsp;|&nbsp; <strong>|\u20D7v|</strong> = ' + mag.toFixed(2) +
+            ' &nbsp;|&nbsp; <strong>\u03B8</strong> = ' + angle.toFixed(1) + '\u00B0' +
+            ' &nbsp;|&nbsp; <span style="color:#00ff88;">x-comp = ' + x.toFixed(1) + '</span>' +
+            ' &nbsp;|&nbsp; <span style="color:#a855f7;">y-comp = ' + y.toFixed(1) + '</span>';
+        }
+      });
+    }
+
+    // ============================================
+    // Viz 2: Vector Addition
+    // ============================================
+    function buildVecAddition() {
+      var board = JXG.JSXGraph.initBoard('jsx-vec-addition', {
+        boundingbox: [-6, 6, 6, -6], axis: false, grid: false,
+        showNavigation: false, showCopyright: false, keepAspectRatio: true
+      });
+      board.containerObj.style.background = 'rgba(0,0,0,0.4)';
+
+      // Axes
+      board.create('axis', [[0,0],[1,0]], {
+        strokeColor: '#64748b', strokeWidth: 1, highlight: false,
+        ticks: { strokeColor: '#475569', label: { fontSize: 10, cssStyle: 'color:#94a3b8' } }
+      });
+      board.create('axis', [[0,0],[0,1]], {
+        strokeColor: '#64748b', strokeWidth: 1, highlight: false,
+        ticks: { strokeColor: '#475569', label: { fontSize: 10, cssStyle: 'color:#94a3b8' } }
+      });
+
+      // Origin
+      var O = board.create('point', [0, 0], {
+        fixed: true, size: 3, fillColor: '#fff', strokeColor: '#fff', name: 'O',
+        label: { offset: [-12, -12], cssStyle: 'color:#94a3b8; font-size:11px;' }
+      });
+
+      // Draggable vector tips
+      var tip1 = board.create('point', [3, 2], {
+        size: 5, fillColor: '#00d4ff', strokeColor: '#fff', strokeWidth: 2,
+        name: 'v\u2081', label: { offset: [8, 5], cssStyle: 'color:#00d4ff; font-size:12px; font-weight:700;' }
+      });
+      var tip2 = board.create('point', [1, 3], {
+        size: 5, fillColor: '#00ff88', strokeColor: '#fff', strokeWidth: 2,
+        name: 'v\u2082', label: { offset: [8, 5], cssStyle: 'color:#00ff88; font-size:12px; font-weight:700;' }
+      });
+
+      // v1 arrow (cyan)
+      board.create('arrow', [O, tip1], {
+        strokeColor: '#00d4ff', strokeWidth: 3, highlight: false
+      });
+
+      // v2 arrow (green)
+      board.create('arrow', [O, tip2], {
+        strokeColor: '#00ff88', strokeWidth: 3, highlight: false
+      });
+
+      // Resultant point
+      var resultant = board.create('point', [
+        function(){ return tip1.X() + tip2.X(); },
+        function(){ return tip1.Y() + tip2.Y(); }
+      ], {
+        size: 5, fillColor: '#ff006e', strokeColor: '#fff', strokeWidth: 2,
+        name: 'v\u2081+v\u2082', fixed: true,
+        label: { offset: [8, 5], cssStyle: 'color:#ff006e; font-size:12px; font-weight:700;' }
+      });
+
+      // Resultant arrow (pink)
+      board.create('arrow', [O, resultant], {
+        strokeColor: '#ff006e', strokeWidth: 3, highlight: false
+      });
+
+      // Tip-to-tail: v2 translated to tip of v1
+      var v2Translated = board.create('point', [
+        function(){ return tip1.X() + tip2.X(); },
+        function(){ return tip1.Y() + tip2.Y(); }
+      ], { visible: false, fixed: true });
+
+      board.create('arrow', [tip1, v2Translated], {
+        strokeColor: '#00ff88', strokeWidth: 2, dash: 2, highlight: false
+      });
+
+      // Tip-to-tail: v1 translated to tip of v2
+      var v1Translated = board.create('point', [
+        function(){ return tip2.X() + tip1.X(); },
+        function(){ return tip2.Y() + tip1.Y(); }
+      ], { visible: false, fixed: true });
+
+      board.create('arrow', [tip2, v1Translated], {
+        strokeColor: '#00d4ff', strokeWidth: 2, dash: 2, highlight: false
+      });
+
+      // Parallelogram fill
+      board.create('polygon', [O, tip1, resultant, tip2], {
+        fillColor: 'rgba(255,0,110,0.08)', strokeWidth: 0,
+        vertices: { visible: false }, borders: { strokeWidth: 0 },
+        highlight: false
+      });
+
+      // Readout
+      var readout = document.getElementById('vec-addition-readout');
+      board.on('update', function() {
+        var v1x = tip1.X(), v1y = tip1.Y();
+        var v2x = tip2.X(), v2y = tip2.Y();
+        var rx = v1x + v2x, ry = v1y + v2y;
+        var mag1 = Math.sqrt(v1x*v1x + v1y*v1y);
+        var mag2 = Math.sqrt(v2x*v2x + v2y*v2y);
+        var magR = Math.sqrt(rx*rx + ry*ry);
+        if (readout) {
+          readout.innerHTML =
+            '<span style="color:#00d4ff;">\u20D7v\u2081 = [' + v1x.toFixed(1) + ', ' + v1y.toFixed(1) + '] (|' + mag1.toFixed(1) + '|)</span>' +
+            ' &nbsp;+&nbsp; <span style="color:#00ff88;">\u20D7v\u2082 = [' + v2x.toFixed(1) + ', ' + v2y.toFixed(1) + '] (|' + mag2.toFixed(1) + '|)</span>' +
+            ' &nbsp;=&nbsp; <span style="color:#ff006e;">\u20D7R = [' + rx.toFixed(1) + ', ' + ry.toFixed(1) + '] (|' + magR.toFixed(1) + '|)</span>';
+        }
+      });
+    }
+
+    window.addEventListener('DOMContentLoaded', function() {
+      var c1 = document.getElementById('jsx-vec-components');
+      if (c1) buildVecComponents();
+
+      var c2 = document.getElementById('jsx-vec-addition');
+      if (c2) buildVecAddition();
+    });
+  })();
+  </script>
 
   <script src="../js/engine.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>

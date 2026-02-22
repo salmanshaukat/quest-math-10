@@ -6,6 +6,9 @@
   <title>Quest 05: Algebraic Fractions | Quest Math 10</title>
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <!-- JSXGraph -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css">
+  <script src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"></script>
   <style>
     .chapter-hero {
       text-align: center;
@@ -256,6 +259,37 @@
     </div>
 
     <!-- ============================== -->
+    <!-- PHASE: ORIGINS                 -->
+    <!-- ============================== -->
+    <section class="phase phase-origins animate-fadeInUp">
+      <div class="phase-tag">&#128220; The Origins</div>
+      <h2>Fractions Through the Ages</h2>
+      <p style="color: var(--text-secondary); margin-bottom: var(--space-lg);">Algebraic fractions aren't a modern invention -- humans have wrestled with fractional expressions for nearly 4,000 years. Here's the story of how civilizations built the techniques you're about to learn.</p>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">~1650 BC</div>
+          <div class="timeline-text"><span class="timeline-name">The Rhind Papyrus (Egypt)</span> contains fraction problems -- Egyptians used only unit fractions ($\frac{1}{n}$). To express $\frac{2}{5}$, they'd write $\frac{1}{3} + \frac{1}{15}$. This forced creative algebraic thinking!</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">~500 AD</div>
+          <div class="timeline-text"><span class="timeline-name">Aryabhata (India)</span> develops systematic methods for manipulating algebraic expressions and fractions in his "Aryabhatiya."</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">~820 AD</div>
+          <div class="timeline-text"><span class="timeline-name">Al-Khwarizmi (Baghdad)</span> -- the "Father of Algebra" -- included methods for handling fractional expressions in equations in his foundational algebra text.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">~1400</div>
+          <div class="timeline-text"><span class="timeline-name">Jamshid al-Kashi (Samarkand)</span> achieves extraordinary precision in calculations using algebraic fraction techniques, computing $\pi$ to 16 decimal places -- a record that stood for nearly 200 years.</div>
+        </div>
+      </div>
+      <div class="heritage-box">
+        <h4>Your Mathematical Heritage</h4>
+        <p style="color: var(--text-secondary); line-height: 1.7;">Al-Kashi worked at Ulugh Beg's observatory in Samarkand (in modern Uzbekistan, along the Silk Road connecting South and Central Asia). His computational mastery relied on the same algebraic fraction skills you are learning today. The mathematical tradition connecting Baghdad, Samarkand, and the Indian subcontinent created a continuous chain of knowledge that forms the foundation of modern algebra.</p>
+      </div>
+    </section>
+
+    <!-- ============================== -->
     <!-- PHASE 3: DISCOVERY             -->
     <!-- ============================== -->
     <div class="phase phase-discovery animate-fadeInUp">
@@ -334,6 +368,21 @@
 
             <div class="warning-box">
               <strong>Common Mistake:</strong> You can only cancel <em>factors</em>, not terms! $\dfrac{x+3}{x+5} \neq \dfrac{3}{5}$ because $x$ is a term, not a factor.
+            </div>
+
+            <!-- JSXGraph Fraction Simplification Visualizer -->
+            <div class="viz-section">
+              <h4>Interactive: Fraction Simplification Visualizer</h4>
+              <p>See how rational expressions simplify by factoring and canceling common factors. Use the slider to try different expressions, and watch the graph prove the original and simplified forms are equal (except at holes).</p>
+              <div style="margin: 12px 0;">
+                <label style="font-size:0.9rem; color:var(--text-secondary);">Choose expression: </label>
+                <input type="range" id="fracExprSlider" min="0" max="3" value="0" step="1" style="width:200px; accent-color:var(--neon-cyan); vertical-align:middle;">
+                <span id="fracExprLabel" style="color:var(--neon-cyan); font-weight:700; margin-left:8px;">Expression 1</span>
+              </div>
+              <div id="jsx-fraction-simplify" class="jsx-container" style="height: 400px;"></div>
+              <div class="jsx-readout" id="fraction-simplify-readout" style="margin-top:12px; padding:16px; background:rgba(0,0,0,0.3); border-radius:var(--radius-md); font-size:0.95rem;">
+                <div id="frac-step-display"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -669,6 +718,160 @@
     </div>
 
   </div><!-- /container -->
+
+  <!-- JSXGraph Initialization -->
+  <script>
+  (function() {
+    // Fraction Simplification Visualizer
+    var expressions = [
+      {
+        title: 'Expression 1',
+        original: '(x^2 - 4) / (x^2 - x - 2)',
+        numLabel: 'x\u00B2 \u2212 4',
+        denLabel: 'x\u00B2 \u2212 x \u2212 2',
+        numFactored: '(x + 2)(x \u2212 2)',
+        denFactored: '(x \u2212 2)(x + 1)',
+        common: '(x \u2212 2)',
+        simplified: '(x + 2) / (x + 1)',
+        simpLabel: '(x + 2)/(x + 1)',
+        origFn: function(x) { return (x*x - 4) / (x*x - x - 2); },
+        simpFn: function(x) { return (x + 2) / (x + 1); },
+        holes: [[2, 4/3]],
+        asymptotes: [-1]
+      },
+      {
+        title: 'Expression 2',
+        original: '(x^2 - 9) / (x^2 + x - 6)',
+        numLabel: 'x\u00B2 \u2212 9',
+        denLabel: 'x\u00B2 + x \u2212 6',
+        numFactored: '(x + 3)(x \u2212 3)',
+        denFactored: '(x + 3)(x \u2212 2)',
+        common: '(x + 3)',
+        simplified: '(x \u2212 3) / (x \u2212 2)',
+        simpLabel: '(x \u2212 3)/(x \u2212 2)',
+        origFn: function(x) { return (x*x - 9) / (x*x + x - 6); },
+        simpFn: function(x) { return (x - 3) / (x - 2); },
+        holes: [[-3, 6/5]],
+        asymptotes: [2]
+      },
+      {
+        title: 'Expression 3',
+        original: '(x^2 + 3x) / (x^2 + 5x + 6)',
+        numLabel: 'x\u00B2 + 3x',
+        denLabel: 'x\u00B2 + 5x + 6',
+        numFactored: 'x(x + 3)',
+        denFactored: '(x + 2)(x + 3)',
+        common: '(x + 3)',
+        simplified: 'x / (x + 2)',
+        simpLabel: 'x/(x + 2)',
+        origFn: function(x) { return (x*x + 3*x) / (x*x + 5*x + 6); },
+        simpFn: function(x) { return x / (x + 2); },
+        holes: [[-3, 3]],
+        asymptotes: [-2]
+      },
+      {
+        title: 'Expression 4',
+        original: '(2x^2 - 8) / (x^2 - 4x + 4)',
+        numLabel: '2x\u00B2 \u2212 8',
+        denLabel: 'x\u00B2 \u2212 4x + 4',
+        numFactored: '2(x + 2)(x \u2212 2)',
+        denFactored: '(x \u2212 2)(x \u2212 2)',
+        common: '(x \u2212 2)',
+        simplified: '2(x + 2) / (x \u2212 2)',
+        simpLabel: '2(x + 2)/(x \u2212 2)',
+        origFn: function(x) { return (2*x*x - 8) / (x*x - 4*x + 4); },
+        simpFn: function(x) { return 2*(x + 2) / (x - 2); },
+        holes: [],
+        asymptotes: [2]
+      }
+    ];
+
+    var fracBoard = null;
+    var currentExprIdx = 0;
+
+    function buildFracBoard(idx) {
+      var expr = expressions[idx];
+      if (fracBoard) { JXG.JSXGraph.freeBoard(fracBoard); }
+      fracBoard = JXG.JSXGraph.initBoard('jsx-fraction-simplify', {
+        boundingbox: [-6, 8, 6, -8], axis: false, grid: false,
+        showNavigation: false, showCopyright: false, keepAspectRatio: false
+      });
+      fracBoard.containerObj.style.background = 'rgba(0,0,0,0.4)';
+
+      // Draw axes
+      fracBoard.create('axis', [[0,0],[1,0]], {
+        strokeColor: '#64748b', strokeWidth: 1, highlight: false,
+        ticks: { strokeColor: '#475569', label: { cssClass: 'jsxgraph-tick-label', fontSize: 10, cssStyle: 'color:#94a3b8' } }
+      });
+      fracBoard.create('axis', [[0,0],[0,1]], {
+        strokeColor: '#64748b', strokeWidth: 1, highlight: false,
+        ticks: { strokeColor: '#475569', label: { cssClass: 'jsxgraph-tick-label', fontSize: 10, cssStyle: 'color:#94a3b8' } }
+      });
+
+      // Plot simplified function (cyan)
+      fracBoard.create('functiongraph', [expr.simpFn, -6, 6], {
+        strokeColor: '#00d4ff', strokeWidth: 2.5, highlight: false,
+        name: 'Simplified', withLabel: true,
+        label: { position: 'rt', offset: [5, 10], cssClass: '', cssStyle: 'color:#00d4ff; font-size:11px;' }
+      });
+
+      // Plot original function (pink, dashed) to show they overlap
+      fracBoard.create('functiongraph', [expr.origFn, -6, 6], {
+        strokeColor: '#ff006e', strokeWidth: 1.5, dash: 2, highlight: false,
+        name: 'Original', withLabel: true,
+        label: { position: 'lft', offset: [-5, -10], cssClass: '', cssStyle: 'color:#ff006e; font-size:11px;' }
+      });
+
+      // Mark holes (open circles)
+      for (var h = 0; h < expr.holes.length; h++) {
+        fracBoard.create('point', [expr.holes[h][0], expr.holes[h][1]], {
+          size: 5, strokeColor: '#ffd700', fillColor: 'rgba(0,0,0,0.6)',
+          strokeWidth: 2, fixed: true, name: 'Hole',
+          label: { offset: [8, 8], cssClass: '', cssStyle: 'color:#ffd700; font-size:10px;' }
+        });
+      }
+
+      // Draw vertical asymptotes
+      for (var a = 0; a < expr.asymptotes.length; a++) {
+        fracBoard.create('line', [[expr.asymptotes[a], -10], [expr.asymptotes[a], 10]], {
+          strokeColor: '#ff006e', strokeWidth: 1, dash: 3, fixed: true, highlight: false,
+          straightFirst: true, straightLast: true, point1: {visible: false}, point2: {visible: false}
+        });
+      }
+
+      // Update readout with step-by-step
+      var display = document.getElementById('frac-step-display');
+      if (display) {
+        display.innerHTML =
+          '<div style="margin-bottom:8px;"><strong style="color:var(--neon-cyan);">Step 1: Original</strong><br>' +
+          '<span style="font-size:1.1rem;">' + expr.numLabel + ' &frasl; ' + expr.denLabel + '</span></div>' +
+          '<div style="margin-bottom:8px;"><strong style="color:var(--neon-green);">Step 2: Factor</strong><br>' +
+          'Numerator = ' + expr.numFactored + '<br>Denominator = ' + expr.denFactored + '</div>' +
+          '<div style="margin-bottom:8px;"><strong style="color:var(--neon-gold);">Step 3: Cancel</strong><br>' +
+          'Common factor: <span style="text-decoration:line-through; color:var(--neon-red);">' + expr.common + '</span></div>' +
+          '<div><strong style="color:var(--neon-purple);">Result:</strong> ' + expr.simpLabel + '</div>' +
+          '<div style="margin-top:8px; font-size:0.85rem; color:var(--text-muted);">The <span style="color:#ff006e;">pink dashed</span> (original) and <span style="color:#00d4ff;">cyan solid</span> (simplified) curves overlap perfectly, except at the <span style="color:#ffd700;">hole</span> where the original is undefined.</div>';
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', function() {
+      var container = document.getElementById('jsx-fraction-simplify');
+      if (!container) return;
+
+      buildFracBoard(0);
+
+      var slider = document.getElementById('fracExprSlider');
+      var label = document.getElementById('fracExprLabel');
+      if (slider) {
+        slider.addEventListener('input', function() {
+          currentExprIdx = parseInt(this.value);
+          if (label) label.textContent = expressions[currentExprIdx].title;
+          buildFracBoard(currentExprIdx);
+        });
+      }
+    });
+  })();
+  </script>
 
   <!-- Scripts -->
   <script src="../js/engine.js"></script>

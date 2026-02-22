@@ -6,6 +6,9 @@
   <title>Quest 12: Basic Statistics | Quest Math 10</title>
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <!-- JSXGraph -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css">
+  <script src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"></script>
   <style>
     .chapter-hero {
       text-align: center;
@@ -167,6 +170,35 @@
         <p style="color: var(--neon-gold); font-size: 0.9rem;">If there is zero spread, there is zero variance. The data has no dispersion at all.</p>
       </div>
     </div>
+
+    <!-- ==================== PHASE: ORIGINS ==================== -->
+    <section class="phase phase-origins animate-fadeInUp">
+      <div class="phase-tag">&#128220; The Origins</div>
+      <h2>The Science of Data</h2>
+      <p style="color: var(--text-secondary); margin-bottom: var(--space-lg);">Statistics began as a tool for understanding life and death -- and evolved into the universal language of data-driven decision making.</p>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">1662</div>
+          <div class="timeline-text"><span class="timeline-name">John Graunt</span> publishes "Natural and Political Observations Made upon the Bills of Mortality" -- the birth of statistics. He analyzes London death records to find patterns, creating the first life tables.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">1854</div>
+          <div class="timeline-text"><span class="timeline-name">Florence Nightingale</span> uses statistical graphics (her famous "coxcomb" diagrams) to convince the British government that soldiers were dying from poor hospital conditions, not battle wounds. Statistics literally saved thousands of lives.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">1877</div>
+          <div class="timeline-text"><span class="timeline-name">Francis Galton</span> develops the concept of regression and correlation.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">Modern</div>
+          <div class="timeline-text"><span class="timeline-name">Pakistan Bureau of Statistics &amp; PCB Analytics</span> use the exact same statistical methods students are learning -- mean, median, mode, standard deviation -- to analyze census data and cricket performance.</div>
+        </div>
+      </div>
+      <div class="heritage-box">
+        <h4>Your Mathematical Heritage</h4>
+        <p style="color: var(--text-secondary); line-height: 1.7;">Statistics connects directly to students' lives. When the PCB analyzes a batsman's average or a bowler's strike rate, they use mean and standard deviation. When the government plans resources based on census data, they use frequency distributions and measures of central tendency. The statistical tools in this chapter aren't abstract -- they're the same tools used to make decisions that affect millions of Pakistanis every day.</p>
+      </div>
+    </section>
 
     <!-- ==================== PHASE: DISCOVERY ==================== -->
     <div class="phase phase-discovery">
@@ -407,6 +439,28 @@
         </div>
 
       </div><!-- /reveal-group -->
+
+      <!-- JSXGraph Viz 1: Interactive Histogram Builder -->
+      <div class="viz-section">
+        <h4>Interactive: Histogram Builder</h4>
+        <p>Choose a dataset to visualise as a histogram. The mean (cyan) and median (gold) lines update automatically.</p>
+        <div style="margin-bottom: 12px;">
+          <button class="btn btn-primary jsx-dataset-btn" data-set="cricket" style="margin:4px;">Cricket Scores</button>
+          <button class="btn btn-primary jsx-dataset-btn" data-set="exams" style="margin:4px;">Exam Marks</button>
+          <button class="btn btn-primary jsx-dataset-btn" data-set="heights" style="margin:4px;">Student Heights</button>
+        </div>
+        <div id="jsx-histogram" class="jsx-container" style="height: 400px;"></div>
+        <div class="jsx-readout" id="histogram-readout">Select a dataset above to build a histogram.</div>
+      </div>
+
+      <!-- JSXGraph Viz 2: Mean/Median/Mode Explorer -->
+      <div class="viz-section">
+        <h4>Interactive: Mean / Median / Mode Explorer</h4>
+        <p>Drag the data points along the number line. Watch how the mean, median, and mode change in real time. Try dragging one point far away to see how outliers affect the mean but barely touch the median!</p>
+        <div id="jsx-measures" class="jsx-container" style="height: 400px;"></div>
+        <div class="jsx-readout" id="measures-readout">Drag the coloured points to explore.</div>
+      </div>
+
     </div>
 
     <!-- ==================== PHASE: PRACTICE ==================== -->
@@ -610,6 +664,285 @@
     </div>
 
   </div><!-- /container -->
+
+  <!-- JSXGraph Visualizations -->
+  <script>
+  (function() {
+
+    // ===== VIZ 1: Interactive Histogram Builder =====
+    var boardHist = JXG.JSXGraph.initBoard('jsx-histogram', {
+      boundingbox: [-1, 22, 11, -3], axis: false, grid: false,
+      showNavigation: false, showCopyright: false, keepAspectRatio: false
+    });
+    boardHist.containerObj.style.background = 'rgba(0,0,0,0.4)';
+
+    var datasets = {
+      cricket: {
+        label: 'Cricket Scores',
+        classes: ['0-20', '20-40', '40-60', '60-80', '80-100'],
+        freq: [2, 5, 8, 12, 3],
+        boundaries: [0, 20, 40, 60, 80, 100],
+        midpoints: [10, 30, 50, 70, 90]
+      },
+      exams: {
+        label: 'Exam Marks',
+        classes: ['0-20', '20-40', '40-60', '60-80', '80-100'],
+        freq: [1, 4, 10, 9, 6],
+        boundaries: [0, 20, 40, 60, 80, 100],
+        midpoints: [10, 30, 50, 70, 90]
+      },
+      heights: {
+        label: 'Student Heights (cm)',
+        classes: ['140-150', '150-160', '160-170', '170-180', '180-190'],
+        freq: [3, 7, 12, 6, 2],
+        boundaries: [140, 150, 160, 170, 180, 190],
+        midpoints: [145, 155, 165, 175, 185]
+      }
+    };
+
+    var histElements = [];
+    var histReadout = document.getElementById('histogram-readout');
+
+    function drawHistogram(key) {
+      // Clear previous
+      for (var i = histElements.length - 1; i >= 0; i--) {
+        try { boardHist.removeObject(histElements[i]); } catch(e) {}
+      }
+      histElements = [];
+
+      var ds = datasets[key];
+      var freq = ds.freq;
+      var n = freq.length;
+      var total = freq.reduce(function(a, b) { return a + b; }, 0);
+
+      // Compute statistics from midpoints
+      var sumFx = 0, sumF = 0;
+      for (var i = 0; i < n; i++) { sumFx += freq[i] * ds.midpoints[i]; sumF += freq[i]; }
+      var mean = sumFx / sumF;
+
+      // Median from cumulative frequency
+      var cumFreq = [];
+      var cum = 0;
+      for (var i = 0; i < n; i++) { cum += freq[i]; cumFreq.push(cum); }
+      var medianClass = 0;
+      for (var i = 0; i < n; i++) { if (cumFreq[i] >= total / 2) { medianClass = i; break; } }
+      var L = ds.boundaries[medianClass];
+      var F = medianClass > 0 ? cumFreq[medianClass - 1] : 0;
+      var fm = freq[medianClass];
+      var h = ds.boundaries[1] - ds.boundaries[0];
+      var median = L + ((total / 2 - F) / fm) * h;
+
+      // Mode: class with highest frequency
+      var maxFreq = 0, modeIdx = 0;
+      for (var i = 0; i < n; i++) { if (freq[i] > maxFreq) { maxFreq = freq[i]; modeIdx = i; } }
+      var mode = ds.midpoints[modeIdx];
+
+      // Scale: map boundaries to 0-10 x-range, freq to y
+      var bMin = ds.boundaries[0], bMax = ds.boundaries[n];
+      var maxF = Math.max.apply(null, freq);
+
+      function scaleX(v) { return (v - bMin) / (bMax - bMin) * 10; }
+      function scaleY(v) { return v; }
+
+      // Draw x-axis
+      var xAxis = boardHist.create('segment', [[0, 0], [10, 0]], {strokeColor: '#64748b', strokeWidth: 1, fixed: true});
+      histElements.push(xAxis);
+      // Draw y-axis
+      var yAxis = boardHist.create('segment', [[0, 0], [0, maxF + 2]], {strokeColor: '#64748b', strokeWidth: 1, fixed: true});
+      histElements.push(yAxis);
+
+      // X-axis labels
+      for (var i = 0; i <= n; i++) {
+        var lbl = boardHist.create('text', [scaleX(ds.boundaries[i]), -1.2, String(ds.boundaries[i])], {
+          fontSize: 11, color: '#94a3b8', anchorX: 'middle', fixed: true
+        });
+        histElements.push(lbl);
+      }
+
+      // Y-axis labels
+      for (var y = 0; y <= maxF + 1; y += 2) {
+        var lbl = boardHist.create('text', [-0.6, y, String(y)], {
+          fontSize: 11, color: '#94a3b8', anchorX: 'middle', fixed: true
+        });
+        histElements.push(lbl);
+      }
+
+      // Bars
+      var colors = ['#a855f7', '#00d4ff', '#00ff88', '#ffd700', '#ff006e'];
+      for (var i = 0; i < n; i++) {
+        var x1 = scaleX(ds.boundaries[i]);
+        var x2 = scaleX(ds.boundaries[i + 1]);
+        var barH = scaleY(freq[i]);
+        var bar = boardHist.create('polygon', [
+          [x1, 0], [x2, 0], [x2, barH], [x1, barH]
+        ], {
+          fillColor: colors[i % colors.length], fillOpacity: 0.55,
+          borders: {strokeColor: colors[i % colors.length], strokeWidth: 2},
+          vertices: {visible: false}, hasInnerPoints: false, fixed: true
+        });
+        histElements.push(bar);
+        // Frequency label on top
+        var fLbl = boardHist.create('text', [(x1 + x2) / 2, barH + 0.5, String(freq[i])], {
+          fontSize: 12, color: '#ffffff', anchorX: 'middle', fixed: true
+        });
+        histElements.push(fLbl);
+      }
+
+      // Mean line
+      var meanX = scaleX(mean);
+      var meanLine = boardHist.create('segment', [[meanX, 0], [meanX, maxF + 1]], {
+        strokeColor: '#00d4ff', strokeWidth: 2, dash: 2, fixed: true
+      });
+      var meanLabel = boardHist.create('text', [meanX, maxF + 1.5, 'Mean'], {
+        fontSize: 12, color: '#00d4ff', anchorX: 'middle', fixed: true
+      });
+      histElements.push(meanLine, meanLabel);
+
+      // Median line
+      var medianX = scaleX(median);
+      var medianLine = boardHist.create('segment', [[medianX, 0], [medianX, maxF + 1]], {
+        strokeColor: '#ffd700', strokeWidth: 2, dash: 2, fixed: true
+      });
+      var medianLabel = boardHist.create('text', [medianX, maxF + 2, 'Median'], {
+        fontSize: 12, color: '#ffd700', anchorX: 'middle', fixed: true
+      });
+      histElements.push(medianLine, medianLabel);
+
+      // Range
+      var range = ds.boundaries[n] - ds.boundaries[0];
+
+      histReadout.innerHTML = '<strong>' + ds.label + '</strong> &mdash; Mean: ' + mean.toFixed(1) +
+        ' | Median: ' + median.toFixed(1) +
+        ' | Mode class: ' + ds.classes[modeIdx] +
+        ' | Range: ' + range +
+        ' | Total: ' + total;
+    }
+
+    document.querySelectorAll('.jsx-dataset-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.jsx-dataset-btn').forEach(function(b) { b.style.opacity = '0.5'; });
+        this.style.opacity = '1';
+        drawHistogram(this.getAttribute('data-set'));
+      });
+    });
+
+    // ===== VIZ 2: Mean/Median/Mode Explorer =====
+    var boardM = JXG.JSXGraph.initBoard('jsx-measures', {
+      boundingbox: [-1, 6, 21, -2], axis: false, grid: false,
+      showNavigation: false, showCopyright: false, keepAspectRatio: false
+    });
+    boardM.containerObj.style.background = 'rgba(0,0,0,0.4)';
+
+    // Number line
+    boardM.create('segment', [[0, 0], [20, 0]], {strokeColor: '#64748b', strokeWidth: 2, fixed: true});
+    for (var t = 0; t <= 20; t += 2) {
+      boardM.create('segment', [[t, -0.2], [t, 0.2]], {strokeColor: '#64748b', strokeWidth: 1, fixed: true});
+      boardM.create('text', [t, -0.7, String(t)], {fontSize: 11, color: '#94a3b8', anchorX: 'middle', fixed: true});
+    }
+
+    // Draggable data points (start symmetric)
+    var startVals = [4, 6, 8, 8, 10, 10, 10, 12, 14];
+    var ptColors = ['#ff006e', '#a855f7', '#00d4ff', '#00d4ff', '#ffd700', '#ffd700', '#ffd700', '#00ff88', '#ff8c00'];
+    var dataPoints = [];
+
+    for (var i = 0; i < startVals.length; i++) {
+      (function(idx) {
+        var pt = boardM.create('point', [startVals[idx], 1.5 + (idx % 3) * 0.6], {
+          name: '', size: 5, color: ptColors[idx],
+          snapToGrid: false, attractors: [],
+          label: {visible: false}
+        });
+        // Constrain to number line range
+        pt.on('drag', function() {
+          if (pt.X() < 0) pt.moveTo([0, pt.Y()]);
+          if (pt.X() > 20) pt.moveTo([20, pt.Y()]);
+          updateMeasures();
+        });
+        dataPoints.push(pt);
+      })(i);
+    }
+
+    // Indicators
+    var meanIndicator = boardM.create('point', [0, -0.8], {
+      name: 'Mean', size: 6, color: '#00d4ff', fixed: true,
+      label: {color: '#00d4ff', fontSize: 13, offset: [0, -18]}
+    });
+    var medianIndicator = boardM.create('point', [0, -1.3], {
+      name: 'Median', size: 6, color: '#ffd700', fixed: true,
+      label: {color: '#ffd700', fontSize: 13, offset: [0, -18]}
+    });
+    var modeIndicator = boardM.create('point', [0, -1.8], {
+      name: 'Mode', size: 6, color: '#00ff88', fixed: true,
+      label: {color: '#00ff88', fontSize: 13, offset: [0, -18]}
+    });
+
+    // Mean line
+    var meanLine = boardM.create('segment', [[0, -0.3], [0, 3.5]], {
+      strokeColor: '#00d4ff', strokeWidth: 1.5, dash: 2, fixed: true
+    });
+    var medianLine = boardM.create('segment', [[0, -0.3], [0, 3.5]], {
+      strokeColor: '#ffd700', strokeWidth: 1.5, dash: 2, fixed: true
+    });
+
+    var measuresReadout = document.getElementById('measures-readout');
+
+    function updateMeasures() {
+      var vals = dataPoints.map(function(p) { return Math.round(p.X() * 10) / 10; });
+      vals.sort(function(a, b) { return a - b; });
+      var n = vals.length;
+
+      // Mean
+      var sum = vals.reduce(function(a, b) { return a + b; }, 0);
+      var mean = sum / n;
+
+      // Median
+      var median;
+      if (n % 2 === 1) {
+        median = vals[Math.floor(n / 2)];
+      } else {
+        median = (vals[n / 2 - 1] + vals[n / 2]) / 2;
+      }
+
+      // Mode
+      var freq = {};
+      vals.forEach(function(v) {
+        var key = v.toFixed(1);
+        freq[key] = (freq[key] || 0) + 1;
+      });
+      var maxF = 0, modeVal = vals[0];
+      for (var k in freq) {
+        if (freq[k] > maxF) { maxF = freq[k]; modeVal = parseFloat(k); }
+      }
+      var modeStr = maxF > 1 ? modeVal.toFixed(1) : 'None (all unique)';
+
+      // Update indicators
+      meanIndicator.moveTo([mean, -0.8]);
+      medianIndicator.moveTo([median, -1.3]);
+      if (maxF > 1) {
+        modeIndicator.moveTo([modeVal, -1.8]);
+        modeIndicator.setAttribute({visible: true});
+      } else {
+        modeIndicator.setAttribute({visible: false});
+      }
+
+      // Update lines
+      meanLine.point1.moveTo([mean, -0.3]);
+      meanLine.point2.moveTo([mean, 3.5]);
+      medianLine.point1.moveTo([median, -0.3]);
+      medianLine.point2.moveTo([median, 3.5]);
+
+      measuresReadout.innerHTML =
+        'Values: [' + vals.map(function(v) { return v.toFixed(1); }).join(', ') + '] &mdash; ' +
+        '<span style="color:#00d4ff">Mean: ' + mean.toFixed(2) + '</span> | ' +
+        '<span style="color:#ffd700">Median: ' + median.toFixed(2) + '</span> | ' +
+        '<span style="color:#00ff88">Mode: ' + modeStr + '</span>';
+    }
+
+    // Initial calculation
+    updateMeasures();
+
+  })();
+  </script>
 
   <script src="../js/engine.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>

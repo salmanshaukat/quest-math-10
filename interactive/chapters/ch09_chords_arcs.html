@@ -6,6 +6,9 @@
   <title>Quest 09: Chords &amp; Arcs of a Circle | Quest Math 10</title>
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <!-- JSXGraph -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css">
+  <script src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"></script>
   <style>
     .chapter-hero {
       text-align: center;
@@ -140,6 +143,35 @@
         <p style="color:var(--text-secondary); font-size:0.9rem;">Think Pythagoras. By the end of this chapter, the theorems will make this instant.</p>
       </div>
     </div>
+
+    <!-- ===================== PHASE: ORIGINS ===================== -->
+    <section class="phase phase-origins animate-fadeInUp">
+      <div class="phase-tag">&#128220; The Origins</div>
+      <h2>The Perfect Circle</h2>
+      <p style="color: var(--text-secondary); margin-bottom: var(--space-lg);">The circle has captivated mathematicians for millennia. Its perfection inspired some of humanity's greatest mathematical discoveries.</p>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">~300 BC</div>
+          <div class="timeline-text"><span class="timeline-name">Euclid</span> devotes Book III of "Elements" entirely to circles, chords, and tangent lines &mdash; establishing theorems that students still learn today.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">~250 BC</div>
+          <div class="timeline-text"><span class="timeline-name">Archimedes</span> calculates pi by inscribing and circumscribing polygons in circles, using chord properties.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">~500 AD</div>
+          <div class="timeline-text"><span class="timeline-name">Aryabhata</span> computes remarkably accurate values of pi and develops sophisticated chord-based calculations for astronomy in India.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">~1000 AD</div>
+          <div class="timeline-text"><span class="timeline-name">Abu al-Wafa</span> develops the first systematic methods for geometric constructions using only a compass with a fixed opening (a "rusty compass"), proving many chord theorems constructively.</div>
+        </div>
+      </div>
+      <div class="heritage-box">
+        <h4>Your Mathematical Heritage</h4>
+        <p style="color: var(--text-secondary); line-height: 1.7;">Aryabhata (476&ndash;550 AD, India) calculated pi as 3.1416 and developed trigonometric tables based on chord properties. His work was transmitted to Baghdad during the Islamic Golden Age, where scholars like Al-Biruni (who spent years in what is now Pakistan) refined these methods. The chord theorems students learn today connect directly to this Indo-Islamic astronomical tradition.</p>
+      </div>
+    </section>
 
     <!-- ===================== PHASE 3: DISCOVERY ===================== -->
     <div class="phase phase-discovery">
@@ -340,6 +372,22 @@
         </div>
 
       </div><!-- /reveal-group -->
+
+      <!-- JSXGraph Visualizations -->
+      <div class="viz-section">
+        <h4>Interactive: Chord Theorems Explorer</h4>
+        <p>Two chords intersect inside the circle. Drag the intersection point and chord endpoints to see that the products of their segments are always equal.</p>
+        <div id="jsx-chords" class="jsx-container" style="height: 400px;"></div>
+        <div class="jsx-readout" id="chords-readout">Drag points to explore the intersecting chords theorem.</div>
+      </div>
+
+      <div class="viz-section">
+        <h4>Interactive: Inscribed Angle Theorem</h4>
+        <p>Drag point P around the major arc. Notice how the inscribed angle stays exactly half the central angle, no matter where P is on the arc.</p>
+        <div id="jsx-inscribed" class="jsx-container" style="height: 400px;"></div>
+        <div class="jsx-readout" id="inscribed-readout">Drag point P on the arc to explore the inscribed angle theorem.</div>
+      </div>
+
     </div>
 
     <!-- ===================== PHASE 4: PRACTICE ===================== -->
@@ -508,6 +556,149 @@
     </div>
 
   </div><!-- /container -->
+
+  <!-- JSXGraph Initializations -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+
+    /* ====== Viz 1: Chord Theorems Explorer ====== */
+    (function() {
+      var board = JXG.JSXGraph.initBoard('jsx-chords', {
+        boundingbox: [-6, 6, 6, -6], axis: false, grid: false,
+        showNavigation: false, showCopyright: false, keepAspectRatio: true
+      });
+      board.containerObj.style.background = 'rgba(0,0,0,0.4)';
+
+      // Circle
+      var center = board.create('point', [0, 0], {name:'O', size:3, color:'#00d4ff', label:{color:'#00d4ff', offset:[-15,-10], fontSize:13}});
+      var circ = board.create('circle', [center, 4], {strokeColor:'#00d4ff', strokeWidth:2, fixed:true, highlight:false});
+
+      // Chord 1 endpoints on circle
+      var A = board.create('glider', [-3.5, 1.94, circ], {name:'A', size:4, color:'#00ff88', label:{color:'#00ff88', offset:[-15,5], fontSize:13}});
+      var B = board.create('glider', [3.2, 2.4, circ], {name:'B', size:4, color:'#00ff88', label:{color:'#00ff88', offset:[5,5], fontSize:13}});
+
+      // Chord 2 endpoints on circle
+      var C = board.create('glider', [-2, -3.46, circ], {name:'C', size:4, color:'#ffd700', label:{color:'#ffd700', offset:[-15,-10], fontSize:13}});
+      var D = board.create('glider', [2.5, -3.12, circ], {name:'D', size:4, color:'#ffd700', label:{color:'#ffd700', offset:[5,-10], fontSize:13}});
+
+      // Draw chords
+      var chord1 = board.create('line', [A, B], {strokeColor:'#00ff88', strokeWidth:2, straightFirst:false, straightLast:false});
+      var chord2 = board.create('line', [C, D], {strokeColor:'#ffd700', strokeWidth:2, straightFirst:false, straightLast:false});
+
+      // Intersection point
+      var intPt = board.create('intersection', [chord1, chord2, 0], {
+        name:'X', size:5, color:'#ff006e',
+        label:{color:'#ff006e', offset:[8,8], fontSize:14}
+      });
+
+      // Segment labels
+      board.create('text', [function(){return (A.X()+intPt.X())/2-0.3;}, function(){return (A.Y()+intPt.Y())/2+0.3;}, function(){
+        return 'AX=' + A.Dist(intPt).toFixed(2);
+      }], {color:'#00ff88', fontSize:11, fixed:true});
+
+      board.create('text', [function(){return (B.X()+intPt.X())/2+0.1;}, function(){return (B.Y()+intPt.Y())/2+0.3;}, function(){
+        return 'XB=' + intPt.Dist(B).toFixed(2);
+      }], {color:'#00ff88', fontSize:11, fixed:true});
+
+      board.create('text', [function(){return (C.X()+intPt.X())/2-0.3;}, function(){return (C.Y()+intPt.Y())/2-0.3;}, function(){
+        return 'CX=' + C.Dist(intPt).toFixed(2);
+      }], {color:'#ffd700', fontSize:11, fixed:true});
+
+      board.create('text', [function(){return (D.X()+intPt.X())/2+0.1;}, function(){return (D.Y()+intPt.Y())/2-0.3;}, function(){
+        return 'XD=' + intPt.Dist(D).toFixed(2);
+      }], {color:'#ffd700', fontSize:11, fixed:true});
+
+      // Readout
+      var readout = document.getElementById('chords-readout');
+      function updateReadout() {
+        var ax = A.Dist(intPt), xb = intPt.Dist(B);
+        var cx = C.Dist(intPt), xd = intPt.Dist(D);
+        var prod1 = ax * xb, prod2 = cx * xd;
+        readout.innerHTML = 'AX \u00D7 XB = ' + ax.toFixed(2) + ' \u00D7 ' + xb.toFixed(2) + ' = <strong>' + prod1.toFixed(2) + '</strong> &nbsp;|&nbsp; CX \u00D7 XD = ' + cx.toFixed(2) + ' \u00D7 ' + xd.toFixed(2) + ' = <strong>' + prod2.toFixed(2) + '</strong>' + (Math.abs(prod1 - prod2) < 0.5 ? ' &nbsp;\u2705 Equal!' : '');
+      }
+      A.on('drag', updateReadout);
+      B.on('drag', updateReadout);
+      C.on('drag', updateReadout);
+      D.on('drag', updateReadout);
+    })();
+
+    /* ====== Viz 2: Inscribed Angle Theorem ====== */
+    (function() {
+      var board = JXG.JSXGraph.initBoard('jsx-inscribed', {
+        boundingbox: [-6, 6, 6, -6], axis: false, grid: false,
+        showNavigation: false, showCopyright: false, keepAspectRatio: true
+      });
+      board.containerObj.style.background = 'rgba(0,0,0,0.4)';
+
+      // Circle
+      var center = board.create('point', [0, 0], {name:'O', size:3, color:'#00d4ff', label:{color:'#00d4ff', offset:[-15,10], fontSize:13}});
+      var circ = board.create('circle', [center, 4], {strokeColor:'#00d4ff', strokeWidth:2, fixed:true, highlight:false});
+
+      // Fixed arc endpoints A and B
+      var A = board.create('glider', [-3, -2.65, circ], {name:'A', size:4, color:'#00ff88', fixed:true, label:{color:'#00ff88', offset:[-15,-10], fontSize:13}});
+      var B = board.create('glider', [3, -2.65, circ], {name:'B', size:4, color:'#00ff88', fixed:true, label:{color:'#00ff88', offset:[5,-10], fontSize:13}});
+
+      // Draggable point P on major arc
+      var P = board.create('glider', [0, 4, circ], {name:'P', size:5, color:'#ff006e', label:{color:'#ff006e', offset:[8,8], fontSize:14}});
+
+      // Central angle lines
+      var lineOA = board.create('segment', [center, A], {strokeColor:'#a855f7', strokeWidth:1.5, dash:2});
+      var lineOB = board.create('segment', [center, B], {strokeColor:'#a855f7', strokeWidth:1.5, dash:2});
+
+      // Inscribed angle lines
+      var linePA = board.create('segment', [P, A], {strokeColor:'#ffd700', strokeWidth:2});
+      var linePB = board.create('segment', [P, B], {strokeColor:'#ffd700', strokeWidth:2});
+
+      // Arc highlight (minor arc AB)
+      board.create('arc', [center, B, A], {strokeColor:'#00ff88', strokeWidth:4, highlight:false});
+
+      // Central angle arc indicator
+      var centralAngle = board.create('angle', [A, center, B], {
+        radius:0.8, color:'rgba(168,85,247,0.3)', strokeColor:'#a855f7', name:'', withLabel:false
+      });
+
+      // Inscribed angle arc indicator
+      var inscribedAngle = board.create('angle', [A, P, B], {
+        radius:0.6, color:'rgba(255,215,0,0.3)', strokeColor:'#ffd700', name:'', withLabel:false
+      });
+
+      // Labels for angles
+      board.create('text', [function(){return center.X()-0.2;}, function(){return center.Y()-1.5;}, function(){
+        var angA = Math.atan2(A.Y(), A.X());
+        var angB = Math.atan2(B.Y(), B.X());
+        var central = angB - angA;
+        if(central < 0) central += 2*Math.PI;
+        // Reflex check: we want the minor arc angle
+        if(central > Math.PI) central = 2*Math.PI - central;
+        return 'Central: ' + (central*180/Math.PI).toFixed(1) + '\u00B0';
+      }], {color:'#a855f7', fontSize:12, fixed:true});
+
+      // Readout
+      var readout = document.getElementById('inscribed-readout');
+      function updateReadout() {
+        // Compute central angle (minor arc AB)
+        var angA = Math.atan2(A.Y(), A.X());
+        var angB = Math.atan2(B.Y(), B.X());
+        var central = angB - angA;
+        if(central < 0) central += 2*Math.PI;
+        if(central > Math.PI) central = 2*Math.PI - central;
+        var centralDeg = central * 180 / Math.PI;
+
+        // Compute inscribed angle at P
+        var vax = A.X()-P.X(), vay = A.Y()-P.Y();
+        var vbx = B.X()-P.X(), vby = B.Y()-P.Y();
+        var dot = vax*vbx + vay*vby;
+        var magA = Math.sqrt(vax*vax+vay*vay);
+        var magB = Math.sqrt(vbx*vbx+vby*vby);
+        var inscribed = Math.acos(Math.max(-1, Math.min(1, dot/(magA*magB)))) * 180/Math.PI;
+
+        readout.innerHTML = 'Central angle = <strong>' + centralDeg.toFixed(1) + '\u00B0</strong> &nbsp;|&nbsp; Inscribed angle at P = <strong>' + inscribed.toFixed(1) + '\u00B0</strong> &nbsp;|&nbsp; Ratio: ' + (centralDeg/inscribed).toFixed(2) + ' \u2248 2.00';
+      }
+      P.on('drag', updateReadout);
+    })();
+
+  });
+  </script>
 
   <script src="../js/engine.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>

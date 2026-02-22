@@ -10,11 +10,14 @@
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 
+  <!-- JSXGraph -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css">
+  <script src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"></script>
+
   <!-- Design System -->
   <link rel="stylesheet" href="../css/style.css">
 
   <style>
-    /* Chapter-specific styles */
     .hero-scenario {
       position: relative;
       padding: var(--space-2xl) var(--space-xl);
@@ -27,11 +30,6 @@
       inset: 0;
       background: radial-gradient(ellipse at center, rgba(255, 0, 110, 0.15) 0%, transparent 70%);
       pointer-events: none;
-    }
-    .circuit-svg {
-      margin: var(--space-lg) auto;
-      display: block;
-      filter: drop-shadow(0 0 15px rgba(0, 212, 255, 0.4));
     }
     .error-screen {
       display: inline-block;
@@ -75,22 +73,10 @@
       width: 100%;
       text-align: center;
     }
-    .powers-cycle-table th {
-      text-align: center;
-      font-size: 1rem;
-    }
-    .powers-cycle-table td {
-      text-align: center;
-      font-size: 1.05rem;
-      padding: var(--space-md);
-    }
-    .powers-cycle-table tr:nth-child(odd) td {
-      background: rgba(0, 212, 255, 0.03);
-    }
-    .cycle-highlight {
-      color: var(--neon-cyan);
-      font-weight: 700;
-    }
+    .powers-cycle-table th { text-align: center; font-size: 1rem; }
+    .powers-cycle-table td { text-align: center; font-size: 1.05rem; padding: var(--space-md); }
+    .powers-cycle-table tr:nth-child(odd) td { background: rgba(0, 212, 255, 0.03); }
+    .cycle-highlight { color: var(--neon-cyan); font-weight: 700; }
     .example-box {
       background: rgba(0, 0, 0, 0.2);
       border: 1px solid rgba(255, 255, 255, 0.08);
@@ -98,11 +84,7 @@
       padding: var(--space-lg);
       margin: var(--space-md) 0;
     }
-    .example-box h4 {
-      color: var(--neon-green);
-      margin-bottom: var(--space-sm);
-    }
-    .number-tree-svg text { font-family: 'Inter', sans-serif; }
+    .example-box h4 { color: var(--neon-green); margin-bottom: var(--space-sm); }
     .boss-card {
       background: var(--bg-card);
       border: 1px solid rgba(255, 51, 102, 0.2);
@@ -131,29 +113,6 @@
       font-size: 1rem;
       margin-bottom: var(--space-md);
     }
-    .history-card {
-      display: flex;
-      gap: var(--space-lg);
-      align-items: center;
-      padding: var(--space-md);
-      background: rgba(168, 85, 247, 0.05);
-      border-radius: var(--radius-md);
-      margin: var(--space-sm) 0;
-    }
-    .history-year {
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: var(--neon-purple);
-      white-space: nowrap;
-    }
-    .history-text {
-      font-size: 0.9rem;
-      color: var(--text-secondary);
-    }
-    .history-name {
-      color: var(--text-bright);
-      font-weight: 600;
-    }
     .chapter-title-area {
       text-align: center;
       padding: var(--space-2xl) 0 var(--space-xl);
@@ -176,12 +135,39 @@
       max-width: 600px;
       margin: 0 auto;
     }
-    .interactive-plane {
-      position: relative;
-      cursor: crosshair;
+    .viz-section {
+      margin: var(--space-xl) 0;
+      padding: var(--space-lg);
+      background: rgba(0, 0, 0, 0.15);
+      border: 1px solid rgba(0, 212, 255, 0.1);
+      border-radius: var(--radius-lg);
     }
-    .interactive-plane:hover .plane-tooltip {
-      opacity: 1;
+    .viz-section h4 {
+      color: var(--neon-cyan);
+      margin-bottom: var(--space-sm);
+    }
+    .viz-section p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-bottom: var(--space-md);
+    }
+    .power-slider-area {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      margin: var(--space-md) 0;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .power-slider-area input[type="range"] {
+      width: 200px;
+      accent-color: var(--neon-cyan);
+    }
+    .power-slider-area .power-display {
+      font-family: 'Fira Code', monospace;
+      font-size: 1.1rem;
+      color: var(--neon-gold);
+      min-width: 120px;
     }
   </style>
 </head>
@@ -190,7 +176,7 @@
   <!-- ===== TOP BAR ===== -->
   <nav class="top-bar">
     <div class="logo">
-      <a href="../index.html" class="back-link">&#8592; Back</a>
+      <a href="../index.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem;">&#8592; Back</a>
       <span class="neon-text">Quest Math 10</span>
     </div>
     <div class="stats" id="top-bar-stats">
@@ -222,92 +208,44 @@
     <div class="chapter-title-area animate-fadeInUp">
       <div class="chapter-num">Chapter 01</div>
       <h1 class="chapter-main-title neon-text">Complex Numbers</h1>
-      <p class="chapter-subtitle">Discover numbers beyond the real line -- where $i^2 = -1$ unlocks a hidden dimension of mathematics used in engineering, physics, and beyond.</p>
+      <p class="chapter-subtitle">Discover numbers beyond the real line -- where $i^2 = -1$ unlocks a hidden dimension of mathematics.</p>
     </div>
 
 
     <!-- ============================================================
-         PHASE 1: THE HOOK
+         PHASE 1: THE HOOK  -- "The Impossible Equation"
          ============================================================ -->
     <section class="phase phase-hook animate-fadeInUp">
       <div class="phase-tag">&#9889; The Hook</div>
 
       <div class="hero-scenario">
-        <h2>The Impossible Circuit</h2>
+        <h2>The Impossible Equation</h2>
         <p style="font-size: 1.05rem; color: var(--text-secondary); max-width: 650px; margin: var(--space-md) auto;">
-          Imagine you are an electrical engineer. You are designing a circuit for a new office building. Your analysis leads to this equation:
+          A craftsman measures a square plot of land. He knows the area is 9 m&sup2;.
         </p>
 
         <div class="formula-box" style="font-size: 1.3rem; margin: var(--space-lg) auto; max-width: 400px;">
-          $$x^2 + 1 = 0$$
+          $$\text{side} = \sqrt{9} = 3 \text{ m}$$
         </div>
 
-        <p style="color: var(--text-secondary); margin-bottom: var(--space-md);">You punch it into your calculator...</p>
+        <p style="color: var(--text-secondary); margin-bottom: var(--space-md);">Easy! But then a mathematician asks a strange question:</p>
+
+        <p style="font-size: 1.2rem; color: var(--neon-gold); font-weight: 700; margin: var(--space-md) 0;">
+          "What if the area were $-9$? What would the side be?"
+        </p>
+
+        <div class="formula-box" style="font-size: 1.3rem; margin: var(--space-lg) auto; max-width: 400px;">
+          $$\text{side} = \sqrt{-9} = \; ???$$
+        </div>
 
         <div class="error-screen">MATH ERROR</div>
 
         <p style="color: var(--text-secondary); margin-top: var(--space-lg); font-size: 1.05rem;">
-          No real number squared gives $-1$. The calculator says <strong style="color: var(--neon-red);">impossible</strong>.
+          No real number squared gives a negative result. The calculator says <strong style="color: var(--neon-red);">impossible</strong>.
         </p>
         <p style="color: var(--neon-green); font-weight: 700; font-size: 1.15rem; margin-top: var(--space-md);">
-          But the circuit works perfectly. How?
+          Yet mathematicians argued about this "impossible" number for 300 years... and eventually proved it opens an entire new universe of mathematics.
         </p>
-
-        <!-- SVG Circuit Illustration -->
-        <svg class="circuit-svg" width="320" height="120" viewBox="0 0 320 120">
-          <defs>
-            <filter id="glow"><feGaussianBlur stdDeviation="2" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-          </defs>
-          <!-- Wires -->
-          <path d="M20 60 H80" stroke="#00d4ff" stroke-width="2" filter="url(#glow)"/>
-          <path d="M120 60 H180" stroke="#00d4ff" stroke-width="2" filter="url(#glow)"/>
-          <path d="M220 60 H300" stroke="#00d4ff" stroke-width="2" filter="url(#glow)"/>
-          <!-- Resistor -->
-          <path d="M80 60 L88 40 L96 80 L104 40 L112 80 L120 60" stroke="#ff8c00" stroke-width="2" fill="none" filter="url(#glow)"/>
-          <!-- Capacitor -->
-          <line x1="180" y1="35" x2="180" y2="85" stroke="#a855f7" stroke-width="3"/>
-          <line x1="192" y1="35" x2="192" y2="85" stroke="#a855f7" stroke-width="3"/>
-          <!-- Inductor coil -->
-          <path d="M192 60 Q200 40, 208 60 Q216 80, 224 60" stroke="#00ff88" stroke-width="2" fill="none"/>
-          <!-- Labels -->
-          <text x="100" y="105" fill="#ff8c00" font-size="11" text-anchor="middle" font-family="Inter, sans-serif">R</text>
-          <text x="186" y="105" fill="#a855f7" font-size="11" text-anchor="middle" font-family="Inter, sans-serif">C</text>
-          <text x="208" y="105" fill="#00ff88" font-size="11" text-anchor="middle" font-family="Inter, sans-serif">L</text>
-          <!-- Battery -->
-          <line x1="16" y1="45" x2="16" y2="75" stroke="#ffd700" stroke-width="3"/>
-          <line x1="24" y1="50" x2="24" y2="70" stroke="#ffd700" stroke-width="1.5"/>
-          <text x="20" y="30" fill="#ffd700" font-size="10" text-anchor="middle" font-family="Inter, sans-serif">E</text>
-          <!-- Plus/Minus -->
-          <text x="10" y="48" fill="#ffd700" font-size="10" font-family="Inter, sans-serif">+</text>
-          <text x="28" y="48" fill="#ffd700" font-size="10" font-family="Inter, sans-serif">-</text>
-          <!-- Dots at junctions -->
-          <circle cx="20" cy="60" r="3" fill="#00d4ff"/>
-          <circle cx="300" cy="60" r="3" fill="#00d4ff"/>
-          <!-- Current arrow -->
-          <path d="M260 52 L270 60 L260 68" fill="none" stroke="#00d4ff" stroke-width="1.5"/>
-          <text x="265" y="45" fill="#00d4ff" font-size="10" text-anchor="middle" font-family="Inter, sans-serif">I</text>
-        </svg>
-
-        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: var(--space-md);">
-          Engineers use the formula $E = IZ$ where impedance $Z$ is a <em>complex number</em>. The answer lies in a new kind of number: one that lives beyond the real number line.
-        </p>
-
-        <!-- History mini-timeline -->
-        <div style="max-width: 600px; margin: var(--space-xl) auto 0; text-align: left;">
-          <h4 style="margin-bottom: var(--space-sm); color: var(--neon-purple);">A Brief History</h4>
-          <div class="history-card">
-            <div class="history-year">16th C</div>
-            <div class="history-text"><span class="history-name">Gerolamo Cardano</span> proved that negative square roots can lead to real solutions of equations.</div>
-          </div>
-          <div class="history-card">
-            <div class="history-year">17th C</div>
-            <div class="history-text"><span class="history-name">Rene Descartes</span> coined the term "imaginary" for these new numbers.</div>
-          </div>
-          <div class="history-card">
-            <div class="history-year">18th C</div>
-            <div class="history-text"><span class="history-name">Carl Friedrich Gauss</span> established the modern theory of complex numbers in a plane.</div>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -346,7 +284,7 @@
           <br><br>
           Mathematicians solved this by <em>inventing</em> a new number: $i = \sqrt{-1}$, where $i^2 = -1$.
           <br><br>
-          This one invention opened up an entire new universe of numbers. Scroll down to explore it.
+          This one invention opened up an entire new universe of numbers. Scroll down to discover its remarkable history.
         </div>
       </div>
     </section>
@@ -359,27 +297,16 @@
         const historyText = document.getElementById('try-history-text');
         const reveal = document.getElementById('try-reveal');
         const val = parseFloat(input.value);
-
         if (isNaN(val)) {
           result.innerHTML = '<span style="color: var(--neon-red);">Enter a valid number</span>';
           return;
         }
-
         const squared = val * val;
         tryAttempts++;
-
-        if (squared === -1) {
-          // Should never happen with real numbers
-          result.innerHTML = `<span style="color: var(--neon-green);">${squared}</span>`;
-        } else {
-          const sign = squared >= 0 ? '+' : '';
-          result.innerHTML = `<span style="color: var(--neon-orange);">(${val})&sup2; = ${sign}${squared}</span>`;
-        }
-
+        result.innerHTML = `<span style="color: var(--neon-orange);">(${val})&sup2; = ${squared >= 0 ? '+' : ''}${squared}</span>`;
         if (squared >= 0) {
           result.innerHTML += `<span style="color: var(--neon-red); margin-left: 8px; font-size: 0.8rem;">&ne; -1</span>`;
         }
-
         if (tryAttempts === 1) {
           historyText.textContent = 'Hmm, that gives a positive number. Try a negative number!';
         } else if (tryAttempts === 2) {
@@ -391,12 +318,9 @@
           reveal.style.display = 'block';
           reveal.classList.add('animate-fadeInUp');
         }
-
         input.value = '';
         input.focus();
       }
-
-      // Allow Enter key
       document.getElementById('try-input').addEventListener('keydown', function(e) {
         if (e.key === 'Enter') trySquare();
       });
@@ -404,7 +328,66 @@
 
 
     <!-- ============================================================
-         PHASE 3: THE DISCOVERY
+         PHASE 3: THE ORIGINS  (NEW!)
+         ============================================================ -->
+    <section class="phase phase-origins animate-fadeInUp">
+      <div class="phase-tag">&#128220; The Origins</div>
+
+      <h2>The 300-Year Argument</h2>
+      <p style="color: var(--text-secondary); margin-bottom: var(--space-lg);">
+        The story of complex numbers is a story of mathematical courage -- of scholars who trusted their algebra even when the answers seemed "impossible."
+      </p>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">780 AD -- Baghdad</div>
+          <div class="timeline-text">
+            <span class="timeline-name">Muhammad ibn Musa al-Khwarizmi</span> writes <em>Al-Kitab al-Mukhtasar fi Hisab al-Jabr wal-Muqabala</em> ("The Compendious Book on Calculation by Completion and Balancing"). This book gives us the word <strong>"algebra"</strong> and systematically solves linear and quadratic equations. Without his foundational work on equations, the later discovery of complex numbers would never have been possible.
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">1545 -- Italy</div>
+          <div class="timeline-text">
+            <span class="timeline-name">Gerolamo Cardano</span> publishes <em>Ars Magna</em>, the greatest algebra book of the Renaissance. While solving cubic equations, his formula forces him to compute $\sqrt{-15}$. He calls these numbers <strong>"mental torture"</strong> (<em>sophistic</em>) but admits the algebra works: the "impossible" intermediate steps lead to perfectly real answers.
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">1572 -- Bologna</div>
+          <div class="timeline-text">
+            <span class="timeline-name">Rafael Bombelli</span> makes the bold leap. Instead of calling $\sqrt{-1}$ meaningless, he says: <em>"Let us just use it and see what happens."</em> He creates the first rules for computing with these strange numbers -- addition, multiplication, and more. An act of extraordinary mathematical courage.
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">1748 -- Berlin</div>
+          <div class="timeline-text">
+            <span class="timeline-name">Leonhard Euler</span> gives the symbol <strong>$i$</strong> (for "imaginary") to $\sqrt{-1}$ and discovers the most beautiful equation in mathematics:
+            $$e^{i\pi} + 1 = 0$$
+            This single formula connects five fundamental constants: $e$, $i$, $\pi$, $1$, and $0$.
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">1799 -- Germany</div>
+          <div class="timeline-text">
+            <span class="timeline-name">Carl Friedrich Gauss</span> gives "imaginary" numbers a <strong>real, visual home</strong>. He creates the <em>complex plane</em> (also called the Argand diagram), where every complex number $a + bi$ becomes a point on a two-dimensional plane. Suddenly these "impossible" numbers are as concrete as coordinates on a map.
+          </div>
+        </div>
+      </div>
+
+      <div class="heritage-box">
+        <h4>Your Mathematical Heritage</h4>
+        <p style="color: var(--text-secondary); line-height: 1.7;">
+          Al-Khwarizmi (780--850 AD) worked at the <strong>Bayt al-Hikma</strong> (House of Wisdom) in Baghdad. His name gave us the word <strong>"algorithm"</strong> and his book gave us <strong>"algebra."</strong> The entire chain of discovery -- from Cardano's cubic formula to Euler's $e^{i\pi}+1=0$ to modern quantum physics -- traces back to Al-Khwarizmi's systematic approach to solving equations. As students of mathematics in the Islamic and South Asian tradition, you are heirs to this extraordinary legacy.
+        </p>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         PHASE 4: THE DISCOVERY  (with JSXGraph visualizations)
          ============================================================ -->
     <section class="phase phase-discovery">
       <div class="phase-tag">&#128218; The Discovery</div>
@@ -475,50 +458,28 @@
 
             <p style="margin: var(--space-md) 0;">The set of all complex numbers is denoted by $\mathbb{C}$, and $\mathbb{R} \subset \mathbb{C}$ (every real number is a complex number with $b = 0$).</p>
 
-            <!-- Number Classification SVG -->
             <div class="diagram-container" style="min-height: 260px;">
-              <svg class="number-tree-svg" width="600" height="240" viewBox="0 0 600 240">
-                <!-- Root -->
+              <svg class="number-tree-svg" width="600" height="240" viewBox="0 0 600 240" style="font-family: Inter, sans-serif;">
                 <rect x="180" y="5" width="240" height="40" rx="8" fill="rgba(0,212,255,0.1)" stroke="#00d4ff" stroke-width="1.5"/>
                 <text x="300" y="30" text-anchor="middle" fill="#00d4ff" font-size="13" font-weight="600">Complex Number: a + bi</text>
-
-                <!-- Lines -->
                 <line x1="240" y1="45" x2="140" y2="80" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
                 <line x1="360" y1="45" x2="460" y2="80" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
-
-                <!-- Imaginary branch -->
                 <rect x="40" y="80" width="200" height="36" rx="8" fill="rgba(255,0,110,0.1)" stroke="#ff006e" stroke-width="1"/>
                 <text x="140" y="103" text-anchor="middle" fill="#ff006e" font-size="12" font-weight="600">Imaginary: b != 0</text>
-
-                <!-- Real branch -->
                 <rect x="360" y="80" width="200" height="36" rx="8" fill="rgba(0,255,136,0.1)" stroke="#00ff88" stroke-width="1"/>
                 <text x="460" y="103" text-anchor="middle" fill="#00ff88" font-size="12" font-weight="600">Real Numbers: b = 0</text>
-
-                <!-- Sub-branches from Imaginary -->
                 <line x1="90" y1="116" x2="70" y2="150" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
                 <line x1="190" y1="116" x2="210" y2="150" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-
-                <!-- Complex (a!=0, b!=0) -->
                 <rect x="5" y="150" width="140" height="36" rx="6" fill="rgba(168,85,247,0.1)" stroke="#a855f7" stroke-width="1"/>
                 <text x="75" y="173" text-anchor="middle" fill="#a855f7" font-size="11">a!=0, b!=0: 2+3i</text>
-
-                <!-- Pure Imaginary (a=0, b!=0) -->
                 <rect x="160" y="150" width="140" height="36" rx="6" fill="rgba(255,140,0,0.1)" stroke="#ff8c00" stroke-width="1"/>
                 <text x="230" y="173" text-anchor="middle" fill="#ff8c00" font-size="11">Pure Imag: 5i, -7i</text>
-
-                <!-- Sub-branches from Real -->
                 <line x1="410" y1="116" x2="390" y2="150" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
                 <line x1="510" y1="116" x2="530" y2="150" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-
-                <!-- Irrational -->
                 <rect x="325" y="150" width="130" height="36" rx="6" fill="rgba(255,215,0,0.1)" stroke="#ffd700" stroke-width="1"/>
                 <text x="390" y="173" text-anchor="middle" fill="#ffd700" font-size="11">Irrational: sqrt(2)</text>
-
-                <!-- Rational -->
                 <rect x="470" y="150" width="120" height="36" rx="6" fill="rgba(0,212,255,0.1)" stroke="#00d4ff" stroke-width="1"/>
                 <text x="530" y="173" text-anchor="middle" fill="#00d4ff" font-size="11">Rational: 3, 2/7</text>
-
-                <!-- Examples row -->
                 <text x="75" y="210" text-anchor="middle" fill="#94a3b8" font-size="10">e.g., 7-11i</text>
                 <text x="230" y="210" text-anchor="middle" fill="#94a3b8" font-size="10">e.g., 18i</text>
                 <text x="390" y="210" text-anchor="middle" fill="#94a3b8" font-size="10">e.g., sqrt(7)</text>
@@ -543,50 +504,15 @@
 
             <table class="powers-cycle-table">
               <thead>
-                <tr>
-                  <th>Power</th>
-                  <th>Calculation</th>
-                  <th>Result</th>
-                  <th>Cycle Position</th>
-                </tr>
+                <tr><th>Power</th><th>Calculation</th><th>Result</th><th>Cycle Position</th></tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>$i^1$</td>
-                  <td>$i$</td>
-                  <td class="cycle-highlight">$i$</td>
-                  <td>1</td>
-                </tr>
-                <tr>
-                  <td>$i^2$</td>
-                  <td>$i \cdot i$</td>
-                  <td class="cycle-highlight">$-1$</td>
-                  <td>2</td>
-                </tr>
-                <tr>
-                  <td>$i^3$</td>
-                  <td>$i^2 \cdot i = (-1)(i)$</td>
-                  <td class="cycle-highlight">$-i$</td>
-                  <td>3</td>
-                </tr>
-                <tr>
-                  <td>$i^4$</td>
-                  <td>$(i^2)^2 = (-1)^2$</td>
-                  <td class="cycle-highlight">$1$</td>
-                  <td>0 (cycle restarts)</td>
-                </tr>
-                <tr>
-                  <td>$i^5$</td>
-                  <td>$i^4 \cdot i = 1 \cdot i$</td>
-                  <td class="cycle-highlight">$i$</td>
-                  <td>1 (same as $i^1$)</td>
-                </tr>
-                <tr>
-                  <td>$i^6$</td>
-                  <td>$(i^2)^3 = (-1)^3$</td>
-                  <td class="cycle-highlight">$-1$</td>
-                  <td>2 (same as $i^2$)</td>
-                </tr>
+                <tr><td>$i^1$</td><td>$i$</td><td class="cycle-highlight">$i$</td><td>1</td></tr>
+                <tr><td>$i^2$</td><td>$i \cdot i$</td><td class="cycle-highlight">$-1$</td><td>2</td></tr>
+                <tr><td>$i^3$</td><td>$i^2 \cdot i = (-1)(i)$</td><td class="cycle-highlight">$-i$</td><td>3</td></tr>
+                <tr><td>$i^4$</td><td>$(i^2)^2 = (-1)^2$</td><td class="cycle-highlight">$1$</td><td>0 (cycle restarts)</td></tr>
+                <tr><td>$i^5$</td><td>$i^4 \cdot i = 1 \cdot i$</td><td class="cycle-highlight">$i$</td><td>1 (same as $i^1$)</td></tr>
+                <tr><td>$i^6$</td><td>$(i^2)^3 = (-1)^3$</td><td class="cycle-highlight">$-1$</td><td>2 (same as $i^2$)</td></tr>
               </tbody>
             </table>
 
@@ -597,49 +523,16 @@
               $r = 0 \Rightarrow 1, \quad r = 1 \Rightarrow i, \quad r = 2 \Rightarrow -1, \quad r = 3 \Rightarrow -i$
             </div>
 
-            <!-- SVG: Powers of i Circle -->
-            <div class="diagram-container" style="min-height: 280px;">
-              <svg width="280" height="280" viewBox="0 0 280 280">
-                <defs>
-                  <filter id="glowCircle"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-                </defs>
-                <!-- Circle -->
-                <circle cx="140" cy="140" r="100" fill="none" stroke="rgba(0,212,255,0.2)" stroke-width="1.5" stroke-dasharray="4,4"/>
-
-                <!-- Axes -->
-                <line x1="140" y1="30" x2="140" y2="250" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-                <line x1="30" y1="140" x2="250" y2="140" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-
-                <!-- Arrows (cycle) -->
-                <path d="M240 138 Q 242 80, 142 40" fill="none" stroke="#00d4ff" stroke-width="1.5" stroke-dasharray="4,2" marker-end="url(#arrowC)"/>
-                <path d="M138 40 Q 80 38, 40 138" fill="none" stroke="#ff006e" stroke-width="1.5" stroke-dasharray="4,2"/>
-                <path d="M40 142 Q 38 200, 138 240" fill="none" stroke="#ff8c00" stroke-width="1.5" stroke-dasharray="4,2"/>
-                <path d="M142 240 Q 200 242, 240 142" fill="none" stroke="#00ff88" stroke-width="1.5" stroke-dasharray="4,2"/>
-
-                <!-- Points -->
-                <!-- i^0 = 1 (right) -->
-                <circle cx="240" cy="140" r="8" fill="rgba(0,212,255,0.3)" stroke="#00d4ff" stroke-width="2" filter="url(#glowCircle)"/>
-                <text x="258" y="145" fill="#00d4ff" font-size="14" font-weight="700" font-family="Inter, sans-serif">1</text>
-                <text x="258" y="160" fill="#64748b" font-size="10" font-family="Inter, sans-serif">i^0, i^4</text>
-
-                <!-- i^1 = i (top) -->
-                <circle cx="140" cy="40" r="8" fill="rgba(0,255,136,0.3)" stroke="#00ff88" stroke-width="2" filter="url(#glowCircle)"/>
-                <text x="155" y="38" fill="#00ff88" font-size="14" font-weight="700" font-family="Inter, sans-serif">i</text>
-                <text x="155" y="52" fill="#64748b" font-size="10" font-family="Inter, sans-serif">i^1, i^5</text>
-
-                <!-- i^2 = -1 (left) -->
-                <circle cx="40" cy="140" r="8" fill="rgba(255,0,110,0.3)" stroke="#ff006e" stroke-width="2" filter="url(#glowCircle)"/>
-                <text x="8" y="135" fill="#ff006e" font-size="14" font-weight="700" font-family="Inter, sans-serif">-1</text>
-                <text x="5" y="150" fill="#64748b" font-size="10" font-family="Inter, sans-serif">i^2, i^6</text>
-
-                <!-- i^3 = -i (bottom) -->
-                <circle cx="140" cy="240" r="8" fill="rgba(255,140,0,0.3)" stroke="#ff8c00" stroke-width="2" filter="url(#glowCircle)"/>
-                <text x="155" y="244" fill="#ff8c00" font-size="14" font-weight="700" font-family="Inter, sans-serif">-i</text>
-                <text x="155" y="258" fill="#64748b" font-size="10" font-family="Inter, sans-serif">i^3, i^7</text>
-
-                <!-- Center label -->
-                <text x="140" y="145" text-anchor="middle" fill="#94a3b8" font-size="11" font-family="Inter, sans-serif">Cycle of 4</text>
-              </svg>
+            <!-- JSXGraph: Powers of i Wheel -->
+            <div class="viz-section">
+              <h4>Interactive: Powers of $i$ Wheel</h4>
+              <p>Use the slider to see how powers of $i$ cycle around the unit circle. The highlighted point shows $i^n$ on the complex plane.</p>
+              <div id="jsx-powers" class="jsx-container" style="height: 350px;"></div>
+              <div class="power-slider-area">
+                <label style="color: var(--text-secondary);">Power $n$:</label>
+                <input type="range" id="power-slider" min="0" max="16" value="1" step="1">
+                <div class="power-display" id="power-display">$i^1 = i$</div>
+              </div>
             </div>
 
             <div class="example-box">
@@ -661,21 +554,15 @@
             <p>Let $z_1 = a + bi$ and $z_2 = c + di$. Here are the four fundamental operations:</p>
 
             <h4 style="color: var(--neon-cyan); margin-top: var(--space-lg);">Addition</h4>
-            <div class="formula-box">
-              $$z_1 + z_2 = (a + c) + (b + d)i$$
-            </div>
+            <div class="formula-box">$$z_1 + z_2 = (a + c) + (b + d)i$$</div>
             <p style="color: var(--text-secondary); font-size: 0.9rem;">Add real parts together, add imaginary parts together.</p>
-
             <div class="example-box">
               <h4>Example:</h4>
               <p>$(7 + 5i) + (4 + 3i) = (7 + 4) + (5 + 3)i = 11 + 8i$</p>
             </div>
 
             <h4 style="color: var(--neon-cyan); margin-top: var(--space-lg);">Subtraction</h4>
-            <div class="formula-box">
-              $$z_1 - z_2 = (a - c) + (b - d)i$$
-            </div>
-
+            <div class="formula-box">$$z_1 - z_2 = (a - c) + (b - d)i$$</div>
             <div class="example-box">
               <h4>Example:</h4>
               <p>$(5 + 6i) - (7 - 4i) = (5 - 7) + (6 - (-4))i = -2 + 10i$</p>
@@ -683,10 +570,7 @@
 
             <h4 style="color: var(--neon-cyan); margin-top: var(--space-lg);">Multiplication</h4>
             <p>Use the distributive law (FOIL method) and remember $i^2 = -1$:</p>
-            <div class="formula-box">
-              $$z_1 \cdot z_2 = (a + bi)(c + di) = (ac - bd) + (ad + bc)i$$
-            </div>
-
+            <div class="formula-box">$$z_1 \cdot z_2 = (a + bi)(c + di) = (ac - bd) + (ad + bc)i$$</div>
             <div class="example-box">
               <h4>Example:</h4>
               <p>$(3 - 2i)(1 + 5i) = 3 + 15i - 2i - 10i^2$</p>
@@ -695,14 +579,23 @@
 
             <h4 style="color: var(--neon-cyan); margin-top: var(--space-lg);">Division</h4>
             <p>Multiply numerator and denominator by the <em>conjugate</em> of the denominator:</p>
-            <div class="formula-box">
-              $$\frac{z_1}{z_2} = \frac{a + bi}{c + di} \times \frac{c - di}{c - di} = \frac{(ac + bd) + (bc - ad)i}{c^2 + d^2}$$
-            </div>
-
+            <div class="formula-box">$$\frac{z_1}{z_2} = \frac{a + bi}{c + di} \times \frac{c - di}{c - di} = \frac{(ac + bd) + (bc - ad)i}{c^2 + d^2}$$</div>
             <div class="example-box">
               <h4>Example:</h4>
               <p>$\dfrac{-7 + 4i}{2 - 5i} = \dfrac{(-7+4i)(2+5i)}{(2-5i)(2+5i)} = \dfrac{-14-35i+8i+20i^2}{4+25}$</p>
               <p>$= \dfrac{-14-27i+20(-1)}{29} = \dfrac{-34-27i}{29} = -\dfrac{34}{29} - \dfrac{27}{29}i$</p>
+            </div>
+
+            <!-- JSXGraph: Complex Addition as Vectors -->
+            <div class="viz-section">
+              <h4>Interactive: Complex Addition as Vectors</h4>
+              <p>Drag the points $z_1$ (cyan) and $z_2$ (green) to see how complex addition works as the parallelogram law of vectors.</p>
+              <div id="jsx-addition" class="jsx-container" style="height: 400px;"></div>
+              <div class="jsx-readout" id="addition-readout">
+                <div>$z_1 = $ <span id="add-z1">2 + 1i</span></div>
+                <div>$z_2 = $ <span id="add-z2">1 + 2i</span></div>
+                <div>$z_1 + z_2 = $ <span id="add-sum">3 + 3i</span></div>
+              </div>
             </div>
 
             <div class="tip-box">
@@ -730,7 +623,6 @@
               <p>The <strong>conjugate</strong> of $z = a + bi$ is denoted $\bar{z}$ and is obtained by changing the sign of the imaginary part:</p>
               <div class="formula-box">$$\bar{z} = a - bi$$</div>
             </div>
-
             <div class="example-box">
               <h4>Examples:</h4>
               <ul style="list-style: none; padding: 0;">
@@ -740,7 +632,6 @@
                 <li>If $z = -5 - 7i$, then $\bar{z} = -5 + 7i$</li>
               </ul>
             </div>
-
             <div class="tip-box">
               <strong>Key Property:</strong> The product of a complex number and its conjugate is always a <em>real number</em>:
               $$z \cdot \bar{z} = (a+bi)(a-bi) = a^2 + b^2$$
@@ -752,12 +643,23 @@
               <p>The <strong>modulus</strong> (absolute value) of $z = a + bi$, denoted $|z|$, is the distance from the origin to the point $(a, b)$:</p>
               <div class="formula-box">$$|z| = \sqrt{a^2 + b^2}$$</div>
             </div>
-
             <div class="example-box">
               <h4>Examples:</h4>
               <p>$|5i| = \sqrt{0^2 + 5^2} = \sqrt{25} = 5$</p>
               <p>$|4 - 7i| = \sqrt{4^2 + (-7)^2} = \sqrt{16 + 49} = \sqrt{65}$</p>
               <p>$|-3 + 2i| = \sqrt{(-3)^2 + 2^2} = \sqrt{9 + 4} = \sqrt{13}$</p>
+            </div>
+
+            <!-- JSXGraph: Modulus & Argument Explorer -->
+            <div class="viz-section">
+              <h4>Interactive: Modulus &amp; Argument Explorer</h4>
+              <p>Drag the point $z$ on the plane. Watch how the modulus $|z|$ (circle) and argument $\arg(z)$ (arc) update in real-time.</p>
+              <div id="jsx-modulus" class="jsx-container" style="height: 400px;"></div>
+              <div class="jsx-readout" id="modulus-readout">
+                <div>$z = $ <span id="mod-z">3 + 2i</span></div>
+                <div>$|z| = $ <span id="mod-abs">3.61</span></div>
+                <div>$\arg(z) = $ <span id="mod-arg">33.69&deg;</span></div>
+              </div>
             </div>
 
             <div class="tip-box">
@@ -770,7 +672,7 @@
           </div>
         </div>
 
-        <!-- Step 6: Complex Plane (Argand Diagram) -->
+        <!-- Step 6: Complex Plane -->
         <div class="reveal-step">
           <div class="reveal-header">
             <span><span class="step-num">6</span> The Complex Plane (Argand Diagram)</span>
@@ -787,99 +689,18 @@
               <p style="margin-top: 8px;">This plane is called the <strong>complex plane</strong>, <strong>z-plane</strong>, or <strong>Argand diagram</strong> (named after Jean-Robert Argand, 1768--1822).</p>
             </div>
 
-            <!-- Interactive Argand Diagram SVG -->
-            <div class="diagram-container interactive-plane" style="min-height: 380px;">
-              <svg width="400" height="380" viewBox="0 0 400 380">
-                <defs>
-                  <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
-                    <polygon points="0 0, 8 3, 0 6" fill="#94a3b8"/>
-                  </marker>
-                </defs>
-
-                <!-- Grid lines -->
-                <g stroke="rgba(255,255,255,0.04)" stroke-width="1">
-                  <!-- Vertical grid -->
-                  <line x1="60" y1="20" x2="60" y2="360"/><line x1="120" y1="20" x2="120" y2="360"/>
-                  <line x1="180" y1="20" x2="180" y2="360"/><line x1="240" y1="20" x2="240" y2="360"/>
-                  <line x1="300" y1="20" x2="300" y2="360"/><line x1="360" y1="20" x2="360" y2="360"/>
-                  <!-- Horizontal grid -->
-                  <line x1="20" y1="40" x2="380" y2="40"/><line x1="20" y1="100" x2="380" y2="100"/>
-                  <line x1="20" y1="160" x2="380" y2="160"/><line x1="20" y1="220" x2="380" y2="220"/>
-                  <line x1="20" y1="280" x2="380" y2="280"/><line x1="20" y1="340" x2="380" y2="340"/>
-                </g>
-
-                <!-- Axes -->
-                <line x1="20" y1="190" x2="385" y2="190" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrowhead)"/>
-                <line x1="200" y1="365" x2="200" y2="15" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrowhead)"/>
-
-                <!-- Axis labels -->
-                <text x="385" y="208" fill="#94a3b8" font-size="12" font-family="Inter, sans-serif">Real</text>
-                <text x="208" y="22" fill="#94a3b8" font-size="12" font-family="Inter, sans-serif">Imaginary</text>
-
-                <!-- Tick marks and numbers on real axis -->
-                <g fill="#64748b" font-size="10" font-family="Inter, sans-serif" text-anchor="middle">
-                  <line x1="60" y1="186" x2="60" y2="194" stroke="#64748b"/>
-                  <text x="60" y="208">-4</text>
-                  <line x1="95" y1="186" x2="95" y2="194" stroke="#64748b"/>
-                  <text x="95" y="208">-3</text>
-                  <line x1="130" y1="186" x2="130" y2="194" stroke="#64748b"/>
-                  <text x="130" y="208">-2</text>
-                  <line x1="165" y1="186" x2="165" y2="194" stroke="#64748b"/>
-                  <text x="165" y="208">-1</text>
-                  <text x="200" y="208">0</text>
-                  <line x1="235" y1="186" x2="235" y2="194" stroke="#64748b"/>
-                  <text x="235" y="208">1</text>
-                  <line x1="270" y1="186" x2="270" y2="194" stroke="#64748b"/>
-                  <text x="270" y="208">2</text>
-                  <line x1="305" y1="186" x2="305" y2="194" stroke="#64748b"/>
-                  <text x="305" y="208">3</text>
-                  <line x1="340" y1="186" x2="340" y2="194" stroke="#64748b"/>
-                  <text x="340" y="208">4</text>
-                </g>
-
-                <!-- Tick marks and numbers on imaginary axis -->
-                <g fill="#64748b" font-size="10" font-family="Inter, sans-serif" text-anchor="end">
-                  <line x1="196" y1="40" x2="204" y2="40" stroke="#64748b"/>
-                  <text x="192" y="44">4i</text>
-                  <line x1="196" y1="70" x2="204" y2="70" stroke="#64748b"/>
-                  <text x="192" y="74">3i</text>
-                  <line x1="196" y1="100" x2="204" y2="100" stroke="#64748b"/>
-                  <text x="192" y="104">-</text>
-                  <line x1="196" y1="130" x2="204" y2="130" stroke="#64748b"/>
-                  <text x="192" y="134">2i</text>
-                  <line x1="196" y1="160" x2="204" y2="160" stroke="#64748b"/>
-                  <text x="192" y="164">i</text>
-                  <line x1="196" y1="220" x2="204" y2="220" stroke="#64748b"/>
-                  <text x="192" y="224">-i</text>
-                  <line x1="196" y1="250" x2="204" y2="250" stroke="#64748b"/>
-                  <text x="192" y="254">-2i</text>
-                  <line x1="196" y1="280" x2="204" y2="280" stroke="#64748b"/>
-                  <text x="192" y="284">-3i</text>
-                </g>
-
-                <!-- Point: 2+3i -->
-                <line x1="200" y1="190" x2="270" y2="100" stroke="rgba(0,212,255,0.3)" stroke-width="1" stroke-dasharray="4,4"/>
-                <circle cx="270" cy="100" r="6" fill="rgba(0,212,255,0.3)" stroke="#00d4ff" stroke-width="2"/>
-                <text x="280" y="96" fill="#00d4ff" font-size="12" font-weight="600" font-family="Inter, sans-serif">2+3i</text>
-
-                <!-- Point: 3-2i -->
-                <line x1="200" y1="190" x2="305" y2="250" stroke="rgba(0,255,136,0.3)" stroke-width="1" stroke-dasharray="4,4"/>
-                <circle cx="305" cy="250" r="6" fill="rgba(0,255,136,0.3)" stroke="#00ff88" stroke-width="2"/>
-                <text x="315" y="248" fill="#00ff88" font-size="12" font-weight="600" font-family="Inter, sans-serif">3-2i</text>
-
-                <!-- Point: -3+i -->
-                <line x1="200" y1="190" x2="95" y2="160" stroke="rgba(255,0,110,0.3)" stroke-width="1" stroke-dasharray="4,4"/>
-                <circle cx="95" cy="160" r="6" fill="rgba(255,0,110,0.3)" stroke="#ff006e" stroke-width="2"/>
-                <text x="45" y="155" fill="#ff006e" font-size="12" font-weight="600" font-family="Inter, sans-serif">-3+i</text>
-
-                <!-- Point: -2-3i -->
-                <line x1="200" y1="190" x2="130" y2="280" stroke="rgba(255,140,0,0.3)" stroke-width="1" stroke-dasharray="4,4"/>
-                <circle cx="130" cy="280" r="6" fill="rgba(255,140,0,0.3)" stroke="#ff8c00" stroke-width="2"/>
-                <text x="70" y="295" fill="#ff8c00" font-size="12" font-weight="600" font-family="Inter, sans-serif">-2-3i</text>
-
-                <!-- |z| label for 2+3i -->
-                <text x="240" y="140" fill="rgba(0,212,255,0.6)" font-size="10" font-style="italic" font-family="Inter, sans-serif" transform="rotate(-35, 240, 140)">|z|</text>
-              </svg>
+            <!-- JSXGraph: Interactive Argand Diagram -->
+            <div class="viz-section">
+              <h4>Interactive: Argand Diagram Explorer</h4>
+              <p>Drag the point on the plane. The real part, imaginary part, modulus, and argument update in real-time. Notice how different quadrants correspond to different sign combinations.</p>
+              <div id="jsx-argand" class="jsx-container" style="height: 420px;"></div>
+              <div class="jsx-readout" id="argand-readout">
+                <div>$z = $ <span id="arg-z">2 + 3i</span></div>
+                <div>$\text{Re}(z) = $ <span id="arg-re">2</span></div>
+                <div>$\text{Im}(z) = $ <span id="arg-im">3</span></div>
+                <div>$|z| = $ <span id="arg-mod">3.61</span></div>
+                <div>Quadrant: <span id="arg-quad">I</span></div>
+              </div>
             </div>
 
             <p style="color: var(--text-secondary); font-size: 0.9rem;">Each complex number maps to exactly one point. The dashed line from the origin to the point represents the modulus $|z|$. The four quadrants correspond to different sign combinations of the real and imaginary parts.</p>
@@ -908,7 +729,6 @@
               <br><br>
               $z + (-z) = 0$
             </div>
-
             <div class="example-box">
               <h4>Example:</h4>
               <p>Additive inverse of $3 - 2i$ is $-3 + 2i$.</p>
@@ -922,7 +742,6 @@
               <br>
               $z \cdot z^{-1} = 1$
             </div>
-
             <div class="example-box">
               <h4>Example:</h4>
               <p>Find the multiplicative inverse of $7 - 5i$:</p>
@@ -936,7 +755,7 @@
 
 
     <!-- ============================================================
-         PHASE 4: THE PRACTICE
+         PHASE 5: THE PRACTICE
          ============================================================ -->
     <section class="phase phase-practice">
       <div class="phase-tag">&#127919; The Practice</div>
@@ -944,7 +763,6 @@
       <h2>Test Your Knowledge</h2>
       <p style="color: var(--text-secondary); margin-bottom: var(--space-md);">Answer each question to earn XP. Build your streak for bonus points!</p>
 
-      <!-- Scoreboard -->
       <div class="scoreboard">
         <div class="score-item">
           <div class="score-value glow-text-green quiz-score">0/0</div>
@@ -1105,7 +923,7 @@
         <!-- Q10 -->
         <div class="quiz-question" data-correct="c">
           <div class="q-number">Question 10 of 10</div>
-          <div class="q-text">In the complex plane, where does the number $-3 + 2i$ lie?</div>
+          <div class="q-text">In the Argand diagram, where does the number $-3 + 2i$ lie? Use the interactive diagram above to verify!</div>
           <div class="quiz-options">
             <div class="quiz-option" data-value="a"><span class="opt-letter">A</span> Quadrant I (positive real, positive imaginary)</div>
             <div class="quiz-option" data-value="b"><span class="opt-letter">B</span> Quadrant III (negative real, negative imaginary)</div>
@@ -1123,7 +941,7 @@
 
 
     <!-- ============================================================
-         PHASE 5: THE BOSS LEVEL
+         PHASE 6: THE BOSS LEVEL
          ============================================================ -->
     <section class="phase phase-boss">
       <div class="phase-tag">&#128128; Boss Level</div>
@@ -1136,46 +954,14 @@
       <!-- Boss 1 -->
       <div class="boss-card">
         <div class="boss-number">1</div>
-        <h3>The Impedance Problem</h3>
-        <p>An electrical engineer uses the formula $E = IZ$ where $E$ is voltage, $I$ is current, and $Z$ is impedance.</p>
-        <p style="margin-top: var(--space-sm);">Given: Current $I = 35 - 40j$ amps and Voltage $E = 430 - 330j$ volts.</p>
-        <p style="margin-top: var(--space-sm);"><strong>Find the impedance $Z$.</strong></p>
-
-        <div style="margin-top: var(--space-md);">
-          <input type="text" id="boss1-input" class="math-input" placeholder="Enter Z in the form a + bj (e.g., 3 + 2j)" style="max-width: 400px;">
-          <button class="btn btn-primary" style="margin-top: var(--space-sm);" onclick="checkBoss1()">Check Answer</button>
-          <div id="boss1-feedback" style="margin-top: var(--space-md); display: none;"></div>
-        </div>
-
-        <button class="btn btn-hint" onclick="this.nextElementSibling.classList.toggle('show')">Show Hint</button>
-        <div class="quiz-hint">
-          $Z = E/I$. Multiply numerator and denominator by the conjugate of $I$: $\overline{35 - 40j} = 35 + 40j$. Then simplify. You should get a simple answer.
-        </div>
-
-        <button class="btn btn-ghost" style="margin-top: var(--space-sm);" onclick="this.nextElementSibling.style.display='block'">Show Solution</button>
-        <div class="example-box" style="display: none;">
-          <p>$Z = \dfrac{E}{I} = \dfrac{430-330j}{35-40j} \times \dfrac{35+40j}{35+40j}$</p>
-          <p style="margin-top: 8px;">Numerator: $(430-330j)(35+40j) = 15050 + 17200j - 11550j - 13200j^2$</p>
-          <p>$= 15050 + 5650j + 13200 = 28250 + 5650j$ (since $j^2 = -1$, so $-13200j^2 = 13200$)</p>
-          <p style="margin-top: 8px;">Denominator: $(35)^2 + (40)^2 = 1225 + 1600 = 2825$</p>
-          <p style="margin-top: 8px;">$Z = \dfrac{28250 + 5650j}{2825} = 10 + 2j$</p>
-          <p style="margin-top: 8px;">Wait -- let us recheck with the textbook: $Z = 1 + 2j$ ohms.</p>
-          <p style="margin-top: 8px;">Recomputing: $(430-330j)(35+40j) = 15050+17200j-11550j+13200 = 28250+5650j$. Dividing by $2825$: $= 10 + 2j$.</p>
-          <p style="color: var(--neon-gold); margin-top: 8px;"><strong>The impedance is $Z = 1 + 2j$ ohms</strong> (per textbook) or verify your own calculation.</p>
-        </div>
-      </div>
-
-      <!-- Boss 2 -->
-      <div class="boss-card">
-        <div class="boss-number">2</div>
         <h3>The Power Simplification</h3>
         <p>Express in the form $a + bi$:</p>
         <div class="formula-box">$$\frac{(2-3i)^2}{(1+2i)^2}$$</div>
 
         <div style="margin-top: var(--space-md);">
-          <input type="text" id="boss2-input" class="math-input" placeholder="Enter answer as a + bi (e.g., -3/25 + 4/25i)" style="max-width: 400px;">
-          <button class="btn btn-primary" style="margin-top: var(--space-sm);" onclick="checkBoss2()">Check Answer</button>
-          <div id="boss2-feedback" style="margin-top: var(--space-md); display: none;"></div>
+          <input type="text" id="boss1-input" class="math-input" placeholder="Enter answer as a + bi (e.g., -3/25 + 4/25i)" style="max-width: 400px;">
+          <button class="btn btn-primary" style="margin-top: var(--space-sm);" onclick="checkBoss1()">Check Answer</button>
+          <div id="boss1-feedback" style="margin-top: var(--space-md); display: none;"></div>
         </div>
 
         <button class="btn btn-hint" onclick="this.nextElementSibling.classList.toggle('show')">Show Hint</button>
@@ -1194,9 +980,9 @@
         </div>
       </div>
 
-      <!-- Boss 3 -->
+      <!-- Boss 2 -->
       <div class="boss-card">
-        <div class="boss-number">3</div>
+        <div class="boss-number">2</div>
         <h3>The System of Complex Equations</h3>
         <p>Solve the system of linear equations with complex coefficients:</p>
         <div class="formula-box">
@@ -1208,15 +994,15 @@
           <div style="display: flex; gap: var(--space-md); flex-wrap: wrap;">
             <div>
               <label style="color: var(--text-muted); font-size: 0.85rem;">z =</label>
-              <input type="text" id="boss3-z" class="math-input" placeholder="e.g., 9i - 2" style="max-width: 200px;">
+              <input type="text" id="boss2-z" class="math-input" placeholder="e.g., -2 + 9i" style="max-width: 200px;">
             </div>
             <div>
               <label style="color: var(--text-muted); font-size: 0.85rem;">w =</label>
-              <input type="text" id="boss3-w" class="math-input" placeholder="e.g., 2 - 6i" style="max-width: 200px;">
+              <input type="text" id="boss2-w" class="math-input" placeholder="e.g., 2 - 6i" style="max-width: 200px;">
             </div>
           </div>
-          <button class="btn btn-primary" style="margin-top: var(--space-sm);" onclick="document.getElementById('boss3-feedback').style.display='block'; document.getElementById('boss3-feedback').innerHTML='<span style=\'color: var(--neon-cyan);\'>Check against the solution below.</span>';">Check Answer</button>
-          <div id="boss3-feedback" style="margin-top: var(--space-md); display: none;"></div>
+          <button class="btn btn-primary" style="margin-top: var(--space-sm);" onclick="checkBoss2()">Check Answer</button>
+          <div id="boss2-feedback" style="margin-top: var(--space-md); display: none;"></div>
         </div>
 
         <button class="btn btn-hint" onclick="this.nextElementSibling.classList.toggle('show')">Show Hint</button>
@@ -1236,6 +1022,31 @@
         </div>
       </div>
 
+      <!-- Boss 3 -->
+      <div class="boss-card">
+        <div class="boss-number">3</div>
+        <h3>The Multiplicative Inverse Challenge</h3>
+        <p>Find the multiplicative inverse of $z = 3 - 4i$ and express it in the form $a + bi$.</p>
+
+        <div style="margin-top: var(--space-md);">
+          <input type="text" id="boss3-input" class="math-input" placeholder="Enter answer as a + bi (e.g., 3/25 + 4/25i)" style="max-width: 400px;">
+          <button class="btn btn-primary" style="margin-top: var(--space-sm);" onclick="checkBoss3()">Check Answer</button>
+          <div id="boss3-feedback" style="margin-top: var(--space-md); display: none;"></div>
+        </div>
+
+        <button class="btn btn-hint" onclick="this.nextElementSibling.classList.toggle('show')">Show Hint</button>
+        <div class="quiz-hint">
+          The multiplicative inverse is $\dfrac{1}{z} = \dfrac{\bar{z}}{|z|^2}$. First find $|z|^2 = 3^2 + 4^2$.
+        </div>
+
+        <button class="btn btn-ghost" style="margin-top: var(--space-sm);" onclick="this.nextElementSibling.style.display='block'">Show Solution</button>
+        <div class="example-box" style="display: none;">
+          <p>$z^{-1} = \dfrac{1}{3-4i} = \dfrac{3+4i}{(3)^2 + (4)^2} = \dfrac{3+4i}{25}$</p>
+          <p style="color: var(--neon-gold); margin-top: 8px;"><strong>Answer: $\dfrac{3}{25} + \dfrac{4}{25}i$</strong></p>
+          <p style="margin-top: 8px;">Verify: $(3-4i)\left(\dfrac{3}{25}+\dfrac{4}{25}i\right) = \dfrac{9+12i-12i-16i^2}{25} = \dfrac{9+16}{25} = 1$ &#10003;</p>
+        </div>
+      </div>
+
       <!-- Chapter Complete Button -->
       <div style="text-align: center; margin-top: var(--space-xl);">
         <button class="btn btn-success" style="font-size: 1.1rem; padding: var(--space-lg) var(--space-2xl);" onclick="QuestMath.completeChapter('1')">
@@ -1252,45 +1063,368 @@
   </main>
 
 
+  <!-- Boss Checkers -->
   <script>
-    // Boss 1 checker
     function checkBoss1() {
-      const input = document.getElementById('boss1-input').value.trim().toLowerCase().replace(/\s/g, '');
+      const input = document.getElementById('boss1-input').value.trim().replace(/\s/g, '').toLowerCase();
       const fb = document.getElementById('boss1-feedback');
       fb.style.display = 'block';
-      // Accept variations like "1+2j", "1+2i", "1 + 2j"
-      if (input === '1+2j' || input === '1+2i' || input === '10+2j' || input === '10+2i') {
-        fb.innerHTML = '<div class="quiz-feedback correct-fb show">Great work! The impedance is indeed the value you calculated. Well done solving a real engineering problem!</div>';
+      if (input === '-33/25+56/25i' || input === '-1.32+2.24i') {
+        fb.innerHTML = '<div class="quiz-feedback correct-fb show">Excellent! You correctly simplified the complex fraction.</div>';
         QuestMath.addXP(QuestMath.XP_BOSS_CLEAR, 'boss_1');
       } else {
-        fb.innerHTML = '<div class="quiz-feedback incorrect-fb show">Not quite right. Try the hint or see the full solution below.</div>';
+        fb.innerHTML = '<div class="quiz-feedback incorrect-fb show">Not quite. Try the hint or see the full solution below.</div>';
       }
     }
 
-    // Boss 2 checker
     function checkBoss2() {
+      const zVal = document.getElementById('boss2-z').value.trim().replace(/\s/g, '').toLowerCase();
+      const wVal = document.getElementById('boss2-w').value.trim().replace(/\s/g, '').toLowerCase();
       const fb = document.getElementById('boss2-feedback');
       fb.style.display = 'block';
-      fb.innerHTML = '<div style="padding: 12px; background: rgba(0,212,255,0.1); border-radius: 8px; color: var(--neon-cyan);">Compare your answer with the full solution below. The correct answer is $-\\frac{33}{25} + \\frac{56}{25}i$.</div>';
-      if (typeof renderMathInElement !== 'undefined') {
-        renderMathInElement(fb, {
-          delimiters: [
-            { left: '$$', right: '$$', display: true },
-            { left: '$', right: '$', display: false }
-          ],
-          throwOnError: false
-        });
+      const zCorrect = zVal === '-2+9i' || zVal === '9i-2';
+      const wCorrect = wVal === '2-6i' || wVal === '-6i+2';
+      if (zCorrect && wCorrect) {
+        fb.innerHTML = '<div class="quiz-feedback correct-fb show">Perfect! You solved the system of complex equations correctly.</div>';
+        QuestMath.addXP(QuestMath.XP_BOSS_CLEAR, 'boss_2');
+      } else {
+        fb.innerHTML = '<div class="quiz-feedback incorrect-fb show">Not quite right. Check against the solution below.</div>';
+      }
+    }
+
+    function checkBoss3() {
+      const input = document.getElementById('boss3-input').value.trim().replace(/\s/g, '').toLowerCase();
+      const fb = document.getElementById('boss3-feedback');
+      fb.style.display = 'block';
+      if (input === '3/25+4/25i' || input === '0.12+0.16i') {
+        fb.innerHTML = '<div class="quiz-feedback correct-fb show">Outstanding! You found the multiplicative inverse correctly.</div>';
+        QuestMath.addXP(QuestMath.XP_BOSS_CLEAR, 'boss_3');
+      } else {
+        fb.innerHTML = '<div class="quiz-feedback incorrect-fb show">Not quite. Try the hint or see the full solution below.</div>';
       }
     }
   </script>
 
-  <!-- Game Engine -->
-  <script src="../js/engine.js"></script>
+
+  <!-- ===== JSXGraph Visualizations ===== -->
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      QuestMath.init();
-    });
+  document.addEventListener('DOMContentLoaded', function() {
+
+    // --- Viz 1: Powers of i Wheel ---
+    (function() {
+      var board = JXG.JSXGraph.initBoard('jsx-powers', {
+        boundingbox: [-2.5, 2.5, 2.5, -2.5],
+        axis: false,
+        grid: false,
+        showNavigation: false,
+        showCopyright: false,
+        keepAspectRatio: true
+      });
+
+      // Dark background styling
+      board.containerObj.style.background = 'rgba(0,0,0,0.4)';
+
+      // Grid
+      for (var g = -2; g <= 2; g++) {
+        board.create('line', [[g, -3], [g, 3]], {strokeColor: 'rgba(255,255,255,0.06)', strokeWidth: 1, fixed: true, highlight: false});
+        board.create('line', [[-3, g], [3, g]], {strokeColor: 'rgba(255,255,255,0.06)', strokeWidth: 1, fixed: true, highlight: false});
+      }
+
+      // Axes
+      board.create('arrow', [[-2.3, 0], [2.3, 0]], {strokeColor: '#94a3b8', strokeWidth: 1.5, fixed: true, highlight: false});
+      board.create('arrow', [[0, -2.3], [0, 2.3]], {strokeColor: '#94a3b8', strokeWidth: 1.5, fixed: true, highlight: false});
+      board.create('text', [2.1, -0.25, 'Re'], {fontSize: 12, color: '#94a3b8', fixed: true});
+      board.create('text', [0.15, 2.2, 'Im'], {fontSize: 12, color: '#94a3b8', fixed: true});
+
+      // Unit circle
+      board.create('circle', [[0, 0], 1], {strokeColor: 'rgba(0,212,255,0.25)', strokeWidth: 1.5, dash: 2, fixed: true, highlight: false});
+
+      // Fixed points on circle
+      var labels = [
+        {x: 1, y: 0, txt: '1', col: '#00d4ff'},
+        {x: 0, y: 1, txt: 'i', col: '#00ff88'},
+        {x: -1, y: 0, txt: '-1', col: '#ff006e'},
+        {x: 0, y: -1, txt: '-i', col: '#ff8c00'}
+      ];
+      labels.forEach(function(l) {
+        board.create('point', [l.x, l.y], {size: 4, color: l.col, fixed: true, name: '', highlight: false});
+        board.create('text', [l.x + 0.15, l.y + 0.15, l.txt], {fontSize: 13, color: l.col, fixed: true, highlight: false});
+      });
+
+      // Moving point
+      var movePt = board.create('point', [0, 1], {size: 6, color: '#ffd700', name: '', highlight: false, showInfobox: false});
+      movePt.setAttribute({fixed: true});
+      var trail = board.create('segment', [[0, 0], movePt], {strokeColor: 'rgba(255,215,0,0.4)', strokeWidth: 2, fixed: true, highlight: false, dash: 2});
+
+      // Slider listener
+      var slider = document.getElementById('power-slider');
+      var display = document.getElementById('power-display');
+      var results = ['1', 'i', '-1', '-i'];
+      var positions = [[1, 0], [0, 1], [-1, 0], [0, -1]];
+
+      function updatePower() {
+        var n = parseInt(slider.value);
+        var r = n % 4;
+        movePt.setPosition(JXG.COORDS_BY_USER, positions[r]);
+        board.update();
+        display.textContent = 'i^' + n + ' = ' + results[r];
+      }
+
+      slider.addEventListener('input', updatePower);
+      updatePower();
+    })();
+
+
+    // --- Viz 2: Complex Addition as Vectors ---
+    (function() {
+      var board = JXG.JSXGraph.initBoard('jsx-addition', {
+        boundingbox: [-5.5, 5.5, 8.5, -5.5],
+        axis: false,
+        grid: false,
+        showNavigation: false,
+        showCopyright: false,
+        keepAspectRatio: true
+      });
+
+      board.containerObj.style.background = 'rgba(0,0,0,0.4)';
+
+      // Grid
+      for (var g = -5; g <= 8; g++) {
+        board.create('line', [[g, -6], [g, 6]], {strokeColor: 'rgba(255,255,255,0.05)', strokeWidth: 1, fixed: true, highlight: false});
+        board.create('line', [[-6, g], [9, g]], {strokeColor: 'rgba(255,255,255,0.05)', strokeWidth: 1, fixed: true, highlight: false});
+      }
+
+      // Axes
+      board.create('arrow', [[-5, 0], [8, 0]], {strokeColor: '#94a3b8', strokeWidth: 1.5, fixed: true, highlight: false});
+      board.create('arrow', [[0, -5], [0, 5]], {strokeColor: '#94a3b8', strokeWidth: 1.5, fixed: true, highlight: false});
+      board.create('text', [7.5, -0.4, 'Re'], {fontSize: 11, color: '#94a3b8', fixed: true});
+      board.create('text', [0.2, 5.2, 'Im'], {fontSize: 11, color: '#94a3b8', fixed: true});
+
+      // Draggable points
+      var z1 = board.create('point', [2, 1], {size: 5, color: '#00d4ff', name: 'z\u2081', label: {fontSize: 13, color: '#00d4ff', offset: [8, 8]}});
+      var z2 = board.create('point', [1, 2], {size: 5, color: '#00ff88', name: 'z\u2082', label: {fontSize: 13, color: '#00ff88', offset: [8, 8]}});
+
+      // Sum point
+      var sum = board.create('point', [function() { return z1.X() + z2.X(); }, function() { return z1.Y() + z2.Y(); }],
+        {size: 5, color: '#ffd700', name: 'z\u2081+z\u2082', fixed: true, label: {fontSize: 13, color: '#ffd700', offset: [8, 8]}});
+
+      // Vectors from origin
+      board.create('arrow', [[0, 0], z1], {strokeColor: '#00d4ff', strokeWidth: 2.5});
+      board.create('arrow', [[0, 0], z2], {strokeColor: '#00ff88', strokeWidth: 2.5});
+      board.create('arrow', [[0, 0], sum], {strokeColor: '#ffd700', strokeWidth: 2.5});
+
+      // Parallelogram dashed lines
+      board.create('segment', [z1, sum], {strokeColor: 'rgba(0,255,136,0.3)', strokeWidth: 1.5, dash: 2});
+      board.create('segment', [z2, sum], {strokeColor: 'rgba(0,212,255,0.3)', strokeWidth: 1.5, dash: 2});
+
+      // Update readout
+      function fmt(v) { return Math.round(v * 10) / 10; }
+      function fmtComplex(x, y) {
+        var r = fmt(x), im = fmt(y);
+        if (im >= 0) return r + ' + ' + im + 'i';
+        return r + ' - ' + Math.abs(im) + 'i';
+      }
+      function updateReadout() {
+        document.getElementById('add-z1').textContent = fmtComplex(z1.X(), z1.Y());
+        document.getElementById('add-z2').textContent = fmtComplex(z2.X(), z2.Y());
+        document.getElementById('add-sum').textContent = fmtComplex(z1.X() + z2.X(), z1.Y() + z2.Y());
+      }
+      z1.on('drag', updateReadout);
+      z2.on('drag', updateReadout);
+      updateReadout();
+    })();
+
+
+    // --- Viz 3: Modulus & Argument Explorer ---
+    (function() {
+      var board = JXG.JSXGraph.initBoard('jsx-modulus', {
+        boundingbox: [-5.5, 5.5, 5.5, -5.5],
+        axis: false,
+        grid: false,
+        showNavigation: false,
+        showCopyright: false,
+        keepAspectRatio: true
+      });
+
+      board.containerObj.style.background = 'rgba(0,0,0,0.4)';
+
+      // Grid
+      for (var g = -5; g <= 5; g++) {
+        board.create('line', [[g, -6], [g, 6]], {strokeColor: 'rgba(255,255,255,0.05)', strokeWidth: 1, fixed: true, highlight: false});
+        board.create('line', [[-6, g], [6, g]], {strokeColor: 'rgba(255,255,255,0.05)', strokeWidth: 1, fixed: true, highlight: false});
+      }
+
+      // Axes
+      board.create('arrow', [[-5, 0], [5, 0]], {strokeColor: '#94a3b8', strokeWidth: 1.5, fixed: true, highlight: false});
+      board.create('arrow', [[0, -5], [0, 5]], {strokeColor: '#94a3b8', strokeWidth: 1.5, fixed: true, highlight: false});
+      board.create('text', [4.7, -0.4, 'Re'], {fontSize: 11, color: '#94a3b8', fixed: true});
+      board.create('text', [0.2, 5.0, 'Im'], {fontSize: 11, color: '#94a3b8', fixed: true});
+
+      // Draggable point
+      var z = board.create('point', [3, 2], {size: 6, color: '#00d4ff', name: 'z', label: {fontSize: 14, color: '#00d4ff', offset: [10, 10]}});
+
+      // Modulus circle
+      var modCircle = board.create('circle', [[0, 0], z], {strokeColor: 'rgba(168,85,247,0.35)', strokeWidth: 1.5, dash: 3, fixed: true, highlight: false});
+
+      // Vector from origin
+      board.create('arrow', [[0, 0], z], {strokeColor: '#00d4ff', strokeWidth: 2.5});
+
+      // Reference point on positive real axis (always at (1,0) direction, scaled to arc radius)
+      var origin = board.create('point', [0, 0], {visible: false});
+      var posReal = board.create('point', [1, 0], {visible: false});
+      var xProj = board.create('point', [function() { return z.X(); }, 0], {visible: false});
+
+      // Angle arc: draw from positive real axis to z
+      // Use a JSXGraph arc via sector/curve for correct direction in all quadrants
+      var arcCurve = board.create('curve', [
+        function(t) { return 0.8 * Math.cos(t); },
+        function(t) { return 0.8 * Math.sin(t); },
+        function() {
+          // start angle: always 0 (positive real axis)
+          var ang = Math.atan2(z.Y(), z.X());
+          return ang >= 0 ? 0 : ang;
+        },
+        function() {
+          // end angle
+          var ang = Math.atan2(z.Y(), z.X());
+          return ang >= 0 ? ang : 0;
+        }
+      ], {
+        strokeColor: '#ffd700',
+        strokeWidth: 2.5,
+        fillColor: 'rgba(255,215,0,0.12)',
+        fill: true,
+        highlight: false,
+        fixed: true
+      });
+
+      // Filled sector wedge for the angle region
+      var sectorFill = board.create('curve', [[], []], {
+        strokeWidth: 0,
+        fillColor: 'rgba(255,215,0,0.10)',
+        fill: true,
+        highlight: false,
+        fixed: true
+      });
+
+      function updateSector() {
+        var ang = Math.atan2(z.Y(), z.X());
+        var startA = ang >= 0 ? 0 : ang;
+        var endA = ang >= 0 ? ang : 0;
+        var steps = 40;
+        var xArr = [0], yArr = [0];
+        for (var i = 0; i <= steps; i++) {
+          var t = startA + (endA - startA) * i / steps;
+          xArr.push(0.8 * Math.cos(t));
+          yArr.push(0.8 * Math.sin(t));
+        }
+        xArr.push(0);
+        yArr.push(0);
+        sectorFill.dataX = xArr;
+        sectorFill.dataY = yArr;
+      }
+      board.addHook(updateSector, 'update');
+      updateSector();
+
+      // Dashed projection lines
+      board.create('segment', [z, xProj], {strokeColor: 'rgba(255,255,255,0.15)', strokeWidth: 1, dash: 3});
+
+      function updateModReadout() {
+        var x = z.X(), y = z.Y();
+        var mod = Math.sqrt(x * x + y * y);
+        var arg = Math.atan2(y, x) * 180 / Math.PI;
+        var r = function(v) { return Math.round(v * 100) / 100; };
+        document.getElementById('mod-z').textContent = r(x) + (y >= 0 ? ' + ' : ' - ') + Math.abs(r(y)) + 'i';
+        document.getElementById('mod-abs').textContent = r(mod);
+        document.getElementById('mod-arg').textContent = r(arg) + '\u00b0';
+      }
+      z.on('drag', updateModReadout);
+      updateModReadout();
+    })();
+
+
+    // --- Viz 4: Interactive Argand Diagram ---
+    (function() {
+      var board = JXG.JSXGraph.initBoard('jsx-argand', {
+        boundingbox: [-6, 6, 6, -6],
+        axis: false,
+        grid: false,
+        showNavigation: false,
+        showCopyright: false,
+        keepAspectRatio: true
+      });
+
+      board.containerObj.style.background = 'rgba(0,0,0,0.4)';
+
+      // Grid
+      for (var g = -5; g <= 5; g++) {
+        board.create('line', [[g, -6], [g, 6]], {strokeColor: 'rgba(255,255,255,0.05)', strokeWidth: 1, fixed: true, highlight: false});
+        board.create('line', [[-6, g], [6, g]], {strokeColor: 'rgba(255,255,255,0.05)', strokeWidth: 1, fixed: true, highlight: false});
+      }
+
+      // Axes
+      board.create('arrow', [[-5.5, 0], [5.5, 0]], {strokeColor: '#94a3b8', strokeWidth: 1.5, fixed: true, highlight: false});
+      board.create('arrow', [[0, -5.5], [0, 5.5]], {strokeColor: '#94a3b8', strokeWidth: 1.5, fixed: true, highlight: false});
+      board.create('text', [5.2, -0.4, 'Re'], {fontSize: 11, color: '#94a3b8', fixed: true});
+      board.create('text', [0.2, 5.5, 'Im'], {fontSize: 11, color: '#94a3b8', fixed: true});
+
+      // Tick labels
+      for (var t = -5; t <= 5; t++) {
+        if (t !== 0) {
+          board.create('text', [t, -0.35, '' + t], {fontSize: 9, color: '#64748b', fixed: true, anchorX: 'middle'});
+          board.create('text', [-0.4, t, '' + t + 'i'], {fontSize: 9, color: '#64748b', fixed: true, anchorX: 'right'});
+        }
+      }
+
+      // Quadrant labels
+      board.create('text', [3.5, 3.5, 'I'], {fontSize: 14, color: 'rgba(0,212,255,0.2)', fixed: true, anchorX: 'middle'});
+      board.create('text', [-3.5, 3.5, 'II'], {fontSize: 14, color: 'rgba(255,0,110,0.2)', fixed: true, anchorX: 'middle'});
+      board.create('text', [-3.5, -3.5, 'III'], {fontSize: 14, color: 'rgba(255,140,0,0.2)', fixed: true, anchorX: 'middle'});
+      board.create('text', [3.5, -3.5, 'IV'], {fontSize: 14, color: 'rgba(0,255,136,0.2)', fixed: true, anchorX: 'middle'});
+
+      // Draggable point
+      var z = board.create('point', [2, 3], {size: 6, color: '#00d4ff', name: 'z', label: {fontSize: 14, color: '#00d4ff', offset: [10, 10]}});
+
+      // Vector from origin
+      board.create('arrow', [[0, 0], z], {strokeColor: '#00d4ff', strokeWidth: 2, dash: 2});
+
+      // Projection lines
+      var xProj = board.create('point', [function() { return z.X(); }, 0], {visible: false});
+      var yProj = board.create('point', [0, function() { return z.Y(); }], {visible: false});
+      board.create('segment', [z, xProj], {strokeColor: 'rgba(0,212,255,0.2)', strokeWidth: 1, dash: 3});
+      board.create('segment', [z, yProj], {strokeColor: 'rgba(0,212,255,0.2)', strokeWidth: 1, dash: 3});
+
+      function getQuadrant(x, y) {
+        if (x > 0 && y > 0) return 'I';
+        if (x < 0 && y > 0) return 'II';
+        if (x < 0 && y < 0) return 'III';
+        if (x > 0 && y < 0) return 'IV';
+        if (x === 0 && y === 0) return 'Origin';
+        if (x === 0) return 'Imaginary axis';
+        return 'Real axis';
+      }
+
+      function updateArgandReadout() {
+        var rawX = z.X(), rawY = z.Y();
+        var mod = Math.round(Math.sqrt(rawX * rawX + rawY * rawY) * 100) / 100;
+        var x = Math.round(rawX * 10) / 10;
+        var y = Math.round(rawY * 10) / 10;
+        document.getElementById('arg-z').textContent = x + (y >= 0 ? ' + ' : ' - ') + Math.abs(y) + 'i';
+        document.getElementById('arg-re').textContent = x;
+        document.getElementById('arg-im').textContent = y;
+        document.getElementById('arg-mod').textContent = mod;
+        document.getElementById('arg-quad').textContent = getQuadrant(x, y);
+      }
+      z.on('drag', updateArgandReadout);
+      updateArgandReadout();
+    })();
+
+  });
   </script>
+
+
+  <!-- Game Engine (auto-inits on DOMContentLoaded) -->
+  <script src="../js/engine.js"></script>
 
 </body>
 </html>

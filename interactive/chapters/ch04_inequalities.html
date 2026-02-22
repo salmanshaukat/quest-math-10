@@ -6,6 +6,11 @@
   <title>Quest 04: Linear & Quadratic Inequalities | Quest Math 10</title>
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+
+  <!-- JSXGraph -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css">
+  <script src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"></script>
+
   <style>
     .chapter-hero {
       text-align: center;
@@ -221,6 +226,41 @@
     </div>
 
     <!-- ============================== -->
+    <!-- PHASE: THE ORIGINS             -->
+    <!-- ============================== -->
+    <section class="phase phase-origins animate-fadeInUp">
+      <div class="phase-tag">&#128220; The Origins</div>
+      <h2>The Logic of Comparison</h2>
+      <p style="color: var(--text-secondary); margin-bottom: var(--space-lg);">
+        Inequality reasoning is as old as mathematics itself. But the symbols we use today &mdash; $<$ and $>$ &mdash; have a surprisingly recent history. For centuries, mathematicians had to write their comparisons in words!
+      </p>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">~300 BC</div>
+          <div class="timeline-text"><span class="timeline-name">Euclid</span> in ancient Greece used inequality reasoning extensively in his proofs about magnitudes in the <em>Elements</em>. His work on comparing lengths, areas, and volumes laid the logical foundation for all inequality mathematics.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">836&ndash;901 AD</div>
+          <div class="timeline-text"><span class="timeline-name">Thabit ibn Qurra</span> in Baghdad proved many inequalities about areas and numbers, extending the Greek methods with original proofs. He was one of the greatest mathematicians of the Islamic Golden Age.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">1585</div>
+          <div class="timeline-text"><span class="timeline-name">Simon Stevin</span> in the Netherlands developed decimal fractions and used inequality concepts in engineering calculations, bringing mathematical precision to practical problems.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">1631</div>
+          <div class="timeline-text"><span class="timeline-name">Thomas Harriot</span> in England introduced the symbols $<$ and $>$ in his posthumous work <em>Artis Analyticae Praxis</em>. Before this, mathematicians wrote inequalities in words &mdash; imagine writing &ldquo;is less than&rdquo; every single time!</div>
+        </div>
+      </div>
+      <div class="heritage-box">
+        <h4>Your Mathematical Heritage</h4>
+        <p style="color: var(--text-secondary); line-height: 1.7;">
+          Thabit ibn Qurra worked at the House of Wisdom (<em>Bayt al-Hikma</em>) in Baghdad and was one of the greatest translators and original mathematicians of the Islamic Golden Age. He translated Greek works by Euclid, Archimedes, and Apollonius, then extended their methods far beyond the originals. His work on comparing magnitudes and proving inequalities about geometric figures laid deep foundations for modern inequality theory. Every time you write $a < b$ or solve an inequality on a number line, you are building on a tradition that runs from Athens through Baghdad to you.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================== -->
     <!-- PHASE 3: DISCOVERY             -->
     <!-- ============================== -->
     <div class="phase phase-discovery animate-fadeInUp">
@@ -324,6 +364,33 @@
               <div class="step-math">$x \geq 6$ &mdash; Divide by 4 (positive, sign stays)</div>
               <p style="margin-top:8px;">Solution set: $\{x \mid x \geq 6\}$. Closed circle at $6$, arrow pointing right.</p>
             </div>
+
+            <!-- JSXGraph: Interactive Number Line Inequality -->
+            <div class="viz-section" style="margin-top: var(--space-xl);">
+              <h4>Interactive: Number Line Inequality</h4>
+              <p>Drag the bound value on the number line, then use the buttons below to change the direction and type.</p>
+
+              <!-- Control buttons above the board -->
+              <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-bottom: var(--space-sm);">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <span style="color: var(--text-muted); font-size: 0.85rem; font-weight: 600;">Direction:</span>
+                  <button id="btn-dir-gt" onclick="window._nlSetDir('gt')" style="padding: 6px 16px; border-radius: 8px; border: 2px solid #a855f7; background: rgba(168,85,247,0.2); color: #a855f7; font-weight: 700; font-size: 0.95rem; cursor: pointer; transition: all 0.2s;">x &gt; b</button>
+                  <button id="btn-dir-lt" onclick="window._nlSetDir('lt')" style="padding: 6px 16px; border-radius: 8px; border: 2px solid rgba(168,85,247,0.3); background: transparent; color: rgba(168,85,247,0.5); font-weight: 700; font-size: 0.95rem; cursor: pointer; transition: all 0.2s;">x &lt; b</button>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <span style="color: var(--text-muted); font-size: 0.85rem; font-weight: 600;">Type:</span>
+                  <button id="btn-type-open" onclick="window._nlSetIncl('open')" style="padding: 6px 16px; border-radius: 8px; border: 2px solid #ffd700; background: rgba(255,215,0,0.2); color: #ffd700; font-weight: 700; font-size: 0.95rem; cursor: pointer; transition: all 0.2s;">Open &nbsp; &gt;</button>
+                  <button id="btn-type-closed" onclick="window._nlSetIncl('closed')" style="padding: 6px 16px; border-radius: 8px; border: 2px solid rgba(255,215,0,0.3); background: transparent; color: rgba(255,215,0,0.5); font-weight: 700; font-size: 0.95rem; cursor: pointer; transition: all 0.2s;">Closed &nbsp; &ge;</button>
+                </div>
+              </div>
+
+              <div id="jsx-numberline" class="jsx-container" style="height: 180px; border-radius: var(--radius-md); overflow: hidden; margin: var(--space-md) 0;"></div>
+              <div class="jsx-readout" id="numberline-readout" style="display: flex; flex-wrap: wrap; gap: var(--space-md); justify-content: center; padding: var(--space-md); background: rgba(0,0,0,0.25); border-radius: var(--radius-md); margin-top: var(--space-sm);">
+                <span id="nl-inequality" style="color: var(--neon-cyan); font-size: 1.2rem; font-weight: 700;">x &gt; 3</span>
+                <span id="nl-set" style="color: var(--text-secondary);">Solution set: {x | x &gt; 3}</span>
+              </div>
+            </div>
+
           </div>
         </div>
 
@@ -401,6 +468,18 @@
             <div class="tip-box">
               <strong>Feasible Region:</strong> In real-world problems (like budget constraints or production limits), the shaded region represents all <em>feasible</em> solutions &mdash; combinations that satisfy the constraints.
             </div>
+
+            <!-- JSXGraph: Linear Inequality in Two Variables -->
+            <div class="viz-section" style="margin-top: var(--space-xl);">
+              <h4>Interactive: Linear Inequality in Two Variables</h4>
+              <p>Adjust $a$, $b$, and $c$ in the inequality $ax + by \leq c$. The boundary line and shaded feasible region update live. Drag the <span style="color: #ffd700;">yellow test point</span> to check whether specific coordinates satisfy the inequality.</p>
+              <div id="jsx-twovariable" class="jsx-container" style="height: 400px; border-radius: var(--radius-md); overflow: hidden; margin: var(--space-md) 0;"></div>
+              <div class="jsx-readout" id="twovariable-readout" style="display: flex; flex-wrap: wrap; gap: var(--space-md); padding: var(--space-md); background: rgba(0,0,0,0.25); border-radius: var(--radius-md); margin-top: var(--space-sm);">
+                <span id="tv-equation" style="color: var(--neon-cyan);">1x + 1y &le; 4</span>
+                <span id="tv-test" style="color: var(--neon-green);">Test point (0, 0): satisfies inequality</span>
+              </div>
+            </div>
+
           </div>
         </div>
 
@@ -679,6 +758,215 @@
     </div>
 
   </div><!-- /container -->
+
+  <!-- JSXGraph Initialization -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+
+    // ========== NUMBER LINE INEQUALITY ==========
+    (function() {
+      var isGreater = true;   // true = x > b,  false = x < b
+      var isInclusive = false; // false = open circle,  true = closed circle
+
+      var board = JXG.JSXGraph.initBoard('jsx-numberline', {
+        boundingbox: [-11, 1.5, 11, -1.5],
+        axis: false, grid: false,
+        showNavigation: false, showCopyright: false,
+        keepAspectRatio: false
+      });
+      board.containerObj.style.background = 'rgba(0,0,0,0.4)';
+
+      // Number line
+      board.create('segment', [[-10, 0], [10, 0]], {strokeColor: '#94a3b8', strokeWidth: 2, fixed: true, highlight: false});
+      board.create('arrow', [[-10, 0], [-10.5, 0]], {strokeColor: '#94a3b8', strokeWidth: 2, fixed: true, highlight: false});
+      board.create('arrow', [[10, 0], [10.5, 0]], {strokeColor: '#94a3b8', strokeWidth: 2, fixed: true, highlight: false});
+
+      // Tick marks
+      for (var i = -10; i <= 10; i++) {
+        board.create('segment', [[i, -0.2], [i, 0.2]], {strokeColor: '#64748b', strokeWidth: 1, fixed: true, highlight: false});
+        board.create('text', [i, -0.55, String(i)], {anchorX: 'middle', color: '#94a3b8', fontSize: 10, fixed: true, highlight: false});
+      }
+
+      // Draggable bound point — IS the open/closed indicator
+      // Open = hollow ring, Closed = solid filled
+      var boundPt = board.create('point', [3, 0], {
+        size: 8, name: '',
+        strokeColor: '#00d4ff', strokeWidth: 3,
+        fillColor: 'rgba(0,0,0,0.9)',
+        snapToGrid: false, attractors: [],
+        showInfobox: false, highlight: true,
+        label: {visible: false}
+      });
+      // Constrain to number line and snap to 0.5
+      boundPt.on('drag', function() {
+        var x = Math.round(boundPt.X() * 2) / 2;
+        if (x < -10) x = -10;
+        if (x > 10) x = 10;
+        boundPt.moveTo([x, 0]);
+        updateNL();
+      });
+
+      // Shaded region
+      var shadeLine = board.create('segment', [
+        [function() { return isGreater ? boundPt.X() : -10.5; }, 0],
+        [function() { return isGreater ? 10.5 : boundPt.X(); }, 0]
+      ], {strokeColor: '#00ff88', strokeWidth: 6, strokeOpacity: 0.5, fixed: true, highlight: false});
+
+      // Arrow to the right (for x > b)
+      var arrowRight = board.create('arrow', [
+        [function() { return boundPt.X() + 0.5; }, 0],
+        [10.5, 0]
+      ], {strokeColor: '#00ff88', strokeWidth: 4, strokeOpacity: 0.6, fixed: true, highlight: false,
+        visible: function() { return isGreater; }
+      });
+
+      // Arrow to the left (for x < b)
+      var arrowLeft = board.create('arrow', [
+        [function() { return boundPt.X() - 0.5; }, 0],
+        [-10.5, 0]
+      ], {strokeColor: '#00ff88', strokeWidth: 4, strokeOpacity: 0.6, fixed: true, highlight: false,
+        visible: function() { return !isGreater; }
+      });
+
+      // Bound value label above the point
+      board.create('text', [
+        function() { return boundPt.X(); },
+        0.65,
+        function() { return 'b = ' + (Math.round(boundPt.X() * 2) / 2); }
+      ], {anchorX: 'middle', color: '#00d4ff', fontSize: 13, fontWeight: 700, fixed: true, highlight: false});
+
+      // Updates the point appearance for open/closed
+      function updateBoundStyle() {
+        if (isInclusive) {
+          boundPt.setAttribute({fillColor: '#00ff88', strokeColor: '#00ff88'});
+        } else {
+          boundPt.setAttribute({fillColor: 'rgba(0,0,0,0.9)', strokeColor: '#00d4ff'});
+        }
+      }
+
+      // --- Readout + button wiring ---
+      function updateNL() {
+        var b = Math.round(boundPt.X() * 2) / 2;
+        var sym, setDesc;
+        if (isGreater && isInclusive)       { sym = '\u2265'; setDesc = 'x \u2265 ' + b; }
+        else if (isGreater && !isInclusive) { sym = '>';       setDesc = 'x > ' + b; }
+        else if (!isGreater && isInclusive) { sym = '\u2264'; setDesc = 'x \u2264 ' + b; }
+        else                                { sym = '<';       setDesc = 'x < ' + b; }
+
+        document.getElementById('nl-inequality').textContent = 'x ' + sym + ' ' + b;
+        document.getElementById('nl-set').textContent = 'Solution set: {x | ' + setDesc + '}';
+        board.update();
+      }
+
+      // Button handlers (exposed globally for onclick)
+      window._nlSetDir = function(dir) {
+        isGreater = (dir === 'gt');
+        // Active/inactive button styles
+        var btnGt = document.getElementById('btn-dir-gt');
+        var btnLt = document.getElementById('btn-dir-lt');
+        btnGt.style.background = isGreater ? 'rgba(168,85,247,0.2)' : 'transparent';
+        btnGt.style.borderColor = isGreater ? '#a855f7' : 'rgba(168,85,247,0.3)';
+        btnGt.style.color = isGreater ? '#a855f7' : 'rgba(168,85,247,0.5)';
+        btnLt.style.background = !isGreater ? 'rgba(168,85,247,0.2)' : 'transparent';
+        btnLt.style.borderColor = !isGreater ? '#a855f7' : 'rgba(168,85,247,0.3)';
+        btnLt.style.color = !isGreater ? '#a855f7' : 'rgba(168,85,247,0.5)';
+        updateNL();
+      };
+
+      window._nlSetIncl = function(type) {
+        isInclusive = (type === 'closed');
+        var btnOpen = document.getElementById('btn-type-open');
+        var btnClosed = document.getElementById('btn-type-closed');
+        btnOpen.style.background = !isInclusive ? 'rgba(255,215,0,0.2)' : 'transparent';
+        btnOpen.style.borderColor = !isInclusive ? '#ffd700' : 'rgba(255,215,0,0.3)';
+        btnOpen.style.color = !isInclusive ? '#ffd700' : 'rgba(255,215,0,0.5)';
+        btnClosed.style.background = isInclusive ? 'rgba(255,215,0,0.2)' : 'transparent';
+        btnClosed.style.borderColor = isInclusive ? '#ffd700' : 'rgba(255,215,0,0.3)';
+        btnClosed.style.color = isInclusive ? '#ffd700' : 'rgba(255,215,0,0.5)';
+        updateBoundStyle();
+        updateNL();
+      };
+
+      board.on('update', updateNL);
+      updateBoundStyle();
+      updateNL();
+    })();
+
+    // ========== LINEAR INEQUALITY IN TWO VARIABLES ==========
+    (function() {
+      var board = JXG.JSXGraph.initBoard('jsx-twovariable', {
+        boundingbox: [-8, 8, 8, -8],
+        axis: false, grid: false,
+        showNavigation: false, showCopyright: false,
+        keepAspectRatio: true
+      });
+      board.containerObj.style.background = 'rgba(0,0,0,0.4)';
+
+      // Grid lines
+      for (var i = -7; i <= 7; i++) {
+        board.create('line', [[i, -8], [i, 8]], {strokeColor: 'rgba(255,255,255,0.05)', strokeWidth: 1, fixed: true, highlight: false});
+        board.create('line', [[-8, i], [8, i]], {strokeColor: 'rgba(255,255,255,0.05)', strokeWidth: 1, fixed: true, highlight: false});
+      }
+
+      // Axes
+      board.create('axis', [[0, 0], [1, 0]], {strokeColor: '#94a3b8', strokeWidth: 1.5, ticks: {majorHeight: 8, minorHeight: 0, strokeColor: '#64748b', label: {color: '#94a3b8', fontSize: 10}}});
+      board.create('axis', [[0, 0], [0, 1]], {strokeColor: '#94a3b8', strokeWidth: 1.5, ticks: {majorHeight: 8, minorHeight: 0, strokeColor: '#64748b', label: {color: '#94a3b8', fontSize: 10}}});
+
+      // Sliders for ax + by <= c
+      var sa = board.create('slider', [[-7, 7], [-2, 7], [-5, 1, 5]], {name: 'a', snapWidth: 0.5, baseline: {strokeColor: '#64748b', strokeWidth: 2}, highline: {strokeColor: '#a855f7', strokeWidth: 3}, fillColor: '#a855f7', strokeColor: '#a855f7', size: 5, label: {color: '#a855f7', fontSize: 11}});
+      var sb = board.create('slider', [[-7, 6.2], [-2, 6.2], [-5, 1, 5]], {name: 'b', snapWidth: 0.5, baseline: {strokeColor: '#64748b', strokeWidth: 2}, highline: {strokeColor: '#00d4ff', strokeWidth: 3}, fillColor: '#00d4ff', strokeColor: '#00d4ff', size: 5, label: {color: '#00d4ff', fontSize: 11}});
+      var sc = board.create('slider', [[-7, 5.4], [-2, 5.4], [-8, 4, 8]], {name: 'c', snapWidth: 0.5, baseline: {strokeColor: '#64748b', strokeWidth: 2}, highline: {strokeColor: '#00ff88', strokeWidth: 3}, fillColor: '#00ff88', strokeColor: '#00ff88', size: 5, label: {color: '#00ff88', fontSize: 11}});
+
+      // Boundary line: ax + by = c
+      var boundaryLine = board.create('functiongraph', [function(x) {
+        var bVal = sb.Value();
+        if (Math.abs(bVal) < 0.01) return 999;
+        return (sc.Value() - sa.Value() * x) / bVal;
+      }], {strokeColor: '#ffffff', strokeWidth: 2, dash: 0});
+
+      // Shaded feasible region using inequality curve
+      // When b > 0: ax + by <= c  =>  y <= (c-ax)/b  => shade below (inverse: false)
+      // When b < 0: ax + by <= c  =>  y >= (c-ax)/b  => shade above (inverse: true)
+      var ineqBelow = board.create('inequality', [boundaryLine], {
+        fillColor: 'rgba(0, 255, 136, 0.12)',
+        fillOpacity: 0.12,
+        inverse: false,
+        strokeWidth: 0,
+        visible: function() { return sb.Value() >= 0.01; }
+      });
+      var ineqAbove = board.create('inequality', [boundaryLine], {
+        fillColor: 'rgba(0, 255, 136, 0.12)',
+        fillOpacity: 0.12,
+        inverse: true,
+        strokeWidth: 0,
+        visible: function() { return sb.Value() < -0.01; }
+      });
+
+      // Draggable test point
+      var testPoint = board.create('point', [1, 1], {
+        name: 'Test',
+        color: '#ffd700',
+        size: 5,
+        label: {color: '#ffd700', fontSize: 12, offset: [10, 10]}
+      });
+
+      // Update readout
+      board.on('update', function() {
+        var a = sa.Value(), b = sb.Value(), c = sc.Value();
+        var aStr = a.toFixed(1), bStr = (b >= 0 ? ' + ' + b.toFixed(1) : ' - ' + Math.abs(b).toFixed(1));
+        document.getElementById('tv-equation').textContent = aStr + 'x' + bStr + 'y \u2264 ' + c.toFixed(1);
+
+        var tx = testPoint.X(), ty = testPoint.Y();
+        var lhs = a * tx + b * ty;
+        var satisfies = lhs <= c + 0.001;
+        var testEl = document.getElementById('tv-test');
+        testEl.textContent = 'Test point (' + tx.toFixed(1) + ', ' + ty.toFixed(1) + '): ' + a.toFixed(1) + '(' + tx.toFixed(1) + ') + ' + b.toFixed(1) + '(' + ty.toFixed(1) + ') = ' + lhs.toFixed(1) + (satisfies ? ' \u2264 ' : ' > ') + c.toFixed(1) + (satisfies ? ' \u2714 satisfies' : ' \u2718 does NOT satisfy');
+        testEl.style.color = satisfies ? '#00ff88' : '#ff3366';
+      });
+    })();
+
+  });
+  </script>
 
   <!-- Scripts -->
   <script src="../js/engine.js"></script>

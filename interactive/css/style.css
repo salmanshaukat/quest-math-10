@@ -409,7 +409,7 @@ h4 { font-size: 1.1rem; margin-bottom: var(--space-sm); }
 }
 
 .reveal-step.open .reveal-content {
-  max-height: 2000px;
+  max-height: 10000px;
   padding: var(--space-md) var(--space-lg) var(--space-lg);
 }
 
@@ -808,6 +808,170 @@ tr:hover td { background: rgba(0, 212, 255, 0.03); }
 .delay-3 { animation-delay: 0.3s; }
 .delay-4 { animation-delay: 0.4s; }
 .delay-5 { animation-delay: 0.5s; }
+
+/* --- Phase: Origins (History) --- */
+.phase-origins {
+  background: linear-gradient(135deg, rgba(255, 170, 0, 0.1), rgba(255, 215, 0, 0.08));
+  border: 1px solid rgba(255, 170, 0, 0.25);
+}
+.phase-origins .phase-tag {
+  background: rgba(255, 170, 0, 0.2);
+  color: var(--neon-gold);
+}
+
+/* --- JSXGraph Container --- */
+.jsx-container {
+  width: 100%;
+  max-width: 600px;
+  height: 400px;
+  margin: var(--space-lg) auto;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.3);
+}
+.jsx-container .JXG_navigation {
+  display: none;
+}
+
+.jsx-label {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.jsx-readout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  justify-content: center;
+  margin: var(--space-md) 0;
+  padding: var(--space-md);
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  font-family: 'Fira Code', monospace;
+  font-size: 0.9rem;
+}
+
+.jsx-readout span {
+  color: var(--neon-cyan);
+}
+
+/* --- Timeline / History Cards --- */
+.timeline {
+  position: relative;
+  padding-left: var(--space-xl);
+  margin: var(--space-lg) 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, rgba(255, 215, 0, 0.4), rgba(168, 85, 247, 0.4));
+}
+
+.timeline-item {
+  position: relative;
+  padding: var(--space-md) var(--space-lg);
+  margin-bottom: var(--space-md);
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.timeline-item:hover {
+  border-color: rgba(255, 215, 0, 0.2);
+  background: rgba(255, 215, 0, 0.03);
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: calc(-1 * var(--space-xl) + 6px);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--neon-gold);
+  border: 2px solid var(--bg-deep);
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+}
+
+.timeline-item .timeline-year {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--neon-gold);
+  margin-bottom: var(--space-xs);
+}
+
+.timeline-item .timeline-text {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.timeline-item .timeline-name {
+  color: var(--text-bright);
+  font-weight: 600;
+}
+
+.scholar-card {
+  display: flex;
+  gap: var(--space-lg);
+  align-items: flex-start;
+  padding: var(--space-lg);
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.08), rgba(0, 212, 255, 0.05));
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  border-radius: var(--radius-lg);
+  margin: var(--space-lg) 0;
+}
+
+.scholar-card .scholar-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(168, 85, 247, 0.15);
+  border: 2px solid rgba(168, 85, 247, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  flex-shrink: 0;
+}
+
+.scholar-card .scholar-info h4 {
+  color: var(--neon-purple);
+  margin-bottom: var(--space-xs);
+}
+
+.scholar-card .scholar-info p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.heritage-box {
+  background: linear-gradient(135deg, rgba(0, 255, 136, 0.08), rgba(255, 215, 0, 0.05));
+  border: 1px solid rgba(0, 255, 136, 0.2);
+  border-left: 4px solid var(--neon-green);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  margin: var(--space-lg) 0;
+}
+
+.heritage-box h4 {
+  color: var(--neon-green);
+  margin-bottom: var(--space-sm);
+}
 
 /* --- Responsive --- */
 @media (max-width: 768px) {
