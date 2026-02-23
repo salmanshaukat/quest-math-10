@@ -7,12 +7,12 @@
 
   <!-- KaTeX CDN -->
   <link rel="stylesheet" href="../libs/katex/katex.min.css">
-  <script src="../libs/katex/katex.min.js"></script>
-  <script src="../libs/katex/auto-render.min.js"></script>
+  <script defer src="../libs/katex/katex.min.js"></script>
+  <script defer src="../libs/katex/auto-render.min.js"></script>
 
   <!-- JSXGraph -->
   <link rel="stylesheet" href="../libs/jsxgraph/jsxgraph.css">
-  <script src="../libs/jsxgraph/jsxgraphcore.js"></script>
+  <script defer src="../libs/jsxgraph/jsxgraphcore.js"></script>
 
   <!-- Quest Math System -->
   <link rel="stylesheet" href="../css/style.css">
@@ -132,7 +132,7 @@
     <!-- ============================================================
          PHASE 1: THE HOOK
          ============================================================ -->
-    <section class="phase phase-hook animate-fadeInUp">
+    <section class="phase phase-hook animate-fadeInUp" role="region" aria-label="The Hook - The Swimming Pool Problem">
       <div class="phase-tag">&#127919; The Hook</div>
 
       <h2>The Swimming Pool Problem</h2>
@@ -193,7 +193,7 @@
     <!-- ============================================================
          PHASE 2: THE CHALLENGE
          ============================================================ -->
-    <section class="phase phase-challenge animate-fadeInUp">
+    <section class="phase phase-challenge animate-fadeInUp" role="region" aria-label="The Challenge - Can You Solve It">
       <div class="phase-tag">&#9888;&#65039; The Challenge</div>
 
       <h2>Can You Solve It?</h2>
@@ -210,7 +210,7 @@
       <div class="challenge-input-group">
         <label style="color: var(--text-secondary);">Your answer for $x$:</label>
         <input type="text" class="math-input" id="challenge-input" placeholder="e.g. 2, 16" style="max-width: 180px;">
-        <button class="btn btn-primary" onclick="checkChallenge()">Check</button>
+        <button class="btn btn-primary" id="challenge-check-btn">Check</button>
       </div>
       <div id="challenge-feedback" style="margin-top: var(--space-md); display: none;"></div>
 
@@ -227,19 +227,21 @@
         // Accept various formats
         const valid = ['2,16','16,2','{2,16}','{16,2}','x=2,x=16','x=16,x=2','2and16','16and2'];
         if (valid.includes(input.toLowerCase().replace(/[{}]/g,''))) {
-          fb.innerHTML = '<span style="color: var(--neon-green); font-weight:600;">Correct! x = 2 or x = 16. Since the sidewalk must be less than 8 m (half of 16), x = 2 m is the practical answer. Excellent intuition!</span>';
+          SafeDOM.readoutHTML('challenge-feedback', '<span style="color: var(--neon-green); font-weight:600;">Correct! x = 2 or x = 16. Since the sidewalk must be less than 8 m (half of 16), x = 2 m is the practical answer. Excellent intuition!</span>');
           QuestMath.addXP(25, 'challenge_correct');
         } else {
-          fb.innerHTML = '<span style="color: var(--neon-gold);">The answer is x = 2 or x = 16. (Since x must be less than 8, the sidewalk is 2 m wide.) Keep reading to learn systematic methods!</span>';
+          SafeDOM.readoutHTML('challenge-feedback', '<span style="color: var(--neon-gold);">The answer is x = 2 or x = 16. (Since x must be less than 8, the sidewalk is 2 m wide.) Keep reading to learn systematic methods!</span>');
         }
       }
+      document.getElementById('challenge-check-btn').addEventListener('click', checkChallenge);
+      document.getElementById('complete-ch-btn').addEventListener('click', function() { QuestMath.completeChapter('2'); });
     </script>
 
 
     <!-- ============================================================
          PHASE: THE ORIGINS
          ============================================================ -->
-    <section class="phase phase-origins animate-fadeInUp">
+    <section class="phase phase-origins animate-fadeInUp" role="region" aria-label="The Origins - The Art of al-Jabr">
       <div class="phase-tag">&#128220; The Origins</div>
       <h2>The Art of al-Jabr</h2>
       <p style="color: var(--text-secondary); margin-bottom: var(--space-lg);">
@@ -279,7 +281,7 @@
     <!-- ============================================================
          PHASE 3: THE DISCOVERY
          ============================================================ -->
-    <section class="phase phase-discovery">
+    <section class="phase phase-discovery" role="region" aria-label="The Discovery - Mastering Quadratic Equations">
       <div class="phase-tag">&#128161; The Discovery</div>
 
       <h2>Mastering Quadratic Equations</h2>
@@ -544,7 +546,7 @@
             <div class="viz-section" style="margin-top: var(--space-xl);">
               <h4>Interactive: Parabola Explorer</h4>
               <p>Drag the sliders to change $a$, $b$, and $c$ in $y = ax^2 + bx + c$. Watch the parabola move, and see the vertex, axis of symmetry, and roots update live. The curve turns <span style="color:#00ff88;">green</span> when $D > 0$ (two real roots), <span style="color:#00d4ff;">cyan</span> when $D = 0$ (one repeated root), and <span style="color:#ff3366;">red</span> when $D < 0$ (no real roots).</p>
-              <div id="jsx-parabola" class="jsx-container" style="height: 400px; border-radius: var(--radius-md); overflow: hidden; margin: var(--space-md) 0;"></div>
+              <div id="jsx-parabola" class="jsx-container" style="height: 400px; border-radius: var(--radius-md); overflow: hidden; margin: var(--space-md) 0;" aria-label="Interactive visualization"></div>
               <div class="jsx-readout" id="parabola-readout" style="display: flex; flex-wrap: wrap; gap: var(--space-md); padding: var(--space-md); background: rgba(0,0,0,0.25); border-radius: var(--radius-md); margin-top: var(--space-sm);">
                 <span id="parabola-vertex" style="color: var(--neon-gold);">Vertex: (0.00, 0.00)</span>
                 <span id="parabola-disc" style="color: var(--neon-cyan);">Discriminant: 0</span>
@@ -619,7 +621,7 @@
             <div class="viz-section" style="margin-top: var(--space-xl);">
               <h4>Interactive: Discriminant Visualizer</h4>
               <p>Drag the slider to change the constant $c$ in $y = x^2 - 4x + c$. Watch the parabola shift vertically &mdash; crossing the x-axis (two roots), just touching it (one root), or floating above (no real roots).</p>
-              <div id="jsx-discriminant" class="jsx-container" style="height: 400px; border-radius: var(--radius-md); overflow: hidden; margin: var(--space-md) 0;"></div>
+              <div id="jsx-discriminant" class="jsx-container" style="height: 400px; border-radius: var(--radius-md); overflow: hidden; margin: var(--space-md) 0;" aria-label="Interactive visualization"></div>
               <div class="jsx-readout" id="discriminant-readout" style="display: flex; flex-wrap: wrap; gap: var(--space-md); padding: var(--space-md); background: rgba(0,0,0,0.25); border-radius: var(--radius-md); margin-top: var(--space-sm);">
                 <span id="disc-value" style="color: var(--neon-gold);">D = 16</span>
                 <span id="disc-type" style="color: var(--neon-green);">Two distinct real roots</span>
@@ -710,7 +712,7 @@
     <!-- ============================================================
          PHASE 4: THE PRACTICE
          ============================================================ -->
-    <section class="phase phase-practice">
+    <section class="phase phase-practice" role="region" aria-label="The Practice - Test Your Skills">
       <div class="phase-tag">&#127947; The Practice</div>
 
       <h2>Test Your Skills</h2>
@@ -890,7 +892,7 @@
     <!-- ============================================================
          PHASE 5: THE BOSS LEVEL
          ============================================================ -->
-    <section class="phase phase-boss">
+    <section class="phase phase-boss" role="region" aria-label="Boss Level - Word Problem Showdown">
       <div class="phase-tag">&#128123; Boss Level</div>
 
       <h2>Word Problem Showdown</h2>
@@ -982,7 +984,7 @@
 
       <!-- Completion Button -->
       <div style="text-align: center; margin-top: var(--space-xl);">
-        <button class="btn btn-success" onclick="QuestMath.completeChapter('2')" style="font-size: 1.1rem; padding: var(--space-md) var(--space-2xl);">
+        <button class="btn btn-success" id="complete-ch-btn" style="font-size: 1.1rem; padding: var(--space-md) var(--space-2xl);">
           &#127942; Complete Chapter 2
         </button>
       </div>
@@ -1013,7 +1015,7 @@
   document.addEventListener('DOMContentLoaded', function() {
     // ========== PARABOLA EXPLORER ==========
     (function() {
-      var board = JXG.JSXGraph.initBoard('jsx-parabola', {
+      var board = VizManager.create('jsx-parabola', {
         boundingbox: [-8, 12, 8, -6],
         axis: false, grid: false,
         showNavigation: false, showCopyright: false,
@@ -1117,7 +1119,7 @@
 
     // ========== DISCRIMINANT VISUALIZER ==========
     (function() {
-      var board = JXG.JSXGraph.initBoard('jsx-discriminant', {
+      var board = VizManager.create('jsx-discriminant', {
         boundingbox: [-3, 10, 7, -4],
         axis: false, grid: false,
         showNavigation: false, showCopyright: false,
@@ -1190,6 +1192,8 @@
   </script>
 
   <script src="../js/engine.js"></script>
+  <script src="../js/viz-manager.js"></script>
+  <script src="../js/safe-dom.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       QuestMath.init();

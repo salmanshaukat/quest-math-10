@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="../libs/katex/katex.min.css">
   <!-- JSXGraph -->
   <link rel="stylesheet" href="../libs/jsxgraph/jsxgraph.css">
-  <script src="../libs/jsxgraph/jsxgraphcore.js"></script>
+  <script defer src="../libs/jsxgraph/jsxgraphcore.js"></script>
   <style>
     .chapter-hero {
       text-align: center;
@@ -226,7 +226,7 @@
             <div class="viz-section" style="margin-top: var(--space-xl);">
               <h4>Interactive: Vector Components Explorer</h4>
               <p>Drag the tip of the vector to explore how magnitude, angle, and components change in real time. The dashed lines show the $x$ and $y$ components forming a right triangle.</p>
-              <div id="jsx-vec-components" class="jsx-container" style="height: 400px;"></div>
+              <div id="jsx-vec-components" class="jsx-container" style="height: 400px;" aria-label="Interactive visualization"></div>
               <div class="jsx-readout" id="vec-components-readout" style="margin-top:12px; padding:12px; background:rgba(0,0,0,0.3); border-radius:var(--radius-md); font-size:0.95rem; text-align:center;">
                 Drag the vector tip to explore components.
               </div>
@@ -304,7 +304,7 @@
             <div class="viz-section" style="margin-top: var(--space-xl);">
               <h4>Interactive: Vector Addition</h4>
               <p>Drag the tips of $\vec{v_1}$ (cyan) and $\vec{v_2}$ (green) to see tip-to-tail addition, the parallelogram law, and the resultant vector (pink) in real time.</p>
-              <div id="jsx-vec-addition" class="jsx-container" style="height: 400px;"></div>
+              <div id="jsx-vec-addition" class="jsx-container" style="height: 400px;" aria-label="Interactive visualization"></div>
               <div class="jsx-readout" id="vec-addition-readout" style="margin-top:12px; padding:12px; background:rgba(0,0,0,0.3); border-radius:var(--radius-md); font-size:0.95rem; text-align:center;">
                 Drag the vector tips to explore addition.
               </div>
@@ -524,7 +524,7 @@
       </div>
 
       <div style="text-align:center; margin-top:var(--space-xl);">
-        <button class="btn btn-success" onclick="QuestMath.completeChapter('7')">
+        <button class="btn btn-success" id="complete-ch7-btn">
           &#127942; Complete Chapter 7
         </button>
       </div>
@@ -544,7 +544,7 @@
     // Viz 1: Vector Components Explorer
     // ============================================
     function buildVecComponents() {
-      var board = JXG.JSXGraph.initBoard('jsx-vec-components', {
+      var board = VizManager.create('jsx-vec-components', {
         boundingbox: [-6, 6, 6, -6], axis: false, grid: false,
         showNavigation: false, showCopyright: false, keepAspectRatio: true
       });
@@ -651,12 +651,12 @@
         var angle = Math.atan2(y, x) * 180 / Math.PI;
         if (angle < 0) angle += 360;
         if (readout) {
-          readout.innerHTML =
+          SafeDOM.readoutHTML(readout,
             '<span style="color:#00d4ff;"><strong>\u20D7v</strong> = [' + x.toFixed(1) + ', ' + y.toFixed(1) + ']</span>' +
             ' &nbsp;|&nbsp; <strong>|\u20D7v|</strong> = ' + mag.toFixed(2) +
             ' &nbsp;|&nbsp; <strong>\u03B8</strong> = ' + angle.toFixed(1) + '\u00B0' +
             ' &nbsp;|&nbsp; <span style="color:#00ff88;">x-comp = ' + x.toFixed(1) + '</span>' +
-            ' &nbsp;|&nbsp; <span style="color:#a855f7;">y-comp = ' + y.toFixed(1) + '</span>';
+            ' &nbsp;|&nbsp; <span style="color:#a855f7;">y-comp = ' + y.toFixed(1) + '</span>');
         }
       });
     }
@@ -665,7 +665,7 @@
     // Viz 2: Vector Addition
     // ============================================
     function buildVecAddition() {
-      var board = JXG.JSXGraph.initBoard('jsx-vec-addition', {
+      var board = VizManager.create('jsx-vec-addition', {
         boundingbox: [-6, 6, 6, -6], axis: false, grid: false,
         showNavigation: false, showCopyright: false, keepAspectRatio: true
       });
@@ -759,10 +759,10 @@
         var mag2 = Math.sqrt(v2x*v2x + v2y*v2y);
         var magR = Math.sqrt(rx*rx + ry*ry);
         if (readout) {
-          readout.innerHTML =
+          SafeDOM.readoutHTML(readout,
             '<span style="color:#00d4ff;">\u20D7v\u2081 = [' + v1x.toFixed(1) + ', ' + v1y.toFixed(1) + '] (|' + mag1.toFixed(1) + '|)</span>' +
             ' &nbsp;+&nbsp; <span style="color:#00ff88;">\u20D7v\u2082 = [' + v2x.toFixed(1) + ', ' + v2y.toFixed(1) + '] (|' + mag2.toFixed(1) + '|)</span>' +
-            ' &nbsp;=&nbsp; <span style="color:#ff006e;">\u20D7R = [' + rx.toFixed(1) + ', ' + ry.toFixed(1) + '] (|' + magR.toFixed(1) + '|)</span>';
+            ' &nbsp;=&nbsp; <span style="color:#ff006e;">\u20D7R = [' + rx.toFixed(1) + ', ' + ry.toFixed(1) + '] (|' + magR.toFixed(1) + '|)</span>');
         }
       });
     }
@@ -778,11 +778,19 @@
   </script>
 
   <script src="../js/engine.js"></script>
-  <script src="../libs/katex/katex.min.js"></script>
-  <script src="../libs/katex/auto-render.min.js"></script>
+  <script src="../js/viz-manager.js"></script>
+  <script src="../js/safe-dom.js"></script>
+  <script defer src="../libs/katex/katex.min.js"></script>
+  <script defer src="../libs/katex/auto-render.min.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       QuestMath.init();
+      var completeCh7Btn = document.getElementById('complete-ch7-btn');
+      if (completeCh7Btn) {
+        completeCh7Btn.addEventListener('click', function() {
+          QuestMath.completeChapter('7');
+        });
+      }
     });
   </script>
 </body>

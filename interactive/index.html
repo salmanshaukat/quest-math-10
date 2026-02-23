@@ -288,22 +288,29 @@
       <p>Quest Math 10 &mdash; Grade 10 Mathematics, Federal Board Pakistan</p>
       <p>National Curriculum 2022-23 | National Book Foundation</p>
       <p style="margin-top: 8px; font-size: 0.75rem;">
-        Built for interactive learning | <a href="#" onclick="QuestMath.resetAll(); return false;">Reset Progress</a>
+        Built for interactive learning | <a href="#" id="reset-progress-link">Reset Progress</a>
       </p>
     </div>
 
   </div>
 
   <script src="js/engine.js"></script>
-  <script src="libs/katex/katex.min.js"></script>
-  <script src="libs/katex/auto-render.min.js"></script>
+  <script defer src="libs/katex/katex.min.js"></script>
+  <script defer src="libs/katex/auto-render.min.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('DOMContentLoaded', function() {
       QuestMath.updateDashboard();
-      // Update progress text
-      const count = QuestMath.state.chaptersCompleted.length;
-      const text = document.getElementById('progress-text');
-      if (text) text.textContent = `${count} / 12 Quests Complete`;
+      var count = QuestMath.state.chaptersCompleted.length;
+      var text = document.getElementById('progress-text');
+      if (text) text.textContent = count + ' / 12 Quests Complete';
+
+      var resetLink = document.getElementById('reset-progress-link');
+      if (resetLink) {
+        resetLink.addEventListener('click', function(e) {
+          e.preventDefault();
+          QuestMath.resetAll();
+        });
+      }
     });
   </script>
 </body>

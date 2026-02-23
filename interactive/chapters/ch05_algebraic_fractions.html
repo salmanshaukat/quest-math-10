@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="../libs/katex/katex.min.css">
   <!-- JSXGraph -->
   <link rel="stylesheet" href="../libs/jsxgraph/jsxgraph.css">
-  <script src="../libs/jsxgraph/jsxgraphcore.js"></script>
+  <script defer src="../libs/jsxgraph/jsxgraphcore.js"></script>
   <style>
     .chapter-hero {
       text-align: center;
@@ -432,26 +432,26 @@
 
               <!-- Expression selector buttons -->
               <div style="display:flex; flex-wrap:wrap; gap:8px; margin:16px 0;">
-                <button id="frac-btn-0" class="frac-expr-btn frac-expr-active" onclick="window._fracSelect(0)">
+                <button id="frac-btn-0" class="frac-expr-btn frac-expr-active">
                   <span style="font-size:0.7rem; text-transform:uppercase; letter-spacing:1px; opacity:0.7;">Expr 1</span><br>
                   <span style="font-size:0.95rem;">(x²−4) / (x²−x−2)</span>
                 </button>
-                <button id="frac-btn-1" class="frac-expr-btn" onclick="window._fracSelect(1)">
+                <button id="frac-btn-1" class="frac-expr-btn">
                   <span style="font-size:0.7rem; text-transform:uppercase; letter-spacing:1px; opacity:0.7;">Expr 2</span><br>
                   <span style="font-size:0.95rem;">(x²−9) / (x²+x−6)</span>
                 </button>
-                <button id="frac-btn-2" class="frac-expr-btn" onclick="window._fracSelect(2)">
+                <button id="frac-btn-2" class="frac-expr-btn">
                   <span style="font-size:0.7rem; text-transform:uppercase; letter-spacing:1px; opacity:0.7;">Expr 3</span><br>
                   <span style="font-size:0.95rem;">(x²+3x) / (x²+5x+6)</span>
                 </button>
-                <button id="frac-btn-3" class="frac-expr-btn" onclick="window._fracSelect(3)">
+                <button id="frac-btn-3" class="frac-expr-btn">
                   <span style="font-size:0.7rem; text-transform:uppercase; letter-spacing:1px; opacity:0.7;">Expr 4</span><br>
                   <span style="font-size:0.95rem;">(2x²−8) / (x²−4x+4)</span>
                 </button>
               </div>
 
               <!-- Graph with tracer -->
-              <div id="jsx-fraction-simplify" class="jsx-container" style="height: 400px;"></div>
+              <div id="jsx-fraction-simplify" class="jsx-container" aria-label="Interactive visualization" style="height: 400px;"></div>
 
               <!-- Live tracer readout -->
               <div id="frac-tracer-readout" style="margin-top:10px; padding:12px 16px; background:rgba(255,215,0,0.08); border:1px solid rgba(255,215,0,0.2); border-radius:var(--radius-md); font-size:0.9rem; display:flex; gap:24px; flex-wrap:wrap; align-items:center;">
@@ -466,10 +466,10 @@
               <div style="margin-top:16px;">
                 <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
                   <span style="font-weight:700; color:var(--text-primary);">Step-by-Step Simplification</span>
-                  <button id="frac-reveal-btn" onclick="window._fracRevealNext()" style="padding:5px 16px; border-radius:var(--radius-full); border:1px solid var(--neon-green); background:rgba(0,255,136,0.1); color:var(--neon-green); cursor:pointer; font-size:0.8rem; font-weight:700; transition:all 0.2s;">
+                  <button id="frac-reveal-btn" style="padding:5px 16px; border-radius:var(--radius-full); border:1px solid var(--neon-green); background:rgba(0,255,136,0.1); color:var(--neon-green); cursor:pointer; font-size:0.8rem; font-weight:700; transition:all 0.2s;">
                     Reveal Next Step ▸
                   </button>
-                  <button onclick="window._fracResetSteps()" style="padding:5px 12px; border-radius:var(--radius-full); border:1px solid rgba(255,255,255,0.15); background:rgba(255,255,255,0.05); color:var(--text-muted); cursor:pointer; font-size:0.8rem; transition:all 0.2s;">
+                  <button id="frac-reset-btn" style="padding:5px 12px; border-radius:var(--radius-full); border:1px solid rgba(255,255,255,0.15); background:rgba(255,255,255,0.05); color:var(--text-muted); cursor:pointer; font-size:0.8rem; transition:all 0.2s;">
                     Reset
                   </button>
                 </div>
@@ -487,10 +487,10 @@
           </div>
           <div class="reveal-content">
             <div class="operation-tabs">
-              <div class="tab active" onclick="switchTab('add')">Addition</div>
-              <div class="tab" onclick="switchTab('sub')">Subtraction</div>
-              <div class="tab" onclick="switchTab('mul')">Multiplication</div>
-              <div class="tab" onclick="switchTab('div')">Division</div>
+              <div class="tab active" id="tab-btn-add">Addition</div>
+              <div class="tab" id="tab-btn-sub">Subtraction</div>
+              <div class="tab" id="tab-btn-mul">Multiplication</div>
+              <div class="tab" id="tab-btn-div">Division</div>
             </div>
 
             <!-- Addition -->
@@ -778,7 +778,7 @@
           <label style="font-size:0.9rem; color:var(--text-secondary);">Enter $t$ as a fraction (e.g., "20/9"):</label>
           <input type="text" id="boss-input" class="math-input" placeholder="e.g., 20/9" style="margin-top:8px;">
           <div style="margin-top:12px; display:flex; gap:8px;">
-            <button class="btn btn-primary" onclick="checkBoss5()">&#9876; Submit Answer</button>
+            <button class="btn btn-primary" id="boss5-submit-btn">&#9876; Submit Answer</button>
           </div>
           <div id="boss-feedback" style="margin-top:12px;"></div>
         </div>
@@ -786,13 +786,13 @@
         <div class="tip-box" id="boss-hint" style="display:none;">
           <strong>Hint:</strong> $\dfrac{1}{4} + \dfrac{1}{5} = \dfrac{5 + 4}{20} = \dfrac{9}{20}$. So $\dfrac{1}{t} = \dfrac{9}{20}$, giving $t = \dfrac{20}{9} \approx 2.22$ hours.
         </div>
-        <button class="btn btn-hint" onclick="document.getElementById('boss-hint').style.display='block'" style="margin-top:8px;">&#128161; Show Hint</button>
+        <button class="btn btn-hint" id="boss5-hint-btn" style="margin-top:8px;">&#128161; Show Hint</button>
       </div>
 
       <div class="card" style="text-align:center; margin-top:24px;">
         <h3>&#127942; Quest Complete?</h3>
         <p style="color:var(--text-secondary);">Once you've mastered all concepts, mark this quest as done!</p>
-        <button class="btn btn-success" onclick="QuestMath.completeChapter('5')" style="margin-top:12px;">
+        <button class="btn btn-success" id="complete-ch5-btn" style="margin-top:12px;">
           &#9989; Complete Quest 05
         </button>
       </div>
@@ -943,7 +943,7 @@
     function buildFracBoard(idx) {
       var expr = expressions[idx];
       if (fracBoard) { JXG.JSXGraph.freeBoard(fracBoard); }
-      fracBoard = JXG.JSXGraph.initBoard('jsx-fraction-simplify', {
+      fracBoard = VizManager.create('jsx-fraction-simplify', {
         boundingbox: [-6, 8, 6, -8], axis: false, grid: false,
         showNavigation: false, showCopyright: false, keepAspectRatio: false
       });
@@ -1059,7 +1059,7 @@
       }
       var holeNote = noteParts.join('<br>');
 
-      container.innerHTML =
+      SafeDOM.readoutHTML('frac-steps-container',
         '<div class="frac-step-card" data-step="1">' +
           '<div class="frac-step-label" style="color:var(--neon-cyan);">Step 1 \u2014 Write the Expression</div>' +
           '<div class="frac-step-body"><span style="font-size:1.15rem;">' +
@@ -1093,7 +1093,7 @@
             '<div style="font-size:1.4rem; font-weight:900; color:var(--neon-purple); padding:12px 0;">' + expr.simpLabel + '</div>' +
             '<div style="font-size:0.85rem; color:var(--text-muted);">The <span style="color:#ff006e;">pink dashed</span> (original) and <span style="color:#00d4ff;">cyan solid</span> (simplified) curves overlap perfectly \u2014 drag the <span style="color:#ffd700;">gold tracer</span> to verify!</div>' +
           '</div>' +
-        '</div>';
+        '</div>');
 
       // Reset revealed steps
       revealedSteps = 0;
@@ -1159,17 +1159,43 @@
       var container = document.getElementById('jsx-fraction-simplify');
       if (!container) return;
       buildFracBoard(0);
+
+      // Wire fraction expression buttons via addEventListener
+      for (var i = 0; i < 4; i++) {
+        (function(idx) {
+          document.getElementById('frac-btn-' + idx).addEventListener('click', function() { window._fracSelect(idx); });
+        })(i);
+      }
+      document.getElementById('frac-reveal-btn').addEventListener('click', function() { window._fracRevealNext(); });
+      document.getElementById('frac-reset-btn').addEventListener('click', function() { window._fracResetSteps(); });
     });
   })();
   </script>
 
   <!-- Scripts -->
   <script src="../js/engine.js"></script>
-  <script src="../libs/katex/katex.min.js"></script>
-  <script src="../libs/katex/auto-render.min.js"></script>
+  <script src="../js/viz-manager.js"></script>
+  <script src="../js/safe-dom.js"></script>
+  <script defer src="../libs/katex/katex.min.js"></script>
+  <script defer src="../libs/katex/auto-render.min.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       QuestMath.init();
+
+      // Tab switching buttons
+      ['add', 'sub', 'mul', 'div'].forEach(function(tab) {
+        var btn = document.getElementById('tab-btn-' + tab);
+        if (btn) btn.addEventListener('click', function() { switchTab(tab, btn); });
+      });
+
+      // Boss & completion buttons
+      document.getElementById('boss5-submit-btn').addEventListener('click', checkBoss5);
+      document.getElementById('boss5-hint-btn').addEventListener('click', function() {
+        document.getElementById('boss-hint').style.display = 'block';
+      });
+      document.getElementById('complete-ch5-btn').addEventListener('click', function() {
+        QuestMath.completeChapter('5');
+      });
     });
 
     // Dosage calculator
@@ -1189,11 +1215,11 @@
     }
 
     // Tab switching for operations
-    function switchTab(tab) {
+    function switchTab(tab, btnEl) {
       document.querySelectorAll('.operation-tabs .tab').forEach(t => t.classList.remove('active'));
       document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
 
-      event.target.classList.add('active');
+      btnEl.classList.add('active');
       const target = document.getElementById('tab-' + tab);
       if (target) {
         target.classList.add('active');
@@ -1218,21 +1244,11 @@
       const isCorrect = input === '20/9' || input === '2.22' || input === '2.2' || input === '2.222';
 
       if (isCorrect) {
-        feedback.innerHTML = '<div class="quiz-feedback correct-fb show">&#127942; BOSS DEFEATED! $\\frac{1}{4} + \\frac{1}{5} = \\frac{9}{20}$, so $t = \\frac{20}{9} \\approx 2.22$ hours. Working together, they finish in about 2 hours and 13 minutes!</div>';
+        SafeDOM.bossFeedback('boss-feedback', true, '');
         QuestMath.addXP(QuestMath.XP_BOSS_CLEAR, 'boss_clear');
         QuestMath.launchConfetti();
       } else {
-        feedback.innerHTML = '<div class="quiz-feedback incorrect-fb show">Not quite. Add the rates: $\\frac{1}{4} + \\frac{1}{5} = \\frac{1}{t}$. Find a common denominator, then invert.</div>';
-      }
-
-      if (typeof renderMathInElement !== 'undefined') {
-        renderMathInElement(feedback, {
-          delimiters: [
-            { left: '$$', right: '$$', display: true },
-            { left: '$', right: '$', display: false }
-          ],
-          throwOnError: false
-        });
+        SafeDOM.bossFeedback('boss-feedback', false, '20/9');
       }
     }
   </script>

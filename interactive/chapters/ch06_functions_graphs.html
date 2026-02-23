@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="../libs/katex/katex.min.css">
   <!-- JSXGraph -->
   <link rel="stylesheet" href="../libs/jsxgraph/jsxgraph.css">
-  <script src="../libs/jsxgraph/jsxgraphcore.js"></script>
+  <script defer src="../libs/jsxgraph/jsxgraphcore.js"></script>
   <style>
     .chapter-hero {
       text-align: center;
@@ -230,9 +230,9 @@
         <p style="font-size:0.9rem; color:var(--text-secondary);">Choose your savings model and watch how your balance grows over 10 months:</p>
 
         <div style="display:flex; gap:8px; margin:16px 0; flex-wrap:wrap;">
-          <button class="btn btn-ghost" id="btn-linear" onclick="setGrowth('linear')" style="border-color:var(--neon-cyan); color:var(--neon-cyan);">Linear: $f(x) = 500 + 50x$</button>
-          <button class="btn btn-ghost" id="btn-quadratic" onclick="setGrowth('quadratic')">Quadratic: $f(x) = 500 + 5x^2$</button>
-          <button class="btn btn-ghost" id="btn-exponential" onclick="setGrowth('exponential')">Compound: $f(x) = 500 \times 1.1^x$</button>
+          <button class="btn btn-ghost" id="btn-linear" style="border-color:var(--neon-cyan); color:var(--neon-cyan);">Linear: $f(x) = 500 + 50x$</button>
+          <button class="btn btn-ghost" id="btn-quadratic">Quadratic: $f(x) = 500 + 5x^2$</button>
+          <button class="btn btn-ghost" id="btn-exponential">Compound: $f(x) = 500 \times 1.1^x$</button>
         </div>
 
         <div id="growth-bars" style="margin:16px 0;"></div>
@@ -620,12 +620,12 @@
               <h4>Interactive: Function Plotter</h4>
               <p>Select a function type, then drag the vertical line to trace points on the curve. The vertical line test shows that each $x$ maps to exactly one $y$.</p>
               <div style="margin: 12px 0; display:flex; gap:8px; flex-wrap:wrap;">
-                <button class="btn btn-ghost" id="btn-fn-linear" onclick="setFuncType('linear')" style="border-color:var(--neon-cyan); color:var(--neon-cyan);">Linear: $y = 2x + 1$</button>
-                <button class="btn btn-ghost" id="btn-fn-quadratic" onclick="setFuncType('quadratic')">Quadratic: $y = x^2 - 2$</button>
-                <button class="btn btn-ghost" id="btn-fn-abs" onclick="setFuncType('abs')">Absolute: $y = |x - 1|$</button>
-                <button class="btn btn-ghost" id="btn-fn-reciprocal" onclick="setFuncType('reciprocal')">Reciprocal: $y = 1/x$</button>
+                <button class="btn btn-ghost" id="btn-fn-linear" style="border-color:var(--neon-cyan); color:var(--neon-cyan);">Linear: $y = 2x + 1$</button>
+                <button class="btn btn-ghost" id="btn-fn-quadratic">Quadratic: $y = x^2 - 2$</button>
+                <button class="btn btn-ghost" id="btn-fn-abs">Absolute: $y = |x - 1|$</button>
+                <button class="btn btn-ghost" id="btn-fn-reciprocal">Reciprocal: $y = 1/x$</button>
               </div>
-              <div id="jsx-func-plotter" class="jsx-container" style="height: 400px;"></div>
+              <div id="jsx-func-plotter" class="jsx-container" aria-label="Interactive visualization" style="height: 400px;"></div>
               <div class="jsx-readout" id="func-plotter-readout" style="margin-top:12px; padding:12px; background:rgba(0,0,0,0.3); border-radius:var(--radius-md); font-size:0.95rem; text-align:center;">
                 Drag the <span style="color:#ffd700;">yellow point</span> along the x-axis to trace the function.
               </div>
@@ -635,7 +635,7 @@
             <div class="viz-section" style="margin-top: var(--space-xl);">
               <h4>Interactive: Function Transformations</h4>
               <p>Explore how $g(x) = a \cdot f(x - h) + k$ transforms the base function $f(x) = x^2$. Adjust the sliders to see vertical shift ($k$), horizontal shift ($h$), and vertical stretch/reflection ($a$).</p>
-              <div id="jsx-func-transform" class="jsx-container" style="height: 400px;"></div>
+              <div id="jsx-func-transform" class="jsx-container" aria-label="Interactive visualization" style="height: 400px;"></div>
               <div class="jsx-readout" id="func-transform-readout" style="margin-top:12px; padding:12px; background:rgba(0,0,0,0.3); border-radius:var(--radius-md); font-size:0.95rem; text-align:center;">
                 <span style="color:#94a3b8;">Original:</span> $f(x) = x^2$ &nbsp; | &nbsp;
                 <span style="color:#00d4ff;">Transformed:</span> $g(x) = a(x - h)^2 + k$
@@ -858,7 +858,7 @@
           <label style="font-size:0.9rem; color:var(--text-secondary);">How many people infected after 6 days? (Round to nearest whole number):</label>
           <input type="text" id="boss-input" class="math-input" placeholder="Enter your answer..." style="margin-top:8px;">
           <div style="margin-top:12px; display:flex; gap:8px;">
-            <button class="btn btn-primary" onclick="checkBoss6()">&#9876; Submit Answer</button>
+            <button class="btn btn-primary" id="boss6-submit-btn">&#9876; Submit Answer</button>
           </div>
           <div id="boss-feedback" style="margin-top:12px;"></div>
         </div>
@@ -866,13 +866,13 @@
         <div class="tip-box" id="boss-hint" style="display:none;">
           <strong>Hint:</strong> $f(6) = 10 \times (1.2)^6$. Calculate $(1.2)^6 = 2.985...$, so $f(6) \approx 10 \times 2.985 \approx 30$. This is an exponential growth function &mdash; the number of infected people is accelerating!
         </div>
-        <button class="btn btn-hint" onclick="document.getElementById('boss-hint').style.display='block'" style="margin-top:8px;">&#128161; Show Hint</button>
+        <button class="btn btn-hint" id="boss6-hint-btn" style="margin-top:8px;">&#128161; Show Hint</button>
       </div>
 
       <div class="card" style="text-align:center; margin-top:24px;">
         <h3>&#127942; Quest Complete?</h3>
         <p style="color:var(--text-secondary);">Once you've mastered all concepts, mark this quest as done!</p>
-        <button class="btn btn-success" onclick="QuestMath.completeChapter('6')" style="margin-top:12px;">
+        <button class="btn btn-success" id="complete-ch6-btn" style="margin-top:12px;">
           &#9989; Complete Quest 06
         </button>
       </div>
@@ -910,7 +910,7 @@
     function buildFuncPlotter(type) {
       var def = funcDefs[type];
       if (funcBoard) { JXG.JSXGraph.freeBoard(funcBoard); }
-      funcBoard = JXG.JSXGraph.initBoard('jsx-func-plotter', {
+      funcBoard = VizManager.create('jsx-func-plotter', {
         boundingbox: [-6, 8, 6, -6], axis: false, grid: false,
         showNavigation: false, showCopyright: false, keepAspectRatio: true
       });
@@ -972,10 +972,10 @@
         var yv = def.fn(tracer.X());
         var ys = isNaN(yv) ? 'undefined' : yv.toFixed(2);
         if (readout) {
-          readout.innerHTML = '<strong style="color:' + def.color + ';">' + def.label + '</strong> &nbsp;|&nbsp; ' +
+          SafeDOM.readoutHTML('func-plotter-readout', '<strong style="color:' + def.color + ';">' + def.label + '</strong> &nbsp;|&nbsp; ' +
             'x = <span style="color:#ffd700;">' + xv + '</span>, ' +
             'f(x) = <span style="color:' + def.color + ';">' + ys + '</span>' +
-            ' &nbsp;|&nbsp; <span style="color:var(--text-muted); font-size:0.85rem;">Vertical line test: one intersection = function!</span>';
+            ' &nbsp;|&nbsp; <span style="color:var(--text-muted); font-size:0.85rem;">Vertical line test: one intersection = function!</span>');
         }
       });
 
@@ -998,7 +998,7 @@
     // Viz 2: Function Transformations
     // ============================================
     function buildTransformBoard() {
-      var tBoard = JXG.JSXGraph.initBoard('jsx-func-transform', {
+      var tBoard = VizManager.create('jsx-func-transform', {
         boundingbox: [-6, 8, 6, -4], axis: false, grid: false,
         showNavigation: false, showCopyright: false, keepAspectRatio: true
       });
@@ -1072,10 +1072,10 @@
         var hPart = hVal >= 0 ? '(x \u2212 ' + h + ')' : '(x + ' + h + ')';
         var kPart = kVal >= 0 ? ' + ' + k : ' \u2212 ' + k;
         if (tReadout) {
-          tReadout.innerHTML =
+          SafeDOM.readoutHTML('func-transform-readout',
             '<span style="color:#94a3b8;">Original: f(x) = x\u00B2</span> &nbsp;|&nbsp; ' +
             '<span style="color:#00d4ff;">g(x) = ' + a + hPart + '\u00B2' + kPart + '</span> &nbsp;|&nbsp; ' +
-            '<span style="color:#ff006e;">Vertex: (' + hVal.toFixed(1) + ', ' + kVal.toFixed(1) + ')</span>';
+            '<span style="color:#ff006e;">Vertex: (' + hVal.toFixed(1) + ', ' + kVal.toFixed(1) + ')</span>');
         }
       });
     }
@@ -1086,17 +1086,40 @@
 
       var c2 = document.getElementById('jsx-func-transform');
       if (c2) buildTransformBoard();
+
+      // Wire function type buttons via addEventListener
+      ['linear','quadratic','abs','reciprocal'].forEach(function(t) {
+        var btn = document.getElementById('btn-fn-' + t);
+        if (btn) btn.addEventListener('click', function() { window.setFuncType(t); });
+      });
     });
   })();
   </script>
 
   <!-- Scripts -->
   <script src="../js/engine.js"></script>
-  <script src="../libs/katex/katex.min.js"></script>
-  <script src="../libs/katex/auto-render.min.js"></script>
+  <script src="../js/viz-manager.js"></script>
+  <script src="../js/safe-dom.js"></script>
+  <script defer src="../libs/katex/katex.min.js"></script>
+  <script defer src="../libs/katex/auto-render.min.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       QuestMath.init();
+
+      // Growth type buttons
+      ['linear', 'quadratic', 'exponential'].forEach(function(t) {
+        var btn = document.getElementById('btn-' + t);
+        if (btn) btn.addEventListener('click', function() { setGrowth(t); });
+      });
+
+      // Boss & completion buttons
+      document.getElementById('boss6-submit-btn').addEventListener('click', checkBoss6);
+      document.getElementById('boss6-hint-btn').addEventListener('click', function() {
+        document.getElementById('boss-hint').style.display = 'block';
+      });
+      document.getElementById('complete-ch6-btn').addEventListener('click', function() {
+        QuestMath.completeChapter('6');
+      });
     });
 
     // Savings Growth simulator
@@ -1150,7 +1173,7 @@
 
       line.setAttribute('points', points.trim());
       line.setAttribute('stroke', type === 'linear' ? '#00d4ff' : type === 'quadratic' ? '#a855f7' : '#00ff88');
-      dots.innerHTML = dotsHTML;
+      SafeDOM.readoutHTML('graph-dots', dotsHTML);
 
       // Update counter
       counter.textContent = values[10].toLocaleString();
@@ -1169,7 +1192,7 @@
           <div class="label" style="text-align:right; min-width:60px;">Rs.${values[i]}</div>
         </div>`;
       }
-      barsContainer.innerHTML = barsHTML;
+      SafeDOM.readoutHTML('growth-bars', barsHTML);
     }
 
     // Initialize
@@ -1183,21 +1206,11 @@
 
       // f(6) = 10 * (1.2)^6 = 10 * 2.985984 ≈ 30
       if (numInput >= 29 && numInput <= 30) {
-        feedback.innerHTML = '<div class="quiz-feedback correct-fb show">&#127942; BOSS DEFEATED! $f(6) = 10 \\times (1.2)^6 \\approx 10 \\times 2.986 \\approx 30$ people. Exponential growth starts slow but accelerates rapidly &mdash; this is why diseases spread so fast!</div>';
+        SafeDOM.bossFeedback('boss-feedback', true, '');
         QuestMath.addXP(QuestMath.XP_BOSS_CLEAR, 'boss_clear');
         QuestMath.launchConfetti();
       } else {
-        feedback.innerHTML = '<div class="quiz-feedback incorrect-fb show">Not quite. Calculate $10 \\times (1.2)^6$. First find $(1.2)^6$ by multiplying $1.2$ six times.</div>';
-      }
-
-      if (typeof renderMathInElement !== 'undefined') {
-        renderMathInElement(feedback, {
-          delimiters: [
-            { left: '$$', right: '$$', display: true },
-            { left: '$', right: '$', display: false }
-          ],
-          throwOnError: false
-        });
+        SafeDOM.bossFeedback('boss-feedback', false, '30');
       }
     }
   </script>

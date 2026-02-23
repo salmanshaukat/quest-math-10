@@ -978,6 +978,63 @@ tr:hover td { background: rgba(0, 212, 255, 0.03); }
   margin-bottom: var(--space-sm);
 }
 
+/* --- Utility Classes --- */
+/* Text colors (use instead of inline style="color:...") */
+.u-text-cyan    { color: var(--neon-cyan); }
+.u-text-green   { color: var(--neon-green); }
+.u-text-gold    { color: var(--neon-gold); }
+.u-text-orange  { color: var(--neon-orange); }
+.u-text-pink    { color: var(--neon-pink); }
+.u-text-purple  { color: var(--neon-purple); }
+.u-text-red     { color: var(--neon-red); }
+.u-text-muted   { color: var(--text-secondary); }
+.u-text-bright  { color: var(--text-bright); }
+
+/* Spacing */
+.u-mt-xs  { margin-top: var(--space-xs); }
+.u-mt-sm  { margin-top: var(--space-sm); }
+.u-mt-md  { margin-top: var(--space-md); }
+.u-mt-lg  { margin-top: var(--space-lg); }
+.u-mt-xl  { margin-top: var(--space-xl); }
+.u-mb-sm  { margin-bottom: var(--space-sm); }
+.u-mb-md  { margin-bottom: var(--space-md); }
+.u-mb-lg  { margin-bottom: var(--space-lg); }
+
+/* Font */
+.u-bold   { font-weight: 700; }
+.u-mono   { font-family: 'Fira Code', monospace; }
+
+/* Text alignment */
+.u-center { text-align: center; }
+
+/* Display */
+.u-hidden { display: none; }
+.u-flex-center { display: flex; align-items: center; justify-content: center; }
+
+/* Accessibility: visually hidden but readable by screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Error/fallback banner */
+.viz-error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
 /* --- Responsive --- */
 @media (max-width: 768px) {
   h1 { font-size: 1.8rem; }
@@ -988,4 +1045,23 @@ tr:hover td { background: rgba(0, 212, 255, 0.03); }
   .top-bar { flex-wrap: wrap; gap: var(--space-sm); }
   .top-bar .stats { gap: var(--space-sm); }
   .scoreboard { flex-wrap: wrap; gap: var(--space-md); }
+  .scholar-card { flex-direction: column; align-items: center; text-align: center; }
+
+  /* JSXGraph boards: scale down on mobile */
+  .jsx-container {
+    height: 300px;
+    max-width: 100%;
+  }
+
+  /* Boss cards need less padding on small screens */
+  .boss-card { padding: var(--space-lg); }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.2rem; }
+  .phase { padding: var(--space-md); }
+  .stat-badge { font-size: 0.75rem; padding: var(--space-xs) var(--space-sm); }
+  .jsx-container { height: 250px; }
+  .jsx-readout { font-size: 0.8rem; gap: var(--space-sm); }
 }

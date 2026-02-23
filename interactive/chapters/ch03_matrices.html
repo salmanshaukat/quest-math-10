@@ -7,12 +7,12 @@
 
   <!-- KaTeX CDN -->
   <link rel="stylesheet" href="../libs/katex/katex.min.css">
-  <script src="../libs/katex/katex.min.js"></script>
-  <script src="../libs/katex/auto-render.min.js"></script>
+  <script defer src="../libs/katex/katex.min.js"></script>
+  <script defer src="../libs/katex/auto-render.min.js"></script>
 
   <!-- JSXGraph -->
   <link rel="stylesheet" href="../libs/jsxgraph/jsxgraph.css">
-  <script src="../libs/jsxgraph/jsxgraphcore.js"></script>
+  <script defer src="../libs/jsxgraph/jsxgraphcore.js"></script>
 
   <!-- Project CSS & JS -->
   <link rel="stylesheet" href="../css/style.css">
@@ -227,7 +227,7 @@
     <!-- ==========================================================
          PHASE 1: HOOK
          ========================================================== -->
-    <section class="phase phase-hook animate-fadeInUp">
+    <section class="phase phase-hook animate-fadeInUp" role="region" aria-label="Phase 1 Hook - The Data Nightmare">
       <div class="phase-tag">&#127919; Phase 1 &mdash; Hook</div>
 
       <h2>The Data Nightmare</h2>
@@ -267,7 +267,7 @@
     <!-- ==========================================================
          PHASE 2: CHALLENGE
          ========================================================== -->
-    <section class="phase phase-challenge animate-fadeInUp">
+    <section class="phase phase-challenge animate-fadeInUp" role="region" aria-label="Phase 2 Challenge - Can You Keep Up">
       <div class="phase-tag">&#9889; Phase 2 &mdash; Challenge</div>
 
       <h2>Can You Keep Up?</h2>
@@ -297,7 +297,7 @@
     <!-- ==========================================================
          PHASE: THE ORIGINS
          ========================================================== -->
-    <section class="phase phase-origins animate-fadeInUp">
+    <section class="phase phase-origins animate-fadeInUp" role="region" aria-label="The Origins - Arrays of Power">
       <div class="phase-tag">&#128220; The Origins</div>
       <h2>Arrays of Power</h2>
       <p style="color: var(--text-secondary); margin-bottom: var(--space-lg);">
@@ -337,7 +337,7 @@
     <!-- ==========================================================
          PHASE 3: DISCOVERY
          ========================================================== -->
-    <section class="phase phase-discovery">
+    <section class="phase phase-discovery" role="region" aria-label="Phase 3 Discovery - The Matrix Toolbox">
       <div class="phase-tag">&#128218; Phase 3 &mdash; Discovery</div>
 
       <h2>The Matrix Toolbox</h2>
@@ -574,7 +574,7 @@
             <div class="viz-section" style="margin-top: var(--space-xl);">
               <h4>Interactive: Matrix Transformation Explorer</h4>
               <p>Drag the sliders to change the entries of a $2 \times 2$ matrix $\begin{pmatrix} a & b \\ c & d \end{pmatrix}$. Watch the <span style="color: #a855f7;">purple unit square</span> transform into the <span style="color: #00ff88;">green parallelogram</span> in real time. The determinant is the area scaling factor &mdash; when it&rsquo;s negative, the orientation flips!</p>
-              <div id="jsx-matrix" class="jsx-container" style="height: 400px; border-radius: var(--radius-md); overflow: hidden; margin: var(--space-md) 0;"></div>
+              <div id="jsx-matrix" class="jsx-container" style="height: 400px; border-radius: var(--radius-md); overflow: hidden; margin: var(--space-md) 0;" aria-label="Interactive visualization"></div>
               <div class="jsx-readout" id="matrix-readout" style="display: flex; flex-wrap: wrap; gap: var(--space-md); padding: var(--space-md); background: rgba(0,0,0,0.25); border-radius: var(--radius-md); margin-top: var(--space-sm);">
                 <span id="matrix-det" style="color: var(--neon-gold);">det = 1.00</span>
                 <span id="matrix-corners" style="color: var(--neon-cyan); font-size: 0.85rem;">Corners: (0,0) (1,0) (1,1) (0,1)</span>
@@ -586,10 +586,10 @@
               <p style="color: var(--neon-cyan); font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Interactive Determinant Calculator</p>
               <p style="color: var(--text-muted); font-size: 0.85rem;">Enter values and see the determinant computed live!</p>
               <div class="matrix-inputs">
-                <input type="number" id="det-a" value="5" onchange="calcDeterminant()" oninput="calcDeterminant()">
-                <input type="number" id="det-b" value="6" onchange="calcDeterminant()" oninput="calcDeterminant()">
-                <input type="number" id="det-c" value="2" onchange="calcDeterminant()" oninput="calcDeterminant()">
-                <input type="number" id="det-d" value="3" onchange="calcDeterminant()" oninput="calcDeterminant()">
+                <input type="number" id="det-a" value="5">
+                <input type="number" id="det-b" value="6">
+                <input type="number" id="det-c" value="2">
+                <input type="number" id="det-d" value="3">
               </div>
               <div id="det-result" class="result-display">|A| = (5)(3) - (6)(2) = 15 - 12 = 3</div>
             </div>
@@ -743,7 +743,7 @@
     <!-- ==========================================================
          PHASE 4: PRACTICE (Quiz)
          ========================================================== -->
-    <section class="phase phase-practice">
+    <section class="phase phase-practice" role="region" aria-label="Phase 4 Practice Arena - Test Your Skills">
       <div class="phase-tag">&#127919; Phase 4 &mdash; Practice Arena</div>
 
       <h2>Test Your Skills</h2>
@@ -913,7 +913,7 @@
     <!-- ==========================================================
          PHASE 5: BOSS LEVEL
          ========================================================== -->
-    <section class="phase phase-boss">
+    <section class="phase phase-boss" role="region" aria-label="Phase 5 Boss Level - Final Challenge">
       <div class="phase-tag">&#128128; Phase 5 &mdash; Boss Level</div>
 
       <h2>Final Challenge</h2>
@@ -981,7 +981,7 @@
 
       <!-- Chapter complete button -->
       <div style="text-align: center; margin-top: 32px;">
-        <button class="btn btn-success" onclick="QuestMath.completeChapter('3')" style="font-size: 1.1rem; padding: 16px 48px;">
+        <button class="btn btn-success" id="complete-ch-btn" style="font-size: 1.1rem; padding: 16px 48px;">
           Complete Chapter 3
         </button>
         <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 8px;">+100 XP for completing this quest</p>
@@ -1040,6 +1040,14 @@
         resultEl.textContent += '  [Non-singular]';
       }
     }
+    // Attach event listeners to determinant inputs
+    ['det-a', 'det-b', 'det-c', 'det-d'].forEach(function(id) {
+      var el = document.getElementById(id);
+      el.addEventListener('input', calcDeterminant);
+      el.addEventListener('change', calcDeterminant);
+    });
+    // Complete chapter button
+    document.getElementById('complete-ch-btn').addEventListener('click', function() { QuestMath.completeChapter('3'); });
   </script>
 
   <!-- JSXGraph Initialization -->
@@ -1047,7 +1055,7 @@
   document.addEventListener('DOMContentLoaded', function() {
     // ========== MATRIX TRANSFORMATION EXPLORER ==========
     (function() {
-      var board = JXG.JSXGraph.initBoard('jsx-matrix', {
+      var board = VizManager.create('jsx-matrix', {
         boundingbox: [-4, 4, 4, -4],
         axis: false, grid: false,
         showNavigation: false, showCopyright: false,
@@ -1138,6 +1146,8 @@
   </script>
 
   <script src="../js/engine.js"></script>
+  <script src="../js/viz-manager.js"></script>
+  <script src="../js/safe-dom.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       QuestMath.init();

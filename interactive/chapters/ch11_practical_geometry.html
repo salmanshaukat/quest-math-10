@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="../libs/katex/katex.min.css">
   <!-- JSXGraph -->
   <link rel="stylesheet" href="../libs/jsxgraph/jsxgraph.css">
-  <script src="../libs/jsxgraph/jsxgraphcore.js"></script>
+  <script defer src="../libs/jsxgraph/jsxgraphcore.js"></script>
   <style>
     .chapter-hero {
       text-align: center;
@@ -216,7 +216,7 @@
             <div class="viz-section" style="margin-top:var(--space-lg);">
               <h4>Interactive: Perpendicular Bisector Construction</h4>
               <p>Watch the classic compass-and-straightedge construction step by step. Click <strong>Next Step</strong> to advance.</p>
-              <div id="jsx-perp-bisector" class="jsx-container" style="height: 400px;"></div>
+              <div id="jsx-perp-bisector" class="jsx-container" aria-label="Interactive visualization" style="height: 400px;"></div>
               <div class="jsx-readout" id="perp-bisector-readout">Click "Next Step" to begin the construction.</div>
               <button class="btn btn-primary" id="perp-bisector-next" style="margin-top:12px;">Next Step</button>
               <button class="btn btn-ghost" id="perp-bisector-reset" style="margin-top:12px; margin-left:8px;">Reset</button>
@@ -244,7 +244,7 @@
             <div class="viz-section" style="margin-top:var(--space-lg);">
               <h4>Interactive: Circumcircle from 3 Points</h4>
               <p>Drag the three points. The perpendicular bisectors always meet at the centre O, and the circumcircle passes through all three.</p>
-              <div id="jsx-circumcircle" class="jsx-container" style="height: 420px;"></div>
+              <div id="jsx-circumcircle" class="jsx-container" aria-label="Interactive visualization" style="height: 420px;"></div>
               <div class="jsx-readout" id="circumcircle-readout"></div>
             </div>
           </div>
@@ -301,7 +301,7 @@
             <div class="viz-section" style="margin-top:var(--space-lg);">
               <h4>Interactive: Tangent at a Point on the Circle</h4>
               <p>Drag point P around the circle. The tangent is always perpendicular to radius OP &mdash; exactly 90&deg;.</p>
-              <div id="jsx-tangent-at-point" class="jsx-container" style="height: 400px;"></div>
+              <div id="jsx-tangent-at-point" class="jsx-container" aria-label="Interactive visualization" style="height: 400px;"></div>
               <div class="jsx-readout" id="tangent-at-point-readout"></div>
             </div>
           </div>
@@ -331,7 +331,7 @@
             <div class="viz-section" style="margin-top:var(--space-lg);">
               <h4>Interactive: Tangent from External Point (Construction)</h4>
               <p>Drag external point P. The <strong>midpoint circle</strong> (dashed gold) through M intersects the original circle at the tangent points T&#x2081; and T&#x2082;.</p>
-              <div id="jsx-ext-tangent-construct" class="jsx-container" style="height: 420px;"></div>
+              <div id="jsx-ext-tangent-construct" class="jsx-container" aria-label="Interactive visualization" style="height: 420px;"></div>
               <div class="jsx-readout" id="ext-tangent-construct-readout"></div>
             </div>
           </div>
@@ -363,7 +363,7 @@
                 <button class="btn btn-primary jsx-angle-btn" data-angle="45" style="margin:4px;">45&deg;</button>
                 <button class="btn btn-primary jsx-angle-btn" data-angle="30" style="margin:4px;">30&deg;</button>
               </div>
-              <div id="jsx-angle-construct" class="jsx-container" style="height: 400px;"></div>
+              <div id="jsx-angle-construct" class="jsx-container" aria-label="Interactive visualization" style="height: 400px;"></div>
               <div class="jsx-readout" id="angle-construct-readout">Select an angle above to begin.</div>
             </div>
           </div>
@@ -409,7 +409,7 @@
             <div class="viz-section" style="margin-top:var(--space-lg);">
               <h4>Interactive: Common Tangents Explorer</h4>
               <p>Drag the centres and adjust radii. Direct (external) tangents shown in green, transverse (internal) in gold. The number of common tangents depends on the circles' positions!</p>
-              <div id="jsx-common-tangents" class="jsx-container" style="height: 420px;"></div>
+              <div id="jsx-common-tangents" class="jsx-container" aria-label="Interactive visualization" style="height: 420px;"></div>
               <div class="jsx-readout" id="common-tangents-readout"></div>
             </div>
           </div>
@@ -596,13 +596,13 @@
         <p>A satellite orbits Earth at an altitude of $7600\text{ km}$ from the surface. The radius of Earth is $6400\text{ km}$. How far is the satellite from its centre? (Think of it as: what is the distance from Earth's centre to the satellite?)</p>
         <div class="boss-input-group">
           <input type="text" id="boss1-input" class="math-input" placeholder="km" style="max-width: 160px;">
-          <button class="btn btn-primary" onclick="QuestMath.checkFillIn('boss1-input', '14000', 'boss1-fb')">Submit</button>
+          <button class="btn btn-primary" id="boss1-submit">Submit</button>
         </div>
         <div class="boss-feedback" id="boss1-fb"></div>
         <div class="quiz-hint">
           <strong>Hint:</strong> Distance from centre = Earth's radius + altitude = $6400 + 7600$.
         </div>
-        <button class="btn btn-hint" onclick="this.previousElementSibling.classList.toggle('show')" style="margin-top: 8px;">Show Hint</button>
+        <button class="btn btn-hint" id="boss1-hint" style="margin-top: 8px;">Show Hint</button>
       </div>
 
       <div class="boss-challenge">
@@ -610,7 +610,7 @@
         <p>Two cylindrical rods, each of diameter $12\text{ cm}$, are bound together with a strap. What is the radius of each rod?</p>
         <div class="boss-input-group">
           <input type="text" id="boss2-input" class="math-input" placeholder="Radius in cm" style="max-width: 160px;">
-          <button class="btn btn-primary" onclick="QuestMath.checkFillIn('boss2-input', '6', 'boss2-fb')">Submit</button>
+          <button class="btn btn-primary" id="boss2-submit">Submit</button>
         </div>
         <div class="boss-feedback" id="boss2-fb"></div>
       </div>
@@ -620,17 +620,17 @@
         <p>A circle inscribed in a square has the square's side length equal to $6\text{ cm}$. What is the radius of the inscribed circle?</p>
         <div class="boss-input-group">
           <input type="text" id="boss3-input" class="math-input" placeholder="Radius in cm" style="max-width: 160px;">
-          <button class="btn btn-primary" onclick="QuestMath.checkFillIn('boss3-input', '3', 'boss3-fb')">Submit</button>
+          <button class="btn btn-primary" id="boss3-submit">Submit</button>
         </div>
         <div class="boss-feedback" id="boss3-fb"></div>
         <div class="quiz-hint">
           <strong>Hint:</strong> The inscribed circle touches the middle of each side. Its diameter equals the side length.
         </div>
-        <button class="btn btn-hint" onclick="this.previousElementSibling.classList.toggle('show')" style="margin-top: 8px;">Show Hint</button>
+        <button class="btn btn-hint" id="boss3-hint" style="margin-top: 8px;">Show Hint</button>
       </div>
 
       <div style="text-align: center; margin-top: 32px;">
-        <button class="btn btn-success" onclick="QuestMath.completeChapter('11')" style="font-size: 1.1rem; padding: 16px 40px;">
+        <button class="btn btn-success" id="ch11-complete" style="font-size: 1.1rem; padding: 16px 40px;">
           &#127942; Complete Quest 11
         </button>
       </div>
@@ -654,7 +654,7 @@
     (function() {
       var el = document.getElementById('jsx-perp-bisector');
       if (!el) return;
-      var board = JXG.JSXGraph.initBoard('jsx-perp-bisector', {
+      var board = VizManager.create('jsx-perp-bisector', {
         boundingbox: [-2, 5, 10, -5], axis: false, grid: false,
         showNavigation: false, showCopyright: false, keepAspectRatio: true
       });
@@ -707,7 +707,7 @@
     (function() {
       var el = document.getElementById('jsx-circumcircle');
       if (!el) return;
-      var board = JXG.JSXGraph.initBoard('jsx-circumcircle', {
+      var board = VizManager.create('jsx-circumcircle', {
         boundingbox: [-7, 7, 7, -7], axis: false, grid: false,
         showNavigation: false, showCopyright: false, keepAspectRatio: true
       });
@@ -745,10 +745,10 @@
       function updateReadout() {
         var ox=cc.center.X(), oy=cc.center.Y();
         var r = Math.sqrt(Math.pow(ox-A.X(),2)+Math.pow(oy-A.Y(),2));
-        readout.innerHTML =
+        SafeDOM.readoutHTML(readout,
           '<span style="color:#00d4ff;">Centre O = ('+ox.toFixed(1)+', '+oy.toFixed(1)+')</span> &nbsp;|&nbsp; ' +
           '<span style="color:#ffd700;">Radius = '+r.toFixed(2)+'</span> &nbsp;|&nbsp; ' +
-          '<span style="color:#a855f7;">Perp. bisectors meet at O</span>';
+          '<span style="color:#a855f7;">Perp. bisectors meet at O</span>');
       }
       A.on('drag', updateReadout); B.on('drag', updateReadout); C.on('drag', updateReadout);
       updateReadout();
@@ -758,7 +758,7 @@
     (function() {
       var el = document.getElementById('jsx-tangent-at-point');
       if (!el) return;
-      var board = JXG.JSXGraph.initBoard('jsx-tangent-at-point', {
+      var board = VizManager.create('jsx-tangent-at-point', {
         boundingbox: [-6, 6, 6, -6], axis: false, grid: false,
         showNavigation: false, showCopyright: false, keepAspectRatio: true
       });
@@ -799,7 +799,7 @@
       function updateReadout() {
         var angle = Math.atan2(P.Y(), P.X()) * R2D;
         if(angle < 0) angle += 360;
-        readout.innerHTML = 'Point P at <strong>' + angle.toFixed(1) + '\u00B0</strong> on circle &nbsp;|&nbsp; \u2220(radius, tangent) = <strong style="color:#ffd700;">90\u00B0</strong> &nbsp;(always perpendicular!)';
+        SafeDOM.readoutHTML(readout, 'Point P at <strong>' + angle.toFixed(1) + '\u00B0</strong> on circle &nbsp;|&nbsp; \u2220(radius, tangent) = <strong style="color:#ffd700;">90\u00B0</strong> &nbsp;(always perpendicular!)');
       }
       P.on('drag', updateReadout);
       updateReadout();
@@ -809,7 +809,7 @@
     (function() {
       var el = document.getElementById('jsx-ext-tangent-construct');
       if (!el) return;
-      var board = JXG.JSXGraph.initBoard('jsx-ext-tangent-construct', {
+      var board = VizManager.create('jsx-ext-tangent-construct', {
         boundingbox: [-6, 7, 12, -7], axis: false, grid: false,
         showNavigation: false, showCopyright: false, keepAspectRatio: true
       });
@@ -866,7 +866,7 @@
       function updateReadout() {
         var d = Math.sqrt(P.X()*P.X()+P.Y()*P.Y());
         var tangLen = Math.sqrt(Math.max(0,d*d-r*r));
-        readout.innerHTML =
+        SafeDOM.readoutHTML(readout,
           '<div style="display:flex; flex-wrap:wrap; gap:4px 16px; font-size:0.9rem;">' +
             '<span style="color:#cbd5e1;">OP = '+d.toFixed(2)+'</span>' +
             '<span style="color:#00d4ff;">r = '+r+'</span>' +
@@ -875,7 +875,7 @@
           '<div style="margin-top:4px; font-size:0.85rem;">' +
             '<span style="color:#00ff88;">PT\u2081 = PT\u2082 = \u221A(OP\u00B2\u2212r\u00B2) = '+tangLen.toFixed(2)+'</span>' +
             ' &nbsp;<span style="color:#00ff88; font-weight:700;">\u2705 Equal tangent lengths!</span>' +
-          '</div>';
+          '</div>');
       }
       P.on('drag', updateReadout);
       updateReadout();
@@ -885,7 +885,7 @@
     (function() {
       var el = document.getElementById('jsx-angle-construct');
       if (!el) return;
-      var board = JXG.JSXGraph.initBoard('jsx-angle-construct', {
+      var board = VizManager.create('jsx-angle-construct', {
         boundingbox: [-2, 6, 10, -4], axis: false, grid: false,
         showNavigation: false, showCopyright: false, keepAspectRatio: true
       });
@@ -979,7 +979,7 @@
     (function() {
       var el = document.getElementById('jsx-common-tangents');
       if (!el) return;
-      var board = JXG.JSXGraph.initBoard('jsx-common-tangents', {
+      var board = VizManager.create('jsx-common-tangents', {
         boundingbox: [-12, 9, 12, -9], axis: false, grid: false,
         showNavigation: false, showCopyright: false, keepAspectRatio: true
       });
@@ -1054,11 +1054,11 @@
         else if(d>Math.abs(r1-r2)+0.3 && d<r1+r2-0.3) { nTangents=2; status='Intersecting: 2 direct only'; }
         else if(Math.abs(d-Math.abs(r1-r2))<0.3) { nTangents=1; status='Internally touching: 1 common'; }
         else { nTangents=0; status='One inside the other: no common tangents'; }
-        readout.innerHTML =
+        SafeDOM.readoutHTML(readout,
           '<span style="color:#00d4ff;">r\u2081='+r1.toFixed(1)+'</span> &nbsp;|&nbsp; ' +
           '<span style="color:#00ff88;">r\u2082='+r2.toFixed(1)+'</span> &nbsp;|&nbsp; ' +
           '<span style="color:#cbd5e1;">d='+d.toFixed(2)+'</span> &nbsp;|&nbsp; ' +
-          '<strong style="color:#ffd700;">'+nTangents+' common tangent'+(nTangents!==1?'s':'')+'</strong> &mdash; '+status;
+          '<strong style="color:#ffd700;">'+nTangents+' common tangent'+(nTangents!==1?'s':'')+'</strong> &mdash; '+status);
       }
       O1.on('drag', updateReadout); O2.on('drag', updateReadout);
       r1Slider.on('drag', updateReadout); r2Slider.on('drag', updateReadout);
@@ -1069,11 +1069,32 @@
   </script>
 
   <script src="../js/engine.js"></script>
-  <script src="../libs/katex/katex.min.js"></script>
-  <script src="../libs/katex/auto-render.min.js"></script>
+  <script src="../js/viz-manager.js"></script>
+  <script src="../js/safe-dom.js"></script>
+  <script defer src="../libs/katex/katex.min.js"></script>
+  <script defer src="../libs/katex/auto-render.min.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       QuestMath.init();
+
+      document.getElementById('boss1-submit').addEventListener('click', function() {
+        QuestMath.checkFillIn('boss1-input', '14000', 'boss1-fb');
+      });
+      document.getElementById('boss1-hint').addEventListener('click', function() {
+        this.previousElementSibling.classList.toggle('show');
+      });
+      document.getElementById('boss2-submit').addEventListener('click', function() {
+        QuestMath.checkFillIn('boss2-input', '6', 'boss2-fb');
+      });
+      document.getElementById('boss3-submit').addEventListener('click', function() {
+        QuestMath.checkFillIn('boss3-input', '3', 'boss3-fb');
+      });
+      document.getElementById('boss3-hint').addEventListener('click', function() {
+        this.previousElementSibling.classList.toggle('show');
+      });
+      document.getElementById('ch11-complete').addEventListener('click', function() {
+        QuestMath.completeChapter('11');
+      });
     });
   </script>
 </body>

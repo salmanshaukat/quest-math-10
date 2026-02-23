@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="../libs/katex/katex.min.css">
   <!-- JSXGraph -->
   <link rel="stylesheet" href="../libs/jsxgraph/jsxgraph.css">
-  <script src="../libs/jsxgraph/jsxgraphcore.js"></script>
+  <script defer src="../libs/jsxgraph/jsxgraphcore.js"></script>
   <style>
     .chapter-hero {
       text-align: center;
@@ -212,7 +212,7 @@
             <div class="viz-section" style="margin-top:var(--space-lg);">
               <h4>Interactive: Three Points &rarr; Unique Circle</h4>
               <p>Drag the three points. A unique circle always passes through them. The perpendicular bisectors meet at the centre.</p>
-              <div id="jsx-unique-circle" class="jsx-container" style="height: 400px;"></div>
+              <div id="jsx-unique-circle" class="jsx-container" style="height: 400px;" aria-label="Interactive visualization"></div>
               <div class="jsx-readout" id="unique-circle-readout"></div>
             </div>
           </div>
@@ -247,7 +247,7 @@
             <div class="viz-section" style="margin-top:var(--space-lg);">
               <h4>Interactive: Perpendicular from Centre Bisects Chord</h4>
               <p>Drag endpoints A and B on the circle. The perpendicular from O always hits the midpoint M of the chord. Verify $r^2 = d^2 + (\ell/2)^2$.</p>
-              <div id="jsx-perp-bisect" class="jsx-container" style="height: 400px;"></div>
+              <div id="jsx-perp-bisect" class="jsx-container" style="height: 400px;" aria-label="Interactive visualization"></div>
               <div class="jsx-readout" id="perp-bisect-readout"></div>
             </div>
           </div>
@@ -284,7 +284,7 @@
             <div class="viz-section" style="margin-top:var(--space-lg);">
               <h4>Interactive: Equal Chords &amp; Equal Distances</h4>
               <p>Two chords in the same circle. When their lengths are equal, their distances from the centre match. Drag endpoints to explore!</p>
-              <div id="jsx-equal-chords" class="jsx-container" style="height: 400px;"></div>
+              <div id="jsx-equal-chords" class="jsx-container" style="height: 400px;" aria-label="Interactive visualization"></div>
               <div class="jsx-readout" id="equal-chords-readout"></div>
             </div>
           </div>
@@ -328,7 +328,7 @@
             <div class="viz-section" style="margin-top:var(--space-lg);">
               <h4>Interactive: Arcs, Chords &amp; Central Angles</h4>
               <p>Two chords with their arcs and central angles. When chords are equal, their arcs and central angles match!</p>
-              <div id="jsx-arcs-angles" class="jsx-container" style="height: 400px;"></div>
+              <div id="jsx-arcs-angles" class="jsx-container" style="height: 400px;" aria-label="Interactive visualization"></div>
               <div class="jsx-readout" id="arcs-angles-readout"></div>
             </div>
           </div>
@@ -365,7 +365,7 @@
             <div class="viz-section" style="margin-top:var(--space-lg);">
               <h4>Interactive: Arc Length &amp; Chord Length Explorer</h4>
               <p>Drag point B around the circle to change the central angle. Watch how arc length (curved) and chord length (straight) differ.</p>
-              <div id="jsx-arc-length" class="jsx-container" style="height: 400px;"></div>
+              <div id="jsx-arc-length" class="jsx-container" style="height: 400px;" aria-label="Interactive visualization"></div>
               <div class="jsx-readout" id="arc-length-readout"></div>
             </div>
           </div>
@@ -401,7 +401,7 @@
             <div class="viz-section" style="margin-top:var(--space-lg);">
               <h4>Interactive: Sector &amp; Segment Area</h4>
               <p>Drag point B to change the central angle. The sector (shaded region between radii) and segment (between chord and arc) areas update live.</p>
-              <div id="jsx-sector-area" class="jsx-container" style="height: 400px;"></div>
+              <div id="jsx-sector-area" class="jsx-container" style="height: 400px;" aria-label="Interactive visualization"></div>
               <div class="jsx-readout" id="sector-area-readout"></div>
             </div>
           </div>
@@ -413,14 +413,14 @@
       <div class="viz-section">
         <h4>Interactive: Chord Theorems Explorer</h4>
         <p>Two chords intersect inside the circle. Drag the intersection point and chord endpoints to see that the products of their segments are always equal.</p>
-        <div id="jsx-chords" class="jsx-container" style="height: 400px;"></div>
+        <div id="jsx-chords" class="jsx-container" style="height: 400px;" aria-label="Interactive visualization"></div>
         <div class="jsx-readout" id="chords-readout">Drag points to explore the intersecting chords theorem.</div>
       </div>
 
       <div class="viz-section">
         <h4>Interactive: Inscribed Angle Theorem</h4>
         <p>Drag point P around the major arc. Notice how the inscribed angle stays exactly half the central angle, no matter where P is on the arc.</p>
-        <div id="jsx-inscribed" class="jsx-container" style="height: 400px;"></div>
+        <div id="jsx-inscribed" class="jsx-container" style="height: 400px;" aria-label="Interactive visualization"></div>
         <div class="jsx-readout" id="inscribed-readout">Drag point P on the arc to explore the inscribed angle theorem.</div>
       </div>
 
@@ -580,7 +580,7 @@
       </div>
 
       <div style="text-align:center; margin-top:var(--space-xl);">
-        <button class="btn btn-success" onclick="QuestMath.completeChapter('9')">
+        <button class="btn btn-success" id="complete-ch9-btn">
           &#127942; Complete Chapter 9
         </button>
       </div>
@@ -605,7 +605,7 @@
     (function() {
       var el = document.getElementById('jsx-unique-circle');
       if (!el) return;
-      var board = JXG.JSXGraph.initBoard('jsx-unique-circle', {
+      var board = VizManager.create('jsx-unique-circle', {
         boundingbox: [-7, 7, 7, -7], axis: false, grid: false,
         showNavigation: false, showCopyright: false, keepAspectRatio: true
       });
@@ -643,10 +643,10 @@
       var readout = document.getElementById('unique-circle-readout');
       function updateReadout() {
         var r = dist({X:function(){return cc.center.X();},Y:function(){return cc.center.Y();}}, P1);
-        readout.innerHTML =
+        SafeDOM.readoutHTML(readout,
           '<span style="color:#00d4ff;">Centre O = (' + cc.center.X().toFixed(1) + ', ' + cc.center.Y().toFixed(1) + ')</span> &nbsp;|&nbsp; ' +
           '<span style="color:#ffd700;">Radius = ' + r.toFixed(2) + '</span> &nbsp;|&nbsp; ' +
-          '<span style="color:#94a3b8;">Perp. bisectors all meet at O</span>';
+          '<span style="color:#94a3b8;">Perp. bisectors all meet at O</span>');
       }
       P1.on('drag', updateReadout); P2.on('drag', updateReadout); P3.on('drag', updateReadout);
       updateReadout();
@@ -656,7 +656,7 @@
     (function() {
       var el = document.getElementById('jsx-perp-bisect');
       if (!el) return;
-      var board = JXG.JSXGraph.initBoard('jsx-perp-bisect', {
+      var board = VizManager.create('jsx-perp-bisect', {
         boundingbox: [-6.5, 6.5, 6.5, -6.5], axis: false, grid: false,
         showNavigation: false, showCopyright: false, keepAspectRatio: true
       });
@@ -699,7 +699,7 @@
         var lhs = r * r;
         var rhs = d * d + halfChord * halfChord;
         var mfDist = dist(M, foot);
-        readout.innerHTML =
+        SafeDOM.readoutHTML(readout,
           '<div style="display:flex; flex-wrap:wrap; gap:6px 18px; font-size:0.9rem;">' +
             '<span style="color:#00d4ff;">r = ' + r.toFixed(1) + '</span>' +
             '<span style="color:#00ff88;">Chord \u2113 = ' + chordLen.toFixed(2) + '</span>' +
@@ -708,7 +708,7 @@
           '</div>' +
           '<div style="margin-top:4px; font-size:0.85rem; color:#cbd5e1;">' +
             'r\u00B2 = ' + lhs.toFixed(1) + ' &nbsp;|&nbsp; d\u00B2 + (\u2113/2)\u00B2 = ' + (d*d).toFixed(1) + ' + ' + (halfChord*halfChord).toFixed(1) + ' = ' + rhs.toFixed(1) + ' &nbsp;<span style="color:#00ff88;">\u2713 Equal!</span>' +
-          '</div>';
+          '</div>');
       }
       A.on('drag', updateReadout); B.on('drag', updateReadout);
       updateReadout();
@@ -718,7 +718,7 @@
     (function() {
       var el = document.getElementById('jsx-equal-chords');
       if (!el) return;
-      var board = JXG.JSXGraph.initBoard('jsx-equal-chords', {
+      var board = VizManager.create('jsx-equal-chords', {
         boundingbox: [-6.5, 6.5, 6.5, -6.5], axis: false, grid: false,
         showNavigation: false, showCopyright: false, keepAspectRatio: true
       });
@@ -759,14 +759,14 @@
         var d1 = dist(O, foot1), d2 = dist(O, foot2);
         var isEqual = Math.abs(len1 - len2) < 0.3;
         var distEqual = Math.abs(d1 - d2) < 0.3;
-        readout.innerHTML =
+        SafeDOM.readoutHTML(readout,
           '<span style="color:#00ff88;">Chord AB = ' + len1.toFixed(2) + '</span> &nbsp;|&nbsp; ' +
           '<span style="color:#ffd700;">Chord CD = ' + len2.toFixed(2) + '</span> &nbsp;|&nbsp; ' +
           '<span style="color:#00ff88;">d\u2081 = ' + d1.toFixed(2) + '</span> &nbsp;|&nbsp; ' +
           '<span style="color:#ffd700;">d\u2082 = ' + d2.toFixed(2) + '</span>' +
           (isEqual ? ' &nbsp;<span style="color:#00ff88; font-weight:700;">\u2705 Chords equal \u2192 distances equal!</span>' : '') +
           (!isEqual && len1 > len2 ? ' &nbsp;<span style="color:#94a3b8;">Longer chord is closer to centre</span>' : '') +
-          (!isEqual && len2 > len1 ? ' &nbsp;<span style="color:#94a3b8;">Longer chord is closer to centre</span>' : '');
+          (!isEqual && len2 > len1 ? ' &nbsp;<span style="color:#94a3b8;">Longer chord is closer to centre</span>' : ''));
       }
       A1.on('drag', updateReadout); B1.on('drag', updateReadout);
       C1.on('drag', updateReadout); D1.on('drag', updateReadout);
@@ -777,7 +777,7 @@
     (function() {
       var el = document.getElementById('jsx-arcs-angles');
       if (!el) return;
-      var board = JXG.JSXGraph.initBoard('jsx-arcs-angles', {
+      var board = VizManager.create('jsx-arcs-angles', {
         boundingbox: [-6.5, 6.5, 6.5, -6.5], axis: false, grid: false,
         showNavigation: false, showCopyright: false, keepAspectRatio: true
       });
@@ -826,12 +826,12 @@
         var ang1 = centralAngle(A, B) * R2D, ang2 = centralAngle(C, D) * R2D;
         var arc1 = (ang1/360) * 2 * Math.PI * R, arc2 = (ang2/360) * 2 * Math.PI * R;
         var chordsEqual = Math.abs(len1 - len2) < 0.3;
-        readout.innerHTML =
+        SafeDOM.readoutHTML(readout,
           '<div style="display:flex; flex-wrap:wrap; gap:4px 16px; font-size:0.9rem;">' +
             '<span style="color:#00ff88;">AB = ' + len1.toFixed(2) + ', \u2220AOB = ' + ang1.toFixed(1) + '\u00B0, arc = ' + arc1.toFixed(2) + '</span>' +
             '<span style="color:#ffd700;">CD = ' + len2.toFixed(2) + ', \u2220COD = ' + ang2.toFixed(1) + '\u00B0, arc = ' + arc2.toFixed(2) + '</span>' +
           '</div>' +
-          (chordsEqual ? '<div style="margin-top:4px; color:#00ff88; font-weight:700;">\u2705 Equal chords \u2192 equal central angles \u2192 equal arcs!</div>' : '');
+          (chordsEqual ? '<div style="margin-top:4px; color:#00ff88; font-weight:700;">\u2705 Equal chords \u2192 equal central angles \u2192 equal arcs!</div>' : ''));
       }
       A.on('drag', updateReadout); B.on('drag', updateReadout);
       C.on('drag', updateReadout); D.on('drag', updateReadout);
@@ -842,7 +842,7 @@
     (function() {
       var el = document.getElementById('jsx-arc-length');
       if (!el) return;
-      var board = JXG.JSXGraph.initBoard('jsx-arc-length', {
+      var board = VizManager.create('jsx-arc-length', {
         boundingbox: [-7, 7, 7, -7], axis: false, grid: false,
         showNavigation: false, showCopyright: false, keepAspectRatio: true
       });
@@ -893,13 +893,13 @@
         var arcLen = (deg/360) * 2 * Math.PI * R;
         var chordLen = 2 * R * Math.sin(angle/2);
         var perimSeg = arcLen + chordLen;
-        readout.innerHTML =
+        SafeDOM.readoutHTML(readout,
           '<div style="display:flex; flex-wrap:wrap; gap:6px 18px; font-size:0.9rem;">' +
             '<span style="color:#00d4ff;">\u03B8 = ' + deg.toFixed(1) + '\u00B0</span>' +
             '<span style="color:#ffd700;">Arc = (\u03B8/360)\u00D72\u03C0r = ' + arcLen.toFixed(2) + '</span>' +
             '<span style="color:#ff006e;">Chord = 2r\u00B7sin(\u03B8/2) = ' + chordLen.toFixed(2) + '</span>' +
             '<span style="color:#94a3b8;">Segment perimeter = ' + perimSeg.toFixed(2) + '</span>' +
-          '</div>';
+          '</div>');
       }
       B.on('drag', updateReadout);
       updateReadout();
@@ -909,7 +909,7 @@
     (function() {
       var el = document.getElementById('jsx-sector-area');
       if (!el) return;
-      var board = JXG.JSXGraph.initBoard('jsx-sector-area', {
+      var board = VizManager.create('jsx-sector-area', {
         boundingbox: [-7, 7, 7, -7], axis: false, grid: false,
         showNavigation: false, showCopyright: false, keepAspectRatio: true
       });
@@ -990,13 +990,13 @@
         var sectorArea = (deg/360) * Math.PI * R * R;
         var triangleArea = 0.5 * R * R * Math.sin(angle);
         var segmentArea = sectorArea - triangleArea;
-        readout.innerHTML =
+        SafeDOM.readoutHTML(readout,
           '<div style="display:flex; flex-wrap:wrap; gap:6px 18px; font-size:0.9rem;">' +
             '<span style="color:#00d4ff;">\u03B8 = ' + deg.toFixed(1) + '\u00B0</span>' +
             '<span style="color:#a855f7;">Sector = (\u03B8/360)\u03C0r\u00B2 = ' + sectorArea.toFixed(2) + '</span>' +
             '<span style="color:#cbd5e1;">Triangle = \u00BDr\u00B2sin\u03B8 = ' + triangleArea.toFixed(2) + '</span>' +
             '<span style="color:#ffd700;">Segment = ' + segmentArea.toFixed(2) + '</span>' +
-          '</div>';
+          '</div>');
       }
       B.on('drag', updateReadout);
       updateReadout();
@@ -1006,7 +1006,7 @@
     (function() {
       var el = document.getElementById('jsx-chords');
       if (!el) return;
-      var board = JXG.JSXGraph.initBoard('jsx-chords', {
+      var board = VizManager.create('jsx-chords', {
         boundingbox: [-6, 6, 6, -6], axis: false, grid: false,
         showNavigation: false, showCopyright: false, keepAspectRatio: true
       });
@@ -1051,10 +1051,10 @@
         var ax = dist(A, intPt), xb = dist(intPt, B);
         var cx = dist(C, intPt), xd = dist(intPt, D);
         var prod1 = ax * xb, prod2 = cx * xd;
-        readout.innerHTML =
+        SafeDOM.readoutHTML(readout,
           '<span style="color:#00ff88;">AX \u00D7 XB = ' + ax.toFixed(2) + ' \u00D7 ' + xb.toFixed(2) + ' = <strong>' + prod1.toFixed(2) + '</strong></span> &nbsp;|&nbsp; ' +
           '<span style="color:#ffd700;">CX \u00D7 XD = ' + cx.toFixed(2) + ' \u00D7 ' + xd.toFixed(2) + ' = <strong>' + prod2.toFixed(2) + '</strong></span>' +
-          (Math.abs(prod1 - prod2) < 0.5 ? ' &nbsp;<span style="color:#00ff88; font-weight:700;">\u2705 Products are equal!</span>' : '');
+          (Math.abs(prod1 - prod2) < 0.5 ? ' &nbsp;<span style="color:#00ff88; font-weight:700;">\u2705 Products are equal!</span>' : ''));
       }
       A.on('drag', updateReadout); B.on('drag', updateReadout);
       C.on('drag', updateReadout); D.on('drag', updateReadout);
@@ -1065,7 +1065,7 @@
     (function() {
       var el = document.getElementById('jsx-inscribed');
       if (!el) return;
-      var board = JXG.JSXGraph.initBoard('jsx-inscribed', {
+      var board = VizManager.create('jsx-inscribed', {
         boundingbox: [-6, 6, 6, -6], axis: false, grid: false,
         showNavigation: false, showCopyright: false, keepAspectRatio: true
       });
@@ -1121,11 +1121,11 @@
         var dot=vax*vbx+vay*vby, mA=Math.sqrt(vax*vax+vay*vay), mB=Math.sqrt(vbx*vbx+vby*vby);
         var inscribedDeg = Math.acos(Math.max(-1,Math.min(1,dot/(mA*mB))))*R2D;
         var ratio = inscribedDeg > 0.1 ? (centralDeg/inscribedDeg).toFixed(2) : '--';
-        readout.innerHTML =
+        SafeDOM.readoutHTML(readout,
           '<span style="color:#a855f7;">Central \u2220AOB = <strong>' + centralDeg.toFixed(1) + '\u00B0</strong></span> &nbsp;|&nbsp; ' +
           '<span style="color:#ffd700;">Inscribed \u2220APB = <strong>' + inscribedDeg.toFixed(1) + '\u00B0</strong></span> &nbsp;|&nbsp; ' +
           '<span style="color:#cbd5e1;">Ratio = ' + ratio + '</span>' +
-          (Math.abs(parseFloat(ratio) - 2.0) < 0.1 ? ' &nbsp;<span style="color:#00ff88; font-weight:700;">\u2705 Central = 2 \u00D7 Inscribed!</span>' : '');
+          (Math.abs(parseFloat(ratio) - 2.0) < 0.1 ? ' &nbsp;<span style="color:#00ff88; font-weight:700;">\u2705 Central = 2 \u00D7 Inscribed!</span>' : ''));
       }
       P.on('drag', updateReadout);
       A.on('drag', updateReadout);
@@ -1137,11 +1137,19 @@
   </script>
 
   <script src="../js/engine.js"></script>
-  <script src="../libs/katex/katex.min.js"></script>
-  <script src="../libs/katex/auto-render.min.js"></script>
+  <script src="../js/viz-manager.js"></script>
+  <script src="../js/safe-dom.js"></script>
+  <script defer src="../libs/katex/katex.min.js"></script>
+  <script defer src="../libs/katex/auto-render.min.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       QuestMath.init();
+      var completeCh9Btn = document.getElementById('complete-ch9-btn');
+      if (completeCh9Btn) {
+        completeCh9Btn.addEventListener('click', function() {
+          QuestMath.completeChapter('9');
+        });
+      }
     });
   </script>
 </body>

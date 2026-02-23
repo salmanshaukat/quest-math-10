@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="../libs/katex/katex.min.css">
   <!-- JSXGraph -->
   <link rel="stylesheet" href="../libs/jsxgraph/jsxgraph.css">
-  <script src="../libs/jsxgraph/jsxgraphcore.js"></script>
+  <script defer src="../libs/jsxgraph/jsxgraphcore.js"></script>
   <style>
     .chapter-hero {
       text-align: center;
@@ -243,7 +243,7 @@
         <div class="viz-section" style="margin: var(--space-xl) 0;">
           <h4>Interactive: Triangle Explorer</h4>
           <p>Drag vertices A, B, C to reshape the triangle. Watch all the laws update in real time — Law of Cosines, Law of Sines, and area formulas all verified simultaneously.</p>
-          <div id="jsx-triangle-explorer" class="jsx-container" style="height: 420px;"></div>
+          <div id="jsx-triangle-explorer" class="jsx-container" style="height: 420px;" aria-label="Interactive visualization"></div>
           <div class="jsx-readout" id="triangle-explorer-readout" style="font-size:0.88rem; line-height:1.8;">
             Drag the triangle vertices to explore.
           </div>
@@ -353,7 +353,7 @@
         <div class="viz-section" style="margin: var(--space-xl) 0;">
           <h4>Interactive: Circumcircle &amp; Incircle</h4>
           <p>Drag the triangle vertices. The <span style="color:#00d4ff;">cyan circumcircle</span> passes through all vertices (radius R), while the <span style="color:#00ff88;">green incircle</span> fits inside touching all sides (radius r).</p>
-          <div id="jsx-circles" class="jsx-container" style="height: 420px;"></div>
+          <div id="jsx-circles" class="jsx-container" style="height: 420px;" aria-label="Interactive visualization"></div>
           <div class="jsx-readout" id="circles-readout" style="font-size:0.88rem;">
             Drag vertices to explore.
           </div>
@@ -398,14 +398,14 @@
       <div class="viz-section">
         <h4>Interactive: Unit Circle &amp; Trig Functions</h4>
         <p>Drag the point around the unit circle to see how sine, cosine, and tangent change with the angle.</p>
-        <div id="jsx-unitcircle" class="jsx-container" style="height: 400px;"></div>
+        <div id="jsx-unitcircle" class="jsx-container" style="height: 400px;" aria-label="Interactive visualization"></div>
         <div class="jsx-readout" id="unitcircle-readout">Drag the point on the circle to explore.</div>
       </div>
 
       <div class="viz-section">
         <h4>Interactive: Heights &amp; Distances Simulator</h4>
         <p>Adjust the building height and observer distance to see how the angle of elevation changes. This is exactly how surveyors measure tall structures.</p>
-        <div id="jsx-heights" class="jsx-container" style="height: 400px;"></div>
+        <div id="jsx-heights" class="jsx-container" style="height: 400px;" aria-label="Interactive visualization"></div>
         <div class="jsx-readout" id="heights-readout">Drag the top of the building or the observer to explore.</div>
       </div>
 
@@ -559,7 +559,7 @@
       </div>
 
       <div style="text-align:center; margin-top:var(--space-xl);">
-        <button class="btn btn-success" onclick="QuestMath.completeChapter('8')">
+        <button class="btn btn-success" id="complete-ch8-btn">
           &#127942; Complete Chapter 8
         </button>
       </div>
@@ -598,7 +598,7 @@
     (function() {
       var c = document.getElementById('jsx-triangle-explorer');
       if (!c) return;
-      var board = JXG.JSXGraph.initBoard('jsx-triangle-explorer', {
+      var board = VizManager.create('jsx-triangle-explorer', {
         boundingbox: [-1, 9, 11, -1], axis: false, grid: false,
         showNavigation: false, showCopyright: false, keepAspectRatio: true
       });
@@ -651,7 +651,7 @@
         var heronSq = S * (S-a) * (S-b) * (S-c);
         var heron = heronSq > 0 ? Math.sqrt(heronSq).toFixed(2) : '0';
 
-        readout.innerHTML =
+        SafeDOM.readoutHTML(readout,
           '<div style="display:grid; grid-template-columns:1fr 1fr; gap:8px 24px;">' +
             '<div><span style="color:#cbd5e1;">Sides:</span> <span style="color:#ff006e;">a=' + a.toFixed(2) + '</span>, <span style="color:#00ff88;">b=' + b.toFixed(2) + '</span>, <span style="color:#ffd700;">c=' + c.toFixed(2) + '</span></div>' +
             '<div><span style="color:#cbd5e1;">Angles:</span> <span style="color:#ff006e;">\u03B1=' + aD + '\u00B0</span>, <span style="color:#00ff88;">\u03B2=' + bD + '\u00B0</span>, <span style="color:#00d4ff;">\u03B3=' + gD + '\u00B0</span></div>' +
@@ -659,7 +659,7 @@
             '<div style="grid-column:1/-1;"><span style="color:#a855f7;">Law of Sines:</span> a/sin\u03B1 = ' + ratioA + ', b/sin\u03B2 = ' + ratioB + ', c/sin\u03B3 = ' + ratioC + ' <span style="color:#00ff88;">\u2713</span></div>' +
             '<div><span style="color:#00d4ff;">Area (SAS):</span> ' + area + ' sq units</div>' +
             '<div><span style="color:#00d4ff;">Area (Heron):</span> ' + heron + ' sq units</div>' +
-          '</div>';
+          '</div>');
       }
       A.on('drag', updateReadout);
       B.on('drag', updateReadout);
@@ -671,7 +671,7 @@
     (function() {
       var c = document.getElementById('jsx-circles');
       if (!c) return;
-      var board = JXG.JSXGraph.initBoard('jsx-circles', {
+      var board = VizManager.create('jsx-circles', {
         boundingbox: [-2, 10, 12, -2], axis: false, grid: false,
         showNavigation: false, showCopyright: false, keepAspectRatio: true
       });
@@ -707,12 +707,12 @@
         var area = heronSq > 0 ? Math.sqrt(heronSq) : 0;
         var R = area > 0.01 ? (a * b * cSide) / (4 * area) : 0;
         var r = area > 0.01 ? area / S : 0;
-        readout.innerHTML =
+        SafeDOM.readoutHTML(readout,
           '<span style="color:#cbd5e1;">S=' + S.toFixed(2) + '</span> &nbsp;|&nbsp; ' +
           '<span style="color:#cbd5e1;">\u0394=' + area.toFixed(2) + '</span> &nbsp;|&nbsp; ' +
           '<span style="color:#00d4ff;">R (circumradius) = ' + R.toFixed(2) + '</span> &nbsp;|&nbsp; ' +
           '<span style="color:#00ff88;">r (inradius) = ' + r.toFixed(2) + '</span> &nbsp;|&nbsp; ' +
-          '<span style="color:#ffd700;">r = \u0394/S = ' + area.toFixed(1) + '/' + S.toFixed(1) + '</span>';
+          '<span style="color:#ffd700;">r = \u0394/S = ' + area.toFixed(1) + '/' + S.toFixed(1) + '</span>');
       }
       A.on('drag', updateReadout);
       B.on('drag', updateReadout);
@@ -724,7 +724,7 @@
     (function() {
       var c = document.getElementById('jsx-unitcircle');
       if (!c) return;
-      var board = JXG.JSXGraph.initBoard('jsx-unitcircle', {
+      var board = VizManager.create('jsx-unitcircle', {
         boundingbox: [-2.2, 2.2, 2.2, -2.2], axis: false, grid: false,
         showNavigation: false, showCopyright: false, keepAspectRatio: true
       });
@@ -886,7 +886,7 @@
                     angle < Math.PI ? 'sin+ cos\u2212 tan\u2212' :
                     angle < 3*Math.PI/2 ? 'sin\u2212 cos\u2212 tan+' : 'sin\u2212 cos+ tan\u2212';
 
-        readout.innerHTML =
+        SafeDOM.readoutHTML(readout,
           '<div style="display:flex; flex-wrap:wrap; gap:6px 18px; font-size:0.9rem;">' +
             '<span><strong style="color:#00d4ff;">\u03B8 = ' + deg + '\u00B0</strong> (' + rad + ' rad)</span>' +
             '<span style="color:#ffd700;">cos\u03B8 = ' + cosV + '</span>' +
@@ -894,7 +894,7 @@
             '<span style="color:#a855f7;">tan\u03B8 = ' + tanV + '</span>' +
             '<span style="color:#cbd5e1;">Q' + quad + '</span>' +
             '<span style="color:#94a3b8; font-size:0.8rem;">' + signs + '</span>' +
-          '</div>';
+          '</div>');
       }
       P.on('drag', updateReadout);
       updateReadout();
@@ -904,7 +904,7 @@
     (function() {
       var c = document.getElementById('jsx-heights');
       if (!c) return;
-      var board = JXG.JSXGraph.initBoard('jsx-heights', {
+      var board = VizManager.create('jsx-heights', {
         boundingbox: [-2, 12, 16, -2], axis: false, grid: false,
         showNavigation: false, showCopyright: false, keepAspectRatio: true
       });
@@ -974,7 +974,7 @@
       function updateReadout() {
         var h = top.Y(), d = baseX - observer.X();
         var angle = Math.atan2(h, d) * R2D;
-        readout.innerHTML = 'tan(\u03B8) = h/d = ' + h.toFixed(1) + '/' + d.toFixed(1) + ' = ' + (h/d).toFixed(4) + ' &nbsp;\u21D2&nbsp; \u03B8 = ' + angle.toFixed(1) + '\u00B0';
+        SafeDOM.readoutHTML(readout, 'tan(\u03B8) = h/d = ' + h.toFixed(1) + '/' + d.toFixed(1) + ' = ' + (h/d).toFixed(4) + ' &nbsp;\u21D2&nbsp; \u03B8 = ' + angle.toFixed(1) + '\u00B0');
       }
       top.on('drag', updateReadout);
       observer.on('drag', updateReadout);
@@ -985,11 +985,19 @@
   </script>
 
   <script src="../js/engine.js"></script>
-  <script src="../libs/katex/katex.min.js"></script>
-  <script src="../libs/katex/auto-render.min.js"></script>
+  <script src="../js/viz-manager.js"></script>
+  <script src="../js/safe-dom.js"></script>
+  <script defer src="../libs/katex/katex.min.js"></script>
+  <script defer src="../libs/katex/auto-render.min.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       QuestMath.init();
+      var completeCh8Btn = document.getElementById('complete-ch8-btn');
+      if (completeCh8Btn) {
+        completeCh8Btn.addEventListener('click', function() {
+          QuestMath.completeChapter('8');
+        });
+      }
     });
   </script>
 </body>

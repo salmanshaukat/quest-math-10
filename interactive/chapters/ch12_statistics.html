@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="../libs/katex/katex.min.css">
   <!-- JSXGraph -->
   <link rel="stylesheet" href="../libs/jsxgraph/jsxgraph.css">
-  <script src="../libs/jsxgraph/jsxgraphcore.js"></script>
+  <script defer src="../libs/jsxgraph/jsxgraphcore.js"></script>
   <style>
     .chapter-hero {
       text-align: center;
@@ -232,7 +232,7 @@
                 <button class="btn btn-primary jsx-dataset-btn" data-set="exams" style="margin:4px;">Exam Marks</button>
                 <button class="btn btn-primary jsx-dataset-btn" data-set="heights" style="margin:4px;">Student Heights</button>
               </div>
-              <div id="jsx-histogram" class="jsx-container" style="height: 400px;"></div>
+              <div id="jsx-histogram" class="jsx-container" aria-label="Interactive visualization" style="height: 400px;"></div>
               <div class="jsx-readout" id="histogram-readout">Select a dataset above to build a histogram.</div>
             </div>
           </div>
@@ -267,7 +267,7 @@
             <div class="viz-section" style="margin-top:var(--space-lg);">
               <h4>Interactive: Box Plot &amp; Quartiles</h4>
               <p>Drag the data points along the number line. The box plot updates live showing Min, Q<sub>1</sub>, Median, Q<sub>3</sub>, Max, and IQR.</p>
-              <div id="jsx-boxplot" class="jsx-container" style="height: 350px;"></div>
+              <div id="jsx-boxplot" class="jsx-container" aria-label="Interactive visualization" style="height: 350px;"></div>
               <div class="jsx-readout" id="boxplot-readout"></div>
             </div>
           </div>
@@ -314,7 +314,7 @@
             <div class="viz-section" style="margin-top:var(--space-lg);">
               <h4>Interactive: Mean / Median / Mode Explorer</h4>
               <p>Drag the coloured points along the number line. Watch how the mean, median, and mode change. Try dragging one point far away to see how outliers affect the mean but barely touch the median!</p>
-              <div id="jsx-measures" class="jsx-container" style="height: 350px;"></div>
+              <div id="jsx-measures" class="jsx-container" aria-label="Interactive visualization" style="height: 350px;"></div>
               <div class="jsx-readout" id="measures-readout"></div>
             </div>
           </div>
@@ -351,7 +351,7 @@
             <div class="viz-section" style="margin-top:var(--space-lg);">
               <h4>Interactive: Variance &amp; Standard Deviation</h4>
               <p>Drag data points on the number line. Each point's deviation from the mean is shown as a coloured bar. Variance = average of squared deviations.</p>
-              <div id="jsx-variance" class="jsx-container" style="height: 380px;"></div>
+              <div id="jsx-variance" class="jsx-container" aria-label="Interactive visualization" style="height: 380px;"></div>
               <div class="jsx-readout" id="variance-readout"></div>
             </div>
           </div>
@@ -383,7 +383,7 @@
             <div class="viz-section" style="margin-top:var(--space-lg);">
               <h4>Interactive: Scatter Diagram &amp; Line of Best Fit</h4>
               <p>Drag the data points to change the scatter pattern. The line of best fit and correlation coefficient <em>r</em> update live. Can you create positive, negative, and zero correlation?</p>
-              <div id="jsx-scatter" class="jsx-container" style="height: 420px;"></div>
+              <div id="jsx-scatter" class="jsx-container" aria-label="Interactive visualization" style="height: 420px;"></div>
               <div class="jsx-readout" id="scatter-readout"></div>
             </div>
           </div>
@@ -426,7 +426,7 @@
                 <button class="btn btn-primary" id="dice-roll-100" style="margin:4px;">Roll 100x</button>
                 <button class="btn btn-ghost" id="dice-reset" style="margin:4px;">Reset</button>
               </div>
-              <div id="jsx-dice" class="jsx-container" style="height: 380px;"></div>
+              <div id="jsx-dice" class="jsx-container" aria-label="Interactive visualization" style="height: 380px;"></div>
               <div class="jsx-readout" id="dice-readout">Click a button to roll the die.</div>
             </div>
           </div>
@@ -634,7 +634,7 @@
         <p>A dataset has $Q_1 = 60$ and $Q_3 = 95$. What is the Interquartile Range (IQR)?</p>
         <div class="boss-input-group">
           <input type="text" id="boss1-input" class="math-input" placeholder="IQR value" style="max-width: 160px;">
-          <button class="btn btn-primary" onclick="QuestMath.checkFillIn('boss1-input', '35', 'boss1-fb')">Submit</button>
+          <button class="btn btn-primary" id="boss1-submit">Submit</button>
         </div>
         <div class="boss-feedback" id="boss1-fb"></div>
       </div>
@@ -644,13 +644,13 @@
         <p>You draw 2 cards from a standard deck <strong>with replacement</strong>. What is the probability of both being hearts? Express as a fraction (e.g., 1/16).</p>
         <div class="boss-input-group">
           <input type="text" id="boss2-input" class="math-input" placeholder="Fraction" style="max-width: 160px;">
-          <button class="btn btn-primary" onclick="QuestMath.checkFillIn('boss2-input', '1/16', 'boss2-fb')">Submit</button>
+          <button class="btn btn-primary" id="boss2-submit">Submit</button>
         </div>
         <div class="boss-feedback" id="boss2-fb"></div>
         <div class="quiz-hint">
           <strong>Hint:</strong> $P(\text{heart}) = \frac{13}{52} = \frac{1}{4}$. With replacement: $\frac{1}{4} \times \frac{1}{4}$.
         </div>
-        <button class="btn btn-hint" onclick="this.previousElementSibling.classList.toggle('show')" style="margin-top: 8px;">Show Hint</button>
+        <button class="btn btn-hint" id="boss2-hint" style="margin-top: 8px;">Show Hint</button>
       </div>
 
       <div class="boss-challenge">
@@ -658,7 +658,7 @@
         <p>Haneen flips a fair coin twice. What is the probability of getting heads both times? Express as a fraction.</p>
         <div class="boss-input-group">
           <input type="text" id="boss3-input" class="math-input" placeholder="Fraction" style="max-width: 160px;">
-          <button class="btn btn-primary" onclick="QuestMath.checkFillIn('boss3-input', '1/4', 'boss3-fb')">Submit</button>
+          <button class="btn btn-primary" id="boss3-submit">Submit</button>
         </div>
         <div class="boss-feedback" id="boss3-fb"></div>
       </div>
@@ -668,17 +668,17 @@
         <p>A dataset has mean $\bar{x} = 70.9$ and standard deviation $S = 11.6$. Calculate the coefficient of variation (C.V.) rounded to one decimal place.</p>
         <div class="boss-input-group">
           <input type="text" id="boss4-input" class="math-input" placeholder="C.V. value" style="max-width: 160px;">
-          <button class="btn btn-primary" onclick="QuestMath.checkFillIn('boss4-input', '16.4', 'boss4-fb')">Submit</button>
+          <button class="btn btn-primary" id="boss4-submit">Submit</button>
         </div>
         <div class="boss-feedback" id="boss4-fb"></div>
         <div class="quiz-hint">
           <strong>Hint:</strong> $\text{C.V.} = \frac{S}{\bar{x}} \times 100 = \frac{11.6}{70.9} \times 100$.
         </div>
-        <button class="btn btn-hint" onclick="this.previousElementSibling.classList.toggle('show')" style="margin-top: 8px;">Show Hint</button>
+        <button class="btn btn-hint" id="boss4-hint" style="margin-top: 8px;">Show Hint</button>
       </div>
 
       <div style="text-align: center; margin-top: 32px;">
-        <button class="btn btn-success" onclick="QuestMath.completeChapter('12')" style="font-size: 1.1rem; padding: 16px 40px;">
+        <button class="btn btn-success" id="ch12-complete" style="font-size: 1.1rem; padding: 16px 40px;">
           &#127942; Complete Quest 12 -- Journey Complete!
         </button>
       </div>
@@ -699,7 +699,7 @@
     (function() {
       var el = document.getElementById('jsx-histogram');
       if (!el) return;
-      var board = JXG.JSXGraph.initBoard('jsx-histogram', {
+      var board = VizManager.create('jsx-histogram', {
         boundingbox: [-1.5, 22, 11.5, -3], axis: false, grid: false,
         showNavigation: false, showCopyright: false, keepAspectRatio: false
       });
@@ -815,10 +815,10 @@
         // Legend
         elems.push(board.create('text', [0.5, maxF+3.5, '<span style="color:#ffd700;">\u2500 Ogive</span> &nbsp; <span style="color:#00d4ff;">| Mean</span> &nbsp; <span style="color:#ff006e;">| Median</span>'], {fontSize:9, fixed:true}));
 
-        readout.innerHTML = '<strong>'+ds.label+'</strong> &mdash; '+
+        SafeDOM.readoutHTML(readout, '<strong>'+ds.label+'</strong> &mdash; '+
           '<span style="color:#00d4ff;">Mean: '+mean.toFixed(1)+'</span> | '+
           '<span style="color:#ff006e;">Median: '+median.toFixed(1)+'</span> | '+
-          'Mode class: '+ds.classes[modeIdx]+' | Total: '+total;
+          'Mode class: '+ds.classes[modeIdx]+' | Total: '+total);
       }
 
       document.querySelectorAll('.jsx-dataset-btn').forEach(function(btn) {
@@ -834,7 +834,7 @@
     (function() {
       var el = document.getElementById('jsx-boxplot');
       if (!el) return;
-      var board = JXG.JSXGraph.initBoard('jsx-boxplot', {
+      var board = VizManager.create('jsx-boxplot', {
         boundingbox: [-1, 5.5, 21, -2.5], axis: false, grid: false,
         showNavigation: false, showCopyright: false, keepAspectRatio: false
       });
@@ -908,13 +908,13 @@
         boxElems.push(board.create('segment', [[q1,by+bh+0.6],[q3,by+bh+0.6]], {strokeColor:'#00ff88', strokeWidth:1.5, fixed:true}));
         boxElems.push(board.create('text', [(q1+q3)/2, by+bh+0.9, 'IQR='+iqr.toFixed(1)], {fontSize:10, color:'#00ff88', anchorX:'middle', fixed:true}));
 
-        readout.innerHTML =
+        SafeDOM.readoutHTML(readout,
           '<span style="color:#94a3b8;">Min='+min.toFixed(1)+'</span> | '+
           '<span style="color:#00d4ff;">Q\u2081='+q1.toFixed(1)+'</span> | '+
           '<span style="color:#ffd700;">Median='+q2.toFixed(1)+'</span> | '+
           '<span style="color:#00d4ff;">Q\u2083='+q3.toFixed(1)+'</span> | '+
           '<span style="color:#94a3b8;">Max='+max.toFixed(1)+'</span> | '+
-          '<strong style="color:#00ff88;">IQR = '+iqr.toFixed(1)+'</strong>';
+          '<strong style="color:#00ff88;">IQR = '+iqr.toFixed(1)+'</strong>');
       }
       updateBoxPlot();
     })();
@@ -923,7 +923,7 @@
     (function() {
       var el = document.getElementById('jsx-measures');
       if (!el) return;
-      var board = JXG.JSXGraph.initBoard('jsx-measures', {
+      var board = VizManager.create('jsx-measures', {
         boundingbox: [-1, 6, 21, -2.5], axis: false, grid: false,
         showNavigation: false, showCopyright: false, keepAspectRatio: false
       });
@@ -976,11 +976,11 @@
         meanLine.point1.moveTo([mean,-0.3]); meanLine.point2.moveTo([mean,3.5]);
         medLine.point1.moveTo([median,-0.3]); medLine.point2.moveTo([median,3.5]);
 
-        readout.innerHTML =
+        SafeDOM.readoutHTML(readout,
           'Values: ['+vals.map(function(v){return v.toFixed(1);}).join(', ')+'] &mdash; '+
           '<span style="color:#00d4ff">Mean: '+mean.toFixed(2)+'</span> | '+
           '<span style="color:#ffd700">Median: '+median.toFixed(2)+'</span> | '+
-          '<span style="color:#00ff88">Mode: '+modeStr+'</span>';
+          '<span style="color:#00ff88">Mode: '+modeStr+'</span>');
       }
       updateMeasures();
     })();
@@ -989,7 +989,7 @@
     (function() {
       var el = document.getElementById('jsx-variance');
       if (!el) return;
-      var board = JXG.JSXGraph.initBoard('jsx-variance', {
+      var board = VizManager.create('jsx-variance', {
         boundingbox: [-1, 7, 21, -4], axis: false, grid: false,
         showNavigation: false, showCopyright: false, keepAspectRatio: false
       });
@@ -1063,11 +1063,11 @@
         varElems.push(board.create('text', [mean-sd, -2.7, (mean-sd).toFixed(1)], {fontSize:9, color:'#a855f7', anchorX:'middle', fixed:true}));
         varElems.push(board.create('text', [mean+sd, -2.7, (mean+sd).toFixed(1)], {fontSize:9, color:'#a855f7', anchorX:'middle', fixed:true}));
 
-        readout.innerHTML =
+        SafeDOM.readoutHTML(readout,
           '<span style="color:#00d4ff;">Mean (\u03BC) = '+mean.toFixed(2)+'</span> | '+
           '<span style="color:#ffd700;">Variance (\u03C3\u00B2) = '+variance.toFixed(2)+'</span> | '+
           '<span style="color:#a855f7;">SD (\u03C3) = '+sd.toFixed(2)+'</span> | '+
-          '<span style="color:#cbd5e1;">Range = '+range.toFixed(1)+'</span>';
+          '<span style="color:#cbd5e1;">Range = '+range.toFixed(1)+'</span>');
       }
       updateVariance();
     })();
@@ -1076,7 +1076,7 @@
     (function() {
       var el = document.getElementById('jsx-scatter');
       if (!el) return;
-      var board = JXG.JSXGraph.initBoard('jsx-scatter', {
+      var board = VizManager.create('jsx-scatter', {
         boundingbox: [-2, 22, 22, -4], axis: false, grid: false,
         showNavigation: false, showCopyright: false, keepAspectRatio: false
       });
@@ -1159,11 +1159,11 @@
         var corrLabel = Math.abs(r)>0.7 ? 'Strong' : (Math.abs(r)>0.3 ? 'Moderate' : 'Weak/None');
         var corrDir = r>0.3 ? 'Positive' : (r<-0.3 ? 'Negative' : 'No');
 
-        readout.innerHTML =
+        SafeDOM.readoutHTML(readout,
           '<span style="color:'+lineColor+';">r = '+r.toFixed(3)+'</span> &nbsp;|&nbsp; '+
           '<span style="color:'+lineColor+';font-weight:700;">'+corrLabel+' '+corrDir+' Correlation</span> &nbsp;|&nbsp; '+
           '<span style="color:#cbd5e1;">Line: y = '+m.toFixed(2)+'x + '+c.toFixed(2)+'</span> &nbsp;|&nbsp; '+
-          '<span style="color:#ffd700;">(\u0078\u0304,\u0079\u0304) = ('+xBar.toFixed(1)+', '+yBar.toFixed(1)+')</span>';
+          '<span style="color:#ffd700;">(\u0078\u0304,\u0079\u0304) = ('+xBar.toFixed(1)+', '+yBar.toFixed(1)+')</span>');
       }
       updateScatter();
     })();
@@ -1172,7 +1172,7 @@
     (function() {
       var el = document.getElementById('jsx-dice');
       if (!el) return;
-      var board = JXG.JSXGraph.initBoard('jsx-dice', {
+      var board = VizManager.create('jsx-dice', {
         boundingbox: [-0.5, 1.3, 7.5, -0.35], axis: false, grid: false,
         showNavigation: false, showCopyright: false, keepAspectRatio: false
       });
@@ -1218,10 +1218,10 @@
           }));
         }
 
-        readout.innerHTML =
+        SafeDOM.readoutHTML(readout,
           '<strong>Total rolls: '+totalRolls+'</strong> &mdash; '+
           'Frequencies: ['+freq.join(', ')+'] &mdash; '+
-          '<span style="color:#ffffff;">Theoretical: 1/6 \u2248 '+(1/6).toFixed(4)+'</span>';
+          '<span style="color:#ffffff;">Theoretical: 1/6 \u2248 '+(1/6).toFixed(4)+'</span>');
       }
 
       function rollDice(times) {
@@ -1247,11 +1247,35 @@
   </script>
 
   <script src="../js/engine.js"></script>
-  <script src="../libs/katex/katex.min.js"></script>
-  <script src="../libs/katex/auto-render.min.js"></script>
+  <script src="../js/viz-manager.js"></script>
+  <script src="../js/safe-dom.js"></script>
+  <script defer src="../libs/katex/katex.min.js"></script>
+  <script defer src="../libs/katex/auto-render.min.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       QuestMath.init();
+
+      document.getElementById('boss1-submit').addEventListener('click', function() {
+        QuestMath.checkFillIn('boss1-input', '35', 'boss1-fb');
+      });
+      document.getElementById('boss2-submit').addEventListener('click', function() {
+        QuestMath.checkFillIn('boss2-input', '1/16', 'boss2-fb');
+      });
+      document.getElementById('boss2-hint').addEventListener('click', function() {
+        this.previousElementSibling.classList.toggle('show');
+      });
+      document.getElementById('boss3-submit').addEventListener('click', function() {
+        QuestMath.checkFillIn('boss3-input', '1/4', 'boss3-fb');
+      });
+      document.getElementById('boss4-submit').addEventListener('click', function() {
+        QuestMath.checkFillIn('boss4-input', '16.4', 'boss4-fb');
+      });
+      document.getElementById('boss4-hint').addEventListener('click', function() {
+        this.previousElementSibling.classList.toggle('show');
+      });
+      document.getElementById('ch12-complete').addEventListener('click', function() {
+        QuestMath.completeChapter('12');
+      });
     });
   </script>
 </body>

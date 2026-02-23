@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="../libs/katex/katex.min.css">
   <!-- JSXGraph -->
   <link rel="stylesheet" href="../libs/jsxgraph/jsxgraph.css">
-  <script src="../libs/jsxgraph/jsxgraphcore.js"></script>
+  <script defer src="../libs/jsxgraph/jsxgraphcore.js"></script>
   <style>
     .chapter-hero {
       text-align: center;
@@ -216,7 +216,7 @@
             <div class="viz-section" style="margin-top:var(--space-lg);">
               <h4>Interactive: Tangent &perp; Radius</h4>
               <p>Drag point T around the circle. The tangent line at T is always perpendicular to the radius OT &mdash; a perfect 90&deg; every time.</p>
-              <div id="jsx-tanrad" class="jsx-container" style="height: 400px;"></div>
+              <div id="jsx-tanrad" class="jsx-container" aria-label="Interactive visualization" style="height: 400px;"></div>
               <div class="jsx-readout" id="tanrad-readout"></div>
             </div>
           </div>
@@ -241,7 +241,7 @@
             <div class="viz-section" style="margin-top:var(--space-lg);">
               <h4>Interactive: Two Tangents from External Point</h4>
               <p>Drag the external point P. Both tangent lengths are always equal: $PT_1 = PT_2 = \sqrt{d^2 - r^2}$.</p>
-              <div id="jsx-exttangent" class="jsx-container" style="height: 400px;"></div>
+              <div id="jsx-exttangent" class="jsx-container" aria-label="Interactive visualization" style="height: 400px;"></div>
               <div class="jsx-readout" id="exttangent-readout"></div>
             </div>
           </div>
@@ -266,7 +266,7 @@
             <div class="viz-section" style="margin-top:var(--space-lg);">
               <h4>Interactive: Touching Circles</h4>
               <p>Drag centre O&prime; of the smaller circle. When the circles touch externally, $d = r_1 + r_2$. When internally, $d = |r_1 - r_2|$.</p>
-              <div id="jsx-touching" class="jsx-container" style="height: 400px;"></div>
+              <div id="jsx-touching" class="jsx-container" aria-label="Interactive visualization" style="height: 400px;"></div>
               <div class="jsx-readout" id="touching-readout"></div>
             </div>
           </div>
@@ -289,7 +289,7 @@
             <div class="viz-section" style="margin-top:var(--space-lg);">
               <h4>Interactive: Alternate Segment Theorem</h4>
               <p>The tangent at T makes an angle with chord TA. Drag point B on the opposite arc &mdash; the inscribed angle &ang;TBA always equals the tangent-chord angle!</p>
-              <div id="jsx-alternate" class="jsx-container" style="height: 420px;"></div>
+              <div id="jsx-alternate" class="jsx-container" aria-label="Interactive visualization" style="height: 420px;"></div>
               <div class="jsx-readout" id="alternate-readout"></div>
             </div>
           </div>
@@ -318,7 +318,7 @@
             <div class="viz-section" style="margin-top:var(--space-lg);">
               <h4>Interactive: Central Angle = 2 &times; Inscribed Angle</h4>
               <p>Drag point P around the major arc. The inscribed angle at P is always exactly half the central angle &mdash; no matter where P sits!</p>
-              <div id="jsx-central-inscribed" class="jsx-container" style="height: 420px;"></div>
+              <div id="jsx-central-inscribed" class="jsx-container" aria-label="Interactive visualization" style="height: 420px;"></div>
               <div class="jsx-readout" id="central-inscribed-readout"></div>
             </div>
           </div>
@@ -343,7 +343,7 @@
             <div class="viz-section" style="margin-top:var(--space-lg);">
               <h4>Interactive: Cyclic Quadrilateral</h4>
               <p>Drag the four vertices around the circle. Opposite angles always sum to 180&deg;!</p>
-              <div id="jsx-cyclic" class="jsx-container" style="height: 420px;"></div>
+              <div id="jsx-cyclic" class="jsx-container" aria-label="Interactive visualization" style="height: 420px;"></div>
               <div class="jsx-readout" id="cyclic-readout"></div>
             </div>
           </div>
@@ -369,7 +369,7 @@
             <div class="viz-section" style="margin-top:var(--space-lg);">
               <h4>Interactive: Ptolemy's Theorem</h4>
               <p>Drag the four vertices of the cyclic quadrilateral. The product of the diagonals always equals the sum of the products of opposite sides!</p>
-              <div id="jsx-ptolemy" class="jsx-container" style="height: 420px;"></div>
+              <div id="jsx-ptolemy" class="jsx-container" aria-label="Interactive visualization" style="height: 420px;"></div>
               <div class="jsx-readout" id="ptolemy-readout"></div>
             </div>
           </div>
@@ -524,13 +524,13 @@
         <p>The centre $O$ of a circle of radius $6\text{ cm}$ is at a distance of $10\text{ cm}$ from point $P$. Find the length of each tangent from $P$ to the circle.</p>
         <div class="boss-input-group">
           <input type="text" id="boss1-input" class="math-input" placeholder="Length in cm" style="max-width: 160px;">
-          <button class="btn btn-primary" onclick="QuestMath.checkFillIn('boss1-input', '8', 'boss1-fb')">Submit</button>
+          <button class="btn btn-primary" id="boss1-submit">Submit</button>
         </div>
         <div class="boss-feedback" id="boss1-fb"></div>
         <div class="quiz-hint">
           <strong>Hint:</strong> Use $\text{tangent}^2 + r^2 = d^2$ where $r = 6$ and $d = 10$.
         </div>
-        <button class="btn btn-hint" onclick="this.previousElementSibling.classList.toggle('show')" style="margin-top: 8px;">Show Hint</button>
+        <button class="btn btn-hint" id="boss1-hint" style="margin-top: 8px;">Show Hint</button>
       </div>
 
       <div class="boss-challenge">
@@ -539,13 +539,13 @@
         <div class="boss-input-group">
           <span style="color: var(--text-secondary);">$\angle C =$</span>
           <input type="text" id="boss2a-input" class="math-input" placeholder="degrees" style="max-width: 120px;">
-          <button class="btn btn-primary" onclick="QuestMath.checkFillIn('boss2a-input', '105', 'boss2a-fb')">Check</button>
+          <button class="btn btn-primary" id="boss2a-submit">Check</button>
         </div>
         <div class="boss-feedback" id="boss2a-fb"></div>
         <div class="boss-input-group">
           <span style="color: var(--text-secondary);">$\angle D =$</span>
           <input type="text" id="boss2b-input" class="math-input" placeholder="degrees" style="max-width: 120px;">
-          <button class="btn btn-primary" onclick="QuestMath.checkFillIn('boss2b-input', '70', 'boss2b-fb')">Check</button>
+          <button class="btn btn-primary" id="boss2b-submit">Check</button>
         </div>
         <div class="boss-feedback" id="boss2b-fb"></div>
       </div>
@@ -555,17 +555,17 @@
         <p>Cyclic quadrilateral $ABCD$ has sides $a = 4$, $b = 5$, $c = 6$, $d = 3$ and diagonal $p = 8\text{ cm}$. Find diagonal $q$.</p>
         <div class="boss-input-group">
           <input type="text" id="boss3-input" class="math-input" placeholder="Value of q" style="max-width: 160px;">
-          <button class="btn btn-primary" onclick="QuestMath.checkFillIn('boss3-input', '4.875', 'boss3-fb')">Submit</button>
+          <button class="btn btn-primary" id="boss3-submit">Submit</button>
         </div>
         <div class="boss-feedback" id="boss3-fb"></div>
         <div class="quiz-hint">
           <strong>Hint:</strong> $p \cdot q = a \cdot c + b \cdot d$, so $8q = 24 + 15 = 39$.
         </div>
-        <button class="btn btn-hint" onclick="this.previousElementSibling.classList.toggle('show')" style="margin-top: 8px;">Show Hint</button>
+        <button class="btn btn-hint" id="boss3-hint" style="margin-top: 8px;">Show Hint</button>
       </div>
 
       <div style="text-align: center; margin-top: 32px;">
-        <button class="btn btn-success" onclick="QuestMath.completeChapter('10')" style="font-size: 1.1rem; padding: 16px 40px;">
+        <button class="btn btn-success" id="ch10-complete" style="font-size: 1.1rem; padding: 16px 40px;">
           &#127942; Complete Quest 10
         </button>
       </div>
@@ -594,7 +594,7 @@
     (function() {
       var el = document.getElementById('jsx-tanrad');
       if (!el) return;
-      var board = JXG.JSXGraph.initBoard('jsx-tanrad', {
+      var board = VizManager.create('jsx-tanrad', {
         boundingbox: [-6, 6, 6, -6], axis: false, grid: false,
         showNavigation: false, showCopyright: false, keepAspectRatio: true
       });
@@ -635,7 +635,7 @@
       function updateReadout() {
         var angle = Math.atan2(T.Y(), T.X()) * R2D;
         if(angle < 0) angle += 360;
-        readout.innerHTML = 'Point T at <strong>' + angle.toFixed(1) + '\u00B0</strong> on circle &nbsp;|&nbsp; \u2220(radius, tangent) = <strong style="color:#ffd700;">90\u00B0</strong> &nbsp;(always perpendicular!)';
+        SafeDOM.readoutHTML(readout, 'Point T at <strong>' + angle.toFixed(1) + '\u00B0</strong> on circle &nbsp;|&nbsp; \u2220(radius, tangent) = <strong style="color:#ffd700;">90\u00B0</strong> &nbsp;(always perpendicular!)');
       }
       T.on('drag', updateReadout);
       updateReadout();
@@ -645,7 +645,7 @@
     (function() {
       var el = document.getElementById('jsx-exttangent');
       if (!el) return;
-      var board = JXG.JSXGraph.initBoard('jsx-exttangent', {
+      var board = VizManager.create('jsx-exttangent', {
         boundingbox: [-8, 8, 12, -8], axis: false, grid: false,
         showNavigation: false, showCopyright: false, keepAspectRatio: true
       });
@@ -687,12 +687,12 @@
         var tangLen = Math.sqrt(Math.max(0, d*d-r*r));
         var t1d = Math.sqrt(Math.pow(P.X()-tp1.x(),2)+Math.pow(P.Y()-tp1.y(),2));
         var t2d = Math.sqrt(Math.pow(P.X()-tp2.x(),2)+Math.pow(P.Y()-tp2.y(),2));
-        readout.innerHTML =
+        SafeDOM.readoutHTML(readout,
           '<span style="color:#cbd5e1;">OP = ' + d.toFixed(2) + ', r = ' + r + '</span> &nbsp;|&nbsp; ' +
           '<span style="color:#00ff88;">PT\u2081 = ' + t1d.toFixed(2) + '</span> &nbsp;|&nbsp; ' +
           '<span style="color:#ffd700;">PT\u2082 = ' + t2d.toFixed(2) + '</span> &nbsp;|&nbsp; ' +
           '<span style="color:#a855f7;">\u221A(d\u00B2\u2212r\u00B2) = ' + tangLen.toFixed(2) + '</span>' +
-          (Math.abs(t1d-t2d)<0.1 ? ' &nbsp;<span style="color:#00ff88; font-weight:700;">\u2705 Equal!</span>' : '');
+          (Math.abs(t1d-t2d)<0.1 ? ' &nbsp;<span style="color:#00ff88; font-weight:700;">\u2705 Equal!</span>' : ''));
       }
       P.on('drag', updateReadout);
       updateReadout();
@@ -702,7 +702,7 @@
     (function() {
       var el = document.getElementById('jsx-touching');
       if (!el) return;
-      var board = JXG.JSXGraph.initBoard('jsx-touching', {
+      var board = VizManager.create('jsx-touching', {
         boundingbox: [-10, 8, 10, -8], axis: false, grid: false,
         showNavigation: false, showCopyright: false, keepAspectRatio: true
       });
@@ -755,11 +755,11 @@
         else if(d > sumR) status = '<span style="color:#94a3b8;">Separate circles (d > r\u2081+r\u2082)</span>';
         else if(d < diffR) status = '<span style="color:#94a3b8;">One inside the other (d < |r\u2081\u2212r\u2082|)</span>';
         else status = '<span style="color:#a855f7;">Intersecting at 2 points</span>';
-        readout.innerHTML =
+        SafeDOM.readoutHTML(readout,
           '<span style="color:#00d4ff;">r\u2081 = ' + r1 + '</span> &nbsp;|&nbsp; ' +
           '<span style="color:#00ff88;">r\u2082 = ' + r2.toFixed(1) + '</span> &nbsp;|&nbsp; ' +
           '<span style="color:#cbd5e1;">d = ' + d.toFixed(2) + '</span> &nbsp;|&nbsp; ' +
-          '<span style="color:#cbd5e1;">r\u2081+r\u2082 = ' + sumR.toFixed(1) + ', |r\u2081\u2212r\u2082| = ' + diffR.toFixed(1) + '</span><br>' + status;
+          '<span style="color:#cbd5e1;">r\u2081+r\u2082 = ' + sumR.toFixed(1) + ', |r\u2081\u2212r\u2082| = ' + diffR.toFixed(1) + '</span><br>' + status);
       }
       O2.on('drag', updateReadout);
       r2Slider.on('drag', updateReadout);
@@ -770,7 +770,7 @@
     (function() {
       var el = document.getElementById('jsx-alternate');
       if (!el) return;
-      var board = JXG.JSXGraph.initBoard('jsx-alternate', {
+      var board = VizManager.create('jsx-alternate', {
         boundingbox: [-6.5, 6.5, 6.5, -6.5], axis: false, grid: false,
         showNavigation: false, showCopyright: false, keepAspectRatio: true
       });
@@ -833,10 +833,10 @@
         var tangChordAngle = angleAtVtx(tangDir, T, A) * R2D;
         // Inscribed angle at B in alternate segment
         var inscribedAngle = angleAtVtx(T, B, A) * R2D;
-        readout.innerHTML =
+        SafeDOM.readoutHTML(readout,
           '<span style="color:#a855f7;">Tangent-chord \u2220PTA = <strong>' + tangChordAngle.toFixed(1) + '\u00B0</strong></span> &nbsp;|&nbsp; ' +
           '<span style="color:#ffd700;">Inscribed \u2220TBA = <strong>' + inscribedAngle.toFixed(1) + '\u00B0</strong></span>' +
-          (Math.abs(tangChordAngle-inscribedAngle)<2 ? ' &nbsp;<span style="color:#00ff88; font-weight:700;">\u2705 Equal! (Alternate Segment Theorem)</span>' : '');
+          (Math.abs(tangChordAngle-inscribedAngle)<2 ? ' &nbsp;<span style="color:#00ff88; font-weight:700;">\u2705 Equal! (Alternate Segment Theorem)</span>' : ''));
       }
       A.on('drag', updateReadout); B.on('drag', updateReadout);
       updateReadout();
@@ -846,7 +846,7 @@
     (function() {
       var el = document.getElementById('jsx-central-inscribed');
       if (!el) return;
-      var board = JXG.JSXGraph.initBoard('jsx-central-inscribed', {
+      var board = VizManager.create('jsx-central-inscribed', {
         boundingbox: [-6.5, 6.5, 6.5, -6.5], axis: false, grid: false,
         showNavigation: false, showCopyright: false, keepAspectRatio: true
       });
@@ -901,11 +901,11 @@
         var centralDeg=c*R2D;
         var inscribedDeg=angleAtVtx(A,P,B)*R2D;
         var ratio = inscribedDeg>0.5?(centralDeg/inscribedDeg).toFixed(2):'--';
-        readout.innerHTML =
+        SafeDOM.readoutHTML(readout,
           '<span style="color:#a855f7;">Central \u2220AOB = <strong>' + centralDeg.toFixed(1) + '\u00B0</strong></span> &nbsp;|&nbsp; ' +
           '<span style="color:#ffd700;">Inscribed \u2220APB = <strong>' + inscribedDeg.toFixed(1) + '\u00B0</strong></span> &nbsp;|&nbsp; ' +
           '<span style="color:#cbd5e1;">Ratio = ' + ratio + '</span>' +
-          (Math.abs(parseFloat(ratio)-2.0)<0.15 ? ' &nbsp;<span style="color:#00ff88; font-weight:700;">\u2705 Central = 2 \u00D7 Inscribed!</span>' : '');
+          (Math.abs(parseFloat(ratio)-2.0)<0.15 ? ' &nbsp;<span style="color:#00ff88; font-weight:700;">\u2705 Central = 2 \u00D7 Inscribed!</span>' : ''));
       }
       P.on('drag', updateReadout); A.on('drag', updateReadout); B.on('drag', updateReadout);
       updateReadout();
@@ -915,7 +915,7 @@
     (function() {
       var el = document.getElementById('jsx-cyclic');
       if (!el) return;
-      var board = JXG.JSXGraph.initBoard('jsx-cyclic', {
+      var board = VizManager.create('jsx-cyclic', {
         boundingbox: [-6.5, 6.5, 6.5, -6.5], axis: false, grid: false,
         showNavigation: false, showCopyright: false, keepAspectRatio: true
       });
@@ -965,7 +965,7 @@
         var angA = angleAtVtx(D,A,B)*R2D, angB = angleAtVtx(A,B,C)*R2D;
         var angC = angleAtVtx(B,C,D)*R2D, angD = angleAtVtx(C,D,A)*R2D;
         var sumAC = angA+angC, sumBD = angB+angD;
-        readout.innerHTML =
+        SafeDOM.readoutHTML(readout,
           '<div style="display:flex; flex-wrap:wrap; gap:4px 16px; font-size:0.9rem;">' +
             '<span style="color:#ff006e;">\u2220A = ' + angA.toFixed(1) + '\u00B0</span>' +
             '<span style="color:#00ff88;">\u2220B = ' + angB.toFixed(1) + '\u00B0</span>' +
@@ -976,7 +976,7 @@
             '<span style="color:#cbd5e1;">\u2220A + \u2220C = ' + sumAC.toFixed(1) + '\u00B0</span> &nbsp;|&nbsp; ' +
             '<span style="color:#cbd5e1;">\u2220B + \u2220D = ' + sumBD.toFixed(1) + '\u00B0</span>' +
             (Math.abs(sumAC-180)<3 && Math.abs(sumBD-180)<3 ? ' &nbsp;<span style="color:#00ff88; font-weight:700;">\u2705 Both = 180\u00B0! Opposite angles supplementary!</span>' : '') +
-          '</div>';
+          '</div>');
       }
       A.on('drag', updateReadout); B.on('drag', updateReadout);
       C.on('drag', updateReadout); D.on('drag', updateReadout);
@@ -987,7 +987,7 @@
     (function() {
       var el = document.getElementById('jsx-ptolemy');
       if (!el) return;
-      var board = JXG.JSXGraph.initBoard('jsx-ptolemy', {
+      var board = VizManager.create('jsx-ptolemy', {
         boundingbox: [-6.5, 6.5, 6.5, -6.5], axis: false, grid: false,
         showNavigation: false, showCopyright: false, keepAspectRatio: true
       });
@@ -1027,12 +1027,12 @@
         var a=pdist(A,B), b=pdist(B,C), c=pdist(C,D), d=pdist(D,A);
         var p=pdist(A,C), q=pdist(B,D);
         var lhs = p*q, rhs = a*c + b*d;
-        readout.innerHTML =
+        SafeDOM.readoutHTML(readout,
           '<div style="font-size:0.9rem;">' +
             '<span style="color:#ff006e;">p</span>\u00B7<span style="color:#a855f7;">q</span> = ' + p.toFixed(2) + ' \u00D7 ' + q.toFixed(2) + ' = <strong>' + lhs.toFixed(2) + '</strong> &nbsp;|&nbsp; ' +
             '<span style="color:#00ff88;">a</span>\u00B7<span style="color:#00ff88;">c</span> + <span style="color:#ffd700;">b</span>\u00B7<span style="color:#ffd700;">d</span> = ' + (a*c).toFixed(2) + ' + ' + (b*d).toFixed(2) + ' = <strong>' + rhs.toFixed(2) + '</strong>' +
             (Math.abs(lhs-rhs)<0.5 ? ' &nbsp;<span style="color:#00ff88; font-weight:700;">\u2705 p\u00B7q = ac + bd (Ptolemy!)</span>' : '') +
-          '</div>';
+          '</div>');
       }
       A.on('drag', updateReadout); B.on('drag', updateReadout);
       C.on('drag', updateReadout); D.on('drag', updateReadout);
@@ -1043,11 +1043,35 @@
   </script>
 
   <script src="../js/engine.js"></script>
-  <script src="../libs/katex/katex.min.js"></script>
-  <script src="../libs/katex/auto-render.min.js"></script>
+  <script src="../js/viz-manager.js"></script>
+  <script src="../js/safe-dom.js"></script>
+  <script defer src="../libs/katex/katex.min.js"></script>
+  <script defer src="../libs/katex/auto-render.min.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       QuestMath.init();
+
+      document.getElementById('boss1-submit').addEventListener('click', function() {
+        QuestMath.checkFillIn('boss1-input', '8', 'boss1-fb');
+      });
+      document.getElementById('boss1-hint').addEventListener('click', function() {
+        this.previousElementSibling.classList.toggle('show');
+      });
+      document.getElementById('boss2a-submit').addEventListener('click', function() {
+        QuestMath.checkFillIn('boss2a-input', '105', 'boss2a-fb');
+      });
+      document.getElementById('boss2b-submit').addEventListener('click', function() {
+        QuestMath.checkFillIn('boss2b-input', '70', 'boss2b-fb');
+      });
+      document.getElementById('boss3-submit').addEventListener('click', function() {
+        QuestMath.checkFillIn('boss3-input', '4.875', 'boss3-fb');
+      });
+      document.getElementById('boss3-hint').addEventListener('click', function() {
+        this.previousElementSibling.classList.toggle('show');
+      });
+      document.getElementById('ch10-complete').addEventListener('click', function() {
+        QuestMath.completeChapter('10');
+      });
     });
   </script>
 </body>
