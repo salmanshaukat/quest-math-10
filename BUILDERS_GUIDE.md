@@ -16,13 +16,14 @@
 6. [HTML Chapter Template](#6-html-chapter-template)
 7. [Writing Discovery Sections](#7-writing-discovery-sections)
 8. [Building Interactive Visualizations](#8-building-interactive-visualizations)
-9. [Quiz & Boss Challenge Standards](#9-quiz--boss-challenge-standards)
-10. [The Content Pipeline: PDF → JSON → HTML](#10-the-content-pipeline)
-11. [Quality Assurance Checklist](#11-quality-assurance-checklist)
-12. [Deployment & Distribution](#12-deployment--distribution)
-13. [Subject-Specific Guidelines](#13-subject-specific-guidelines)
-14. [Common Mistakes & Lessons Learned](#14-common-mistakes--lessons-learned)
-15. [Quick Reference Card](#15-quick-reference-card)
+9. [Security & Safe DOM Rendering](#9-security--safe-dom-rendering)
+10. [Quiz & Boss Challenge Standards](#10-quiz--boss-challenge-standards)
+11. [The Content Pipeline: PDF → JSON → HTML](#11-the-content-pipeline)
+12. [Quality Assurance Checklist](#12-quality-assurance-checklist)
+13. [Deployment & Distribution](#13-deployment--distribution)
+14. [Subject-Specific Guidelines](#14-subject-specific-guidelines)
+15. [Common Mistakes & Lessons Learned](#15-common-mistakes--lessons-learned)
+16. [Quick Reference Card](#16-quick-reference-card)
 
 ---
 
@@ -59,7 +60,9 @@ quest-academy/
 │   ├── css/
 │   │   └── style.css              # Global design system (shared by ALL subjects)
 │   ├── js/
-│   │   └── engine.js              # Quest engine (quizzes, XP, streaks, progress)
+│   │   ├── engine.js              # Quest engine (quizzes, XP, streaks, progress)
+│   │   ├── viz-manager.js         # JSXGraph lifecycle (create, destroy, cleanup)
+│   │   └── safe-dom.js            # XSS-free DOM rendering utilities
 │   ├── libs/                      # Bundled dependencies (no CDN)
 │   │   ├── katex/
 │   │   │   ├── katex.min.css
@@ -75,6 +78,16 @@ quest-academy/
 │       ├── ch02_quadratic_equations.html
 │       └── ...
 ```
+
+### Shared Modules (js/)
+
+| Module | Purpose | Required? |
+|--------|---------|-----------|
+| `engine.js` | Quiz system, XP, streaks, progress, KaTeX rendering | Always |
+| `viz-manager.js` | JSXGraph board lifecycle — create with error handling, auto-destroy on page unload | If chapter has JSXGraph visualizations |
+| `safe-dom.js` | XSS-free DOM updates — `setText()`, `feedback()`, `readoutHTML()`, `bossFeedback()` | Always |
+
+All three must be loaded in this order: `engine.js` → `viz-manager.js` → `safe-dom.js`
 
 **Future multi-subject structure:**
 ```
@@ -236,6 +249,51 @@ The dark-neon gaming aesthetic is non-negotiable. It keeps students engaged and 
 | `jsx-readout` | Live readout below visualization |
 | `viz-section` | Wrapper for viz + readout |
 
+### Utility CSS Classes
+
+Use these instead of inline `style=` attributes. They keep your HTML clean and the styles in one place.
+
+| Class | Effect |
+|-------|--------|
+| `.u-text-cyan` | `color: var(--neon-cyan)` |
+| `.u-text-green` | `color: var(--neon-green)` |
+| `.u-text-gold` | `color: var(--neon-gold)` |
+| `.u-text-orange` | `color: var(--neon-orange)` |
+| `.u-text-pink` | `color: var(--neon-pink)` |
+| `.u-text-purple` | `color: var(--neon-purple)` |
+| `.u-text-red` | `color: var(--neon-red)` |
+| `.u-text-muted` | `color: var(--text-secondary)` |
+| `.u-text-bright` | `color: var(--text-bright)` |
+| `.u-mt-xs` / `.u-mt-sm` / `.u-mt-md` / `.u-mt-lg` / `.u-mt-xl` | Margin-top spacing |
+| `.u-mb-sm` / `.u-mb-md` / `.u-mb-lg` | Margin-bottom spacing |
+| `.u-bold` | `font-weight: 700` |
+| `.u-mono` | Monospace font |
+| `.u-center` | Center text |
+| `.u-hidden` | `display: none` |
+| `.u-flex-center` | Flex with center alignment |
+| `.sr-only` | Visually hidden, screen-reader accessible |
+| `.viz-error` | Fallback message when a visualization fails to load |
+
+**Prefer these classes over inline styles.** For example:
+```html
+<!-- BAD -->
+<p style="color: var(--neon-cyan); margin-top: var(--space-lg);">Text</p>
+
+<!-- GOOD -->
+<p class="u-text-cyan u-mt-lg">Text</p>
+```
+
+### Responsive Breakpoints
+
+The design system has two mobile breakpoints:
+
+| Breakpoint | Target | Key changes |
+|------------|--------|-------------|
+| `max-width: 768px` | Tablets | Quest grid → single column, smaller headings, phase padding reduced |
+| `max-width: 480px` | Phones | JSXGraph height 250px, even smaller headings, compact stat badges |
+
+JSXGraph containers scale automatically: 400px → 300px → 250px across breakpoints.
+
 ---
 
 ## 6. HTML Chapter Template
@@ -253,7 +311,7 @@ Every chapter follows this exact skeleton. Copy this and fill in the content.
   <link rel="stylesheet" href="../libs/katex/katex.min.css">
   <!-- Include JSXGraph ONLY if chapter has visualizations -->
   <link rel="stylesheet" href="../libs/jsxgraph/jsxgraph.css">
-  <script src="../libs/jsxgraph/jsxgraphcore.js"></script>
+  <script defer src="../libs/jsxgraph/jsxgraphcore.js"></script>
   <style>
     /* Chapter-specific styles — keep these minimal */
     .chapter-hero { text-align:center; padding:60px 0 30px; position:relative; z-index:1; }
@@ -298,28 +356,28 @@ Every chapter follows this exact skeleton. Copy this and fill in the content.
     </div>
 
     <!-- PHASE: HOOK -->
-    <div class="phase phase-hook animate-fadeInUp delay-1">
+    <div class="phase phase-hook animate-fadeInUp delay-1" role="region" aria-label="Hook">
       <div class="phase-tag">&#127918; Hook</div>
       <h2>HOOK TITLE</h2>
       <!-- Hook content here -->
     </div>
 
     <!-- PHASE: CHALLENGE -->
-    <div class="phase phase-challenge animate-fadeInUp delay-2">
+    <div class="phase phase-challenge animate-fadeInUp delay-2" role="region" aria-label="Challenge">
       <div class="phase-tag">&#9876; Challenge</div>
       <h2>Before You Begin...</h2>
       <!-- Quick puzzle here -->
     </div>
 
     <!-- PHASE: ORIGINS -->
-    <section class="phase phase-origins animate-fadeInUp">
+    <section class="phase phase-origins animate-fadeInUp" role="region" aria-label="Origins">
       <div class="phase-tag">&#128220; The Origins</div>
       <h2>ORIGINS TITLE</h2>
       <!-- Timeline + heritage-box here -->
     </section>
 
     <!-- PHASE: DISCOVERY -->
-    <div class="phase phase-discovery">
+    <div class="phase phase-discovery" role="region" aria-label="Discovery">
       <div class="phase-tag">&#128161; Discovery</div>
       <h2>DISCOVERY TITLE</h2>
       <p>Unlock each topic step by step. Click to reveal.</p>
@@ -334,10 +392,10 @@ Every chapter follows this exact skeleton. Copy this and fill in the content.
           <div class="reveal-content">
             <!-- Content + formulas + examples -->
             <!-- Visualization (inline, inside this reveal-content) -->
-            <div class="viz-section" style="margin-top:var(--space-lg);">
+            <div class="viz-section u-mt-lg">
               <h4>Interactive: VIZ TITLE</h4>
               <p>VIZ INSTRUCTIONS</p>
-              <div id="jsx-VIZNAME" class="jsx-container" style="height:400px;"></div>
+              <div id="jsx-VIZNAME" class="jsx-container" style="height:400px;" aria-label="Interactive visualization"></div>
               <div class="jsx-readout" id="VIZNAME-readout"></div>
             </div>
           </div>
@@ -349,7 +407,7 @@ Every chapter follows this exact skeleton. Copy this and fill in the content.
     </div>
 
     <!-- PHASE: PRACTICE -->
-    <div class="phase phase-practice">
+    <div class="phase phase-practice" role="region" aria-label="Practice quiz">
       <div class="phase-tag">&#127919; Practice</div>
       <h2>Test Your Knowledge</h2>
       <p>Answer all 8 questions.</p>
@@ -363,39 +421,60 @@ Every chapter follows this exact skeleton. Copy this and fill in the content.
     </div>
 
     <!-- PHASE: BOSS -->
-    <div class="phase phase-boss">
+    <div class="phase phase-boss" role="region" aria-label="Boss challenge">
       <div class="phase-tag">&#128123; Boss Level</div>
       <h2>Final Boss</h2>
       <!-- 3-4 boss challenges (see Boss Standards section) -->
-      <div style="text-align:center; margin-top:32px;">
-        <button class="btn btn-success" onclick="QuestMath.completeChapter('CHAPTER_NUMBER')" style="font-size:1.1rem; padding:16px 40px;">
+      <div class="u-center u-mt-xl">
+        <button class="btn btn-success" id="complete-ch-btn" style="font-size:1.1rem; padding:16px 40px;">
           &#127942; Complete Quest CHAPTER_NUMBER
         </button>
       </div>
     </div>
 
-    <div style="text-align:center; padding:40px 0;">
+    <div class="u-center" style="padding:40px 0;">
       <a href="../index.html" class="btn btn-ghost">&#8592; Return to Dashboard</a>
     </div>
 
   </div><!-- /container -->
 
-  <!-- JSXGraph Visualizations -->
+  <!-- Scripts: engine first, then shared modules, then libs, then chapter code -->
+  <script src="../js/engine.js"></script>
+  <script src="../js/viz-manager.js"></script>
+  <script src="../js/safe-dom.js"></script>
+  <script defer src="../libs/katex/katex.min.js"></script>
+  <script defer src="../libs/katex/auto-render.min.js"></script>
+
+  <!-- Chapter visualizations + event bindings -->
   <script>
   document.addEventListener('DOMContentLoaded', function() {
-    // All visualization code here (see Visualization section)
-  });
-  </script>
 
-  <script src="../js/engine.js"></script>
-  <script src="../libs/katex/katex.min.js"></script>
-  <script src="../libs/katex/auto-render.min.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => { QuestMath.init(); });
+    // --- Boss challenge event bindings (NO inline onclick!) ---
+    document.getElementById('complete-ch-btn').addEventListener('click', function() {
+      QuestMath.completeChapter('CHAPTER_NUMBER');
+    });
+
+    // --- Visualization code below (see Visualization section) ---
+
+  });
   </script>
 </body>
 </html>
 ```
+
+### Template Changes from v1 (Important!)
+
+If you're updating from a v1 template or an older chapter, note these mandatory changes:
+
+| Old Pattern (v1) | New Pattern (v2) | Why |
+|-------------------|-------------------|-----|
+| `<script src="../libs/jsxgraph/jsxgraphcore.js"></script>` | `<script defer src="..."></script>` | Non-blocking page load |
+| Only `engine.js` | `engine.js` + `viz-manager.js` + `safe-dom.js` | Shared modules for security & memory |
+| `onclick="QuestMath.completeChapter('1')"` | `id="complete-ch-btn"` + `addEventListener` | No inline event handlers (security) |
+| `readout.innerHTML = '...'` | `SafeDOM.readoutHTML(readout, '...')` | XSS prevention |
+| `JXG.JSXGraph.initBoard(...)` | `VizManager.create(...)` | Automatic cleanup on page unload |
+| `style="color: var(--neon-cyan)"` | `class="u-text-cyan"` | Utility classes, single source of truth |
+| No ARIA attributes | `role="region"` + `aria-label` on phases and viz containers | Accessibility |
 
 ---
 
@@ -431,19 +510,20 @@ Section Title
 
 ### The Visualization Pattern
 
-Every visualization follows this exact pattern:
+Every visualization follows this exact pattern using `VizManager.create()`:
 
 ```javascript
 /* ====== Viz N: Title ====== */
 (function() {
   var el = document.getElementById('jsx-VIZNAME');
   if (!el) return;                          // Guard: skip if container missing
-  var board = JXG.JSXGraph.initBoard('jsx-VIZNAME', {
+
+  var board = VizManager.create('jsx-VIZNAME', {
     boundingbox: [-6, 6, 6, -6],            // [xmin, ymax, xmax, ymin]
     axis: false, grid: false,
-    showNavigation: false, showCopyright: false,
-    keepAspectRatio: true                   // true for geometry, false for charts
+    keepaspectratio: true                    // true for geometry, false for charts
   });
+  if (!board) return;                       // VizManager returns null on failure
   board.containerObj.style.background = 'rgba(0,0,0,0.4)';  // ALWAYS set this
 
   // Create elements...
@@ -451,7 +531,11 @@ Every visualization follows this exact pattern:
 
   var readout = document.getElementById('VIZNAME-readout');
   function updateReadout() {
-    readout.innerHTML = '...';              // Live-updating values
+    // Use SafeDOM for readouts — NEVER raw innerHTML
+    SafeDOM.readoutHTML(readout,
+      '<strong style="color:#00d4ff;">x:</strong> ' + P.X().toFixed(2) +
+      ' | <strong style="color:#00ff88;">y:</strong> ' + P.Y().toFixed(2)
+    );
   }
 
   // Bind drag events
@@ -462,15 +546,38 @@ Every visualization follows this exact pattern:
 })();
 ```
 
+### VizManager API
+
+`VizManager` is defined in `viz-manager.js` and manages the lifecycle of all JSXGraph boards:
+
+| Method | Description |
+|--------|-------------|
+| `VizManager.create(containerId, opts)` | Create a board with error handling. Returns the board or `null`. Defaults include `showNavigation:false`, `showCopyright:false`, `renderer:'svg'`. |
+| `VizManager.destroy(containerId)` | Destroy a specific board and free its resources. |
+| `VizManager.destroyAll()` | Destroy ALL boards. Called automatically on `beforeunload`. |
+| `VizManager.get(containerId)` | Get a registered board by container ID. |
+| `VizManager.count()` | Get count of active boards (useful for debugging). |
+
+**Why VizManager instead of raw `JXG.JSXGraph.initBoard()`?**
+- **Memory safety**: All boards are automatically freed on page unload — no memory leaks
+- **Error handling**: If the container doesn't exist or JSXGraph fails, you get `null` instead of a thrown error crashing the whole page
+- **Duplicate prevention**: Creating a board in a container that already has one will free the old board first
+- **Debugging**: `VizManager.count()` tells you how many boards are active
+
 ### Key Rules
 
 1. **IIFE wrapper**: Every viz wrapped in `(function(){ ... })();` to prevent variable collision
 2. **Existence guard**: `var el = document.getElementById('...'); if (!el) return;`
-3. **Dark background**: `board.containerObj.style.background = 'rgba(0,0,0,0.4)';`
-4. **Only approved colors**: See the color table in Section 5
-5. **Initial readout**: Always call `updateReadout()` at the end — never leave readout empty
-6. **Inline placement**: Viz goes INSIDE the `reveal-content` div of its relevant section, NOT at the bottom
-7. **DOMContentLoaded**: All vizzes wrapped in `document.addEventListener('DOMContentLoaded', function(){ ... });`
+3. **Use VizManager**: `var board = VizManager.create('jsx-NAME', {...});` — NEVER `JXG.JSXGraph.initBoard` directly
+4. **Null check**: `if (!board) return;` after `VizManager.create()`
+5. **Dark background**: `board.containerObj.style.background = 'rgba(0,0,0,0.4)';`
+6. **Only approved colors**: See the color table in Section 5
+7. **SafeDOM for readouts**: `SafeDOM.readoutHTML(readout, '...')` — NEVER `readout.innerHTML = '...'` directly
+8. **Initial readout**: Always call `updateReadout()` at the end — never leave readout empty
+9. **Inline placement**: Viz goes INSIDE the `reveal-content` div of its relevant section, NOT at the bottom
+10. **DOMContentLoaded**: All vizzes wrapped in `document.addEventListener('DOMContentLoaded', function(){ ... });`
+11. **ARIA label**: Every `.jsx-container` div must have `aria-label="Interactive visualization"`
+12. **No inline onclick**: Buttons that control vizzes use `addEventListener` inside the DOMContentLoaded block
 
 ### JSXGraph Element Cheat Sheet
 
@@ -523,7 +630,100 @@ board.create('text', [function(){return P.X();}, function(){return P.Y()+0.5;}, 
 
 ---
 
-## 9. Quiz & Boss Challenge Standards
+## 9. Security & Safe DOM Rendering
+
+### The #1 Rule: NEVER Use `innerHTML` with Dynamic Data
+
+`innerHTML` interprets strings as HTML. If any part of the string ever comes from user input, localStorage, or an external source, it's an XSS (Cross-Site Scripting) vulnerability. Even when the data is "trusted" today, it might not be tomorrow when another builder modifies the code.
+
+**Use `SafeDOM` for ALL dynamic DOM updates.**
+
+### SafeDOM API
+
+`SafeDOM` is defined in `safe-dom.js`:
+
+| Method | Purpose | Example |
+|--------|---------|---------|
+| `SafeDOM.setText(elOrId, text)` | Set plain text safely | `SafeDOM.setText('result', 'Answer: 42')` |
+| `SafeDOM.feedback(elOrId, isCorrect, message)` | Show colored correct/incorrect message | `SafeDOM.feedback('fb1', true, 'Correct!')` |
+| `SafeDOM.readoutHTML(elOrId, html)` | Set readout with trusted computed HTML | `SafeDOM.readoutHTML(readout, '<strong>x:</strong> 3.14')` |
+| `SafeDOM.bossFeedback(elOrId, isCorrect, answer)` | Show boss challenge result | `SafeDOM.bossFeedback('boss1-fb', false, '3+2i')` |
+| `SafeDOM.buttonGroup(elOrId, buttons, cls)` | Build a group of buttons safely | See below |
+
+### When to Use Which Method
+
+```
+Is it plain text with no formatting?
+  → SafeDOM.setText()
+
+Is it a quiz/boss correct/incorrect message?
+  → SafeDOM.feedback() or SafeDOM.bossFeedback()
+
+Is it a JSXGraph readout showing computed values (coordinates, lengths, angles)?
+  → SafeDOM.readoutHTML()  (HTML is from OUR code, never user input)
+
+Is it a set of buttons that switch modes/datasets?
+  → SafeDOM.buttonGroup()
+```
+
+### The `readoutHTML` Exception
+
+`SafeDOM.readoutHTML()` still uses innerHTML internally because readouts often need `<strong>` tags and color styling for visual clarity. This is acceptable because:
+1. The HTML string is constructed entirely from our own computed values (e.g., `P.X().toFixed(2)`)
+2. No user input, localStorage data, or external data ever flows into it
+3. The method is named explicitly (`HTML`) so builders know it's the one exception
+
+### Event Handlers: addEventListener ONLY
+
+**NEVER use inline `onclick=` attributes.** They:
+- Can't be removed or tested
+- Block Content Security Policy headers
+- Mix markup with behavior
+
+```html
+<!-- BAD -->
+<button onclick="checkBoss1()">Submit</button>
+<button onclick="QuestMath.completeChapter('3')">Complete</button>
+
+<!-- GOOD -->
+<button id="boss1-submit">Submit</button>
+<button id="complete-ch-btn">Complete</button>
+```
+
+```javascript
+// Inside DOMContentLoaded:
+document.getElementById('boss1-submit').addEventListener('click', checkBoss1);
+document.getElementById('complete-ch-btn').addEventListener('click', function() {
+  QuestMath.completeChapter('3');
+});
+```
+
+### localStorage Safety
+
+`engine.js` now includes these protections:
+- **Availability check**: Detects if localStorage is blocked (private browsing, storage disabled)
+- **Quota handling**: `saveState()` wrapped in try-catch — won't crash if storage is full
+- **Whitelist merge**: Only known state keys are loaded — prevents injection of arbitrary properties
+- **Graceful degradation**: If storage is unavailable, the app works normally but progress isn't saved
+
+Builders do NOT need to worry about localStorage — the engine handles it. Just call `QuestMath.checkFillIn()`, `QuestMath.completeChapter()`, etc. as usual.
+
+### Accessibility Requirements
+
+Every chapter must include:
+
+| Element | Required Attribute |
+|---------|-------------------|
+| Each `.phase` section | `role="region" aria-label="Hook"` (or Challenge/Origins/etc.) |
+| Each `.jsx-container` div | `aria-label="Interactive visualization"` |
+| Each `.reveal-header` div | Automatically gets `role="button"`, `tabindex="0"`, `aria-expanded` (engine.js handles this) |
+| Each `.quiz-option` div | Automatically gets `role="button"`, `tabindex="0"` (engine.js handles this) |
+
+The engine now supports **keyboard navigation**: Enter/Space to open accordion sections and select quiz options.
+
+---
+
+## 10. Quiz & Boss Challenge Standards
 
 ### Practice Quiz (8 Questions)
 
@@ -558,14 +758,24 @@ board.create('text', [function(){return P.X();}, function(){return P.Y()+0.5;}, 
   <p>PROBLEM STATEMENT with $math$</p>
   <div class="boss-input-group">
     <input type="text" id="boss1-input" class="math-input" placeholder="UNIT" style="max-width:160px;">
-    <button class="btn btn-primary" onclick="QuestMath.checkFillIn('boss1-input', 'ANSWER', 'boss1-fb')">Submit</button>
+    <button class="btn btn-primary" id="boss1-submit">Submit</button>
   </div>
   <div class="boss-feedback" id="boss1-fb"></div>
-  <div class="quiz-hint">
+  <div class="quiz-hint" id="boss1-hint">
     <strong>Hint:</strong> HINT TEXT
   </div>
-  <button class="btn btn-hint" onclick="this.previousElementSibling.classList.toggle('show')" style="margin-top:8px;">Show Hint</button>
+  <button class="btn btn-hint" id="boss1-hint-btn" class="u-mt-sm">Show Hint</button>
 </div>
+```
+
+```javascript
+// Inside DOMContentLoaded:
+document.getElementById('boss1-submit').addEventListener('click', function() {
+  QuestMath.checkFillIn('boss1-input', 'ANSWER', 'boss1-fb');
+});
+document.getElementById('boss1-hint-btn').addEventListener('click', function() {
+  document.getElementById('boss1-hint').classList.toggle('show');
+});
 ```
 
 **Rules**:
@@ -574,10 +784,11 @@ board.create('text', [function(){return P.X();}, function(){return P.Y()+0.5;}, 
 - `checkFillIn` does case-insensitive, whitespace-stripped comparison
 - Always include a hint (hidden by default)
 - Boss IDs must be unique: `boss1-input`/`boss1-fb`, `boss2-input`/`boss2-fb`, etc.
+- **NO inline onclick** — all events via addEventListener in the DOMContentLoaded block
 
 ---
 
-## 10. The Content Pipeline
+## 11. The Content Pipeline
 
 ### Overview
 
@@ -694,59 +905,94 @@ This is where Claude Code shines. Feed the generated HTML and ask:
 ```
 Add inline JSXGraph visualizations to each discovery section.
 Follow these rules exactly:
+- Use VizManager.create() (NOT JXG.JSXGraph.initBoard)
 - IIFE wrapper per viz
-- Existence guard
+- Existence guard + null check after VizManager.create()
 - Dark background: rgba(0,0,0,0.4)
 - Only these colors: #00d4ff, #ff006e, #00ff88, #ffd700, #a855f7, #94a3b8, #cbd5e1
+- Use SafeDOM.readoutHTML() for readouts (NOT innerHTML)
 - Initial updateReadout() call
 - Place INSIDE the reveal-content div
+- Add aria-label="Interactive visualization" to every .jsx-container
+- NO inline onclick — use addEventListener
+- All event bindings inside DOMContentLoaded
 ```
 
 ### Step 5: QA (see next section)
 
 ---
 
-## 11. Quality Assurance Checklist
+## 12. Quality Assurance Checklist
 
 Run this checklist for EVERY chapter before it ships. No exceptions.
 
 ### Automated Checks (can be scripted)
 
 ```
+STRUCTURE & LOADING
 [ ] No CDN URLs — all libs referenced locally (../libs/...)
+[ ] data-chapter attribute present on <html> and <body>
+[ ] <meta name="viewport"> present
+[ ] Script load order: engine.js → viz-manager.js → safe-dom.js → KaTeX (defer)
+[ ] JSXGraph script has defer attribute
+[ ] KaTeX scripts have defer attribute
+
+SECURITY (zero tolerance — must all pass)
+[ ] Zero .innerHTML = assignments — use SafeDOM.readoutHTML() or SafeDOM.bossFeedback()
+[ ] Zero onclick= attributes — use addEventListener in DOMContentLoaded
+[ ] All VizManager.create() calls (not raw JXG.JSXGraph.initBoard)
+[ ] No global functions outside IIFEs (except QuestMath)
+
+VISUALIZATION INTEGRITY
 [ ] No banned dark colors (#555, #475569, #64748b, #334155, #1e293b)
 [ ] Every jsx-VIZNAME container ID has matching getElementById in JS
 [ ] Every VIZNAME-readout ID has matching getElementById in JS
 [ ] Every viz IIFE has updateReadout() or equivalent called at end
-[ ] data-chapter attribute present on <html> and <body>
-[ ] <meta name="viewport"> present
-[ ] KaTeX scripts load AFTER engine.js
-[ ] QuestMath.init() is called in DOMContentLoaded
+[ ] Every .jsx-container has aria-label="Interactive visualization"
+
+QUIZ & BOSS
 [ ] completeChapter() call uses correct chapter number
 [ ] All quiz questions have data-correct matching one option's data-value
 [ ] Both correct-fb and incorrect-fb exist for every quiz question
 [ ] All boss inputs have unique IDs
+[ ] Boss submit/hint buttons use addEventListener, not onclick
+
+ACCESSIBILITY
+[ ] Every .phase section has role="region" and aria-label
+[ ] Every .jsx-container has aria-label="Interactive visualization"
 ```
 
 ### Manual Checks (human review)
 
 ```
-[ ] Open in Chrome mobile (or DevTools mobile view) — UI looks good
+VISUAL & MOBILE
+[ ] Open in Chrome mobile (or DevTools mobile view @ 375px) — UI looks good
+[ ] Open in DevTools @ 768px (tablet) — layout adapts correctly
+[ ] JSXGraph boards scale properly on small screens (not clipped)
+
+FUNCTIONALITY
 [ ] Open each accordion section — content displays, KaTeX renders
 [ ] Drag every visualization point — readout updates, no JS errors
-[ ] Click every slider — values change, viz updates
+[ ] Tab through quiz options with keyboard — Enter/Space selects
+[ ] Tab to reveal headers with keyboard — Enter/Space toggles
 [ ] Answer all 8 quiz questions — scoring works, XP appears
-[ ] Complete all boss challenges — feedback shows
+[ ] Complete all boss challenges — feedback shows (green/red)
 [ ] Click "Complete Quest" button — achievement popup + confetti
 [ ] Click "Back" link — returns to dashboard
+
+CONTENT
 [ ] Content accuracy: compare every formula/definition against textbook
 [ ] Origins section: at least one Islamic/South Asian scholar mentioned
 [ ] Hook: no prerequisite knowledge required
+
+MEMORY
+[ ] Open browser DevTools → Performance tab → visit chapter → navigate away
+    → Memory should not increase continuously (boards are freed on unload)
 ```
 
 ---
 
-## 12. Deployment & Distribution
+## 13. Deployment & Distribution
 
 ### GitHub Pages (Primary — for mobile access)
 
@@ -793,7 +1039,7 @@ WhatsApp document limit is 100 MB. Our zip is typically under 1 MB.
 
 ---
 
-## 13. Subject-Specific Guidelines
+## 14. Subject-Specific Guidelines
 
 ### Physics (Classes 9–12)
 
@@ -833,7 +1079,7 @@ WhatsApp document limit is 100 MB. Our zip is typically under 1 MB.
 
 ---
 
-## 14. Common Mistakes & Lessons Learned
+## 15. Common Mistakes & Lessons Learned
 
 These are mistakes we actually made during Quest Math 10. Learn from them.
 
@@ -863,48 +1109,81 @@ These are mistakes we actually made during Quest Math 10. Learn from them.
 | No IIFE wrapper on viz | Variable name collision between vizzes | Always wrap: `(function(){ ... })();` |
 | No existence guard | JS error if container missing | Always: `var el = document.getElementById('...'); if (!el) return;` |
 | CDN dependencies | Didn't work offline or on mobile file:// | Bundle all libs locally in `libs/` folder |
-| Used `defer` on some scripts but not others | Inconsistent load order | Use plain `<script src="...">` consistently |
+
+### Security & Architecture Mistakes (Fixed in v2)
+
+| Mistake | Impact | Fix |
+|---------|--------|-----|
+| Used `innerHTML` for readouts and feedback (60 instances) | XSS vulnerability if any dynamic data flows through | Use `SafeDOM.readoutHTML()` or `SafeDOM.bossFeedback()` |
+| Used `onclick=` inline handlers (69 instances) | Can't test, can't use CSP, mixes markup with behavior | Use `addEventListener()` inside DOMContentLoaded |
+| Raw `JXG.JSXGraph.initBoard()` without cleanup | Memory leak — boards never freed, tab slows over time | Use `VizManager.create()` with auto-cleanup on `beforeunload` |
+| No localStorage error handling | Silent crash in private browsing / when storage full | engine.js now checks availability and catches quota errors |
+| State loaded via spread operator (`...JSON.parse(saved)`) | Any arbitrary key in localStorage gets merged into state | engine.js now only merges whitelisted keys |
+| `const` and arrow functions in engine.js | Older browsers/WebViews may fail | Changed to `var` and `function()` for maximum compatibility |
+| No ARIA labels, no keyboard navigation | Screen readers can't use the app | Added `role`, `aria-label`, `tabindex`, `keydown` handlers |
+| Only one responsive breakpoint (768px) | Phones (< 480px) got clipped content | Added 480px breakpoint for phones |
+| No `defer` on library scripts | Scripts block page rendering | All library scripts now have `defer` attribute |
+| Global functions like `checkBoss1()` | Namespace pollution, override risk | Functions are now scoped inside DOMContentLoaded or IIFEs |
 
 ---
 
-## 15. Quick Reference Card
+## 16. Quick Reference Card
 
 Print this and keep it next to your screen while building.
 
 ```
-╔══════════════════════════════════════════════════════════════════╗
-║                    QUEST CHAPTER QUICK REF                      ║
-╠══════════════════════════════════════════════════════════════════╣
-║                                                                  ║
-║  PHASES: Hook → Challenge → Origins → Discovery → Practice → Boss║
-║                                                                  ║
-║  COLORS:                                                         ║
-║    #00d4ff  cyan     Primary, headings                           ║
-║    #ff006e  pink     Draggable points                            ║
-║    #00ff88  green    Success, positive                           ║
-║    #ffd700  gold     Highlights, special                         ║
-║    #a855f7  purple   Secondary accent                            ║
-║    #94a3b8  gray     Muted labels (minimum for visibility)       ║
-║    #cbd5e1  light    Readable text on dark                       ║
-║    BANNED:  #555 #475569 #64748b #334155 #1e293b                 ║
-║                                                                  ║
-║  VIZ PATTERN:                                                    ║
-║    (function(){                                                  ║
-║      var el = document.getElementById('jsx-NAME');               ║
-║      if (!el) return;                                            ║
-║      var board = JXG.JSXGraph.initBoard('jsx-NAME', {...});      ║
-║      board.containerObj.style.background = 'rgba(0,0,0,0.4)';   ║
-║      // ... elements ...                                         ║
-║      updateReadout();  // ALWAYS CALL AT END                     ║
-║    })();                                                         ║
-║                                                                  ║
-║  QUIZ: 8 questions, 4 options each, data-correct="a|b|c|d"      ║
-║  BOSS: 3-4 fill-in, checkFillIn('inputId','answer','fbId')      ║
-║                                                                  ║
-║  FILES: ch{NN}_{topic}.html  |  data-chapter="NN" on html+body  ║
-║  LIBS:  ../libs/katex/  ../libs/jsxgraph/  (NO CDN!)            ║
-║                                                                  ║
-╚══════════════════════════════════════════════════════════════════╝
+╔══════════════════════════════════════════════════════════════════════╗
+║                    QUEST CHAPTER QUICK REF (v2)                      ║
+╠══════════════════════════════════════════════════════════════════════╣
+║                                                                      ║
+║  PHASES: Hook → Challenge → Origins → Discovery → Practice → Boss    ║
+║                                                                      ║
+║  SCRIPTS (load order):                                               ║
+║    engine.js → viz-manager.js → safe-dom.js                          ║
+║    KaTeX + JSXGraph scripts get "defer" attribute                    ║
+║                                                                      ║
+║  COLORS:                                                             ║
+║    #00d4ff  cyan     Primary, headings                               ║
+║    #ff006e  pink     Draggable points                                ║
+║    #00ff88  green    Success, positive                               ║
+║    #ffd700  gold     Highlights, special                             ║
+║    #a855f7  purple   Secondary accent                                ║
+║    #94a3b8  gray     Muted labels (minimum for visibility)           ║
+║    #cbd5e1  light    Readable text on dark                           ║
+║    BANNED:  #555 #475569 #64748b #334155 #1e293b                     ║
+║                                                                      ║
+║  VIZ PATTERN:                                                        ║
+║    (function(){                                                      ║
+║      var el = document.getElementById('jsx-NAME');                   ║
+║      if (!el) return;                                                ║
+║      var board = VizManager.create('jsx-NAME', {...});               ║
+║      if (!board) return;                                             ║
+║      board.containerObj.style.background = 'rgba(0,0,0,0.4)';       ║
+║      // ... elements ...                                             ║
+║      SafeDOM.readoutHTML(readout, '...');  // NOT innerHTML          ║
+║      updateReadout();  // ALWAYS CALL AT END                         ║
+║    })();                                                             ║
+║                                                                      ║
+║  SECURITY RULES:                                                     ║
+║    ✗ NEVER: .innerHTML =        ✓ USE: SafeDOM.readoutHTML()         ║
+║    ✗ NEVER: onclick="..."       ✓ USE: addEventListener()            ║
+║    ✗ NEVER: JXG.JSXGraph.init   ✓ USE: VizManager.create()          ║
+║    ✗ NEVER: global functions     ✓ USE: IIFEs or DOMContentLoaded    ║
+║                                                                      ║
+║  ACCESSIBILITY:                                                      ║
+║    .phase → role="region" aria-label="Phase Name"                    ║
+║    .jsx-container → aria-label="Interactive visualization"           ║
+║    Keyboard: engine.js auto-adds tabindex + keydown for quizzes      ║
+║                                                                      ║
+║  QUIZ: 8 questions, 4 options each, data-correct="a|b|c|d"          ║
+║  BOSS: 3-4 fill-in, checkFillIn('inputId','answer','fbId')          ║
+║        Boss buttons: id="boss1-submit" + addEventListener            ║
+║                                                                      ║
+║  FILES: ch{NN}_{topic}.html  |  data-chapter="NN" on html+body      ║
+║  LIBS:  ../libs/katex/  ../libs/jsxgraph/  (NO CDN!)                ║
+║  CSS:   Use .u-text-cyan .u-mt-lg etc. — NOT inline style=          ║
+║                                                                      ║
+╚══════════════════════════════════════════════════════════════════════╝
 ```
 
 ---
